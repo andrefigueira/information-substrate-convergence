@@ -8,14 +8,14 @@ from ca.analysis import evolve_population
 from ca.visualize import plot_convergence, save_snapshots
 
 
-ndefault_generations = 10
+DEFAULT_GENERATIONS = 10
 
 
 def main() -> int:
     pop_size = 4
     pop = [np.random.randint(0, 2, 18, dtype=bool) for _ in range(pop_size)]
 
-    scores, history = evolve_population(pop, generations=ndefault_generations)
+    scores, history = evolve_population(pop, generations=DEFAULT_GENERATIONS)
 
     with open("metrics.csv", "w", newline="") as f:
         writer = csv.writer(f)
