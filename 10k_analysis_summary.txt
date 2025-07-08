@@ -1,0 +1,35 @@
+=== 10,000 Generation CA Experiment Summary ===
+
+Total generations: 100000
+Score range: [0.000074, 0.553259]
+Mean: 0.085818
+Std dev: 0.090925
+Initial score: 0.377852
+Final score: 0.030593
+
+Phase Statistics:
+
+Early (0-1000):
+  Mean: 0.075425
+  Std: 0.081976
+  Range: [0.000074, 0.488370]
+
+Early-Mid (1000-5000):
+  Mean: 0.088528
+  Std: 0.090585
+  Range: [0.000074, 0.553259]
+
+Mid (5000-20000):
+  Mean: 0.086690
+  Std: 0.092373
+  Range: [0.000074, 0.553259]
+
+Mid-Late (20000-50000):
+  Mean: 0.083985
+  Std: 0.090112
+  Range: [0.000074, 0.553259]
+
+Late (50000-100000):
+  Mean: 0.086647
+  Std: 0.091139
+  Range: [0.000074, 0.553259]

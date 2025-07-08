@@ -8,7 +8,7 @@ from ca.analysis import evolve_population
 from ca.visualize import plot_convergence, save_snapshots
 
 
-DEFAULT_GENERATIONS = 1000
+DEFAULT_GENERATIONS = 100000
 
 
 def main() -> int:
