@@ -24,3 +24,9 @@ def test_run_ca_shape():
     rule = np.random.randint(0, 2, 18, dtype=bool)
     hist = run_ca(rule, size=10, steps=5)
     assert hist.shape == (5, 10, 10)
+
+
+def test_run_ca_all_dead():
+    rule_bits = np.zeros(18, dtype=bool)
+    history = run_ca(rule_bits, size=5, steps=3)
+    assert not history[-1].any()
