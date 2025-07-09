@@ -1,0 +1,4 @@
+Model: checkpoints/isc_state_conversational_conversational_training_20250709_110104_checkpoint_170_20250709_111037.pt
+LM Head: checkpoints/isc_state_conversational_conversational_training_20250709_110104_checkpoint_170_20250709_111037_lm_head.pt
+Assessment Date: 20250709_111303
+Model Size: 11.2 MB

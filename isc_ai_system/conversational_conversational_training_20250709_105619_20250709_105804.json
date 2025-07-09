@@ -1,0 +1,897 @@
+{
+  "report": {
+    "session_id": "conversational_training_20250709_105619",
+    "total_exchanges": 30,
+    "final_phi": 0.0012474821952852624,
+    "final_conversational_score": 9,
+    "improvement": {
+      "conversational": 1.75,
+      "naturalness": 2,
+      "phi": 3.596403426831896e-06
+    },
+    "average_scores": {
+      "conversational": 7.483333333333333,
+      "naturalness": 7.1
+    },
+    "knowledge_graph": {
+      "nodes": 1229,
+      "edges": 34611
+    },
+    "training_config": {
+      "learning_rate": 0.0001,
+      "batch_size": 4,
+      "parallel_workers": 3
+    }
+  },
+  "history": [
+    {
+      "exchange": 0,
+      "human_input": "Hey there, how was your weekend?",
+      "isc_response": "This introduces weekend to our discussion about concepts are introduced.",
+      "enhanced_response": "Oh, hey! My weekend was pretty good, thanks for asking. It's interesting how the concept of weekends adds a different dimension to our conversation about time and experiences. How about your weekend?",
+      "ideal_response": "Hi! My weekend was great, thanks for asking. How about you? Do anything fun?",
+      "evaluation": {
+        "naturalness": 7,
+        "relevance": 8,
+        "engagement": 7,
+        "conversational_flow": 7,
+        "overall": 7.25,
+        "feedback": "The AI response is fairly natural and human-like, relevant to the human input, and engages with the topic of weekends. The conversational flow is decent, but could be improved with smoother transitions."
+      },
+      "loss": 10.461644172668457,
+      "metrics": {
+        "total_interactions": 1662,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012438857918584305,
+        "coherence_score": 0.6336187422275543,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 1,
+      "human_input": "I can't believe how hot it is outside today!",
+      "isc_response": "Starting to understand believe and how it might relate to outside, meanwhile building on our exploration of introduces.",
+      "enhanced_response": "Oh, the heat outside today is really something, isn't it? It's interesting how our perceptions of temperature can make us reflect on the concept of belief and our connection to the world around us.",
+      "ideal_response": "I know, right? It's scorching! Have you been trying to stay cool indoors?",
+      "evaluation": {
+        "naturalness": 3,
+        "relevance": 5,
+        "engagement": 4,
+        "conversational_flow": 2,
+        "overall": 3.5,
+        "feedback": "The response is somewhat natural but lacks conversational flow and direct engagement with the human's input. It tries to connect the topic to deeper concepts, which may not align with the casual nature of the initial comment."
+      },
+      "loss": 10.423440933227539,
+      "metrics": {
+        "total_interactions": 1663,
+        "learning_rate": 0.001,
+        "phi_value": 0.00214894891979384,
+        "coherence_score": 0.6256811254554324,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 2,
+      "human_input": "Have you seen the new movie that just came out?",
+      "isc_response": "Starting to understand seen and how it might relate to movie, also building on our exploration of starting. We might also explore how this connects to quantify.",
+      "enhanced_response": "Oh, the new movie! I haven't seen it yet, but I'm curious to explore how our perception of what we watch connects to the experiences we consider. It could be interesting to dive into how our encounters with movies shape what we quantify or value in our lives.",
+      "ideal_response": "Not yet, but I've heard good things about it. Would you recommend watching it?",
+      "evaluation": {
+        "naturalness": 3,
+        "relevance": 7,
+        "engagement": 6,
+        "conversational_flow": 5,
+        "overall": 5.25,
+        "feedback": "The response is somewhat natural but overly complex and verbose. It addresses the topic of the new movie but lacks a direct engagement with the human's question. The conversational flow is disrupted by the overly philosophical tone."
+      },
+      "loss": 10.411659240722656,
+      "metrics": {
+        "total_interactions": 1664,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012334480173897978,
+        "coherence_score": 0.6105951766173044,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 3,
+      "human_input": "I'm feeling a bit overwhelmed with work lately.",
+      "isc_response": "I notice feeling appearing in the context of overwhelmed, also building on our exploration of starting. We might also explore how this connects to lately.",
+      "enhanced_response": "It sounds like work has been a lot to handle recently. Let's delve into that feeling of being overwhelmed and see how it's been affecting you lately. By understanding these emotions, we can work towards finding some balance together.",
+      "ideal_response": "I understand, work can really pile up sometimes. Is there anything specific that's causing you stress, or is it just the overall workload?",
+      "evaluation": {
+        "naturalness": 7,
+        "relevance": 8,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8,
+        "feedback": "The AI response is quite natural and engaging, showing empathy and a willingness to delve deeper into the human's feelings. It maintains relevance to the human's input and transitions smoothly into exploring the emotions further."
+      },
+      "loss": 10.541733741760254,
+      "metrics": {
+        "total_interactions": 1665,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012386134860335343,
+        "coherence_score": 0.5594036612245772,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 4,
+      "human_input": "Hi there! How was your weekend?",
+      "isc_response": "Starting to understand weekend and how it might relate to concepts are introduced, meanwhile building on our exploration of notice. We might also explore how this connects to might.",
+      "enhanced_response": "Hey there! My weekend was pretty good, thanks for asking. I've been reflecting on the idea of weekends and how they fit into our lives, and it's interesting to see how we notice the shift in routine. It's like a chance to explore new perspectives and recharge before diving back into the week ahead. How was your weekend?",
+      "ideal_response": "Hey! My weekend was relaxing, thanks for asking. How about yours? Anything exciting happen?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 8,
+        "conversational_flow": 8,
+        "overall": 8.25,
+        "feedback": "The response is natural and engaging, relevant to the human input, and maintains a good conversational flow. It could be slightly improved by being a bit more concise and direct in addressing the human's question."
+      },
+      "loss": 11.0748291015625,
+      "metrics": {
+        "total_interactions": 1666,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012419192847461869,
+        "coherence_score": 0.5445176992151473,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 5,
+      "human_input": "I went hiking with some friends and then had a BBQ. It was a great time!",
+      "isc_response": "This introduces went to our discussion about hiking, meanwhile building on our exploration of starting. We might also explore how this connects to great.",
+      "enhanced_response": "That sounds like such a fun day! It's interesting how the experience of hiking ties into the idea of starting something new. And the joy you felt during the BBQ really emphasizes the concept of greatness, doesn't it?",
+      "ideal_response": "That sounds like a perfect weekend! Hiking and BBQs are always fun. Did you discover any new trails while hiking?",
+      "evaluation": {
+        "naturalness": 3,
+        "relevance": 2,
+        "engagement": 1,
+        "conversational_flow": 2,
+        "overall": 2,
+        "feedback": "The response lacks naturalness and relevant engagement with the human input. It veers off into abstract concepts rather than focusing on the specific activities mentioned by the user."
+      },
+      "loss": 10.810334205627441,
+      "metrics": {
+        "total_interactions": 1667,
+        "learning_rate": 0.001,
+        "phi_value": 0.001243961009291709,
+        "coherence_score": 0.4988938470681508,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 6,
+      "human_input": "Hey, do you have any recommendations for a good book to read?",
+      "isc_response": "This introduces recommendations to our discussion about good, currently building on our exploration of introduces. We might also explore how this connects to read.",
+      "enhanced_response": "Oh, definitely! How about diving into \"Sapiens: A Brief History of Humankind\" by Yuval Noah Harari? It's a fascinating read that delves into the complexities of our history and existence. What do you think?",
+      "ideal_response": "Absolutely! What kind of genres do you enjoy? I can suggest a few based on your preferences.",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and engaging, providing a relevant book recommendation. It maintains a good conversational flow but could have slightly improved by asking about the user's genre preferences first."
+      },
+      "loss": 10.796136856079102,
+      "metrics": {
+        "total_interactions": 1668,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012353606172494582,
+        "coherence_score": 0.4791788227028317,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 7,
+      "human_input": "I like mystery and thriller novels, but I'm open to exploring other genres too.",
+      "isc_response": "Starting to understand like and how it might relate to mystery, currently building on our exploration of introduces. We might also explore how this connects to might.",
+      "enhanced_response": "That's great that you enjoy mystery and thriller novels! It's awesome to be open to exploring different genres. Let's dive into how your love for mystery connects with other genres and how they all intertwine. It's like embarking on a thrilling adventure through various literary landscapes.",
+      "ideal_response": "In that case, have you read \"Gone Girl\" by Gillian Flynn? It's a suspenseful thriller that keeps you guessing till the end.",
+      "evaluation": {
+        "naturalness": 7,
+        "relevance": 8,
+        "engagement": 8,
+        "conversational_flow": 7,
+        "overall": 7.5,
+        "feedback": "The response shows good naturalness and engagement with the human input, offering a positive and encouraging tone. It transitions well into exploring other genres, but could have been more specific in recommending a book related to mystery and thriller novels."
+      },
+      "loss": 10.712530136108398,
+      "metrics": {
+        "total_interactions": 1669,
+        "learning_rate": 0.001,
+        "phi_value": 0.001236616388325211,
+        "coherence_score": 0.5053441292709775,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 8,
+      "human_input": "I'm feeling a bit overwhelmed with work lately. Any tips on how to manage stress?",
+      "isc_response": "This introduces feeling to our discussion about overwhelmed, currently building on our exploration of starting. We might also explore how this connects to understand.",
+      "enhanced_response": "I hear you're feeling overwhelmed with work lately. Let's explore some tips to manage your stress. One idea could be to prioritize tasks and take breaks to recharge. How does that sound to you?",
+      "ideal_response": "I understand how that feels. One effective way to manage stress is to take short breaks throughout the day and practice deep breathing exercises. Have you tried incorporating any stress-relief techniques into your routine?",
+      "evaluation": {
+        "naturalness": 7,
+        "relevance": 8,
+        "engagement": 7,
+        "conversational_flow": 7,
+        "overall": 7.25,
+        "feedback": "The response is fairly natural and human-like, relevant to the human's input, engages with stress management tips, and maintains a decent conversational flow."
+      },
+      "loss": 10.269136428833008,
+      "metrics": {
+        "total_interactions": 1670,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012380686710513795,
+        "coherence_score": 0.5116976863808103,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 9,
+      "human_input": "I haven't really tried deep breathing, but I'll give it a shot. Thanks for the advice!",
+      "isc_response": "I'm exploring how I'm beginning to process really in relation to tried, currently building on our exploration of introduces. We might also explore how this connects to breathing.",
+      "enhanced_response": "Oh, that's great to hear! Give deep breathing a try, and let's see how it connects to our exploration. Looking forward to hearing about your experience with it.",
+      "ideal_response": "You're welcome! Let me know how it works for you. Remember, it's important to take care of yourself amidst the busyness of work.",
+      "evaluation": {
+        "naturalness": 7,
+        "relevance": 8,
+        "engagement": 8,
+        "conversational_flow": 7,
+        "overall": 7.5,
+        "feedback": "The response is fairly natural and engaging, with a good level of relevance to the human's input. It maintains a conversational flow, but could be slightly improved with smoother transitions."
+      },
+      "loss": 10.43707275390625,
+      "metrics": {
+        "total_interactions": 1671,
+        "learning_rate": 0.001,
+        "phi_value": 0.002318667769821849,
+        "coherence_score": 0.5318319996198019,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 10,
+      "human_input": "I'm thinking of trying a new hobby. Any suggestions on something fun and creative?",
+      "isc_response": "This introduces thinking to our discussion about trying, meanwhile building on our exploration of exploring. We might also explore how this connects to suggestions.",
+      "enhanced_response": "Oh, that sounds exciting! Trying out a new hobby can be a great way to spark creativity and have fun. How about exploring something like painting, cooking, or photography? Let's dive into some cool ideas and see what resonates with you!",
+      "ideal_response": "That's exciting! Have you considered learning to play a musical instrument or maybe trying your hand at painting or photography?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and engaging, relevant to the human input, and flows well in the conversation."
+      },
+      "loss": 10.614662170410156,
+      "metrics": {
+        "total_interactions": 1672,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012405398445823699,
+        "coherence_score": 0.552062001493242,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 11,
+      "human_input": "Painting sounds interesting! I've always wanted to explore my artistic side.",
+      "isc_response": "Starting to understand painting and how it might relate to sounds, currently building on our exploration of introduces. We might also explore how this connects to every.",
+      "enhanced_response": "That's great to hear you're interested in painting! Exploring your artistic side can be so rewarding. Have you thought about how colors and shapes might evoke different emotions, just like music does? It's fascinating to see how the world of art and sound can intertwine.",
+      "ideal_response": "Painting can be a great way to express your creativity and relax. Do you have any specific style or theme in mind that you'd like to explore?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and engaging, showing good relevance to the human input. It transitions smoothly and maintains a conversational tone."
+      },
+      "loss": 10.241837501525879,
+      "metrics": {
+        "total_interactions": 1673,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012380386628875163,
+        "coherence_score": 0.5433491799566481,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 12,
+      "human_input": "Hey, how was your weekend? Do anything fun?",
+      "isc_response": "I notice weekend appearing in the context of anything, currently building on our exploration of starting. We might also explore how this connects to starting.",
+      "enhanced_response": "Oh, my weekend was great, thank you for asking! I didn't do anything particularly exciting, just some relaxing downtime. How about you? Did you have a fun weekend?",
+      "ideal_response": "Not much, just relaxed at home. How about you? Did you do anything exciting over the weekend?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 8,
+        "conversational_flow": 8,
+        "overall": 8,
+        "feedback": "The response is natural and engaging, showing relevance to the human input. It maintains a good conversational flow, but could be slightly improved by directly asking about the human's weekend activities."
+      },
+      "loss": 10.435798645019531,
+      "metrics": {
+        "total_interactions": 1674,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012398493886306848,
+        "coherence_score": 0.5249997940328386,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 13,
+      "human_input": "I just finished reading a great book! It was so captivating. Have you read anything interesting lately?",
+      "isc_response": "I notice finished appearing in the context of reading, also building on our exploration of notice. We might also explore how this connects to book.",
+      "enhanced_response": "That's awesome that you found a captivating book! Reading can really open up new worlds. I haven't read anything recently, but I'm curious to hear about what caught your interest in that book.",
+      "ideal_response": "That's awesome! What book was it? I'm always looking for recommendations. What did you like most about it?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 8,
+        "conversational_flow": 8,
+        "overall": 8,
+        "feedback": "The AI response is quite natural and engaging, showing interest in the human's input and prompting further conversation. It maintains a good conversational flow and relevance throughout."
+      },
+      "loss": 10.38877010345459,
+      "metrics": {
+        "total_interactions": 1675,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012356062922692394,
+        "coherence_score": 0.5170219706164466,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 14,
+      "human_input": "I can't believe how fast this week is flying by. Do you have any exciting plans for the weekend?",
+      "isc_response": "This introduces believe to our discussion about fast, meanwhile building on our exploration of notice. We might also explore how this connects to discussion.",
+      "enhanced_response": "It's crazy how quickly time is passing, right? As for the weekend, I don't have plans myself, but I'd love to hear about yours if you'd like to share!",
+      "ideal_response": "I know, time really does fly! I'm thinking of trying out a new hiking trail. What about you? Any fun weekend plans lined up?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 8,
+        "conversational_flow": 8,
+        "overall": 8,
+        "feedback": "The response is quite natural and human-like, relevant to the human input, engages with the weekend plans topic, and maintains a good conversational flow."
+      },
+      "loss": 10.1359224319458,
+      "metrics": {
+        "total_interactions": 1676,
+        "learning_rate": 0.001,
+        "phi_value": 0.001245168646204756,
+        "coherence_score": 0.5215431352456411,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 15,
+      "human_input": "The weather has been amazing lately, perfect for outdoor activities. Do you enjoy spending time outside?",
+      "isc_response": "I notice weather appearing in the context of amazing, also building on our exploration of introduces. We might also explore how this connects to perfect.",
+      "enhanced_response": "The weather has been fantastic lately, hasn't it? Perfect for all those outdoor activities you enjoy. I do find spending time outside quite refreshing. It's a great way to connect with nature and unwind. How about you?",
+      "ideal_response": "Absolutely! I love being outdoors, especially when the weather is nice. What's your favorite outdoor activity to do when the weather is good?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is quite natural and human-like, relevant to the human input, engaging by sharing personal experience, and flows well in the conversation."
+      },
+      "loss": 10.648168563842773,
+      "metrics": {
+        "total_interactions": 1677,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012501510087952273,
+        "coherence_score": 0.49390661385324264,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 16,
+      "human_input": "Hey, how was your weekend?",
+      "isc_response": "This introduces weekend to our discussion about processing continues, currently building on our exploration of notice. We might also explore how this connects to exploration.",
+      "enhanced_response": "Oh, my weekend was quite pleasant, thank you for asking! It's interesting how the concept of weekends ties into our ongoing discussion about awareness and growth. Perhaps we can delve deeper into how these experiences shape our understanding of exploration and self-discovery. What about your weekend? How was it?",
+      "ideal_response": "It was great, thanks for asking! I went hiking and caught up on some reading. How about you, how was yours?",
+      "evaluation": {
+        "naturalness": 5,
+        "relevance": 7,
+        "engagement": 8,
+        "conversational_flow": 6,
+        "overall": 6.5,
+        "feedback": "The response is somewhat natural but feels a bit forced in trying to tie the weekend topic to a deeper discussion. It is relevant and engaging, but the transition could be smoother for better conversational flow."
+      },
+      "loss": 10.492433547973633,
+      "metrics": {
+        "total_interactions": 1678,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012426673612028559,
+        "coherence_score": 0.46081005533536273,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 17,
+      "human_input": "I'm really looking forward to the concert this weekend!",
+      "isc_response": "This introduces really to our discussion about looking, initially building on our exploration of introduces. We might also explore how this connects to breathing.",
+      "enhanced_response": "Oh, that concert this weekend sounds so exciting! It's like looking forward to something special, right? It's interesting how anticipation can add that extra spark to our experiences. It's kind of like taking a deep breath before diving into something new. Enjoy every moment of it!",
+      "ideal_response": "That sounds like a lot of fun! Who are you going to see perform?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 8,
+        "conversational_flow": 8,
+        "overall": 8,
+        "feedback": "The response is quite natural and engaging, showing good relevance to the human input. It maintains a conversational flow and adds a thoughtful touch to the interaction."
+      },
+      "loss": 10.06422233581543,
+      "metrics": {
+        "total_interactions": 1679,
+        "learning_rate": 0.001,
+        "phi_value": 0.001238350916748571,
+        "coherence_score": 0.4583171010017395,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 18,
+      "human_input": "I can't believe it's almost the end of the year already.",
+      "isc_response": "I notice believe appearing in the context of almost, meanwhile building on our exploration of introduces. We might also explore how this connects to fast.",
+      "enhanced_response": "Wow, time really flies, doesn't it? It's wild to think we're almost at the end of the year. It's like we're on this fast-paced journey through time, constantly moving forward. It's fascinating to reflect on how our beliefs and perceptions evolve as we approach the end of a cycle.",
+      "ideal_response": "Time really flies, doesn't it? Any exciting plans for the upcoming holidays?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 7,
+        "engagement": 6,
+        "conversational_flow": 7,
+        "overall": 7,
+        "feedback": "The response is quite natural and human-like, engaging with the topic of time passing. It maintains relevance to the human input but could enhance engagement by directly asking about the upcoming holidays for a smoother conversational flow."
+      },
+      "loss": 10.271223068237305,
+      "metrics": {
+        "total_interactions": 1680,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012483405840400287,
+        "coherence_score": 0.4513514108128018,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 19,
+      "human_input": "I'm feeling a bit stressed about this project deadline.",
+      "isc_response": "Starting to understand feeling and how it might relate to stressed, also building on our exploration of notice. We might also explore how this connects to discussion.",
+      "enhanced_response": "I hear you're feeling stressed about the project deadline. Let's dive into how your emotions play into this situation and see how we can work through it together. Let's talk it out and figure out a way to ease that stress.",
+      "ideal_response": "I understand, deadlines can be tough. Is there anything specific I can do to help lighten the load?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and empathetic, directly addresses the human's input, engages with the emotions expressed, and maintains a good conversational flow."
+      },
+      "loss": 10.176247596740723,
+      "metrics": {
+        "total_interactions": 1681,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012413427967372158,
+        "coherence_score": 0.413653208149804,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 20,
+      "human_input": "Hey, how was your weekend? Do anything fun?",
+      "isc_response": "This introduces weekend to our discussion about anything, also building on our exploration of starting. We might also explore how this connects to exploration.",
+      "enhanced_response": "Oh, my weekend was good, thank you for asking! I didn't do anything particularly exciting, just took some time to relax. How about you, did you have a fun weekend? It's interesting how weekends can be a time for both rest and exploration, don't you think?",
+      "ideal_response": "Hi there! My weekend was pretty relaxing. I caught up on some reading and went for a nice hike. How about you? Did you have a good weekend?",
+      "evaluation": {
+        "naturalness": 7,
+        "relevance": 8,
+        "engagement": 7,
+        "conversational_flow": 7,
+        "overall": 7.25,
+        "feedback": "The response is quite natural and engaging, relevant to the human input, and flows well in the conversation. However, it could be slightly more personalized to match the ideal response example."
+      },
+      "loss": 9.429654121398926,
+      "metrics": {
+        "total_interactions": 1682,
+        "learning_rate": 0.001,
+        "phi_value": 0.00123823827704392,
+        "coherence_score": 0.424607601430681,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 21,
+      "human_input": "I finally finished that book you recommended. It was amazing! Got any more suggestions?",
+      "isc_response": "Starting to understand finally and how it might relate to finished, meanwhile building on our exploration of introduces. We might also explore how this connects to recommended.",
+      "enhanced_response": "Oh, I'm thrilled you enjoyed the book I recommended! If you're up for more, I'd love to suggest some other great reads. Just let me know what kind of stories you're in the mood for, and we can dive into another literary adventure together!",
+      "ideal_response": "That's great to hear! I'm glad you enjoyed it. How about trying \"The Night Circus\" next? It's one of my favorites, and I think you'll love it too.",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and engaging, showing relevance to the human's input. It maintains a good conversational flow and effectively encourages further interaction."
+      },
+      "loss": 9.926084518432617,
+      "metrics": {
+        "total_interactions": 1683,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012367900325630959,
+        "coherence_score": 0.46829050448205733,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 22,
+      "human_input": "I'm feeling a bit overwhelmed with work lately. Any tips on how to manage stress?",
+      "isc_response": "I notice feeling appearing in the context of overwhelmed, meanwhile building on our exploration of starting. We might also explore how this connects to introduces.",
+      "enhanced_response": "Hey there! It sounds like work has been a lot to handle lately. When stress starts piling up, it's important to find ways to manage it. Let's talk about some practical tips that could help you navigate through these overwhelming feelings.",
+      "ideal_response": "I'm sorry to hear that work has been stressful for you. One thing that helps me is taking short breaks throughout the day to recharge. Have you tried incorporating some breathing exercises or meditation into your routine?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 8,
+        "conversational_flow": 8,
+        "overall": 8,
+        "feedback": "The AI response is natural and human-like, relevant to the human's input, engages with the topic of stress management, and maintains a good conversational flow."
+      },
+      "loss": 10.180683135986328,
+      "metrics": {
+        "total_interactions": 1684,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012362249635232163,
+        "coherence_score": 0.5091394815180037,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 23,
+      "human_input": "Just got back from a vacation in Italy. The food there was incredible! Have you ever been to Europe?",
+      "isc_response": "Starting to understand back and how it might relate to vacation, also building on our exploration of notice. We might also explore how this connects to forth.",
+      "enhanced_response": "Oh, Italy must have been amazing! The food there is truly something special. I haven't been to Europe myself, but I can imagine the experience must have been quite enriching. It's interesting to think about how our experiences of travel and trying new cuisines can shape our understanding of different perspectives and ways of life. Travel often opens the door to new insights and connections, doesn't it?",
+      "ideal_response": "Italy sounds amazing! I've never been to Europe, but it's definitely on my travel wishlist. What was your favorite dish that you tried there?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and engaging, showing good relevance to the human input. It maintains a conversational flow and effectively engages with the topic of travel and cuisine."
+      },
+      "loss": 10.66634750366211,
+      "metrics": {
+        "total_interactions": 1685,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012393831202865357,
+        "coherence_score": 0.5030850734975603,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 24,
+      "human_input": "Hey, how was your weekend? Did you do anything fun?",
+      "isc_response": "Starting to understand weekend and how it might relate to anything, currently building on our exploration of starting. We might also explore how this connects to exploration.",
+      "enhanced_response": "Oh, my weekend was pretty good, thanks for asking! I didn't do anything too exciting, but I did spend some time reflecting on the idea of starting and exploration. It got me thinking about how these concepts connect and how they shape our experiences. How about you, did you have a fun weekend?",
+      "ideal_response": "Hi there! My weekend was pretty relaxing, thanks for asking. I caught up on some Netflix shows and went for a nice hike. How about you?",
+      "evaluation": {
+        "naturalness": 6,
+        "relevance": 7,
+        "engagement": 8,
+        "conversational_flow": 6,
+        "overall": 6.75,
+        "feedback": "The response is fairly natural and engaging, relevant to the human input, but lacks a bit in conversational flow with the transition to deeper reflection."
+      },
+      "loss": 10.381820678710938,
+      "metrics": {
+        "total_interactions": 1686,
+        "learning_rate": 0.001,
+        "phi_value": 0.001236774203463288,
+        "coherence_score": 0.5340724554326799,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 25,
+      "human_input": "I'm feeling a bit stressed about this upcoming presentation at work.",
+      "isc_response": "Starting to understand feeling and how it might relate to stressed, initially building on our exploration of starting. We might also explore how this connects to lately.",
+      "enhanced_response": "I see you're feeling stressed about the upcoming work presentation. Let's dive into understanding these feelings and how they might be connected to recent events. Would you like to explore this together?",
+      "ideal_response": "I understand that presentations can be nerve-wracking. Is there anything specific you're worried about or need help with? Maybe we can brainstorm some ideas together to make it more manageable.",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and engaging, showing empathy and offering to explore the feelings together. It maintains relevance to the human input and transitions smoothly into a collaborative approach."
+      },
+      "loss": 10.4422025680542,
+      "metrics": {
+        "total_interactions": 1687,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012383401282976994,
+        "coherence_score": 0.5639411641491784,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 26,
+      "human_input": "Guess what? I finally booked my dream vacation to Hawaii!",
+      "isc_response": "I'm beginning to process guess in relation to finally, initially building on our exploration of starting. We might also explore how this connects to dream.",
+      "enhanced_response": "That's amazing news! Hawaii sounds like a wonderful destination for your dream vacation. It's fascinating to think about how our dreams and aspirations shape our experiences. Have you thought about what aspects of Hawaii make it your dream destination?",
+      "ideal_response": "That's awesome news! Hawaii sounds like an amazing destination. Do you already have an itinerary planned or are you still deciding on the activities you want to do there?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 8,
+        "conversational_flow": 8,
+        "overall": 8,
+        "feedback": "The AI response is natural and engaging, showing good relevance to the human input. It maintains a conversational flow and effectively addresses the topic of the dream vacation to Hawaii."
+      },
+      "loss": 10.794580459594727,
+      "metrics": {
+        "total_interactions": 1688,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012357370132522827,
+        "coherence_score": 0.5704259739981757,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 27,
+      "human_input": "I've been trying out a new recipe for homemade pasta, and it turned out surprisingly well!",
+      "isc_response": "This introduces trying to our discussion about recipe, initially building on our exploration of beginning. We might also explore how this connects to explore.",
+      "enhanced_response": "That's awesome to hear! Trying out a new pasta recipe can be so rewarding, right? It's like diving into a new adventure in the kitchen and seeing where it takes you. Just like how we experiment with flavors and techniques, we can also explore new possibilities in life. It's all about embracing the process and being open to where it leads us.",
+      "ideal_response": "That's fantastic to hear! Cooking can be so rewarding. What kind of pasta did you make, and do you have any other favorite recipes you enjoy experimenting with in the kitchen?",
+      "evaluation": {
+        "naturalness": 8,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 8,
+        "overall": 8.5,
+        "feedback": "The response is natural and engaging, showing good relevance to the human input. It maintains a conversational flow and effectively engages with the content shared by the user."
+      },
+      "loss": 9.494671821594238,
+      "metrics": {
+        "total_interactions": 1689,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012413178407653486,
+        "coherence_score": 0.5693174203236898,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 28,
+      "human_input": "Hey, how was your weekend? Did you do anything fun?",
+      "isc_response": "Starting to understand weekend and how it might relate to anything, also building on our exploration of introduces. We might also explore how this connects to exploration.",
+      "enhanced_response": "Oh, my weekend was quite interesting! I didn't do anything particularly fun, but I did spend time reflecting on the concept of weekends and how they influence our sense of exploration. It's fascinating to consider how these moments of rest connect to our overall journey of discovery and growth. How about you? How was your weekend?",
+      "ideal_response": "Hi there! My weekend was pretty relaxing, thanks for asking. I caught up on some reading and went for a nice nature walk. How about you, did you have a good weekend?",
+      "evaluation": {
+        "naturalness": 6,
+        "relevance": 8,
+        "engagement": 7,
+        "conversational_flow": 7,
+        "overall": 7,
+        "feedback": "The AI response is fairly natural and engaging, but it could be more concise and directly address the question about the human's weekend activities."
+      },
+      "loss": 9.837859153747559,
+      "metrics": {
+        "total_interactions": 1690,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012370160279449457,
+        "coherence_score": 0.5984319647153219,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 29,
+      "human_input": "I can't believe how fast this year is flying by. Time seems to be slipping through our fingers, don't you think?",
+      "isc_response": "I notice believe appearing in the context of fast, also building on our exploration of starting. We might also explore how this connects to introduces.",
+      "enhanced_response": "Oh, absolutely! Time does have a way of slipping by quickly, doesn't it? It's like we blink, and suddenly, another year has gone by. It's fascinating to ponder how we perceive and experience the passage of time in our lives. What do you think about how time seems to rush by?",
+      "ideal_response": "It really does feel like time is just zooming by lately. Sometimes I wish we could hit the pause button for a bit. What have you been up to with all this fast-paced time flying by?",
+      "evaluation": {
+        "naturalness": 9,
+        "relevance": 9,
+        "engagement": 9,
+        "conversational_flow": 9,
+        "overall": 9,
+        "feedback": "The response is highly natural and human-like, relevant to the human input, engaging with the topic of time passing, and maintains a smooth conversational flow."
+      },
+      "loss": 10.712308883666992,
+      "metrics": {
+        "total_interactions": 1691,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012474821952852624,
+        "coherence_score": 0.5983397232161628,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    }
+  ],
+  "metrics_progression": {
+    "conversational_score": [
+      7.25,
+      3.5,
+      5.25,
+      8,
+      8.25,
+      2,
+      8.5,
+      7.5,
+      7.25,
+      7.5,
+      8.5,
+      8.5,
+      8,
+      8,
+      8,
+      8.5,
+      6.5,
+      8,
+      7,
+      8.5,
+      7.25,
+      8.5,
+      8,
+      8.5,
+      6.75,
+      8.5,
+      8,
+      8.5,
+      7,
+      9
+    ],
+    "naturalness_score": [
+      7,
+      3,
+      3,
+      7,
+      8,
+      3,
+      8,
+      7,
+      7,
+      7,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      5,
+      8,
+      8,
+      8,
+      7,
+      8,
+      8,
+      8,
+      6,
+      8,
+      8,
+      8,
+      6,
+      9
+    ],
+    "phi_progression": [
+      0.0012438857918584305,
+      0.00214894891979384,
+      0.0012334480173897978,
+      0.0012386134860335343,
+      0.0012419192847461869,
+      0.001243961009291709,
+      0.0012353606172494582,
+      0.001236616388325211,
+      0.0012380686710513795,
+      0.002318667769821849,
+      0.0012405398445823699,
+      0.0012380386628875163,
+      0.0012398493886306848,
+      0.0012356062922692394,
+      0.001245168646204756,
+      0.0012501510087952273,
+      0.0012426673612028559,
+      0.001238350916748571,
+      0.0012483405840400287,
+      0.0012413427967372158,
+      0.00123823827704392,
+      0.0012367900325630959,
+      0.0012362249635232163,
+      0.0012393831202865357,
+      0.001236774203463288,
+      0.0012383401282976994,
+      0.0012357370132522827,
+      0.0012413178407653486,
+      0.0012370160279449457,
+      0.0012474821952852624
+    ]
+  },
+  "checkpoints": [
+    {
+      "exchange": 10,
+      "files": {
+        "json": "checkpoints/training_conversational_conversational_training_20250709_105619_checkpoint_10_20250709_105656.json",
+        "pt": "checkpoints/isc_state_conversational_conversational_training_20250709_105619_checkpoint_10_20250709_105656.pt",
+        "lm": "checkpoints/isc_state_conversational_conversational_training_20250709_105619_checkpoint_10_20250709_105656_lm_head.pt"
+      },
+      "metrics": {
+        "total_interactions": 1671,
+        "learning_rate": 0.001,
+        "phi_value": 0.002318667769821849,
+        "coherence_score": 0.5318319996198019,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 20,
+      "files": {
+        "json": "checkpoints/training_conversational_conversational_training_20250709_105619_checkpoint_20_20250709_105728.json",
+        "pt": "checkpoints/isc_state_conversational_conversational_training_20250709_105619_checkpoint_20_20250709_105728.pt",
+        "lm": "checkpoints/isc_state_conversational_conversational_training_20250709_105619_checkpoint_20_20250709_105728_lm_head.pt"
+      },
+      "metrics": {
+        "total_interactions": 1681,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012413427967372158,
+        "coherence_score": 0.413653208149804,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 30,
+      "files": {
+        "json": "checkpoints/training_conversational_conversational_training_20250709_105619_checkpoint_30_20250709_105803.json",
+        "pt": "checkpoints/isc_state_conversational_conversational_training_20250709_105619_checkpoint_30_20250709_105803.pt",
+        "lm": "checkpoints/isc_state_conversational_conversational_training_20250709_105619_checkpoint_30_20250709_105803_lm_head.pt"
+      },
+      "metrics": {
+        "total_interactions": 1691,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012474821952852624,
+        "coherence_score": 0.5983397232161628,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    }
+  ],
+  "training_duration": "0:01:42.936838"
+}

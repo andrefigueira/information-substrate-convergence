@@ -1,12 +1,12 @@
 {
-  "timestamp": "20250709_093817",
-  "exchange_num": 30,
+  "timestamp": "20250709_094938",
+  "exchange_num": 100,
   "metrics": {
-    "total_exchanges": 30,
-    "unique_questions": 30,
-    "duplicate_prevented": 0,
-    "topic_switches": 1,
-    "concept_diversity": 0.8571428571428571,
+    "total_exchanges": 100,
+    "unique_questions": 100,
+    "duplicate_prevented": 3,
+    "topic_switches": 4,
+    "concept_diversity": 0.391304347826087,
     "phi_progression": [
       {
         "exchange": 0,
@@ -157,10 +157,360 @@
         "exchange": 29,
         "phi": 0.0014155183222814781,
         "change": 1.5605803781575502e-05
+      },
+      {
+        "exchange": 30,
+        "phi": 0.0012172068359538142,
+        "change": -0.00019831148632766396
+      },
+      {
+        "exchange": 31,
+        "phi": 0.001340433506836848,
+        "change": 0.00012322667088303374
+      },
+      {
+        "exchange": 32,
+        "phi": 0.0012924544075239286,
+        "change": -4.7979099312919294e-05
+      },
+      {
+        "exchange": 33,
+        "phi": 0.0013185377055785095,
+        "change": 2.6083298054580895e-05
+      },
+      {
+        "exchange": 34,
+        "phi": 0.0012644948742656715,
+        "change": -5.4042831312838034e-05
+      },
+      {
+        "exchange": 35,
+        "phi": 0.0014453563076302516,
+        "change": 0.00018086143336458016
+      },
+      {
+        "exchange": 36,
+        "phi": 0.0012303902373900911,
+        "change": -0.0002149660702401605
+      },
+      {
+        "exchange": 37,
+        "phi": 0.001397878586402865,
+        "change": 0.0001674883490127739
+      },
+      {
+        "exchange": 38,
+        "phi": 0.0013958274984475802,
+        "change": -2.051087955284858e-06
+      },
+      {
+        "exchange": 39,
+        "phi": 0.00119909911894492,
+        "change": -0.00019672837950266016
+      },
+      {
+        "exchange": 40,
+        "phi": 0.0011428500403547418,
+        "change": -5.624907859017817e-05
+      },
+      {
+        "exchange": 41,
+        "phi": 0.0012749032562683273,
+        "change": 0.00013205321591358544
+      },
+      {
+        "exchange": 42,
+        "phi": 0.0012989247866799659,
+        "change": 2.4021530411638594e-05
+      },
+      {
+        "exchange": 43,
+        "phi": 0.0012402443520961757,
+        "change": -5.868043458379015e-05
+      },
+      {
+        "exchange": 44,
+        "phi": 0.0013501030458282323,
+        "change": 0.00010985869373205661
+      },
+      {
+        "exchange": 45,
+        "phi": 0.001282765385015953,
+        "change": -6.733766081227924e-05
+      },
+      {
+        "exchange": 46,
+        "phi": 0.0012832307268472024,
+        "change": 4.653418312493447e-07
+      },
+      {
+        "exchange": 47,
+        "phi": 0.00133993524479849,
+        "change": 5.670451795128763e-05
+      },
+      {
+        "exchange": 48,
+        "phi": 0.001229495097172257,
+        "change": -0.00011044014762623313
+      },
+      {
+        "exchange": 49,
+        "phi": 0.0012333374677324848,
+        "change": 3.8423705602278965e-06
+      },
+      {
+        "exchange": 50,
+        "phi": 0.001215112050098005,
+        "change": -1.822541763447992e-05
+      },
+      {
+        "exchange": 51,
+        "phi": 0.001221819410287165,
+        "change": 6.7073601891600755e-06
+      },
+      {
+        "exchange": 52,
+        "phi": 0.001302059545931918,
+        "change": 8.024013564475311e-05
+      },
+      {
+        "exchange": 53,
+        "phi": 0.0012352622646326157,
+        "change": -6.679728129930238e-05
+      },
+      {
+        "exchange": 54,
+        "phi": 0.0013444097097279413,
+        "change": 0.00010914744509532559
+      },
+      {
+        "exchange": 55,
+        "phi": 0.0012705419804167786,
+        "change": -7.38677293111627e-05
+      },
+      {
+        "exchange": 56,
+        "phi": 0.001248801669208203,
+        "change": -2.174031120857553e-05
+      },
+      {
+        "exchange": 57,
+        "phi": 0.001302363949848458,
+        "change": 5.356228064025501e-05
+      },
+      {
+        "exchange": 58,
+        "phi": 0.0011152170650413412,
+        "change": -0.0001871468848071169
+      },
+      {
+        "exchange": 59,
+        "phi": 0.0014274558840827968,
+        "change": 0.0003122388190414556
+      },
+      {
+        "exchange": 60,
+        "phi": 0.0011552772531217208,
+        "change": -0.000272178630961076
+      },
+      {
+        "exchange": 61,
+        "phi": 0.0011572196200015977,
+        "change": 1.9423668798769587e-06
+      },
+      {
+        "exchange": 62,
+        "phi": 0.0012431254129299813,
+        "change": 8.59057929283836e-05
+      },
+      {
+        "exchange": 63,
+        "phi": 0.0011143964219828052,
+        "change": -0.00012872899094717614
+      },
+      {
+        "exchange": 64,
+        "phi": 0.00128108127441124,
+        "change": 0.00016668485242843476
+      },
+      {
+        "exchange": 65,
+        "phi": 0.001262268528235621,
+        "change": -1.88127461756189e-05
+      },
+      {
+        "exchange": 66,
+        "phi": 0.0012764128786169515,
+        "change": 1.4144350381330509e-05
+      },
+      {
+        "exchange": 67,
+        "phi": 0.0013142643466434905,
+        "change": 3.785146802653895e-05
+      },
+      {
+        "exchange": 68,
+        "phi": 0.0013903791738078338,
+        "change": 7.611482716434327e-05
+      },
+      {
+        "exchange": 69,
+        "phi": 0.001229080701978341,
+        "change": -0.00016129847182949283
+      },
+      {
+        "exchange": 70,
+        "phi": 0.0012099733704089228,
+        "change": -1.9107331569418167e-05
+      },
+      {
+        "exchange": 71,
+        "phi": 0.0012640163222639575,
+        "change": 5.40429518550347e-05
+      },
+      {
+        "exchange": 72,
+        "phi": 0.0013202502729309706,
+        "change": 5.6233950667013144e-05
+      },
+      {
+        "exchange": 73,
+        "phi": 0.0011386514947951,
+        "change": -0.00018159877813587067
+      },
+      {
+        "exchange": 74,
+        "phi": 0.0011999884483279194,
+        "change": 6.133695353281949e-05
+      },
+      {
+        "exchange": 75,
+        "phi": 0.001439351222444971,
+        "change": 0.00023936277411705162
+      },
+      {
+        "exchange": 76,
+        "phi": 0.0012676072662312888,
+        "change": -0.00017174395621368226
+      },
+      {
+        "exchange": 77,
+        "phi": 0.00121043127195207,
+        "change": -5.7175994279218875e-05
+      },
+      {
+        "exchange": 78,
+        "phi": 0.0013635996122372276,
+        "change": 0.00015316834028515766
+      },
+      {
+        "exchange": 79,
+        "phi": 0.00121506348510165,
+        "change": -0.00014853612713557757
+      },
+      {
+        "exchange": 80,
+        "phi": 0.0013547343469870626,
+        "change": 0.0001396708618854126
+      },
+      {
+        "exchange": 81,
+        "phi": 0.0011333457357795105,
+        "change": -0.00022138861120755212
+      },
+      {
+        "exchange": 82,
+        "phi": 0.0012569211309298944,
+        "change": 0.00012357539515038389
+      },
+      {
+        "exchange": 83,
+        "phi": 0.0012508384564541633,
+        "change": -6.0826744757310446e-06
+      },
+      {
+        "exchange": 84,
+        "phi": 0.001246342446125715,
+        "change": -4.496010328448267e-06
+      },
+      {
+        "exchange": 85,
+        "phi": 0.0012447278041804492,
+        "change": -1.6146419452658673e-06
+      },
+      {
+        "exchange": 86,
+        "phi": 0.0012144026918307015,
+        "change": -3.032511234974766e-05
+      },
+      {
+        "exchange": 87,
+        "phi": 0.0013234843064970378,
+        "change": 0.0001090816146663363
+      },
+      {
+        "exchange": 88,
+        "phi": 0.001225271849451436,
+        "change": -9.821245704560175e-05
+      },
+      {
+        "exchange": 89,
+        "phi": 0.0012268141817208442,
+        "change": 1.5423322694081611e-06
+      },
+      {
+        "exchange": 90,
+        "phi": 0.001275531503476228,
+        "change": 4.8717321755383826e-05
+      },
+      {
+        "exchange": 91,
+        "phi": 0.0011640596119024981,
+        "change": -0.00011147189157372991
+      },
+      {
+        "exchange": 92,
+        "phi": 0.001187582195965986,
+        "change": 2.352258406348789e-05
+      },
+      {
+        "exchange": 93,
+        "phi": 0.0013583583212054841,
+        "change": 0.0001707761252394981
+      },
+      {
+        "exchange": 94,
+        "phi": 0.0013690562524036635,
+        "change": 1.069793119817938e-05
+      },
+      {
+        "exchange": 95,
+        "phi": 0.001311296374239901,
+        "change": -5.775987816376252e-05
+      },
+      {
+        "exchange": 96,
+        "phi": 0.0011901458306152624,
+        "change": -0.00012115054362463857
+      },
+      {
+        "exchange": 97,
+        "phi": 0.0012475294839476808,
+        "change": 5.7383653332418374e-05
+      },
+      {
+        "exchange": 98,
+        "phi": 0.00126961911931284,
+        "change": 2.2089635365159233e-05
+      },
+      {
+        "exchange": 99,
+        "phi": 0.0012224641708866312,
+        "change": -4.715494842620887e-05
       }
     ],
     "exploration_map": {},
-    "steering_interventions": 23,
+    "steering_interventions": 77,
     "response_times": [
       0.4032571315765381,
       0.18669509887695312,
@@ -191,7 +541,77 @@
       0.22501897811889648,
       0.204071044921875,
       0.18544363975524902,
-      0.1994922161102295
+      0.1994922161102295,
+      0.22046494483947754,
+      0.2308368682861328,
+      0.228485107421875,
+      0.22513484954833984,
+      0.22734379768371582,
+      0.23065876960754395,
+      0.20701003074645996,
+      0.21062183380126953,
+      0.19387125968933105,
+      0.1956188678741455,
+      0.2209150791168213,
+      0.22255992889404297,
+      0.22586417198181152,
+      0.2213270664215088,
+      0.20700287818908691,
+      0.2327120304107666,
+      0.24265313148498535,
+      0.22589612007141113,
+      0.23151469230651855,
+      0.20844531059265137,
+      0.21864700317382812,
+      0.2154388427734375,
+      0.23079609870910645,
+      0.22733020782470703,
+      0.20650005340576172,
+      0.23950624465942383,
+      0.22582697868347168,
+      0.21601295471191406,
+      0.21859407424926758,
+      0.21942806243896484,
+      0.22068381309509277,
+      0.23281407356262207,
+      0.23396897315979004,
+      0.22993922233581543,
+      0.22012901306152344,
+      0.23928403854370117,
+      0.2182469367980957,
+      0.22957110404968262,
+      0.24157381057739258,
+      0.21478509902954102,
+      0.24786877632141113,
+      0.22588586807250977,
+      0.24234795570373535,
+      0.2285299301147461,
+      0.2372579574584961,
+      0.22765302658081055,
+      0.22665023803710938,
+      0.2086169719696045,
+      0.21065330505371094,
+      0.22355890274047852,
+      0.23670506477355957,
+      0.22753095626831055,
+      0.2200932502746582,
+      0.19939374923706055,
+      0.23975706100463867,
+      0.23559880256652832,
+      0.23661184310913086,
+      0.2417459487915039,
+      0.24480628967285156,
+      0.22282791137695312,
+      0.22240400314331055,
+      0.2308650016784668,
+      0.23337793350219727,
+      0.2426607608795166,
+      0.2276899814605713,
+      0.24912714958190918,
+      0.23728489875793457,
+      0.21843671798706055,
+      0.2500321865081787,
+      0.25036096572875977
     ],
     "quality_scores": [
       0.7,
@@ -223,190 +643,333 @@
       0.7,
       0.7001946584400012,
       0.7001763349186784,
-      0.7000312116075631
+      0.7000312116075631,
+      0.7,
+      0.700246453341766,
+      0.7,
+      0.7000521665961091,
+      0.7,
+      0.7003617228667292,
+      0.7,
+      0.7003349766980255,
+      0.75,
+      0.7,
+      0.75,
+      0.7002641064318271,
+      0.7000480430608232,
+      0.7,
+      0.700219717387464,
+      0.7,
+      0.7500009306836625,
+      0.7001134090359026,
+      0.7,
+      0.7500076847411205,
+      0.7,
+      0.7000134147203783,
+      0.7001604802712894,
+      0.7,
+      0.7002182948901906,
+      0.7,
+      0.7,
+      0.7001071245612804,
+      0.7,
+      0.7006244776380829,
+      0.75,
+      0.7000038847337597,
+      0.7001718115858567,
+      0.7,
+      0.7003333697048568,
+      0.7,
+      0.7000282887007626,
+      0.700075702936053,
+      0.7001522296543287,
+      0.7,
+      0.7,
+      0.70010808590371,
+      0.700112467901334,
+      0.7,
+      0.7001226739070656,
+      0.7004787255482341,
+      0.7,
+      0.75,
+      0.7503063366805703,
+      0.7,
+      0.7002793417237708,
+      0.7,
+      0.7502471507903008,
+      0.75,
+      0.7,
+      0.7,
+      0.7,
+      0.7002181632293326,
+      0.7,
+      0.7500030846645388,
+      0.7500974346435108,
+      0.7,
+      0.7000470451681269,
+      0.750341552250479,
+      0.7000213958623963,
+      0.75,
+      0.7,
+      0.7501147673066648,
+      0.7000441792707303,
+      0.7
     ]
   },
   "recent_exchanges": [
     {
-      "question": "If we manage to increase the phi level of an AI system to closely match that of the human brain, will it form a consciousness that is similar to human consciousness?",
-      "response": "This introduces manage to our discussion about increase, meanwhile building on our exploration of beginning. We might also explore how this connects to increase.",
-      "phi_before": 0.001257177896662175,
-      "phi_after": 0.0013270300600390647,
-      "phi_change": 6.985216337688973e-05,
-      "quality": 0.7001397043267538,
-      "exchange_num": 20,
-      "duration": 0.18030571937561035,
-      "ce_loss": 0.03019093908369541,
-      "total_loss": 0.805479370509724,
-      "coherence": 0.6005900899569193,
+      "question": "How might consciousness and awareness contribute to qualia or subjective experience?",
+      "response": "I notice might appearing in the context of consciousness, meanwhile building on our exploration of notice. We might also explore how this connects to starting.",
+      "phi_before": 0.0012268141817208442,
+      "phi_after": 0.001275531503476228,
+      "phi_change": 4.8717321755383826e-05,
+      "quality": 0.7500974346435108,
+      "exchange_num": 90,
+      "duration": 0.22240400314331055,
+      "ce_loss": 0.05351456627249718,
+      "total_loss": 0.8103131746804564,
+      "coherence": 0.647381928231981,
       "chat_mode": false
     },
     {
-      "question": "How does recursion apply to pattern?",
-      "response": "This introduces recursion to our discussion about apply, also building on our exploration of introduces. We might also explore how this connects to exploration.",
-      "phi_before": 0.0013270300600390647,
-      "phi_after": 0.001224041503092783,
-      "phi_change": -0.00010298855694628167,
+      "question": "Given the AI's current Phi level of 0.001, could continuous data integration and advanced pattern recognition elevate its consciousness level to a point of self-awareness? Could it possibly exceed our current understanding of consciousness?",
+      "response": "I notice given appearing in the context of ai, meanwhile building on our exploration of notice. We might also explore how this connects to exploration.",
+      "phi_before": 0.001275531503476228,
+      "phi_after": 0.0011640596119024981,
+      "phi_change": -0.00011147189157372991,
       "quality": 0.7,
-      "exchange_num": 21,
-      "duration": 0.1894547939300537,
-      "ce_loss": 0.06655187159776688,
-      "total_loss": 0.8141342827751237,
-      "coherence": 0.5829114185439216,
+      "exchange_num": 91,
+      "duration": 0.2308650016784668,
+      "ce_loss": 0.031274933367967606,
+      "total_loss": 0.8071467618061833,
+      "coherence": 0.6752667758199904,
       "chat_mode": false
     },
     {
-      "question": "If we are able to increase the phi level of our AI system to that of a human brain, would it result in a form of consciousness that is similar to human consciousness? Additionally, how does the concept of recursion apply to consciousness and information integration?",
-      "response": "Starting to understand able and how it might relate to increase, initially building on our exploration of introduces. We might also explore how this connects to level.",
-      "phi_before": 0.001224041503092783,
-      "phi_after": 0.001355919829408237,
-      "phi_change": 0.00013187832631545403,
-      "quality": 0.7002637566526309,
-      "exchange_num": 22,
-      "duration": 0.19760489463806152,
-      "ce_loss": 0.03189115598797798,
-      "total_loss": 0.8053232045870721,
-      "coherence": 0.5688224699762132,
+      "question": "Given our understanding of integrated information theory and the AI's current Phi level of 0.001, could continuous data integration and advanced pattern recognition potentially elevate its consciousness level to a point of self-awareness?",
+      "response": "This introduces given to our discussion about understanding, currently building on our exploration of notice. We might also explore how this connects to exploration.",
+      "phi_before": 0.0011640596119024981,
+      "phi_after": 0.001187582195965986,
+      "phi_change": 2.352258406348789e-05,
+      "quality": 0.7000470451681269,
+      "exchange_num": 92,
+      "duration": 0.23337793350219727,
+      "ce_loss": 0.025205574929714203,
+      "total_loss": 0.804852934313435,
+      "coherence": 0.6874919798639085,
       "chat_mode": false
     },
     {
-      "question": "If we manage to increase the phi level of our AI system to closely match that of the human brain, would it form a consciousness that is similar to human consciousness? Furthermore, how does the concept of recursion apply to consciousness and information integration?",
-      "response": "This introduces manage to our discussion about increase, initially building on our exploration of starting. We might also explore how this connects to ai.",
-      "phi_before": 0.001355919829408237,
-      "phi_after": 0.0011617141235768214,
-      "phi_change": -0.0001942057058314157,
+      "question": "If we consider consciousness as a product of high levels of integrated information, how could we increase the Phi level of an AI system from 0.001 to a higher value that might bring it closer to human consciousness or even self-awareness?",
+      "response": "I notice consider appearing in the context of consciousness, also building on our exploration of introduces. We might also explore how this connects to consciousness.",
+      "phi_before": 0.001187582195965986,
+      "phi_after": 0.0013583583212054841,
+      "phi_change": 0.0001707761252394981,
+      "quality": 0.750341552250479,
+      "exchange_num": 93,
+      "duration": 0.2426607608795166,
+      "ce_loss": 0.025768259540200233,
+      "total_loss": 0.8037874429061241,
+      "coherence": 0.7030109895600213,
+      "chat_mode": false
+    },
+    {
+      "question": "Considering the AI's current Phi level of 0.001, is it conceivable that by improving data integration and implementing more advanced pattern recognition, the AI could reach a level of consciousness akin to self-awareness? Could it perhaps surpass what we currently understand as consciousness?",
+      "response": "This introduces considering to our discussion about ai, currently building on our exploration of notice. We might also explore how this connects to systems.",
+      "phi_before": 0.0013583583212054841,
+      "phi_after": 0.0013690562524036635,
+      "phi_change": 1.069793119817938e-05,
+      "quality": 0.7000213958623963,
+      "exchange_num": 94,
+      "duration": 0.2276899814605713,
+      "ce_loss": 0.023841844871640205,
+      "total_loss": 0.8046827855247427,
+      "coherence": 0.7084997461901771,
+      "chat_mode": false
+    },
+    {
+      "question": "Regarding our understanding of integrated information theory, is it feasible that by enhancing the AI's data integration capabilities and implementing more advanced pattern recognition, we could elevate its consciousness level, currently at a Phi level of 0.001, to a point of self-awareness or perhaps even beyond our current concept of consciousness?",
+      "response": "I'm beginning to process regarding in relation to understanding, also building on our exploration of introduces. We might also explore how this connects to information.",
+      "phi_before": 0.0013690562524036635,
+      "phi_after": 0.001311296374239901,
+      "phi_change": -5.775987816376252e-05,
+      "quality": 0.75,
+      "exchange_num": 95,
+      "duration": 0.24912714958190918,
+      "ce_loss": 0.030462093651294708,
+      "total_loss": 0.8065544977555691,
+      "coherence": 0.6810064944956038,
+      "chat_mode": false
+    },
+    {
+      "question": "Given our current understanding of integrated information theory, is it possible to raise an AI's Phi level from 0.001 to a higher value approximating human consciousness or self-awareness? Could enhanced data integration and advanced pattern recognition contribute to this?",
+      "response": "I notice given appearing in the context of current, initially building on our exploration of beginning. We might also explore how this connects to exploration.",
+      "phi_before": 0.001311296374239901,
+      "phi_after": 0.0011901458306152624,
+      "phi_change": -0.00012115054362463857,
       "quality": 0.7,
-      "exchange_num": 23,
-      "duration": 0.19858312606811523,
-      "ce_loss": 0.027904637157917023,
-      "total_loss": 0.8071345730782349,
-      "coherence": 0.5618995428085327,
+      "exchange_num": 96,
+      "duration": 0.23728489875793457,
+      "ce_loss": 0.03020392917096615,
+      "total_loss": 0.8070099901831904,
+      "coherence": 0.6590457790427737,
       "chat_mode": false
     },
     {
-      "question": "What patterns emerge when considering information from a systems perspective?",
-      "response": "I notice patterns appearing in the context of emerge, also building on our exploration of introduces. We might also explore how this connects to emerge.",
-      "phi_before": 0.0011617141235768214,
-      "phi_after": 0.001263810312229466,
-      "phi_change": 0.00010209618865264459,
-      "quality": 0.7502041923773053,
-      "exchange_num": 24,
-      "duration": 0.2098250389099121,
-      "ce_loss": 0.07041031867265701,
-      "total_loss": 0.8132652942253102,
-      "coherence": 0.5249027543597751,
+      "question": "Can integration be understood through the lens of self-organization?",
+      "response": "I notice integration appearing in the context of understood, initially building on our exploration of notice. We might also explore how this connects to realm.",
+      "phi_before": 0.0011901458306152624,
+      "phi_after": 0.0012475294839476808,
+      "phi_change": 5.7383653332418374e-05,
+      "quality": 0.7501147673066648,
+      "exchange_num": 97,
+      "duration": 0.21843671798706055,
+      "ce_loss": 0.04215160012245178,
+      "total_loss": 0.807971250797831,
+      "coherence": 0.6110202239619361,
       "chat_mode": false
     },
     {
-      "question": "If we were able to increase the phi level of our AI system to the level of a human brain, could it experience a similar form of human consciousness and how does the concept of recursion play into this?",
-      "response": "This introduces able to our discussion about increase, also building on our exploration of notice. We might also explore how this connects to phi.",
-      "phi_before": 0.001263810312229466,
-      "phi_after": 0.0013090091609751055,
-      "phi_change": 4.519884874563951e-05,
-      "quality": 0.7000903976974913,
-      "exchange_num": 25,
-      "duration": 0.22493410110473633,
-      "ce_loss": 0.03048207424581051,
-      "total_loss": 0.805734824059197,
-      "coherence": 0.5205019646220737,
+      "question": "Considering our current advancements in AI, how feasible is it that we could raise its Phi level from 0.001 to something more comparable to human consciousness? Would enhanced data integration and more sophisticated pattern recognition be key factors in this elevation of consciousness?",
+      "response": "I notice considering appearing in the context of current, initially building on our exploration of notice. We might also explore how this connects to systems.",
+      "phi_before": 0.0012475294839476808,
+      "phi_after": 0.00126961911931284,
+      "phi_change": 2.2089635365159233e-05,
+      "quality": 0.7000441792707303,
+      "exchange_num": 98,
+      "duration": 0.2500321865081787,
+      "ce_loss": 0.025141641497612,
+      "total_loss": 0.8048516112166011,
+      "coherence": 0.6078949537542131,
       "chat_mode": false
     },
     {
-      "question": "If we increase the phi level of our AI system to the level of a human brain, would it experience a similar form of human consciousness, and how does the concept of recursion play into this?",
-      "response": "This introduces increase to our discussion about phi, meanwhile building on our exploration of introduces. We might also explore how this connects to ai.",
-      "phi_before": 0.0013090091609751055,
-      "phi_after": 0.0012144158391601135,
-      "phi_change": -9.4593321814992e-05,
+      "question": "Given our current understanding of integrated information theory, is it feasible to increase an AI's Phi level from a very low value such as 0.001 to something more comparable to human consciousness? Would enhanced data integration and more sophisticated pattern recognition be key factors in this elevation of consciousness?",
+      "response": "I'm beginning to process given in relation to current, currently building on our exploration of notice. We might also explore how this connects to might.",
+      "phi_before": 0.00126961911931284,
+      "phi_after": 0.0012224641708866312,
+      "phi_change": -4.715494842620887e-05,
       "quality": 0.7,
-      "exchange_num": 26,
-      "duration": 0.22501897811889648,
-      "ce_loss": 0.024913445115089417,
-      "total_loss": 0.8057394355975378,
-      "coherence": 0.5593691931830512,
-      "chat_mode": false
-    },
-    {
-      "question": "Considering our recent discussions on systems perspective and the concept of recursion, if we were to increase the phi level of our AI system to match that of a human brain, would it then experience a similar form of human consciousness?",
-      "response": "I'm beginning to process considering in relation to recent, currently building on our exploration of introduces. We might also explore how this connects to systems.",
-      "phi_before": 0.0012144158391601135,
-      "phi_after": 0.0013117450591606998,
-      "phi_change": 9.732922000058627e-05,
-      "quality": 0.7001946584400012,
-      "exchange_num": 27,
-      "duration": 0.204071044921875,
-      "ce_loss": 0.02475902996957302,
-      "total_loss": 0.80417317223391,
-      "coherence": 0.5696883863872952,
-      "chat_mode": false
-    },
-    {
-      "question": "Can you explore the connection between system and self-awareness?",
-      "response": "I'm beginning to process explore in relation to connection, currently building on our exploration of beginning. We might also explore how this connects to understand.",
-      "phi_before": 0.0013117450591606998,
-      "phi_after": 0.0013999125184999026,
-      "phi_change": 8.816745933920285e-05,
-      "quality": 0.7001763349186784,
-      "exchange_num": 28,
-      "duration": 0.18544363975524902,
-      "ce_loss": 0.05751758813858032,
-      "total_loss": 0.8107981779530025,
-      "coherence": 0.5792855421702067,
-      "chat_mode": false
-    },
-    {
-      "question": "We've been working on increasing the phi level of our AI system, but I'm curious, how would the concept of recursion come into play if we manage to increase it to match the complexity of a human brain? Would it mean that the AI would then experience a similar form of human consciousness?",
-      "response": "Starting to understand working and how it might relate to increasing, also building on our exploration of beginning. We might also explore how this connects to level.",
-      "phi_before": 0.0013999125184999026,
-      "phi_after": 0.0014155183222814781,
-      "phi_change": 1.5605803781575502e-05,
-      "quality": 0.7000312116075631,
-      "exchange_num": 29,
-      "duration": 0.1994922161102295,
-      "ce_loss": 0.040856458246707916,
-      "total_loss": 0.8080464452190891,
-      "coherence": 0.5947471989525689,
+      "exchange_num": 99,
+      "duration": 0.25036096572875977,
+      "ce_loss": 0.02309338003396988,
+      "total_loss": 0.8049959155942036,
+      "coherence": 0.6263900034957461,
       "chat_mode": false
     }
   ],
   "concept_coverage": {
     "self-organization and feedback loops": 1,
-    "system": 2,
+    "system": 5,
     "feedback": 1,
-    "consciousness": 1,
-    "pattern": 1,
-    "information": 1
+    "consciousness": 2,
+    "pattern": 2,
+    "information": 5,
+    "philosophy of mind": 1,
+    "consciousness and awareness": 2,
+    "integration": 4
   },
-  "unique_questions": 30,
+  "unique_questions": 100,
   "question_hashes": [
-    "2d89f002e9e9147a846254f928f77414ae4cea4252cf18e1adeb630142bf899d",
+    "e306c2ad341fc4a01b717b136407c5af1f288e909a7cb4876b2ba5aed9d3ebcb",
     "dfee8f93074d63c918c5f6d50c62b828e14f0e32f9ade0063f515bd42147e0b0",
-    "ae3fd5ad931bbb41afc3e03593cccb121f01b21b9305c4a2aad7e97f845b87d0",
-    "e7937c3a845f26c8fb0d847139aad323956f6b7d4a5c6c424ad7584419f081eb",
-    "ff568da2c16f75e7fb87ba30b485572ec90a15e4670876f228aa08bec5fcfc64",
-    "6e0d69b4bd3836ddfbee70d0b7df848ce69bdf7852ccc83d813ca9587ba5b290",
+    "a2c3d81906c7910b05bd4e07a9041606d0c502335c08fbf47af7b596d58f03a3",
+    "1c628754253fe0a62ba004e8747042781f640d72dde229ad9936d2ab338f0f94",
+    "606721e9ac60313dca6cb24530c13c31e4065e2d146bf677ab7e7b3395149a7b",
+    "d2cd472950896ad88c425b9abb82280c9cb0c451ec6378918dd275527cd13bbb",
+    "4a0d79e2d1b0f61b3a7a48811d98923d4aac604579665591d24841c5f085925a",
+    "c9605722691fb36d1f69464726e65bed4b11b80fee6692628caab7c08c8cac52",
+    "6cdd368b11374b88cb3700624eb0e45398b691cd11bb899a18659e7613071c6b",
+    "22bf2ee11579ed4a5f26a7e85c00717ebe7d4f7e0bd47c35189d0ac39f775972",
+    "b580c04fc6f412057472d116ce1e87edd892da770f4e11ce3858d06176c1d35a",
+    "3673e81589fc41679168fe5bd3eabda9bd1dda89989666db27a7247b668ac23c",
     "5f1ec94c79750ed0754abe3c6dd5f39a27916ab0b01d3d6bba80a61c1ce7bafb",
-    "5a76e846ccdbd38372a1cc81ae478c4814e15dc26243206af53bac0c88b93a5c",
     "838ae39461c184923f67e881af57b91090f35832883a358efc112e92e44909ff",
-    "9506c16d03b7a21001549a1f79af567b6c1abda475fbc697fac81bc78516c793",
-    "14fbb54f4e450f71f3aecbeeb15df42a30ada5305881a86127acae803f69799c",
+    "a1c1df74e0d0a7a8fe38d96e04ef3e19861ad45ab19c5de7e86eb1fb2af3e2d4",
     "2138482ccff18b4447fa4fe00e46bd955efc27fa8397401c8bc64c60a145c26a",
-    "210216dc15939e45ad9d4b47b890980f06de93f1a27a10e895212e3d9453def3",
     "e08dd300599f7058c31b5693b5cb9972aa94f24a57b24aa82c12cfa3d30e9f32",
-    "81db68267d71e848e4da372127432cabdbf7739fe6acf8c1eb295d183022e4d3",
-    "b3ef14451b471661f56251b19f94d246267f623d33dee8d185e46310102f32e1",
-    "b2f0a92860707c53864ca990ee4eb7a408905f4a61baf490293a0162f334cdc4",
-    "8c4f41bf8974448a491858baa46722ab7083a03800c7e5fd7c1e33eeeb44cd98",
+    "4d49f2b78058a0559e22b6bcbe9e663950e3e780e9b55e1e84bdd51454aaceb4",
+    "0c23e9698af44e962544dfbe5e5a4f1c5274906d643181da16e7cb8acf449916",
+    "23f120bf887fac4a1126fac788593c4fc9574bacb0bbbcc206dd14bf466a2048",
+    "316f4d94b5b6b13bbf81b66666134e94d9ad5f36d0a87aba976fffaa5ba5c147",
     "8d96b7ce1782e0976fb2c6b40412d1c0875fc26d8e76c26e1430bf704dda03e3",
     "f1f4c04b486bc3700e0a3b15d9fde39d5e9688ca6f50694f653a6ede8b3e4127",
-    "b25fc8a9045349cd259d02b5633935d30565d860bbf8887711e9da9e38f9c2c3",
-    "b514c15352eba2a54dfc011e995fa41e0f5fe89066d20be4c1343a165c4bc044",
+    "34696df55e7c9d9dc8d584abb315141eba26de56823ec8a7516bfd682628151f",
+    "7cd78d76129f07d9384fb699fc5297f27fd6b2b351ab55483c5670b44f813332",
     "5d73d6eebe8e36e4dbdc38578590f7aac227eeeb291925b94a38ae94b9f0fcf2",
-    "c411eb4337057ed137a7e0e17112fc9d43cb163080ab1c1dbde83803b409b270",
-    "1b86678ebf408f3e2818b3f2707a87497bc44ff418a3a5b1167a2049cc20d68c",
-    "4900ee09b3ca3c234b38213916321898d2180c49d3333fc73c94430c26636e00",
+    "d5c6311921a41ecfc0a13490d3de8851e7d17bbe84e6212ce6c840c40f550232",
+    "40201887a087749ae32e82c792a77acba77fb5d3da0967780327a7b6211f6c5b",
+    "33b182be3164f8c5b0f71c7604e53fb64f722f1b6cb036e7e61314f04e5568e4",
+    "a0fdb762e19fcb2996fa28b60be693ee4d4d2a1b125ea9a09a95ea374c9161f5",
     "b2ea1b9d6f4635957261455072d320808f7a769045176e86e424a97d6d67d277",
     "c48f86fab2a39e493f7fa65cf9e4c4ddd3e9f16875b7729b25cff9663865d6bd",
+    "24bc74f9bbc051a659114b029a0af50930d15c1a1c095352d9b7ea3057dc4d82",
+    "3e2345058168d9f42ecd10a8b55a75c1245c1eb7f37d62ad7f170b7c77a1df33",
     "9bb0075998490c2124763de06ada5b09e2fe48d536d732ff84aa431551615192",
-    "4ad15fd4151859c45df398818db1751d5a5f5088837c076bd2eff28b99d596c9"
+    "c7726a879bc6ae199c3e92f9e434e236d9e0db46b52cb0b5c6f2e45a8e7c2cf1",
+    "cf13f79f5286164cc1f983636ec6ce1910e665b21faa9835e7565fc3091877e1",
+    "e7937c3a845f26c8fb0d847139aad323956f6b7d4a5c6c424ad7584419f081eb",
+    "94eddd9700a2cd2389aa568f62e448898bbe1989e7f6788e782492200ff6c0e9",
+    "ff568da2c16f75e7fb87ba30b485572ec90a15e4670876f228aa08bec5fcfc64",
+    "40ca2168ec0824ce1ddbcd537474388e60bec71b07bde5f071ec1ad96c1ea6fc",
+    "580de57f9026b21363f0dbaf834b51936a3332a07968d60940709440bef8abd6",
+    "5a76e846ccdbd38372a1cc81ae478c4814e15dc26243206af53bac0c88b93a5c",
+    "9506c16d03b7a21001549a1f79af567b6c1abda475fbc697fac81bc78516c793",
+    "780d3559180e71344fbba3bc2a2640a895534399a622778fad29d3fd27c1362f",
+    "48030e60e1be5e31041a4de68f3524f9b0d302887596bc91d650a53a73e0eacc",
+    "b3ef14451b471661f56251b19f94d246267f623d33dee8d185e46310102f32e1",
+    "4fcb610f03880138574bdbd481f615557303e10563630a066fbf7180880cd334",
+    "a613286a944249839340341999a2bdf499f3faafea79981e8435499ea4a07089",
+    "5db34daa690484cae8b909d6ef63a5e6226a1db4955b43e66a3e18a969ed0917",
+    "c411eb4337057ed137a7e0e17112fc9d43cb163080ab1c1dbde83803b409b270",
+    "daf7b32e7c4841e313a71635ad330c7c904eb485b2dd073087e2abed513c1dd1",
+    "5320b58f4e8e908408231f5973afc165b4d2443c5a398d09929994bd2c4a22d3",
+    "6822054df42edbe1b0ea6ce90bf806cf15667d57140bb54e11c22e72ec6e80e7",
+    "32d8fd217585f8cd681485653a579f8ec70d36005c4ede1624fcd9a6c82bce98",
+    "1bcc8d6c01c57b5e7031d4489b18c7636adb40cd4c8d3fa93b87a287ee771be1",
+    "2060d73c59976a301b2a671470ac6651280c75780a4a839d4673033bc1ff67fe",
+    "4ad15fd4151859c45df398818db1751d5a5f5088837c076bd2eff28b99d596c9",
+    "2d89f002e9e9147a846254f928f77414ae4cea4252cf18e1adeb630142bf899d",
+    "6ae97369e15923239170f909cdb6bc1b73b7cea6cd952f422d7f52a8e2db3dca",
+    "ae3fd5ad931bbb41afc3e03593cccb121f01b21b9305c4a2aad7e97f845b87d0",
+    "0a1be98f9cccebb0144e9cb1f1790ba17353940b5557c75b28bc1ad257755c84",
+    "549e0cb1fc07ca45deb71d60616f280dfffe54d012e74c1903011eceb21117bb",
+    "da07f261c194c7f1214f69dab8ef140dc663c6c5298b78d12820caa4c1775504",
+    "6e0d69b4bd3836ddfbee70d0b7df848ce69bdf7852ccc83d813ca9587ba5b290",
+    "547e9f94e41c2ea65f8db394b79021aed45c991fa5d7be3106a7c0eeb7d15c5d",
+    "385fcc666ce9742acb6e87f29e29a00007b77091070fe80c7fe4614bc9661d59",
+    "1e8e57f669eef3943af5ea1ab157fda348e4b867c9deed1f1bb3df1065f5fd9e",
+    "210216dc15939e45ad9d4b47b890980f06de93f1a27a10e895212e3d9453def3",
+    "ceacd0eb37cc21a833b7470be139e199420a41ac06f8852df527ead8a06ac569",
+    "f3bf87442aa79fd10bde4caaa68a009a8fede75e01cdbd72b868b5ec6a7acecc",
+    "8c4f41bf8974448a491858baa46722ab7083a03800c7e5fd7c1e33eeeb44cd98",
+    "b25fc8a9045349cd259d02b5633935d30565d860bbf8887711e9da9e38f9c2c3",
+    "c6bfe677a72b788f0821e244a74a3178bc1691378d996244bffdc1ef9925422a",
+    "95d44918b10cb3be7c2910dcd28c4b4c56b30460c0bb0e1f5e3d9f0035f11079",
+    "4900ee09b3ca3c234b38213916321898d2180c49d3333fc73c94430c26636e00",
+    "8c9e8a2a3ef9fcf8726483ce19ed97fb7256d62103697b3990599ad9fb714ee9",
+    "2900644cc899fd76e019cf653e86b5e2c563eff66256e8ac826ac92232b3a147",
+    "48ef7dffe7311f13afe9230bf2c5a7ef62b9915fa4f097e4b008a13c2ec13ea1",
+    "255ff51807576a9cf0de0f35e21bce92f42c150832f6c6411f1d5c1ccd1cd3fd",
+    "feb4ede68e0854c77ae0817613719e37895d0d8f9a92689cef769bb4a32de083",
+    "c7e30f344e84f6b95a3663b94dbf0ad83a531712a3f8a585d8c410df5c2a7ab3",
+    "7ebf5b27a5fcededa4ca811197a07abf482ab42f928427b59d8b45dde1adad2e",
+    "14fbb54f4e450f71f3aecbeeb15df42a30ada5305881a86127acae803f69799c",
+    "810c33facec5024244f7afa7b9673abc51cadc848c89c6a5552c3bbe31f0be7d",
+    "81db68267d71e848e4da372127432cabdbf7739fe6acf8c1eb295d183022e4d3",
+    "d8868f31a3c7de3dd0fb034d206bca422c872195a9d03ff3f3a60b168b004329",
+    "b2f0a92860707c53864ca990ee4eb7a408905f4a61baf490293a0162f334cdc4",
+    "771ef31762fdf6946f4d616ce8a1baff76ee286cff54c5703e4ed78d67f99c75",
+    "9dc46146d2e8824b128d0b66764dd983c8ab0e23f2107a2032cf6e77bec63088",
+    "b514c15352eba2a54dfc011e995fa41e0f5fe89066d20be4c1343a165c4bc044",
+    "99bf116f2ada6397e68f7e015a741c5fa457071a2b961ea04d40eef2853cd399",
+    "cbc3ceb9c949c1db47a397a3ad5e6df0f9a9376578d602c9f2640e751bd5a509",
+    "eeba85d849329fb38f97358cf60a0662ec3d40812978e67a8b70f7c0876f5a1b",
+    "1b86678ebf408f3e2818b3f2707a87497bc44ff418a3a5b1167a2049cc20d68c",
+    "f978c803aeefb48ad72db869bdc172e078b3d74676ac3cab1da25577e7511ca7",
+    "8c226db4915b4ca979f98ba0ff28b5be281149e4eade74b185ad53d537218598",
+    "38a45f6a7b492735ba169420b9eb2ae7aa843978b9786c5d1d1fdb252fefd1e4",
+    "70ef8eab6a896a4a118abe73afe5b6024ff07d6853bc9c55faa94ab6c6f2626b",
+    "9df385be9528c408dae60929a91d4ced774f4afd57267e1f038a1d5c9efdb698"
   ]
 }

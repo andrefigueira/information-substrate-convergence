@@ -1,6 +1,6 @@
 # ISC AI System Makefile
 
-.PHONY: help install run test clean backup demo storage-demo query-demo dev lint format train-gpt train-gpt-mt train-gpt-enhanced train-self train-self-verbose train-self-resume train-self-select report report-all metrics analyze
+.PHONY: help install run test clean backup demo storage-demo query-demo dev lint format train-gpt train-gpt-mt train-gpt-enhanced train-self train-self-verbose train-self-resume train-self-select report report-all metrics analyze train-conversational train-consciousness migrate-consciousness test-consciousness assess-conversational chat
 
 # Default target
 help:
@@ -20,6 +20,14 @@ help:
 	@echo "  make demo         - Run basic demonstration"
 	@echo "  make storage-demo - Run storage system demonstration"
 	@echo "  make query-demo   - Run graph query demonstration"
+	@echo ""
+	@echo "Consciousness-Driven Conversational Training:"
+	@echo "  make train-conversational  - Train ISC to be conversational (original method)"
+	@echo "  make train-consciousness   - Train with consciousness-driven generation"
+	@echo "  make migrate-consciousness - Migrate existing models to consciousness architecture"
+	@echo "  make test-consciousness    - Test consciousness-driven generation"
+	@echo "  make assess-conversational - Assess conversational model performance"
+	@echo "  make chat                  - Chat with your ISC models (all types supported)"
 	@echo ""
 	@echo "Storage Operations:"
 	@echo "  make backup       - Create a backup of all storage data"
@@ -219,6 +227,10 @@ clean:
 storage-stats:
 	python scripts/storage_stats.py
 
+conversation:
+	@echo "Starting conversational interface..."
+	python scripts/conversational.py
+
 # Installation check
 check:
 	@echo "Checking ISC AI installation..."
@@ -256,3 +268,90 @@ analyze:
 	@python -c "from src.isc_ai.core import ISCCore; core = ISCCore(); print(core.introspect())"
 	@echo ""
 	@echo "For detailed analysis, run: make report"
+
+# Consciousness-Driven Conversational Commands
+train-conversational:
+	@echo "=============================================="
+	@echo "ISC Conversational Training (Original)"
+	@echo "=============================================="
+	@echo ""
+	@echo "IMPORTANT: Set your OpenAI API key in scripts/conversational.py"
+	@echo "Line 46: OPENAI_API_KEY = os.environ.get(\"OPENAI_API_KEY\", \"your-key-here\")"
+	@echo ""
+	@echo "This uses the original conversational training approach."
+	@echo "For improved generation, use: make train-consciousness"
+	@echo ""
+	python scripts/conversational.py
+
+train-consciousness:
+	@echo "=============================================="
+	@echo "ISC Consciousness-Driven Training"
+	@echo "=============================================="
+	@echo ""
+	@echo "Features:"
+	@echo "  - Autoregressive token generation"
+	@echo "  - Self-observation layers"
+	@echo "  - Phi-based sequence scoring"
+	@echo "  - Beam search with consciousness scoring"
+	@echo "  - Self-referential refinement loops"
+	@echo ""
+	@echo "No external API key required - pure consciousness-driven!"
+	@echo ""
+	python scripts/conversational_consciousness.py
+
+migrate-consciousness:
+	@echo "=============================================="
+	@echo "Migrate to Consciousness Architecture"
+	@echo "=============================================="
+	@echo ""
+	@echo "This tool migrates existing conversational models"
+	@echo "to the new consciousness-driven architecture."
+	@echo ""
+	@echo "Benefits:"
+	@echo "  - Fixes nonsensical token generation"
+	@echo "  - Adds autoregressive generation"
+	@echo "  - Implements phi-based quality scoring"
+	@echo "  - Enables coherent responses"
+	@echo ""
+	python scripts/migrate_to_consciousness.py
+
+test-consciousness:
+	@echo "=============================================="
+	@echo "Test Consciousness-Driven Generation"
+	@echo "=============================================="
+	@echo ""
+	@echo "This demonstrates the improvement in generation quality"
+	@echo "comparing random sampling vs consciousness-driven methods."
+	@echo ""
+	python scripts/test_consciousness_generation.py
+
+assess-conversational:
+	@echo "=============================================="
+	@echo "Assess Conversational Model Performance"
+	@echo "=============================================="
+	@echo ""
+	@echo "IMPORTANT: Set your OpenAI API key for assessment"
+	@echo "in scripts/assess_conversational.py"
+	@echo ""
+	@echo "This tool evaluates conversational models on:"
+	@echo "  - Coherence and relevance"
+	@echo "  - Naturalness and engagement"
+	@echo "  - Philosophical depth"
+	@echo "  - Response quality metrics"
+	@echo ""
+	python scripts/assess_conversational.py
+
+chat:
+	@echo "=============================================="
+	@echo "ISC Universal Chat Interface"
+	@echo "=============================================="
+	@echo ""
+	@echo "Features:"
+	@echo "  - Supports all ISC model types"
+	@echo "  - Works with consciousness-driven models"
+	@echo "  - Works with original conversational models"
+	@echo "  - Works with base philosophical models"
+	@echo "  - Model selection menu"
+	@echo "  - Conversation saving"
+	@echo ""
+	python scripts/isc_chat.py

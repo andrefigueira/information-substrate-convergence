@@ -67,7 +67,9 @@ class SelfReferentialTrainer:
             "exploration_map": {},
             "steering_interventions": 0,
             "response_times": [],
-            "quality_scores": []
+            "quality_scores": [],
+            "concept_bridges": [],  # Track connections between concepts
+            "integration_depth": 0.0  # Measure of multi-concept integration
         }
         
         # All exchanges for visualization
@@ -636,6 +638,16 @@ Generate a single question:"""
             "chat_mode": self.chat_mode
         }
     
+    def _contains_concept_bridge(self, response: str) -> bool:
+        """Check if response contains conceptual bridges between ideas"""
+        bridge_indicators = [
+            'relates to', 'connects with', 'emerges from', 'integrates',
+            'builds upon', 'synthesizes', 'unifies', 'bridges',
+            'links between', 'relationship between', 'combines',
+            'interconnected', 'weaves together', 'binding'
+        ]
+        return any(indicator in response.lower() for indicator in bridge_indicators)
+    
     def _evaluate_response_quality(self, response: str, question: str, phi_change: float) -> float:
         """Self-evaluate response quality"""
         # Simple heuristic evaluation
@@ -715,6 +727,14 @@ Generate a single question:"""
                     exchanges.append(result)
                     self.all_exchanges.append(result)
                     
+                    # Track concept bridges in responses
+                    if self._contains_concept_bridge(result['response']):
+                        self.session_metrics["concept_bridges"].append({
+                            "exchange": i,
+                            "phi": result["phi_after"],
+                            "response_snippet": result['response'][:100]
+                        })
+                    
                     # Update metrics
                     self.session_metrics["total_exchanges"] += 1
                     self.session_metrics["phi_progression"].append({
@@ -726,7 +746,18 @@ Generate a single question:"""
                     # Calculate concept diversity
                     unique_concepts = len(self.concept_coverage)
                     total_explorations = sum(self.concept_coverage.values())
-                    self.session_metrics["concept_diversity"] = unique_concepts / max(1, total_explorations) 
+                    self.session_metrics["concept_diversity"] = unique_concepts / max(1, total_explorations)
+                    
+                    # Track substrate coherence (phi stability + concept connectivity)
+                    if len(self.session_metrics["phi_progression"]) > 10:
+                        recent_phis = [p["phi"] for p in self.session_metrics["phi_progression"][-10:]]
+                        phi_stability = 1 - np.std(recent_phis) / (np.mean(recent_phis) + 1e-8)
+                        
+                        if hasattr(self.core, 'knowledge_graph'):
+                            kg = self.core.knowledge_graph.graph
+                            connectivity = kg.number_of_edges() / max(1, kg.number_of_nodes())
+                            substrate_coherence = (phi_stability + connectivity) / 2
+                            self.session_metrics["substrate_coherence"] = substrate_coherence 
                     
                     # Update progress
                     progress.update(

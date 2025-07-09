@@ -1,0 +1,30 @@
+[
+  {
+    "user": "/load",
+    "response": "Starting to understand this information and how it might relate to our discussion.",
+    "phi": 0.0028435335337807684,
+    "coherence": 0.0,
+    "timestamp": "2025-07-09T09:53:35.238745"
+  },
+  {
+    "user": "hello",
+    "response": "Starting to understand hello and how it might relate to processing continues.",
+    "phi": 0.0015742953484238738,
+    "coherence": 0.39720699191093445,
+    "timestamp": "2025-07-09T09:53:38.286425"
+  },
+  {
+    "user": "/quit",
+    "response": "Starting to understand this information and how it might relate to our discussion.",
+    "phi": 0.0014931434988439056,
+    "coherence": 0.39720699191093445,
+    "timestamp": "2025-07-09T09:53:49.674887"
+  },
+  {
+    "user": "/exit",
+    "response": "I notice this information appearing in the context of our discussion.",
+    "phi": 0.000781782550955749,
+    "coherence": 0.47094549735387164,
+    "timestamp": "2025-07-09T09:54:28.450019"
+  }
+]

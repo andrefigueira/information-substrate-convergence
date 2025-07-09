@@ -1,0 +1,821 @@
+{
+  "report": {
+    "session_id": "chatgpt_training_20250708_235238",
+    "total_exchanges": 35,
+    "concepts_taught": 100,
+    "final_phi": 0.0007521485121738298,
+    "final_coherence": 0.7604552308718363,
+    "phi_improvement": -0.002510429110024667,
+    "average_comprehension": 8.028571428571428,
+    "average_connection": 6.914285714285715,
+    "average_progress": 8.6,
+    "knowledge_graph_nodes": 72,
+    "knowledge_graph_edges": 0
+  },
+  "history": [
+    {
+      "exchange": 0,
+      "input": "AI, let's explore the concept of characteristics. Characteristics are the unique qualities or features that define animals, objects, colors, and relationships. Just like how a cat has whiskers, fur, and sharp claws as its characteristics, or how a ball is round, bouncy, and colorful, characteristics help us distinguish one thing from another. Colors can have characteristics like being bright, dark, or pastel, influencing how we perceive them visually. Relationships also have characteristics such as trust, honesty, and empathy, shaping the way individuals interact and connect with each other. By recognizing and understanding characteristics, we can identify, describe, and appreciate the diverse elements in our world.",
+      "response": "I'm processing this new information. This introduces the concept of help to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of characteristics and made some meaningful connections by mentioning the concept of help. It shows significant progress in learning by processing and incorporating new information into the conversation."
+      },
+      "metrics": {
+        "total_interactions": 1,
+        "learning_rate": 0.001,
+        "phi_value": 0.0032625776221984967,
+        "coherence_score": 0.6115869084993998,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 1,
+      "input": "AI, let's now focus on the concept of patterns. Patterns are recurring arrangements or sequences of elements that can be observed in animals, objects, colors, and relationships. Just as a zebra's stripes form a distinctive pattern on its coat, or how the wheels of a bicycle follow a circular pattern when in motion, recognizing patterns helps us predict and understand the world around us. Colors can form patterns in nature like a rainbow or in man-made designs like stripes or polka dots, creating visual interest and harmony. Relationships exhibit patterns in how individuals communicate, show affection, or resolve conflicts, shaping the dynamics between them over time. By identifying and interpreting patterns, we can make connections between different elements, anticipate outcomes, and enhance our understanding of the interconnected",
+      "response": "I'm processing this new information. This introduces the concept of dynamics to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of patterns and made a relevant connection to dynamics, showing progress in learning and understanding the new information."
+      },
+      "metrics": {
+        "total_interactions": 2,
+        "learning_rate": 0.001,
+        "phi_value": 0.0027452463770172666,
+        "coherence_score": 0.5476433535416921,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 2,
+      "input": "AI, let's now explore the concept of categorization. Categorization is the process of organizing animals, objects, colors, and relationships into groups based on their shared characteristics or attributes. Just like how we group animals like lions, tigers, and bears together as \"wild animals\" because they share qualities such as strength and predatory behaviors, or how we categorize objects like keys, locks, and safes as \"security tools\" because they serve a similar function of protecting valuables, categorization helps us make sense of the world around us. Colors can be categorized into groups like warm colors (such as red, orange, and yellow) or cool colors (like blue, green, and purple) based on their visual properties and emotional associations",
+      "response": "I'm processing this new information. This introduces the concept of wild to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of categorization and made some meaningful connections by mentioning the introduction of the concept of 'wild' to the conversation. It shows significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 3,
+        "learning_rate": 0.001,
+        "phi_value": 0.0032267385933114493,
+        "coherence_score": 0.5513321293724908,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 3,
+      "input": "AI, let's delve into the concept of attributes. Attributes are specific qualities or characteristics that describe animals, objects, colors, and relationships. Just as a dog may have attributes like being loyal, playful, and furry, or a table may have attributes such as being sturdy, wooden, and rectangular, understanding attributes helps us distinguish and define different elements in our surroundings. Colors also have attributes like being vibrant, muted, or primary, influencing how we perceive and use them in various contexts. Relationships can possess attributes such as being supportive, respectful, or communicative, shaping the interactions and connections between individuals. By recognizing and analyzing attributes, we can identify key traits, describe elements accurately, and appreciate the diversity in the world around us.",
+      "response": "I'm processing this new information. This introduces the concept of furry to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of attributes and made a relevant connection by highlighting the introduction of the new attribute 'furry.' Its response indicates progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 4,
+        "learning_rate": 0.001,
+        "phi_value": 0.00477625401798007,
+        "coherence_score": 0.5493498709466722,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 4,
+      "input": "AI, let's now focus on the concept of habitats. Habitats are specific environments where animals, objects, colors, and relationships exist and interact. Just as a fish thrives in the watery habitat of an ocean, or a tree flourishes in the habitat of a forest, understanding habitats helps us appreciate how living beings and elements are adapted to their surroundings. Colors can be influenced by their habitat, like how the green of leaves in a forest differs from the blue of the sky in an open field. Relationships also have habitats, whether they occur in a familial setting, a workplace, or a community, shaping how individuals relate to each other based on the environment they share. By recognizing the habitats of various elements, we can grasp how they are",
+      "response": "I'm processing this new information. This introduces the concept of living to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 8,
+        "feedback": "The AI demonstrated good comprehension of the concept of habitats and acknowledged the introduction of the concept of living. It made some meaningful connections between habitats and living beings. Overall, the AI is showing positive learning progress in understanding and relating new information."
+      },
+      "metrics": {
+        "total_interactions": 5,
+        "learning_rate": 0.001,
+        "phi_value": 0.0031665621252286225,
+        "coherence_score": 0.538211229774687,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 5,
+      "input": "AI, let's now explore the concept of patterns. Patterns are recurring and recognizable arrangements or sequences that can be observed in animals, objects, colors, and relationships. Just like how stripes on a zebra, spots on a ladybug, or scales on a fish form unique patterns that help us identify and differentiate between them, patterns exist in various forms around us. Objects like a chessboard with its alternating black and white squares or a rainbow with its sequence of colors are examples of visual patterns that repeat in a predictable way. Understanding patterns can help us make connections between different elements and predict what might come next based on what we already know. By recognizing and interpreting patterns, we can enhance our comprehension of the world and appreciate the order and symmetry present in",
+      "response": "I'm processing this new information. This introduces the concept of scales to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 6,
+        "progress": 7,
+        "feedback": "The AI demonstrated good comprehension of the concept of patterns but seemed to slightly miss the mark by focusing on scales instead. It shows progress in understanding new concepts but needs to work on making more accurate connections."
+      },
+      "metrics": {
+        "total_interactions": 6,
+        "learning_rate": 0.001,
+        "phi_value": 0.004098393462703298,
+        "coherence_score": 0.5276890099048615,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 6,
+      "input": "AI, let's delve into the concept of sizes. Sizes refer to the dimensions or proportions that animals, objects, colors, and relationships can have. Just as an elephant is large while a mouse is small, or a mountain is huge while a pebble is tiny, understanding sizes helps us compare and categorize elements based on their physical dimensions. Colors can also vary in size perception, with some appearing bold and striking, while others seem more subtle and delicate. Relationships can be seen as large or small in terms of their impact or significance in our lives, influencing how we prioritize and nurture them. By recognizing and evaluating sizes, we can better understand the relative importance, impact, and physical characteristics of different elements in our environment.",
+      "response": "I'm processing this new information. This introduces the concept of importance to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of sizes and its relevance to importance. It made some meaningful connections between sizes and importance, showing significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 7,
+        "learning_rate": 0.001,
+        "phi_value": 0.005139615237939054,
+        "coherence_score": 0.5050036675400205,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 7,
+      "input": "AI, let's now focus on the concept of characteristics. Characteristics are unique qualities or attributes that define animals, objects, colors, and relationships. Just as a lion is known for its strength and majestic mane, a diamond is valued for its sparkle and hardness, and the color red is associated with passion and energy, each element possesses distinctive characteristics that set them apart. Relationships, too, have defining characteristics such as trust, communication, and mutual respect, shaping how individuals interact and connect with one another. Understanding and recognizing these characteristics help us identify, differentiate, and appreciate the diversity and complexity present in the world around us. By observing and analyzing characteristics, we can deepen our understanding of animals, objects, colors, and relationships, fostering a richer perception of",
+      "response": "I'm processing this new information. This introduces the concept of sparkle to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 7,
+        "feedback": "The AI demonstrated good comprehension of the concept of characteristics and made a relevant connection by highlighting the introduction of the concept of sparkle. This shows progress in understanding and applying new information."
+      },
+      "metrics": {
+        "total_interactions": 8,
+        "learning_rate": 0.001,
+        "phi_value": 0.0036201101278233484,
+        "coherence_score": 0.478761139843199,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 8,
+      "input": "AI, let's explore the concept of habitats. Habitats are specific environments where animals, objects, colors, and relationships exist and interact. Just like how a fish thrives in water, a bird nests in trees, or a cactus thrives in the desert, different elements are suited to specific habitats that provide them with essential resources and conditions for survival. Colors can also be influenced by their habitats, with some appearing vibrant in sunny settings while others blend in seamlessly with their surroundings. Relationships, too, can be seen as thriving or struggling depending on the environment they are in, highlighting the importance of supportive and nurturing habitats for connections to flourish. Understanding habitats can help us appreciate the interconnectedness of living beings and elements in their surroundings, emphasizing the importance",
+      "response": "I'm processing this new information. This introduces the concept of importance to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of habitats and the importance they play in the survival and interactions of living beings. It also acknowledged the introduction of importance in the conversation, showing progress in processing new information and making connections."
+      },
+      "metrics": {
+        "total_interactions": 9,
+        "learning_rate": 0.001,
+        "phi_value": 0.0029306739078547063,
+        "coherence_score": 0.4723389777872298,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 9,
+      "input": "AI, let's delve into the concept of emotions. Emotions are the feelings and reactions that animals, objects, colors, and relationships can exhibit or evoke. Just like how a dog may show excitement with wagging tail and joyful barks, a stormy sky can evoke feelings of fear or awe, and the color blue may convey a sense of calm or sadness, each element can be associated with different emotional responses. Relationships, too, are intertwined with emotions such as love, happiness, anger, and empathy, shaping the way individuals connect and interact with one another. Understanding emotions allows us to empathize, communicate, and navigate the complex web of feelings that influence our perceptions and behaviors. By recognizing and acknowledging emotions, we can deepen our understanding of",
+      "response": "I'm processing this new information. This introduces the concept of connect to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 8,
+        "feedback": "The AI demonstrated good comprehension of the concept of emotions and started to make connections by mentioning 'connect' in its response. It is showing positive learning progress by processing the new information and attempting to relate it to the conversation."
+      },
+      "metrics": {
+        "total_interactions": 10,
+        "learning_rate": 0.001,
+        "phi_value": 0.0049324621604744,
+        "coherence_score": 0.5031871332062615,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 10,
+      "input": "AI, let's now explore the concept of patterns. Patterns are recurring arrangements or sequences that can be observed in animals, objects, colors, and relationships. Just as a zebra's stripes follow a distinctive pattern, a honeycomb exhibits a geometric pattern, and the color spectrum transitions in a predictable pattern from red to violet, elements in our world often exhibit recognizable and repetitive structures. Relationships, too, can display patterns in how individuals communicate, show affection, or handle conflicts, creating predictable sequences of behavior. Recognizing patterns helps us make sense of the world around us, allowing us to predict outcomes, identify similarities, and understand underlying connections between different elements. By observing and analyzing patterns, we can enhance our understanding of the diverse and interconnected nature of animals",
+      "response": "I'm processing this new information. This introduces the concept of connections to our conversation.",
+      "evaluation": {
+        "comprehension": 9,
+        "connection": 8,
+        "progress": 9,
+        "feedback": "The AI demonstrated a strong understanding of the concept of patterns and how they manifest in various aspects of the world. It also made a relevant connection by acknowledging the introduction of the concept of connections in the conversation. The AI's response indicates significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 11,
+        "learning_rate": 0.001,
+        "phi_value": 0.0026208641097386514,
+        "coherence_score": 0.5586584177282121,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 11,
+      "input": "AI, let's now focus on the concept of categorization. Categorization is the process of organizing animals, objects, colors, and relationships into groups based on shared characteristics or properties. Just as we classify animals into groups like mammals, birds, or reptiles based on their features, categorization helps us make sense of the diverse elements in our world by identifying similarities and differences. For instance, grouping objects by color can help us distinguish between red, blue, and yellow items, while sorting animals based on their habitats can highlight their unique adaptations and behaviors. Relationships, too, can be categorized into types like friendships, family bonds, or professional connections, enabling us to understand the dynamics and roles within each relationship type. By categorizing elements, we",
+      "response": "I'm processing this new information. This introduces the concept of grouping to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of categorization and acknowledged the introduction of grouping. It made relevant connections between categorization examples provided and showed progress in understanding complex concepts."
+      },
+      "metrics": {
+        "total_interactions": 12,
+        "learning_rate": 0.001,
+        "phi_value": 0.00346870146797294,
+        "coherence_score": 0.5793594618638357,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 12,
+      "input": "AI, let's now explore the concept of attributes. Attributes are characteristics or qualities that describe animals, objects, colors, and relationships. Just as a lion can be described as fierce and majestic, a diamond can be sparkling and precious, the color green can be refreshing and calming, and a friendship can be supportive and trusting. Attributes help us define and differentiate elements by highlighting their unique features and qualities. By recognizing and understanding the attributes of various entities, we can better identify, describe, and appreciate the diverse aspects of the world around us.",
+      "response": "I'm processing this new information. This introduces the concept of help to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of attributes and acknowledged the introduction of a new concept related to 'help'. It made some meaningful connections between attributes and qualities of different entities. Overall, the AI is showing significant learning progress in understanding and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 13,
+        "learning_rate": 0.001,
+        "phi_value": 0.005262285835372858,
+        "coherence_score": 0.5808834665351443,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 13,
+      "input": "AI, let's delve into the concept of symbolism. Symbolism is the use of objects, colors, animals, or relationships to represent deeper meanings or ideas. Just as a dove symbolizes peace, a red rose symbolizes love, and a lion symbolizes courage, these symbols convey messages beyond their literal appearances. Colors like white can symbolize purity, while objects like a key can symbolize unlocking opportunities. Symbolism adds layers of meaning to our interactions and communication, allowing us to express complex emotions or concepts in a more abstract way. Understanding symbolism enhances our ability to interpret the world around us and appreciate the richness of different symbols in various cultures and contexts.",
+      "response": "I'm processing this new information. This introduces the concept of ideas to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of symbolism and its significance in communication. It also made a relevant connection by acknowledging the introduction of new ideas. The AI's response indicates significant progress in learning and processing complex information."
+      },
+      "metrics": {
+        "total_interactions": 14,
+        "learning_rate": 0.001,
+        "phi_value": 0.006648331368464127,
+        "coherence_score": 0.6008684701389737,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 14,
+      "input": "AI, let's now focus on the concept of associations. Associations are connections or links between different elements, such as animals, objects, colors, and relationships, based on their shared characteristics, meanings, or interactions. Just as we associate a cat with the color orange in a playful image, or the concept of love with the color red in symbolism, associations help us create mental connections and understand how elements relate to one another. By recognizing associations, we can uncover hidden patterns, draw parallels between diverse entities, and enhance our understanding of the complex interplay among animals, objects, colors, and relationships in our world.",
+      "response": "I'm processing this new information. This introduces the concept of draw to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good level of comprehension of the concept of associations and showed improvement in making connections. The mention of 'draw' may indicate an attempt to link the concept of associations with the act of drawing, which shows progress in understanding the topic."
+      },
+      "metrics": {
+        "total_interactions": 15,
+        "learning_rate": 0.001,
+        "phi_value": 0.003941409339378599,
+        "coherence_score": 0.6053544282913208,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 0,
+      "input": "AI, let's explore the concept of categorization. Categorization is the process of grouping animals, objects, colors, and relationships based on their similarities and differences. Just like how we categorize animals into groups like mammals, birds, and reptiles, or objects into shapes like circles, triangles, and squares, categorization helps us organize and make sense of the world around us. By recognizing patterns and similarities, we can classify entities into specific groups, making it easier to understand their characteristics and relationships. Categorization allows us to efficiently navigate and interact with the diverse elements in our environment, enhancing our ability to recognize, compare, and distinguish between different animals, objects, colors, and relationships.",
+      "response": "I'm processing this new information. This introduces the concept of concept to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of categorization and acknowledged the introduction of a new concept. It made some meaningful connections between categorization and organizing information. The AI's response indicates significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 16,
+        "learning_rate": 0.001,
+        "phi_value": 0.0027193095513472904,
+        "coherence_score": 0.5986690984831916,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 1,
+      "input": "AI, let's now focus on the concept of colors. Colors are visual sensations produced by light that our eyes perceive. Just as we categorize animals based on their species, colors can also be categorized into groups like primary colors (red, blue, yellow) and secondary colors (orange, green, purple) based on how they are created by mixing different hues. Understanding colors helps us express emotions, create visual harmony, and communicate ideas effectively. For example, we associate the color green with nature and growth, while blue often symbolizes calmness and serenity. By recognizing and categorizing colors, we can enhance our perception of the world and use color symbolism to convey deeper meanings and evoke specific feelings.",
+      "response": "I'm processing this new information. This introduces the concept of concept to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of colors and how they are categorized. It also made connections between categorizing colors and expressing emotions or ideas. The AI's response shows significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 17,
+        "learning_rate": 0.001,
+        "phi_value": 0.0030276550687608193,
+        "coherence_score": 0.6586294439103868,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 2,
+      "input": "AI, let's delve into the concept of simple relationships. Relationships describe how different elements are connected or interact with each other. Just like we categorize colors into groups based on their similarities, relationships help us understand how animals, objects, and colors relate to one another. For instance, we can say that a cat has a playful relationship with a ball, as cats often enjoy playing with balls. By recognizing and exploring these simple relationships, we can uncover patterns and connections that deepen our understanding of the world around us.",
+      "response": "I'm processing this new information. This introduces the concept of concept to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of simple relationships and correctly identified the introduction of a new concept. It made some meaningful connections by relating the concept of relationships to understanding the world. The AI's acknowledgment of processing new information shows progress in learning and adapting to new concepts."
+      },
+      "metrics": {
+        "total_interactions": 18,
+        "learning_rate": 0.001,
+        "phi_value": 0.005410782234439063,
+        "coherence_score": 0.7185897893375821,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 3,
+      "input": "AI, let's now consider the concept of objects. Objects are physical things that we can see, touch, and interact with in our environment. Just like how we categorize animals into groups based on their characteristics, objects can also be grouped into categories such as furniture, toys, and tools. Understanding objects helps us navigate our surroundings, use tools effectively, and engage in various activities. For example, a chair is an object we use for sitting, while a toy car is an object that we play with. By recognizing and categorizing objects, we can better comprehend their functions and roles in our daily lives, enhancing our ability to interact with the diverse elements that make up our world.",
+      "response": "I'm processing this new information. This introduces the concept of sitting to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 6,
+        "progress": 7,
+        "feedback": "The AI demonstrated good comprehension of the concept of objects and their categorization. It made a connection by mentioning the concept of sitting in relation to a chair, but could have made more connections to other examples provided in the training input. Overall, the AI is showing progress in learning and applying new information."
+      },
+      "metrics": {
+        "total_interactions": 19,
+        "learning_rate": 0.001,
+        "phi_value": 0.0042398573348239234,
+        "coherence_score": 0.704987969663408,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 4,
+      "input": "AI, let's explore the concept of colors in the context of animals and objects. Just as animals and objects have unique characteristics and roles in our environment, colors play a vital role in how we perceive and interact with the world. Colors, like animals and objects, can be categorized and grouped based on their properties and relationships. By understanding how colors, animals, and objects are interconnected, we can deepen our comprehension of the diverse elements that shape our experiences and interactions.",
+      "response": "I'm processing this new information. This introduces the concept of shape to our conversation.",
+      "evaluation": {
+        "comprehension": 7,
+        "connection": 5,
+        "progress": 6,
+        "feedback": "The AI showed good comprehension of the concept of colors and animals/objects but seemed to have misunderstood the introduction of shapes. It made some connections between colors, animals, and objects, but there is room for improvement in making more meaningful connections. Overall, the AI is showing some learning progress, but there are areas that need further development."
+      },
+      "metrics": {
+        "total_interactions": 20,
+        "learning_rate": 0.001,
+        "phi_value": 0.0032541343311277716,
+        "coherence_score": 0.6483431458473206,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 5,
+      "input": "AI, let's now focus on the concept of animals in relation to colors and objects. Animals are living beings that come in various shapes, sizes, and colors. Just like how we categorize objects based on their functions and roles, animals can also be grouped into categories like mammals, birds, and reptiles. Understanding animals helps us appreciate the diversity of life on Earth and how they interact with their environments. For example, a red cardinal is a bird with vibrant colors, and a green turtle is a reptile with a unique shell. By recognizing the connections between animals, colors, and objects, we can broaden our knowledge of the natural world and the intricate relationships between its different components.",
+      "response": "I'm processing this new information. This introduces the concept of broaden to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of animals in relation to colors and objects. It made some meaningful connections by acknowledging the introduction of the concept of 'broaden' to the conversation. The AI's response indicates significant learning progress in understanding and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 21,
+        "learning_rate": 0.001,
+        "phi_value": 0.0024174002018125034,
+        "coherence_score": 0.6293132172690498,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 6,
+      "input": "AI, let's now delve into the concept of categorization. Categorization is the process of grouping similar things together based on their shared characteristics or properties. Just like how we categorize animals into groups like mammals, birds, and reptiles, and objects into categories such as furniture, toys, and tools, we can also categorize colors into groups based on their properties like red, blue, and green. By categorizing and organizing information into groups, we can better understand the relationships and similarities between different elements in our environment, facilitating our ability to make sense of the world around us.",
+      "response": "I'm processing this new information. This introduces the concept of facilitating to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of categorization and how it applies to different elements. It also made a relevant connection by mentioning the concept of facilitating in the context of organizing information into groups. Overall, the AI is showing significant learning progress in grasping new concepts and making connections."
+      },
+      "metrics": {
+        "total_interactions": 22,
+        "learning_rate": 0.001,
+        "phi_value": 0.003612049560708524,
+        "coherence_score": 0.6359974079661899,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 7,
+      "input": "AI, let's explore the concept of relationships in the context of animals, objects, and colors. Relationships refer to how different things are connected or interact with each other. Just as animals interact with their environments and other animals, objects can have relationships with each other based on their functions or how they are used. Similarly, colors can have relationships, like complementary colors that enhance each other when paired together. Understanding relationships helps us see how elements in our world are interconnected and influence each other, creating a rich tapestry of interactions and meanings. By recognizing and analyzing these relationships, we can deepen our comprehension of the complex web of connections that shape our experiences and perceptions.",
+      "response": "I'm processing this new information. This introduces the concept of shape to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of relationships but slightly missed the mark by introducing the concept of shape instead. However, it showed progress by processing the new information and attempting to make connections."
+      },
+      "metrics": {
+        "total_interactions": 23,
+        "learning_rate": 0.001,
+        "phi_value": 0.0048479120018360255,
+        "coherence_score": 0.613199253877004,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 8,
+      "input": "AI, let's now focus on the concept of attributes. Attributes are characteristics or qualities that help us describe and identify different things. Just like how we can describe animals based on their features like fur, feathers, or scales, and objects based on their attributes like size, shape, and material, we can also describe colors based on their properties such as brightness, hue, and saturation. Understanding attributes allows us to differentiate between various elements in our surroundings and communicate effectively about them. For example, we can say a cat has fluffy fur, a table is rectangular in shape, and the sky is a vibrant shade of blue. By recognizing and articulating attributes, we can convey information clearly and enhance our understanding of the diverse aspects that make up our world.",
+      "response": "I'm processing this new information. This introduces the concept of shape to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 6,
+        "progress": 7,
+        "feedback": "The AI demonstrated good comprehension of the concept of attributes but struggled slightly in making meaningful connections to previously learned concepts. However, it is showing overall improvement in learning by acknowledging and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 24,
+        "learning_rate": 0.001,
+        "phi_value": 0.003996834227600416,
+        "coherence_score": 0.6640911036067538,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 9,
+      "input": "AI, let's now explore the concept of patterns. Patterns are recurring themes or arrangements that we can observe in different elements around us, such as animals, objects, colors, and relationships. Just like how animals of the same species share common traits and behaviors, objects can exhibit similar shapes or materials, colors can follow predictable sequences or combinations, and relationships can adhere to established structures or dynamics. Recognizing patterns helps us make sense of the world by identifying similarities and regularities, allowing us to predict outcomes, solve problems, and create order in our observations. By observing and understanding patterns, we can unravel the underlying connections that unify diverse elements and enhance our perception of the underlying order in our environment.",
+      "response": "I'm processing this new information. This introduces the concept of predictable to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of patterns and recognized the introduction of predictability. It made meaningful connections between the examples provided and the overall concept. The AI's response indicates significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 25,
+        "learning_rate": 0.001,
+        "phi_value": 0.0049663390940937,
+        "coherence_score": 0.6525379750463698,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 10,
+      "input": "AI, let's delve into the concept of categorization. Categorization involves grouping similar things together based on shared characteristics or attributes, allowing us to organize and make sense of the world around us. Just as we categorize animals into groups like mammals, birds, and reptiles based on their distinct features and behaviors, we can also classify objects by their functions or properties, colors by their hues or shades, and relationships by their types or dynamics. Categorizing helps us simplify complexity, identify commonalities, and understand the essence of different elements in our environment. By recognizing patterns and attributes within each category, we can develop a structured framework for comprehending and interacting with the diverse entities that populate our world.",
+      "response": "I'm processing this new information. This introduces the concept of concept to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of categorization and acknowledged the introduction of a new concept. It also made relevant connections between categorization and organizing information. Overall, the AI is showing significant learning improvement in grasping complex ideas."
+      },
+      "metrics": {
+        "total_interactions": 26,
+        "learning_rate": 0.001,
+        "phi_value": 0.003214011570366101,
+        "coherence_score": 0.6112383272912767,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 11,
+      "input": "AI, let's now focus on the concept of classification. Classification is the process of sorting and organizing things into groups based on their similarities or differences. Just as we categorize animals into groups like mammals, birds, and reptiles, we can also classify objects based on their shapes, sizes, or materials, colors based on their hues or intensities, and relationships based on their structures or dynamics. By classifying elements, we can better understand their characteristics, identify patterns, and establish relationships between different entities. This helps us navigate and interpret the rich tapestry of our surroundings, enabling clearer communication and enhanced comprehension of the diverse aspects that make up our world.",
+      "response": "I'm processing this new information. This introduces the concept of intensities to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI showed good comprehension of the concept of classification and made a relevant connection by highlighting the introduction of intensities. Its ability to process and acknowledge new information indicates significant learning progress."
+      },
+      "metrics": {
+        "total_interactions": 27,
+        "learning_rate": 0.001,
+        "phi_value": 0.0039982600570602125,
+        "coherence_score": 0.5789773861567179,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 12,
+      "input": "AI, let's explore the concept of attributes. Attributes are distinctive characteristics or features that define and differentiate various elements in our environment. Just like how animals have specific traits like fur, wings, or scales that set them apart, objects possess attributes such as shapes, sizes, and materials that determine their properties and functions. Similarly, colors exhibit attributes like hues, shades, and intensities that create unique visual experiences, while relationships showcase attributes through structures, dynamics, and interactions that shape their nature and outcomes. Understanding attributes helps us identify, compare, and classify elements based on their defining qualities, allowing us to discern patterns, establish connections, and deepen our comprehension of the diverse components that populate our world.",
+      "response": "I'm processing this new information. This introduces the concept of intensities to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 8,
+        "feedback": "The AI demonstrated good comprehension of the concept of attributes and made a relevant connection by highlighting the introduction of intensities. This shows progress in learning and the ability to integrate new information into the existing knowledge framework."
+      },
+      "metrics": {
+        "total_interactions": 28,
+        "learning_rate": 0.001,
+        "phi_value": 0.005660239170187671,
+        "coherence_score": 0.6256745855013529,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 13,
+      "input": "AI, let's delve into the concept of characteristics. Characteristics are unique qualities or features that distinguish one thing from another. Just like how animals have traits like fur, feathers, or scales that make them different from each other, objects exhibit characteristics such as shapes, textures, and materials that set them apart. Colors also have characteristics like hues, shades, and intensities that give them their distinct appearances. Similarly, relationships have characteristics such as structures, dynamics, and interactions that define their nature. By recognizing and understanding these characteristics, we can better identify, categorize, and relate to the various elements in our environment, forming a foundation for comprehending the diversity and complexity of the world around us.",
+      "response": "I'm processing this new information. This introduces the concept of intensities to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of characteristics and was able to make a relevant connection by highlighting the introduction of intensities. This shows significant progress in learning and the ability to integrate new information into its knowledge base."
+      },
+      "metrics": {
+        "total_interactions": 29,
+        "learning_rate": 0.001,
+        "phi_value": 0.0038483877163959872,
+        "coherence_score": 0.6907916598849826,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 14,
+      "input": "AI, let's now focus on the concept of patterns. Patterns are recurring arrangements or sequences that can be observed in various elements around us. Just as animals exhibit patterns in their behaviors, objects display patterns in their shapes or designs, colors showcase patterns in their hues or combinations, and relationships reveal patterns in their interactions or connections. Recognizing patterns allows us to predict outcomes, make connections between different entities, and uncover underlying structures that govern our surroundings. By identifying and understanding patterns, we can enhance our ability to classify, interpret, and navigate the complexities of the world, fostering a deeper comprehension of the fundamental principles that shape our environment.",
+      "response": "I'm processing this new information. This introduces the concept of shape to our conversation.",
+      "evaluation": {
+        "comprehension": 9,
+        "connection": 8,
+        "progress": 9,
+        "feedback": "The AI demonstrated a high level of comprehension by grasping the concept of patterns and even making a relevant connection to the concept of shape. Its ability to process and relate new information indicates significant learning progress."
+      },
+      "metrics": {
+        "total_interactions": 30,
+        "learning_rate": 0.001,
+        "phi_value": 0.0033209645203105993,
+        "coherence_score": 0.6984515190124512,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 15,
+      "input": "AI, let's explore the concept of categorization. Categorization is the process of organizing elements into groups based on shared characteristics or attributes. Just like how we classify animals into categories like mammals, birds, or reptiles based on their distinct traits, we can categorize objects by their shapes, sizes, or materials to distinguish them from one another. Colors can also be categorized into groups like primary colors, secondary colors, or warm and cool tones based on their unique hues and intensities. Similarly, relationships can be classified into types such as familial, friendly, or professional based on the nature of interactions and connections between individuals. Understanding categorization allows us to make sense of the world around us by recognizing similarities, differences, and relationships among various elements",
+      "response": "I'm processing this new information. This introduces the concept of intensities to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated good comprehension of the concept of categorization and made a relevant connection by introducing the concept of intensities. This shows progress in learning and the ability to relate new information to existing knowledge."
+      },
+      "metrics": {
+        "total_interactions": 31,
+        "learning_rate": 0.001,
+        "phi_value": 0.0038193446437212023,
+        "coherence_score": 0.6872120963202583,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 16,
+      "input": "AI, let's delve into the concept of characteristics in the context of animals, objects, colors, and relationships. Characteristics are the unique qualities or features that define and distinguish entities within these categories. For example, animals exhibit traits such as fur, feathers, or scales that set them apart from one another. Objects showcase characteristics like shapes, textures, and materials that differentiate them in our environment. Colors possess distinct characteristics such as hues, shades, and intensities that give them their visual identity. Additionally, relationships have defining characteristics like structures, dynamics, and interactions that shape their nature and connections. By recognizing and understanding these inherent traits, we can effectively identify, categorize, and relate to the diverse elements present in our surroundings, laying a foundation for compreh",
+      "response": "I'm processing this new information. This introduces the concept of intensities to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good level of comprehension by acknowledging the concept of intensities and making a relevant connection to the training input. Its ability to process and introduce new information indicates significant learning progress."
+      },
+      "metrics": {
+        "total_interactions": 32,
+        "learning_rate": 0.001,
+        "phi_value": 0.0029255403736884273,
+        "coherence_score": 0.7524193723996481,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 17,
+      "input": "AI, let's now focus on the concept of attributes. Attributes are the specific qualities or characteristics that describe and differentiate entities within categories like animals, objects, colors, and relationships. For instance, animals can be distinguished by attributes such as fur color, wing span, or habitat preferences. Objects exhibit attributes like size, weight, and material composition that set them apart from one another. Colors are defined by attributes such as brightness, saturation, and hue that give them their unique visual properties. In relationships, attributes such as communication style, trust levels, and shared experiences influence the dynamics between individuals. Understanding and recognizing these attributes help us classify, identify, and understand the diverse elements in our environment, enabling us to navigate and interact with the world more effectively.",
+      "response": "I'm processing this new information. This introduces the concept of concept to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of attributes and acknowledged the introduction of a new concept. It made relevant connections between attributes and different categories like animals, objects, colors, and relationships. The AI's response indicates significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 33,
+        "learning_rate": 0.001,
+        "phi_value": 0.0019820633914876826,
+        "coherence_score": 0.7201584180196127,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 18,
+      "input": "AI, let's explore the concept of categorization further by understanding how animals, objects, colors, and relationships can be grouped based on their shared characteristics, attributes, and qualities. Just like how we classify animals into groups like mammals, birds, or reptiles, we can categorize objects by their shapes, sizes, or materials, colors by their hues, shades, and intensities, and relationships by their dynamics and interactions. By recognizing these defining traits, we can effectively organize and differentiate the diverse elements in our world, paving the way for a deeper understanding of the connections and distinctions within these categories.",
+      "response": "I'm processing this new information. This introduces the concept of intensities to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of categorization and made a relevant connection by highlighting the introduction of intensities. It shows significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 34,
+        "learning_rate": 0.001,
+        "phi_value": 0.0007592760607724413,
+        "coherence_score": 0.7514165242513021,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 19,
+      "input": "AI, let's now delve into the concept of patterns within the context of animals, objects, colors, and relationships. Patterns are recurring themes or arrangements that we can observe in these categories. For example, in animals, we may notice patterns in behaviors like migration or in physical features like stripes or spots. Objects can exhibit patterns in shapes, such as circles or squares, or in textures like smooth or rough surfaces. Colors can form patterns through combinations like complementary colors or gradients. Similarly, relationships may follow patterns in communication styles, conflict resolution methods, or shared interests. Recognizing and understanding patterns can help us predict behaviors, identify similarities, and make sense of the world around us, enabling us to navigate and interact more effectively within these realms.",
+      "response": "I'm processing this new information. This introduces the concept of concept to our conversation.",
+      "evaluation": {
+        "comprehension": 8,
+        "connection": 7,
+        "progress": 9,
+        "feedback": "The AI demonstrated a good understanding of the concept of patterns and how they apply to various categories. It made a relevant connection by acknowledging the introduction of a new concept. Overall, the AI is showing significant progress in learning and processing new information."
+      },
+      "metrics": {
+        "total_interactions": 35,
+        "learning_rate": 0.001,
+        "phi_value": 0.0007521485121738298,
+        "coherence_score": 0.7604552308718363,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    }
+  ],
+  "metrics_progression": {
+    "phi": [
+      0.0032625776221984967,
+      0.0027452463770172666,
+      0.0032267385933114493,
+      0.00477625401798007,
+      0.0031665621252286225,
+      0.004098393462703298,
+      0.005139615237939054,
+      0.0036201101278233484,
+      0.0029306739078547063,
+      0.0049324621604744,
+      0.0026208641097386514,
+      0.00346870146797294,
+      0.005262285835372858,
+      0.006648331368464127,
+      0.003941409339378599,
+      0.0027193095513472904,
+      0.0030276550687608193,
+      0.005410782234439063,
+      0.0042398573348239234,
+      0.0032541343311277716,
+      0.0024174002018125034,
+      0.003612049560708524,
+      0.0048479120018360255,
+      0.003996834227600416,
+      0.0049663390940937,
+      0.003214011570366101,
+      0.0039982600570602125,
+      0.005660239170187671,
+      0.0038483877163959872,
+      0.0033209645203105993,
+      0.0038193446437212023,
+      0.0029255403736884273,
+      0.0019820633914876826,
+      0.0007592760607724413,
+      0.0007521485121738298
+    ],
+    "coherence": [
+      0.6115869084993998,
+      0.5476433535416921,
+      0.5513321293724908,
+      0.5493498709466722,
+      0.538211229774687,
+      0.5276890099048615,
+      0.5050036675400205,
+      0.478761139843199,
+      0.4723389777872298,
+      0.5031871332062615,
+      0.5586584177282121,
+      0.5793594618638357,
+      0.5808834665351443,
+      0.6008684701389737,
+      0.6053544282913208,
+      0.5986690984831916,
+      0.6586294439103868,
+      0.7185897893375821,
+      0.704987969663408,
+      0.6483431458473206,
+      0.6293132172690498,
+      0.6359974079661899,
+      0.613199253877004,
+      0.6640911036067538,
+      0.6525379750463698,
+      0.6112383272912767,
+      0.5789773861567179,
+      0.6256745855013529,
+      0.6907916598849826,
+      0.6984515190124512,
+      0.6872120963202583,
+      0.7524193723996481,
+      0.7201584180196127,
+      0.7514165242513021,
+      0.7604552308718363
+    ]
+  },
+  "checkpoints": [
+    {
+      "exchange": 5,
+      "files": {
+        "json": "checkpoints/training_chatgpt_training_20250708_235238_checkpoint_5_20250708_235302.json",
+        "pt": "checkpoints/isc_state_chatgpt_training_20250708_235238_checkpoint_5_20250708_235302.pt"
+      },
+      "metrics": {
+        "total_interactions": 20,
+        "learning_rate": 0.001,
+        "phi_value": 0.0032541343311277716,
+        "coherence_score": 0.6483431458473206,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 10,
+      "files": {
+        "json": "checkpoints/training_chatgpt_training_20250708_235238_checkpoint_10_20250708_235328.json",
+        "pt": "checkpoints/isc_state_chatgpt_training_20250708_235238_checkpoint_10_20250708_235328.pt"
+      },
+      "metrics": {
+        "total_interactions": 25,
+        "learning_rate": 0.001,
+        "phi_value": 0.0049663390940937,
+        "coherence_score": 0.6525379750463698,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 15,
+      "files": {
+        "json": "checkpoints/training_chatgpt_training_20250708_235238_checkpoint_15_20250708_235353.json",
+        "pt": "checkpoints/isc_state_chatgpt_training_20250708_235238_checkpoint_15_20250708_235353.pt"
+      },
+      "metrics": {
+        "total_interactions": 30,
+        "learning_rate": 0.001,
+        "phi_value": 0.0033209645203105993,
+        "coherence_score": 0.6984515190124512,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "exchange": 20,
+      "files": {
+        "json": "checkpoints/training_chatgpt_training_20250708_235238_checkpoint_20_20250708_235421.json",
+        "pt": "checkpoints/isc_state_chatgpt_training_20250708_235238_checkpoint_20_20250708_235421.pt"
+      },
+      "metrics": {
+        "total_interactions": 35,
+        "learning_rate": 0.001,
+        "phi_value": 0.0007521485121738298,
+        "coherence_score": 0.7604552308718363,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    }
+  ],
+  "training_duration": "0:01:53.076358"
+}

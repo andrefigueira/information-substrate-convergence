@@ -1,0 +1,69 @@
+{
+  "model_path": null,
+  "session_start": "2025-07-09T10:29:48.755891",
+  "session_duration": 204.50697112083435,
+  "model_type": "standard",
+  "final_metrics": {
+    "phi": 0.001391232665089599,
+    "coherence": 0.5753692189852396,
+    "total_interactions": 1769
+  },
+  "exchanges": [
+    {
+      "timestamp": "2025-07-09T10:30:03.356586",
+      "user": "hello there",
+      "assistant": "Starting to understand hello and how it might relate to concepts are introduced, currently building on our exploration of starting. We might also explore how this connects to like.",
+      "phi": 0.0013933311793183885,
+      "coherence": 0.6546851462788053,
+      "response_time": 0.26172399520874023
+    },
+    {
+      "timestamp": "2025-07-09T10:30:07.161365",
+      "user": "how are you",
+      "assistant": "This introduces this information to our discussion about our discussion.",
+      "phi": 0.0013986036144582948,
+      "coherence": 0.6207804216278924,
+      "response_time": 0.14038300514221191
+    },
+    {
+      "timestamp": "2025-07-09T10:30:15.981754",
+      "user": "when are you going to understand me",
+      "assistant": "This introduces going to our discussion about understand, meanwhile building on our exploration of introduces.",
+      "phi": 0.0013899267216637015,
+      "coherence": 0.6140281160672506,
+      "response_time": 0.14249968528747559
+    },
+    {
+      "timestamp": "2025-07-09T10:30:24.464706",
+      "user": "ok this isn't working like i want yet",
+      "assistant": "I notice working appearing in the context of like, meanwhile building on our exploration of introduces. We might also explore how this connects to like.",
+      "phi": 0.0013907612737916212,
+      "coherence": 0.6285685300827026,
+      "response_time": 0.14374303817749023
+    },
+    {
+      "timestamp": "2025-07-09T10:31:24.706295",
+      "user": "hello",
+      "assistant": "I'm beginning to process hello in relation to processing continues, currently building on our exploration of notice. We might also explore how this connects to building.",
+      "phi": 0.0013931325172444058,
+      "coherence": 0.6073605948024325,
+      "response_time": 0.1440119743347168
+    },
+    {
+      "timestamp": "2025-07-09T10:31:42.504332",
+      "user": "hello connects to building, because you're building a conversation",
+      "assistant": "I'm beginning to process hello in relation to connects, currently building on our exploration of beginning. We might also explore how this connects to exploration.",
+      "phi": 0.0013933201914268088,
+      "coherence": 0.611306263340844,
+      "response_time": 0.1509230136871338
+    },
+    {
+      "timestamp": "2025-07-09T10:33:08.282822",
+      "user": "/exit",
+      "assistant": "I'm beginning to process this information in relation to our discussion.",
+      "phi": 0.001391232665089599,
+      "coherence": 0.5753692189852396,
+      "response_time": 0.13191890716552734
+    }
+  ]
+}
