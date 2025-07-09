@@ -25,7 +25,7 @@ class SelfModifyingNetwork(nn.Module):
     based on the ISC hypothesis of self-referential information patterns.
     """
     
-    def __init__(self, input_dim: int = 768, hidden_dim: int = 512, num_layers: int = 4):
+    def __init__(self, input_dim: int = 384, hidden_dim: int = 512, num_layers: int = 4):
         super().__init__()
         self.input_dim = input_dim
         self.hidden_dim = hidden_dim
@@ -111,8 +111,8 @@ class ISCCore:
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         self.config = config or self._default_config()
         
-        # Initialize components
-        self.network = SelfModifyingNetwork()
+        # Initialize components (note: all-MiniLM-L6-v2 produces 384-dim embeddings)
+        self.network = SelfModifyingNetwork(input_dim=384, hidden_dim=512, num_layers=4)
         self.integrator = InformationIntegrator()
         self.knowledge_graph = KnowledgeGraph()
         self.learning_engine = LearningEngine(self.network)
@@ -172,16 +172,39 @@ class ISCCore:
             phi_value = self.integrator.calculate_phi(internal_states)
             self.metrics["phi_value"] = phi_value
         
-        # Update knowledge graph
-        concepts = self._extract_concepts(user_input)
-        for concept in concepts:
+        # Update knowledge graph with input concepts
+        input_concepts = self._extract_concepts(user_input)
+        for concept in input_concepts:
             self.knowledge_graph.add_concept(concept, input_embedding)
         
-        # Generate response (simplified for now)
+        # Form connections between co-occurring concepts in input
+        self._form_concept_connections(input_concepts)
+        
+        # Generate response
         response = self._generate_response(output_embedding, user_input)
         
+        # Extract response concepts and add to graph
+        response_concepts = self._extract_concepts(response)
+        for concept in response_concepts:
+            self.knowledge_graph.add_concept(concept, output_embedding)
+        
+        # Connect input and response concepts
+        self._connect_input_response_concepts(input_concepts, response_concepts)
+        
+        # Update embeddings and find similar concepts
+        self._update_concept_embeddings(input_concepts, input_embedding)
+        self._update_concept_embeddings(response_concepts, output_embedding)
+        
         # Learn from interaction
-        self.learning_engine.learn_from_interaction(user_input, response, internal_states)
+        if hasattr(self.learning_engine, 'learn_from_interaction'):
+            # Check if it's the enhanced version that accepts phi
+            if 'phi_value' in self.learning_engine.learn_from_interaction.__code__.co_varnames:
+                self.learning_engine.learn_from_interaction(user_input, response, internal_states, phi_value)
+            else:
+                self.learning_engine.learn_from_interaction(user_input, response, internal_states)
+        else:
+            # Fallback for older learning engine
+            pass
         
         # Update memory
         self.memory.add_interaction(user_input, response, self.current_session_id)
@@ -199,16 +222,36 @@ class ISCCore:
         from nltk.tokenize import word_tokenize
         
         try:
-            nltk.data.find('tokenizers/punkt')
+            nltk.data.find('tokenizers/punkt_tab')
         except LookupError:
-            nltk.download('punkt')
+            nltk.download('punkt_tab')
+            
+        try:
+            nltk.data.find('corpora/stopwords')
+        except LookupError:
             nltk.download('stopwords')
         
         tokens = word_tokenize(text.lower())
         stop_words = set(stopwords.words('english'))
         
-        concepts = [w for w in tokens if w.isalnum() and w not in stop_words and len(w) > 3]
-        return list(set(concepts))[:5]  # Return top 5 unique concepts
+        # Include important short words and proper nouns
+        important_short_words = {'cat', 'dog', 'pet', 'ai', 'phi'}
+        
+        concepts = []
+        for w in tokens:
+            if w.isalnum() and w not in stop_words:
+                if len(w) > 3 or w in important_short_words:
+                    concepts.append(w)
+        
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_concepts = []
+        for c in concepts:
+            if c not in seen:
+                seen.add(c)
+                unique_concepts.append(c)
+        
+        return unique_concepts[:10]  # Return top 10 unique concepts
     
     def _generate_response(self, output_embedding: torch.Tensor, user_input: str) -> str:
         """Generate response based on output embedding and context"""
@@ -299,7 +342,20 @@ class ISCCore:
     
     def load_state(self, filepath: str):
         """Load system state"""
-        state = torch.load(filepath)
+        # Use weights_only=True for security - prevents arbitrary code execution
+        # If this fails due to incompatible data, we'll handle it gracefully
+        try:
+            state = torch.load(filepath, weights_only=True)
+        except Exception:
+            # Fall back to unsafe loading with a warning
+            import warnings
+            warnings.warn(
+                f"Loading {filepath} with weights_only=False. "
+                "This file may contain arbitrary code. "
+                "Only load files from trusted sources.",
+                RuntimeWarning
+            )
+            state = torch.load(filepath, weights_only=False)
         
         self.network.load_state_dict(state["network_state"])
         self.knowledge_graph.graph = nx.node_link_graph(state["knowledge_graph"])
@@ -396,3 +452,74 @@ class ISCCore:
                     introspection += f"- {layer}: {recent_activity:.3f} average activation\n"
         
         return introspection
+    
+    def _form_concept_connections(self, concepts: List[str]):
+        """Form connections between co-occurring concepts"""
+        # Connect all pairs of concepts that appear together
+        for i in range(len(concepts)):
+            for j in range(i + 1, len(concepts)):
+                # Base strength on proximity (closer concepts = stronger connection)
+                distance = j - i
+                strength = 1.0 / (1 + distance * 0.1)
+                self.knowledge_graph.add_connection(concepts[i], concepts[j], strength)
+    
+    def _connect_input_response_concepts(self, input_concepts: List[str], response_concepts: List[str]):
+        """Connect concepts from input with concepts in response"""
+        # Connect each input concept with each response concept
+        for input_concept in input_concepts:
+            for response_concept in response_concepts:
+                # Lower strength for input-response connections
+                self.knowledge_graph.add_connection(input_concept, response_concept, 0.5)
+        
+        # Also form connections within response concepts
+        self._form_concept_connections(response_concepts)
+    
+    def _update_concept_embeddings(self, concepts: List[str], embedding: torch.Tensor):
+        """Update embeddings and find similar concepts to connect"""
+        if not concepts or embedding is None:
+            return
+        
+        # For each concept, find similar concepts based on embeddings
+        for concept in concepts:
+            similar_concepts = self._find_similar_concepts(concept, embedding)
+            for similar_concept, similarity in similar_concepts:
+                if similarity > 0.7:  # Threshold for semantic similarity
+                    self.knowledge_graph.add_connection(concept, similar_concept, similarity)
+    
+    def _find_similar_concepts(self, concept: str, embedding: torch.Tensor, k: int = 5) -> List[Tuple[str, float]]:
+        """Find semantically similar concepts based on embeddings"""
+        similar = []
+        concept_lower = concept.lower()
+        
+        # Get all concepts with embeddings
+        for other_concept, embeddings in self.knowledge_graph.concept_embeddings.items():
+            if other_concept == concept_lower or not embeddings:
+                continue
+            
+            # Compare with average embedding of the concept
+            avg_embedding = np.mean(embeddings, axis=0)
+            avg_embedding_tensor = torch.tensor(avg_embedding)
+            
+            # Calculate cosine similarity
+            # Handle different tensor shapes
+            if len(embedding.shape) == 1:
+                emb1 = embedding.unsqueeze(0)
+            else:
+                emb1 = embedding.reshape(1, -1)
+            
+            if len(avg_embedding_tensor.shape) == 1:
+                emb2 = avg_embedding_tensor.unsqueeze(0)
+            else:
+                emb2 = avg_embedding_tensor.reshape(1, -1)
+            
+            # Ensure same dimensions
+            if emb1.shape[1] != emb2.shape[1]:
+                continue
+            
+            similarity = F.cosine_similarity(emb1, emb2).item()
+            
+            similar.append((other_concept, similarity))
+        
+        # Sort by similarity and return top k
+        similar.sort(key=lambda x: x[1], reverse=True)
+        return similar[:k]

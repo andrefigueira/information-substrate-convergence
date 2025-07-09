@@ -13,3 +13,5 @@ click>=8.0.0
 tqdm>=4.65.0
 pandas>=1.5.0
 plotext>=5.2.0  # For ASCII plots in terminal
+msgpack>=1.0.0  # For efficient serialization
+openai>=1.0.0  # For ChatGPT training integration

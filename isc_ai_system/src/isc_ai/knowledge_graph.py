@@ -91,8 +91,17 @@ class KnowledgeGraph:
         if not self.graph.nodes():
             return []
         
-        # Calculate centrality
-        centrality = nx.eigenvector_centrality_numpy(self.graph, max_iter=100)
+        # Check if graph is connected
+        if not nx.is_connected(self.graph):
+            # For disconnected graphs, use degree centrality as fallback
+            centrality = nx.degree_centrality(self.graph)
+        else:
+            # Calculate eigenvector centrality for connected graphs
+            try:
+                centrality = nx.eigenvector_centrality_numpy(self.graph, max_iter=100)
+            except nx.NetworkXError:
+                # Fallback to degree centrality if eigenvector fails
+                centrality = nx.degree_centrality(self.graph)
         
         # Sort by centrality
         sorted_concepts = sorted(
