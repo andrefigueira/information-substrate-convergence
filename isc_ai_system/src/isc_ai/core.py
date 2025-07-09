@@ -108,8 +108,12 @@ class ISCCore:
     Main ISC AI System that integrates all components
     """
     
-    def __init__(self, config: Optional[Dict[str, Any]] = None):
+    def __init__(self, config: Optional[Dict[str, Any]] = None, auto_load: bool = True):
         self.config = config or self._default_config()
+        
+        # Initialize persistence manager
+        from .persistence import PersistenceManager
+        self.persistence = PersistenceManager()
         
         # Initialize components (note: all-MiniLM-L6-v2 produces 384-dim embeddings)
         self.network = SelfModifyingNetwork(input_dim=384, hidden_dim=512, num_layers=4)
@@ -136,6 +140,10 @@ class ISCCore:
         self.tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
         self.encoder = AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
         
+        # Auto-load latest state if requested
+        if auto_load:
+            self._auto_load_state()
+        
     def _default_config(self) -> Dict[str, Any]:
         """Default configuration"""
         return {
@@ -146,6 +154,36 @@ class ISCCore:
             "min_concept_frequency": 3,
             "prediction_window": 5,
         }
+    
+    def _auto_load_state(self):
+        """Automatically load the latest state if available"""
+        # First check for migration needs
+        self.persistence.migrate_legacy_files()
+        
+        # Try to load latest state
+        state = self.persistence.load_latest_state()
+        if state:
+            try:
+                self.network.load_state_dict(state["network_state"])
+                self.knowledge_graph.graph = nx.node_link_graph(state["knowledge_graph"])
+                self.memory.import_data(state["memory"])
+                self.metrics = state["metrics"]
+                
+                # Merge config, keeping any new settings
+                saved_config = state.get("config", {})
+                self.config.update(saved_config)
+                
+                # Update components that depend on loaded state
+                if hasattr(self.integrator, 'phi_history') and "phi_history" in state:
+                    self.integrator.phi_history = state["phi_history"]
+                
+                print(f"✓ Automatically loaded previous state")
+                print(f"  - Total interactions: {self.metrics['total_interactions']}")
+                print(f"  - Concepts formed: {len(self.knowledge_graph.graph.nodes())}")
+                print(f"  - Last phi value: {self.metrics['phi_value']:.3f}")
+            except Exception as e:
+                print(f"✗ Failed to restore state: {e}")
+                print("  Starting with fresh state")
     
     def encode_text(self, text: str) -> torch.Tensor:
         """Encode text into embeddings"""
@@ -166,6 +204,9 @@ class ISCCore:
         
         # Process through self-modifying network
         output_embedding, internal_states = self.network(input_embedding, return_states=True)
+        
+        # Store internal states for response generation
+        self._last_internal_states = internal_states
         
         # Calculate information integration (Φ)
         if internal_states:
@@ -255,9 +296,39 @@ class ISCCore:
     
     def _generate_response(self, output_embedding: torch.Tensor, user_input: str) -> str:
         """Generate response based on output embedding and context"""
-        # For now, use a template-based approach with learned modulation
-        # In a full implementation, this would use a proper decoder
+        # Try to use enhanced response generator
+        try:
+            from .enhanced_response_generator import EnhancedResponseGenerator
+            
+            # Create generator if not exists
+            if not hasattr(self, '_response_generator'):
+                self._response_generator = EnhancedResponseGenerator()
+            
+            # Get current phi value and internal states
+            phi_value = self.metrics.get("phi_value", 0.0)
+            internal_states = getattr(self, '_last_internal_states', None)
+            
+            # Extract concepts
+            concepts = self._extract_concepts(user_input)
+            
+            # Generate enhanced response
+            response = self._response_generator.generate_response(
+                output_embedding=output_embedding,
+                user_input=user_input,
+                concepts=concepts,
+                phi_value=phi_value,
+                knowledge_graph=self.knowledge_graph,
+                memory=self.memory,
+                internal_states=internal_states
+            )
+            
+            return response
+            
+        except Exception as e:
+            print(f"Enhanced response generation failed: {e}")
+            # Fall back to original template method
         
+        # Original template-based approach as fallback
         templates = [
             "Based on our conversation, I understand that {}",
             "This connects to our previous discussion about {}",
@@ -327,8 +398,8 @@ class ISCCore:
             "network_parameters": sum(p.numel() for p in self.network.parameters()),
         }
     
-    def save_state(self, filepath: str):
-        """Save system state"""
+    def save_state(self, filepath: Optional[str] = None):
+        """Save system state - uses persistence manager by default"""
         state = {
             "network_state": self.network.state_dict(),
             "knowledge_graph": nx.node_link_data(self.knowledge_graph.graph),
@@ -337,8 +408,18 @@ class ISCCore:
             "config": self.config,
         }
         
-        torch.save(state, filepath)
-        return f"System state saved to {filepath}"
+        # Add phi history if available
+        if hasattr(self.integrator, 'phi_history'):
+            state["phi_history"] = self.integrator.phi_history
+        
+        if filepath:
+            # Save to specific file if provided
+            torch.save(state, filepath)
+            return f"System state saved to {filepath}"
+        else:
+            # Use persistence manager for standard location
+            saved_path = self.persistence.save_state(state)
+            return f"System state saved to {saved_path}"
     
     def load_state(self, filepath: str):
         """Load system state"""

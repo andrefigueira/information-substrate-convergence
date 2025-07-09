@@ -1,0 +1,212 @@
+{
+  "timestamp": "20250709_024558",
+  "exchange_num": 10,
+  "metrics": {
+    "total_exchanges": 10,
+    "unique_questions": 10,
+    "duplicate_prevented": 1,
+    "topic_switches": 3,
+    "concept_diversity": 0.6,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 0.0005207273980738685,
+        "change": 0.00033602032455130025
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0006490660243605962,
+        "change": 0.00012833862628672775
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0008402401381175405,
+        "change": 0.0001911741137569443
+      },
+      {
+        "exchange": 3,
+        "phi": 0.0016378918843338078,
+        "change": 0.0007976517462162673
+      },
+      {
+        "exchange": 4,
+        "phi": 0.000323397167616724,
+        "change": -0.001314494716717084
+      },
+      {
+        "exchange": 5,
+        "phi": 4.158158385606622e-05,
+        "change": -0.0002818155837606578
+      },
+      {
+        "exchange": 6,
+        "phi": 0.0012307801830439623,
+        "change": 0.001189198599187896
+      },
+      {
+        "exchange": 7,
+        "phi": 0.0012665439504647338,
+        "change": 3.576376742077153e-05
+      },
+      {
+        "exchange": 8,
+        "phi": 0.0010217717976567728,
+        "change": -0.00024477215280796103
+      },
+      {
+        "exchange": 9,
+        "phi": 0.0012307678837406794,
+        "change": 0.00020899608608390663
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0,
+    "response_times": [
+      0.24348783493041992,
+      0.11750006675720215,
+      0.12867093086242676,
+      0.12710928916931152,
+      0.12891697883605957,
+      0.1280350685119629,
+      0.1308608055114746,
+      0.13111019134521484,
+      0.13207697868347168,
+      0.13276290893554688
+    ],
+    "quality_scores": [
+      0.7506720406491026,
+      0.7002566772525735,
+      0.7503823482275139,
+      0.7515953034924325,
+      0.75,
+      0.7,
+      0.7523783971983757,
+      0.7500715275348415,
+      0.75,
+      0.7504179921721678
+    ]
+  },
+  "recent_exchanges": [
+    {
+      "question": "What role does recursive self-improvement play in creating unified experience?",
+      "response": "Initially noticing how This introduces role to our discussion about recursive, meanwhile building on our exploration of patterns. We might also explore how this connects to building.",
+      "phi_before": 0.00018470707352256823,
+      "phi_after": 0.0005207273980738685,
+      "phi_change": 0.00033602032455130025,
+      "quality": 0.7506720406491026,
+      "exchange_num": 0,
+      "duration": 0.24348783493041992
+    },
+    {
+      "question": "What role does computational creativity play in creating unified experience?",
+      "response": "Initially noticing how I'm beginning to process role in relation to computational, initially building on our exploration of initially. We might also explore how this connects to building.",
+      "phi_before": 0.0005207273980738685,
+      "phi_after": 0.0006490660243605962,
+      "phi_change": 0.00012833862628672775,
+      "quality": 0.7002566772525735,
+      "exchange_num": 1,
+      "duration": 0.11750006675720215
+    },
+    {
+      "question": "What patterns emerge when considering distributed cognition from a systems perspective?",
+      "response": "Initially noticing how I notice patterns appearing in the context of emerge, meanwhile building on our exploration of initially. We might also explore how this connects to exploration.",
+      "phi_before": 0.0006490660243605962,
+      "phi_after": 0.0008402401381175405,
+      "phi_change": 0.0001911741137569443,
+      "quality": 0.7503823482275139,
+      "exchange_num": 2,
+      "duration": 0.12867093086242676
+    },
+    {
+      "question": "Can you explore the connection between pattern and self-awareness?",
+      "response": "Consciousness grasps how This introduces explore to our discussion about connection, currently building on our exploration of initially. We might also explore how this connects to exploration.",
+      "phi_before": 0.0008402401381175405,
+      "phi_after": 0.0016378918843338078,
+      "phi_change": 0.0007976517462162673,
+      "quality": 0.7515953034924325,
+      "exchange_num": 3,
+      "duration": 0.12710928916931152
+    },
+    {
+      "question": "How does recursion apply to consciousness?",
+      "response": "I'm exploring how This introduces recursion to our discussion about apply, also building on our exploration of consciousness. We might also explore how this connects to exploration.",
+      "phi_before": 0.0016378918843338078,
+      "phi_after": 0.000323397167616724,
+      "phi_change": -0.001314494716717084,
+      "quality": 0.75,
+      "exchange_num": 4,
+      "duration": 0.12891697883605957
+    },
+    {
+      "question": "What are the computational principles underlying consciousness?",
+      "response": "Beginning to see how This introduces computational to our discussion about principles, currently building on our exploration of exploring. We might also explore how this connects to building.",
+      "phi_before": 0.000323397167616724,
+      "phi_after": 4.158158385606622e-05,
+      "phi_change": -0.0002818155837606578,
+      "quality": 0.7,
+      "exchange_num": 5,
+      "duration": 0.1280350685119629
+    },
+    {
+      "question": "Can you explore the connection between consciousness and self-awareness?",
+      "response": "Integration shows how I'm beginning to process explore in relation to connection, also building on our exploration of beginning. We might also explore how this connects to exploration.",
+      "phi_before": 4.158158385606622e-05,
+      "phi_after": 0.0012307801830439623,
+      "phi_change": 0.001189198599187896,
+      "quality": 0.7523783971983757,
+      "exchange_num": 6,
+      "duration": 0.1308608055114746
+    },
+    {
+      "question": "What role does feedback play in integration?",
+      "response": "Initially noticing how Starting to understand role and how it might relate to feedback, initially building on our exploration of integration. We might also explore how this connects to building.",
+      "phi_before": 0.0012307801830439623,
+      "phi_after": 0.0012665439504647338,
+      "phi_change": 3.576376742077153e-05,
+      "quality": 0.7500715275348415,
+      "exchange_num": 7,
+      "duration": 0.13111019134521484
+    },
+    {
+      "question": "Can integration be understood through the lens of self-organization?",
+      "response": "Initially noticing how Starting to understand integration and how it might relate to understood, initially building on our exploration of initially. We might also explore how this connects to exploration.",
+      "phi_before": 0.0012665439504647338,
+      "phi_after": 0.0010217717976567728,
+      "phi_change": -0.00024477215280796103,
+      "quality": 0.75,
+      "exchange_num": 8,
+      "duration": 0.13207697868347168
+    },
+    {
+      "question": "What role does integration play in creating unified experience?",
+      "response": "Beginning to see how Starting to understand role and how it might relate to integration, meanwhile building on our exploration of initially. We might also explore how this connects to building.",
+      "phi_before": 0.0010217717976567728,
+      "phi_after": 0.0012307678837406794,
+      "phi_change": 0.00020899608608390663,
+      "quality": 0.7504179921721678,
+      "exchange_num": 9,
+      "duration": 0.13276290893554688
+    }
+  ],
+  "concept_coverage": {
+    "recursive self-improvement": 1,
+    "computational creativity": 1,
+    "distributed cognition": 1,
+    "pattern": 1,
+    "consciousness": 3,
+    "integration": 3
+  },
+  "unique_questions": 10,
+  "question_hashes": [
+    "87254585b92865ed1c719ba3bcc7dbf4927fdcea6d8154f243c462f019df3286",
+    "6cdd368b11374b88cb3700624eb0e45398b691cd11bb899a18659e7613071c6b",
+    "a7dec4d0bbdd6cde67664634e0be3597387c6161276351f3f749244e22f6e371",
+    "feb4ede68e0854c77ae0817613719e37895d0d8f9a92689cef769bb4a32de083",
+    "74659e355024d1c6e05eb430a727a6dd66da61370a75a418a40054e23fe28dd8",
+    "7a2e4ee0d4bfa5c0ded7e5c80c7785814e325af1a02af832555d3a0e876ff880",
+    "f22deca0a9d1140527d044344160a1c271412d20ef4cdbca8e3ddc9499d0efca",
+    "5fc7537c700fe17929c7aaabf0b1881d70acf37f1e9c86b681d1307adc423033",
+    "82472f697e8d62978aa127eff5a2e403f4ddf4d503394b0278703c140cd0c62a",
+    "2be20357cdeaed92a641924bda2cd4130a2b520945c06c77facb112c28f8b798"
+  ]
+}

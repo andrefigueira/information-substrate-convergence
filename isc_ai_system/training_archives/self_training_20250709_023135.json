@@ -1,0 +1,216 @@
+{
+  "timestamp": "20250709_023135",
+  "exchange_num": 20,
+  "metrics": {
+    "total_exchanges": 20,
+    "unique_questions": 20,
+    "duplicate_prevented": 2,
+    "topic_switches": 4,
+    "concept_diversity": 0.3,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 8.870624004615093e-06,
+        "change": 8.870624004615093e-06
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0002554041776315099,
+        "change": 0.0002465335536268948
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0023575841536768853,
+        "change": 0.002102179976045375
+      },
+      {
+        "exchange": 3,
+        "phi": 0.0028702205343685053,
+        "change": 0.0005126363806916201
+      },
+      {
+        "exchange": 4,
+        "phi": 0.0012890596766279019,
+        "change": -0.0015811608577406034
+      },
+      {
+        "exchange": 5,
+        "phi": 0.0008085552724080737,
+        "change": -0.00048050440421982816
+      },
+      {
+        "exchange": 6,
+        "phi": 0.000842358401765154,
+        "change": 3.380312935708028e-05
+      },
+      {
+        "exchange": 7,
+        "phi": 0.00034692332960130915,
+        "change": -0.0004954350721638448
+      },
+      {
+        "exchange": 8,
+        "phi": 0.0032340172809284646,
+        "change": 0.0028870939513271554
+      },
+      {
+        "exchange": 9,
+        "phi": 0.001910762386691918,
+        "change": -0.0013232548942365466
+      },
+      {
+        "exchange": 10,
+        "phi": 0.0018298653828297407,
+        "change": -8.08970038621772e-05
+      },
+      {
+        "exchange": 11,
+        "phi": 0.0014790701357532358,
+        "change": -0.00035079524707650497
+      },
+      {
+        "exchange": 12,
+        "phi": 0.0017894837450130488,
+        "change": 0.000310413609259813
+      },
+      {
+        "exchange": 13,
+        "phi": 0.0021083863747079715,
+        "change": 0.00031890262969492275
+      },
+      {
+        "exchange": 14,
+        "phi": 0.000138538155528423,
+        "change": -0.0019698482191795484
+      },
+      {
+        "exchange": 15,
+        "phi": 0.0007680968597689252,
+        "change": 0.0006295587042405022
+      },
+      {
+        "exchange": 16,
+        "phi": 0.0008765716724766509,
+        "change": 0.00010847481270772567
+      },
+      {
+        "exchange": 17,
+        "phi": 0.0016176337123248897,
+        "change": 0.0007410620398482388
+      },
+      {
+        "exchange": 18,
+        "phi": 0.002412645503167766,
+        "change": 0.0007950117908428762
+      },
+      {
+        "exchange": 19,
+        "phi": 0.0026167441429229494,
+        "change": 0.0002040986397551835
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0
+  },
+  "recent_exchanges": [
+    {
+      "question": "How does recursion apply to consciousness and awareness?",
+      "response": "I'm beginning to process recursion in relation to apply, initially building on our exploration of notice. We might also explore how this connects to pattern.",
+      "phi_before": 0.001910762386691918,
+      "phi_after": 0.0018298653828297407,
+      "phi_change": -8.08970038621772e-05,
+      "quality": 0.75,
+      "exchange_num": 10
+    },
+    {
+      "question": "What role does feedback play in pattern?",
+      "response": "I'm beginning to process role in relation to feedback, initially building on our exploration of beginning. We might also explore how this connects to pattern.",
+      "phi_before": 0.0018298653828297407,
+      "phi_after": 0.0014790701357532358,
+      "phi_change": -0.00035079524707650497,
+      "quality": 0.75,
+      "exchange_num": 11
+    },
+    {
+      "question": "What are the computational principles underlying pattern?",
+      "response": "This introduces computational to our discussion about principles, also building on our exploration of beginning. We might also explore how this connects to pattern.",
+      "phi_before": 0.0014790701357532358,
+      "phi_after": 0.0017894837450130488,
+      "phi_change": 0.000310413609259813,
+      "quality": 0.7506208272185196,
+      "exchange_num": 12
+    },
+    {
+      "question": "Can you explore the connection between pattern and self-awareness?",
+      "response": "I notice explore appearing in the context of connection, also building on our exploration of introduces. We might also explore how this connects to also.",
+      "phi_before": 0.0017894837450130488,
+      "phi_after": 0.0021083863747079715,
+      "phi_change": 0.00031890262969492275,
+      "quality": 0.7006378052593898,
+      "exchange_num": 13
+    },
+    {
+      "question": "How might feedback contribute to qualia or subjective experience?",
+      "response": "I notice might appearing in the context of feedback, also building on our exploration of notice. We might also explore how this connects to also.",
+      "phi_before": 0.0021083863747079715,
+      "phi_after": 0.000138538155528423,
+      "phi_change": -0.0019698482191795484,
+      "quality": 0.7,
+      "exchange_num": 14
+    },
+    {
+      "question": "Can you explore the connection between feedback and self-awareness?",
+      "response": "Starting to understand explore and how it might relate to connection, meanwhile building on our exploration of notice. We might also explore how this connects to building.",
+      "phi_before": 0.000138538155528423,
+      "phi_after": 0.0007680968597689252,
+      "phi_change": 0.0006295587042405022,
+      "quality": 0.701259117408481,
+      "exchange_num": 15
+    },
+    {
+      "question": "What emergent properties arise from feedback?",
+      "response": "I notice emergent appearing in the context of properties, also building on our exploration of starting. We might also explore how this connects to quantum.",
+      "phi_before": 0.0007680968597689252,
+      "phi_after": 0.0008765716724766509,
+      "phi_change": 0.00010847481270772567,
+      "quality": 0.7002169496254154,
+      "exchange_num": 16
+    },
+    {
+      "question": "Can feedback be understood through the lens of self-organization?",
+      "response": "I'm beginning to process feedback in relation to understood, also building on our exploration of notice. We might also explore how this connects to contribute.",
+      "phi_before": 0.0008765716724766509,
+      "phi_after": 0.0016176337123248897,
+      "phi_change": 0.0007410620398482388,
+      "quality": 0.7014821240796965,
+      "exchange_num": 17
+    },
+    {
+      "question": "What are the computational principles underlying feedback?",
+      "response": "I notice computational appearing in the context of principles, meanwhile building on our exploration of beginning. We might also explore how this connects to pattern.",
+      "phi_before": 0.0016176337123248897,
+      "phi_after": 0.002412645503167766,
+      "phi_change": 0.0007950117908428762,
+      "quality": 0.7515900235816858,
+      "exchange_num": 18
+    },
+    {
+      "question": "How might computation contribute to qualia or subjective experience?",
+      "response": "Starting to understand might and how it might relate to computation, currently building on our exploration of notice. We might also explore how this connects to also.",
+      "phi_before": 0.002412645503167766,
+      "phi_after": 0.0026167441429229494,
+      "phi_change": 0.0002040986397551835,
+      "quality": 0.7004081972795103,
+      "exchange_num": 19
+    }
+  ],
+  "concept_coverage": {
+    "quantum information theory": 1,
+    "consciousness and awareness": 3,
+    "consciousness": 5,
+    "pattern": 5,
+    "feedback": 5,
+    "computation": 1
+  },
+  "unique_questions": 20
+}

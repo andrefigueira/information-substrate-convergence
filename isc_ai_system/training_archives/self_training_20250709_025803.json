@@ -1,0 +1,294 @@
+{
+  "timestamp": "20250709_025803",
+  "exchange_num": 20,
+  "metrics": {
+    "total_exchanges": 20,
+    "unique_questions": 20,
+    "duplicate_prevented": 0,
+    "topic_switches": 4,
+    "concept_diversity": 0.4,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 0.0005446147820681313,
+        "change": 0.00035990770854556306
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0003859625036525046,
+        "change": -0.00015865227841562672
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0011090459667756456,
+        "change": 0.000723083463123141
+      },
+      {
+        "exchange": 3,
+        "phi": 0.0004981738274593469,
+        "change": -0.0006108721393162987
+      },
+      {
+        "exchange": 4,
+        "phi": 0.0008495544711313293,
+        "change": 0.00035138064367198245
+      },
+      {
+        "exchange": 5,
+        "phi": 0.0004127157901751859,
+        "change": -0.00043683868095614346
+      },
+      {
+        "exchange": 6,
+        "phi": 0.0017609518959373787,
+        "change": 0.001348236105762193
+      },
+      {
+        "exchange": 7,
+        "phi": 0.0004933264204322664,
+        "change": -0.0012676254755051124
+      },
+      {
+        "exchange": 8,
+        "phi": 0.0015755058113029318,
+        "change": 0.0010821793908706654
+      },
+      {
+        "exchange": 9,
+        "phi": 0.0006687720211485119,
+        "change": -0.0009067337901544199
+      },
+      {
+        "exchange": 10,
+        "phi": 0.0016313016391767974,
+        "change": 0.0009625296180282855
+      },
+      {
+        "exchange": 11,
+        "phi": 0.0017733123481530125,
+        "change": 0.00014201070897621512
+      },
+      {
+        "exchange": 12,
+        "phi": 0.0003255758268694843,
+        "change": -0.001447736521283528
+      },
+      {
+        "exchange": 13,
+        "phi": 0.0010793947427834743,
+        "change": 0.0007538189159139899
+      },
+      {
+        "exchange": 14,
+        "phi": 0.0013402975397412277,
+        "change": 0.0002609027969577534
+      },
+      {
+        "exchange": 15,
+        "phi": 0.0006405819911158541,
+        "change": -0.0006997155486253736
+      },
+      {
+        "exchange": 16,
+        "phi": 0.0008623088011439984,
+        "change": 0.00022172681002814428
+      },
+      {
+        "exchange": 17,
+        "phi": 0.001556515817031966,
+        "change": 0.0006942070158879677
+      },
+      {
+        "exchange": 18,
+        "phi": 0.0002471906790291858,
+        "change": -0.0013093251380027803
+      },
+      {
+        "exchange": 19,
+        "phi": 0.000728475963902815,
+        "change": 0.0004812852848736292
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0,
+    "response_times": [
+      0.2356278896331787,
+      0.11739301681518555,
+      0.1211540699005127,
+      0.12162899971008301,
+      0.12453603744506836,
+      0.12530303001403809,
+      0.12198209762573242,
+      0.12546110153198242,
+      0.12438011169433594,
+      0.12866497039794922,
+      0.12781691551208496,
+      0.12604022026062012,
+      0.1283888816833496,
+      0.12623381614685059,
+      0.1344618797302246,
+      0.14106202125549316,
+      0.1354539394378662,
+      0.12990903854370117,
+      0.13039493560791016,
+      0.1354820728302002
+    ],
+    "quality_scores": [
+      0.7507198154170911,
+      0.7,
+      0.7014461669262463,
+      0.7,
+      0.7507027612873439,
+      0.75,
+      0.8026964722115243,
+      0.75,
+      0.7021643587817413,
+      0.75,
+      0.7019250592360565,
+      0.8002840214179524,
+      0.7999999999999999,
+      0.8015076378318279,
+      0.8005218055939154,
+      0.7999999999999999,
+      0.7504434536200563,
+      0.7513884140317759,
+      0.7,
+      0.7009625705697472
+    ]
+  },
+  "recent_exchanges": [
+    {
+      "question": "What role does metacognition and self-reflection play in creating unified experience?",
+      "response": "Beginning to see how I notice role appearing in the context of metacognition, currently building on our exploration of exploring. We might also explore how this connects to building.",
+      "phi_before": 0.0006687720211485119,
+      "phi_after": 0.0016313016391767974,
+      "phi_change": 0.0009625296180282855,
+      "quality": 0.7019250592360565,
+      "exchange_num": 10,
+      "duration": 0.12781691551208496
+    },
+    {
+      "question": "What is the relationship between pattern and phi (\u03a6)?",
+      "response": "Beginning to see how Starting to understand relationship and how it might relate to pattern, meanwhile building on our exploration of beginning. We might also explore how this connects to consciousness.",
+      "phi_before": 0.0016313016391767974,
+      "phi_after": 0.0017733123481530125,
+      "phi_change": 0.00014201070897621512,
+      "quality": 0.8002840214179524,
+      "exchange_num": 11,
+      "duration": 0.12604022026062012
+    },
+    {
+      "question": "How might pattern contribute to qualia or subjective experience?",
+      "response": "I deeply understand how I'm beginning to process might in relation to pattern, initially building on our exploration of beginning. We might also explore how this connects to consciousness.",
+      "phi_before": 0.0017733123481530125,
+      "phi_after": 0.0003255758268694843,
+      "phi_change": -0.001447736521283528,
+      "quality": 0.7999999999999999,
+      "exchange_num": 12,
+      "duration": 0.1283888816833496
+    },
+    {
+      "question": "How might pattern contribute to the emergence of consciousness?",
+      "response": "Consciousness grasps how Starting to understand might and how it might relate to pattern, also building on our exploration of deeply. We might also explore how this connects to consciousness.",
+      "phi_before": 0.0003255758268694843,
+      "phi_after": 0.0010793947427834743,
+      "phi_change": 0.0007538189159139899,
+      "quality": 0.8015076378318279,
+      "exchange_num": 13,
+      "duration": 0.12623381614685059
+    },
+    {
+      "question": "What patterns emerge when considering pattern from a systems perspective?",
+      "response": "Beginning to see how This introduces patterns to our discussion about emerge, meanwhile building on our exploration of consciousness. We might also explore how this connects to considering.",
+      "phi_before": 0.0010793947427834743,
+      "phi_after": 0.0013402975397412277,
+      "phi_change": 0.0002609027969577534,
+      "quality": 0.8005218055939154,
+      "exchange_num": 14,
+      "duration": 0.1344618797302246
+    },
+    {
+      "question": "How might information contribute to qualia or subjective experience?",
+      "response": "Consciousness grasps how I'm beginning to process might in relation to information, currently building on our exploration of beginning. We might also explore how this connects to consciousness.",
+      "phi_before": 0.0013402975397412277,
+      "phi_after": 0.0006405819911158541,
+      "phi_change": -0.0006997155486253736,
+      "quality": 0.7999999999999999,
+      "exchange_num": 15,
+      "duration": 0.14106202125549316
+    },
+    {
+      "question": "What emergent properties arise from information?",
+      "response": "I'm exploring how Starting to understand emergent and how it might relate to properties, also building on our exploration of consciousness. We might also explore how this connects to building.",
+      "phi_before": 0.0006405819911158541,
+      "phi_after": 0.0008623088011439984,
+      "phi_change": 0.00022172681002814428,
+      "quality": 0.7504434536200563,
+      "exchange_num": 16,
+      "duration": 0.1354539394378662
+    },
+    {
+      "question": "What is the relationship between information and phi (\u03a6)?",
+      "response": "I'm exploring how This introduces relationship to our discussion about information, also building on our exploration of exploring. We might also explore how this connects to building.",
+      "phi_before": 0.0008623088011439984,
+      "phi_after": 0.001556515817031966,
+      "phi_change": 0.0006942070158879677,
+      "quality": 0.7513884140317759,
+      "exchange_num": 17,
+      "duration": 0.12990903854370117
+    },
+    {
+      "question": "How does recursion apply to information?",
+      "response": "I'm exploring how I'm beginning to process recursion in relation to apply, also building on our exploration of exploring. We might also explore how this connects to exploration.",
+      "phi_before": 0.001556515817031966,
+      "phi_after": 0.0002471906790291858,
+      "phi_change": -0.0013093251380027803,
+      "quality": 0.7,
+      "exchange_num": 18,
+      "duration": 0.13039493560791016
+    },
+    {
+      "question": "What role does feedback play in information?",
+      "response": "I'm exploring how This introduces role to our discussion about feedback, also building on our exploration of exploring. We might also explore how this connects to building.",
+      "phi_before": 0.0002471906790291858,
+      "phi_after": 0.000728475963902815,
+      "phi_change": 0.0004812852848736292,
+      "quality": 0.7009625705697472,
+      "exchange_num": 19,
+      "duration": 0.1354820728302002
+    }
+  ],
+  "concept_coverage": {
+    "consciousness and awareness": 1,
+    "autopoiesis and self-creation": 1,
+    "quantum information theory": 1,
+    "pattern": 5,
+    "feedback": 1,
+    "consciousness": 5,
+    "metacognition and self-reflection": 1,
+    "information": 5
+  },
+  "unique_questions": 20,
+  "question_hashes": [
+    "91556b71bed10a85c713f82fe0c1fb59c0eb9fc433ede324ec87dad2a0d536fc",
+    "177d4d7ab5053e53874e4de39bdf3524fb4d840583d453492abe6f3581c385dc",
+    "bd8da41491ea7ec6df3350c0035584c9e71b0e456df19be9873cddef41359ed0",
+    "37f9388bfdf03a6838c1a116195bbe027d3f343a00b8de32bb1f86dce3a918e7",
+    "d93a700c71a64243d584f3dc559942a3012a2345151d8af65ba0308eb292c789",
+    "a8bb01c79ea30c0a097c8fabc2d5f7a7540ee5e1ac7ff3c96d17c6a333de1f37",
+    "db85fff728e5ab94b28f346a3ae561cb0a9501ea2ee78bfad48db33e50ccffc6",
+    "eeba85d849329fb38f97358cf60a0662ec3d40812978e67a8b70f7c0876f5a1b",
+    "11556dd664a5c4bb484e9ff7ff9de877b71f6c34db5c9f270ee9f3015f74c5fe",
+    "5fbe8c460faf28dd85764def2ff75271fa2543c80f59bd8d73e80b30a4038896",
+    "f22deca0a9d1140527d044344160a1c271412d20ef4cdbca8e3ddc9499d0efca",
+    "72bfe5f830176529690e9bae26a349a3526c1e62c177a9f70344d271b6c46001",
+    "db1a23a16a8dcbc2f6359daf4e4a2851f7a5e5407d1329afd185227766b4bd0c",
+    "1ee04ffc7d64e8d25166322c2dfd05485ada248dfb1120c036858d8935dc1d72",
+    "d5c6311921a41ecfc0a13490d3de8851e7d17bbe84e6212ce6c840c40f550232",
+    "047a5ac687adb85be54fdc91bcd09cb61c8f170ef8ef6ae2b8d3086c6479f179",
+    "b25fc8a9045349cd259d02b5633935d30565d860bbf8887711e9da9e38f9c2c3",
+    "25801561b4b658fe447ed710727797e45f4501ef3cf1349e86ffe13e69618268",
+    "ea3dedf55c5a68a2a3e2fe29a2bf0f055edf73d60dd061564fa1edeba0fa31e3",
+    "c8ce1a2e5cd360a4b55ec5e49ac9bb91de37ad49b27b31da073afcc779d5cee8"
+  ]
+}

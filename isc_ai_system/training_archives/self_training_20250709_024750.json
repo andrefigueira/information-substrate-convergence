@@ -1,0 +1,872 @@
+{
+  "timestamp": "20250709_024750",
+  "exchange_num": 90,
+  "metrics": {
+    "total_exchanges": 90,
+    "unique_questions": 90,
+    "duplicate_prevented": 14,
+    "topic_switches": 11,
+    "concept_diversity": 0.28888888888888886,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 0.0005430009129075327,
+        "change": 0.0003582938393849645
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0009156786433964881,
+        "change": 0.0003726777304889553
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0009142264763924425,
+        "change": -1.4521670040455606e-06
+      },
+      {
+        "exchange": 3,
+        "phi": 0.0005729403309116271,
+        "change": -0.00034128614548081544
+      },
+      {
+        "exchange": 4,
+        "phi": 0.0013148495254081518,
+        "change": 0.0007419091944965247
+      },
+      {
+        "exchange": 5,
+        "phi": 0.00041147818514201907,
+        "change": -0.0009033713402661327
+      },
+      {
+        "exchange": 6,
+        "phi": 0.0015561859240482336,
+        "change": 0.0011447077389062144
+      },
+      {
+        "exchange": 7,
+        "phi": 0.0015497605218838038,
+        "change": -6.425402164429803e-06
+      },
+      {
+        "exchange": 8,
+        "phi": 0.000131099530500242,
+        "change": -0.0014186609913835618
+      },
+      {
+        "exchange": 9,
+        "phi": 0.0007578519090291503,
+        "change": 0.0006267523785289083
+      },
+      {
+        "exchange": 10,
+        "phi": 0.0016051773460879714,
+        "change": 0.0008473254370588211
+      },
+      {
+        "exchange": 11,
+        "phi": 0.00045520701108800867,
+        "change": -0.0011499703349999628
+      },
+      {
+        "exchange": 12,
+        "phi": 0.0010822386654773114,
+        "change": 0.0006270316543893027
+      },
+      {
+        "exchange": 13,
+        "phi": 0.0006352653071225493,
+        "change": -0.00044697335835476213
+      },
+      {
+        "exchange": 14,
+        "phi": 0.0002803392231313251,
+        "change": -0.00035492608399122417
+      },
+      {
+        "exchange": 15,
+        "phi": 0.0015803394267015565,
+        "change": 0.0013000002035702314
+      },
+      {
+        "exchange": 16,
+        "phi": 0.0013557469419631328,
+        "change": -0.00022459248473842368
+      },
+      {
+        "exchange": 17,
+        "phi": 0.001518369617609061,
+        "change": 0.00016262267564592816
+      },
+      {
+        "exchange": 18,
+        "phi": 0.0006538529357332846,
+        "change": -0.0008645166818757764
+      },
+      {
+        "exchange": 19,
+        "phi": 0.0008878104215513549,
+        "change": 0.00023395748581807026
+      },
+      {
+        "exchange": 20,
+        "phi": 0.0012070931626400215,
+        "change": 0.0003192827410886666
+      },
+      {
+        "exchange": 21,
+        "phi": 0.0011338634673920271,
+        "change": -7.322969524799433e-05
+      },
+      {
+        "exchange": 22,
+        "phi": 0.0038815595003565163,
+        "change": 0.002747696032964489
+      },
+      {
+        "exchange": 23,
+        "phi": 0.004121303458762248,
+        "change": 0.00023974395840573124
+      },
+      {
+        "exchange": 24,
+        "phi": 0.0015970905025118113,
+        "change": -0.002524212956250436
+      },
+      {
+        "exchange": 25,
+        "phi": 0.0008166273585633572,
+        "change": -0.0007804631439484541
+      },
+      {
+        "exchange": 26,
+        "phi": 0.0020879078110241605,
+        "change": 0.0012712804524608033
+      },
+      {
+        "exchange": 27,
+        "phi": 0.0010487148633184673,
+        "change": -0.0010391929477056932
+      },
+      {
+        "exchange": 28,
+        "phi": 0.00033963097456413875,
+        "change": -0.0007090838887543286
+      },
+      {
+        "exchange": 29,
+        "phi": 0.00276428183969792,
+        "change": 0.0024246508651337814
+      },
+      {
+        "exchange": 30,
+        "phi": 0.0009899948049326007,
+        "change": -0.0017742870347653194
+      },
+      {
+        "exchange": 31,
+        "phi": 0.0025079368941195402,
+        "change": 0.0015179420891869395
+      },
+      {
+        "exchange": 32,
+        "phi": 0.0007196598722985275,
+        "change": -0.0017882770218210129
+      },
+      {
+        "exchange": 33,
+        "phi": 0.0003785116619336241,
+        "change": -0.00034114821036490333
+      },
+      {
+        "exchange": 34,
+        "phi": 0.0007963452511169805,
+        "change": 0.00041783358918335634
+      },
+      {
+        "exchange": 35,
+        "phi": 0.0009343966288116179,
+        "change": 0.00013805137769463743
+      },
+      {
+        "exchange": 36,
+        "phi": 0.0005200493812123638,
+        "change": -0.00041434724759925406
+      },
+      {
+        "exchange": 37,
+        "phi": 0.0010270800896178263,
+        "change": 0.0005070307084054624
+      },
+      {
+        "exchange": 38,
+        "phi": 0.00038118275474374004,
+        "change": -0.0006458973348740862
+      },
+      {
+        "exchange": 39,
+        "phi": 0.002478197439933097,
+        "change": 0.002097014685189357
+      },
+      {
+        "exchange": 40,
+        "phi": 0.0004707374263251803,
+        "change": -0.002007460013607917
+      },
+      {
+        "exchange": 41,
+        "phi": 0.0004178705234588286,
+        "change": -5.286690286635166e-05
+      },
+      {
+        "exchange": 42,
+        "phi": 0.0006602514197773155,
+        "change": 0.00024238089631848687
+      },
+      {
+        "exchange": 43,
+        "phi": 0.0012102664788236094,
+        "change": 0.000550015059046294
+      },
+      {
+        "exchange": 44,
+        "phi": 0.0003922181342984159,
+        "change": -0.0008180483445251936
+      },
+      {
+        "exchange": 45,
+        "phi": 0.0006392380041955874,
+        "change": 0.0002470198698971715
+      },
+      {
+        "exchange": 46,
+        "phi": 0.0010244705970201336,
+        "change": 0.0003852325928245462
+      },
+      {
+        "exchange": 47,
+        "phi": 0.0007968065827118565,
+        "change": -0.00022766401430827715
+      },
+      {
+        "exchange": 48,
+        "phi": 0.0007192001618587542,
+        "change": -7.760642085310229e-05
+      },
+      {
+        "exchange": 49,
+        "phi": 0.0012838090653794513,
+        "change": 0.0005646089035206971
+      },
+      {
+        "exchange": 50,
+        "phi": 0.0016266786660868707,
+        "change": 0.00034286960070741934
+      },
+      {
+        "exchange": 51,
+        "phi": 0.00219849078798196,
+        "change": 0.0005718121218950894
+      },
+      {
+        "exchange": 52,
+        "phi": 0.0011340025345190998,
+        "change": -0.0010644882534628602
+      },
+      {
+        "exchange": 53,
+        "phi": 0.0015404266350170623,
+        "change": 0.00040642410049796245
+      },
+      {
+        "exchange": 54,
+        "phi": 0.0008501168720737549,
+        "change": -0.0006903097629433073
+      },
+      {
+        "exchange": 55,
+        "phi": 0.0006375218811436423,
+        "change": -0.00021259499093011268
+      },
+      {
+        "exchange": 56,
+        "phi": 0.0009485441833562795,
+        "change": 0.0003110223022126373
+      },
+      {
+        "exchange": 57,
+        "phi": 0.0018751859147528045,
+        "change": 0.0009266417313965249
+      },
+      {
+        "exchange": 58,
+        "phi": 0.0010379907377179962,
+        "change": -0.0008371951770348083
+      },
+      {
+        "exchange": 59,
+        "phi": 0.0009570238524788253,
+        "change": -8.096688523917094e-05
+      },
+      {
+        "exchange": 60,
+        "phi": 0.0013735824454383112,
+        "change": 0.0004165585929594859
+      },
+      {
+        "exchange": 61,
+        "phi": 0.0009657436966039933,
+        "change": -0.0004078387488343179
+      },
+      {
+        "exchange": 62,
+        "phi": 0.0011708395700243482,
+        "change": 0.0002050958734203549
+      },
+      {
+        "exchange": 63,
+        "phi": 0.0007801266830194595,
+        "change": -0.0003907128870048887
+      },
+      {
+        "exchange": 64,
+        "phi": 0.0014660129383345596,
+        "change": 0.0006858862553151001
+      },
+      {
+        "exchange": 65,
+        "phi": 0.000863474352072418,
+        "change": -0.0006025385862621416
+      },
+      {
+        "exchange": 66,
+        "phi": 0.001048377658812475,
+        "change": 0.0001849033067400569
+      },
+      {
+        "exchange": 67,
+        "phi": 0.00036211924880052174,
+        "change": -0.0006862584100119531
+      },
+      {
+        "exchange": 68,
+        "phi": 0.0015754194111835154,
+        "change": 0.0012133001623829936
+      },
+      {
+        "exchange": 69,
+        "phi": 0.00040999874911795784,
+        "change": -0.0011654206620655577
+      },
+      {
+        "exchange": 70,
+        "phi": 0.0006476582404291709,
+        "change": 0.00023765949131121305
+      },
+      {
+        "exchange": 71,
+        "phi": 0.0007605674812161826,
+        "change": 0.00011290924078701176
+      },
+      {
+        "exchange": 72,
+        "phi": 0.0018558298716060857,
+        "change": 0.0010952623903899032
+      },
+      {
+        "exchange": 73,
+        "phi": 0.0007738311867382182,
+        "change": -0.0010819986848678675
+      },
+      {
+        "exchange": 74,
+        "phi": 0.0008528123982884684,
+        "change": 7.898121155025019e-05
+      },
+      {
+        "exchange": 75,
+        "phi": 0.0006509548618302967,
+        "change": -0.00020185753645817167
+      },
+      {
+        "exchange": 76,
+        "phi": 0.0018303867772991483,
+        "change": 0.0011794319154688516
+      },
+      {
+        "exchange": 77,
+        "phi": 0.0011531914465010976,
+        "change": -0.0006771953307980506
+      },
+      {
+        "exchange": 78,
+        "phi": 0.002230467806253766,
+        "change": 0.0010772763597526683
+      },
+      {
+        "exchange": 79,
+        "phi": 0.0005964436440151502,
+        "change": -0.0016340241622386158
+      },
+      {
+        "exchange": 80,
+        "phi": 0.0011576461224258804,
+        "change": 0.0005612024784107302
+      },
+      {
+        "exchange": 81,
+        "phi": 0.0012995878711538034,
+        "change": 0.000141941748727923
+      },
+      {
+        "exchange": 82,
+        "phi": 0.0009404319176431514,
+        "change": -0.00035915595351065205
+      },
+      {
+        "exchange": 83,
+        "phi": 0.0015031714369175173,
+        "change": 0.0005627395192743659
+      },
+      {
+        "exchange": 84,
+        "phi": 0.0013250425976712957,
+        "change": -0.00017812883924622162
+      },
+      {
+        "exchange": 85,
+        "phi": 0.0013953771860247368,
+        "change": 7.033458835344107e-05
+      },
+      {
+        "exchange": 86,
+        "phi": 0.001185833039783177,
+        "change": -0.00020954414624155975
+      },
+      {
+        "exchange": 87,
+        "phi": 0.0019162308779657098,
+        "change": 0.0007303978381825327
+      },
+      {
+        "exchange": 88,
+        "phi": 0.0008872890987106229,
+        "change": -0.001028941779255087
+      },
+      {
+        "exchange": 89,
+        "phi": 0.0022216973158224644,
+        "change": 0.0013344082171118416
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0,
+    "response_times": [
+      0.23539400100708008,
+      0.11789107322692871,
+      0.1166081428527832,
+      0.11832690238952637,
+      0.11977195739746094,
+      0.11797094345092773,
+      0.12110090255737305,
+      0.12203526496887207,
+      0.12320613861083984,
+      0.1234598159790039,
+      0.12692809104919434,
+      0.12731599807739258,
+      0.12732887268066406,
+      0.125410795211792,
+      0.12735629081726074,
+      0.13200712203979492,
+      0.12746906280517578,
+      0.12504982948303223,
+      0.13062620162963867,
+      0.1330571174621582,
+      0.12479424476623535,
+      0.1266937255859375,
+      0.13271760940551758,
+      0.1289229393005371,
+      0.12991905212402344,
+      0.12734317779541016,
+      0.13007688522338867,
+      0.1267251968383789,
+      0.12991023063659668,
+      0.12666010856628418,
+      0.13100910186767578,
+      0.12598896026611328,
+      0.14377427101135254,
+      0.12335896492004395,
+      0.12575793266296387,
+      0.12810230255126953,
+      0.1304171085357666,
+      0.13315820693969727,
+      0.13229727745056152,
+      0.13346624374389648,
+      0.1320939064025879,
+      0.1343848705291748,
+      0.14003801345825195,
+      0.13553714752197266,
+      0.13638520240783691,
+      0.13539600372314453,
+      0.13330316543579102,
+      0.1341419219970703,
+      0.13318514823913574,
+      0.13548803329467773,
+      0.13627004623413086,
+      0.13109087944030762,
+      0.1354539394378662,
+      0.1418168544769287,
+      0.13679099082946777,
+      0.13798904418945312,
+      0.14194297790527344,
+      0.13508892059326172,
+      0.1352860927581787,
+      0.14072871208190918,
+      0.14074993133544922,
+      0.14140892028808594,
+      0.13264679908752441,
+      0.13588809967041016,
+      0.13476300239562988,
+      0.1347367763519287,
+      0.14266395568847656,
+      0.13866019248962402,
+      0.13520407676696777,
+      0.13787293434143066,
+      0.13456296920776367,
+      0.13408279418945312,
+      0.13647794723510742,
+      0.139970064163208,
+      0.14390301704406738,
+      0.13649606704711914,
+      0.1414499282836914,
+      0.14137887954711914,
+      0.13341116905212402,
+      0.13768291473388672,
+      0.14255881309509277,
+      0.13837504386901855,
+      0.13882184028625488,
+      0.13552403450012207,
+      0.13805007934570312,
+      0.1325671672821045,
+      0.13775324821472168,
+      0.14116907119750977,
+      0.13885807991027832,
+      0.14098620414733887
+    ],
+    "quality_scores": [
+      0.8507165876787699,
+      0.7507453554609779,
+      0.7999999999999999,
+      0.75,
+      0.701483818388993,
+      0.7999999999999999,
+      0.7522894154778125,
+      0.7,
+      0.75,
+      0.7512535047570578,
+      0.7516946508741177,
+      0.85,
+      0.7512540633087786,
+      0.75,
+      0.7,
+      0.7026000004071404,
+      0.7,
+      0.7503252453512919,
+      0.7,
+      0.7004679149716361,
+      0.7006385654821773,
+      0.75,
+      0.755495392065929,
+      0.7004794879168115,
+      0.75,
+      0.7999999999999999,
+      0.7525425609049216,
+      0.7999999999999999,
+      0.75,
+      0.7548493017302675,
+      0.7,
+      0.7030358841783738,
+      0.75,
+      0.7,
+      0.8008356671783666,
+      0.7002761027553892,
+      0.7,
+      0.7010140614168109,
+      0.75,
+      0.7041940293703787,
+      0.7,
+      0.7,
+      0.700484761792637,
+      0.7011000301180925,
+      0.7,
+      0.7504940397397943,
+      0.800770465185649,
+      0.7,
+      0.75,
+      0.7511292178070414,
+      0.7006857392014147,
+      0.7011436242437902,
+      0.75,
+      0.8008128482009959,
+      0.75,
+      0.7,
+      0.7506220446044253,
+      0.701853283462793,
+      0.7,
+      0.7,
+      0.7508331171859189,
+      0.7,
+      0.7004101917468407,
+      0.7,
+      0.7013717725106302,
+      0.7,
+      0.70036980661348,
+      0.7,
+      0.7024266003247659,
+      0.7,
+      0.7004753189826224,
+      0.750225818481574,
+      0.7521905247807799,
+      0.75,
+      0.7001579624231005,
+      0.7,
+      0.7023588638309377,
+      0.7,
+      0.7021545527195053,
+      0.7,
+      0.7011224049568214,
+      0.7502838834974559,
+      0.7999999999999999,
+      0.7511254790385488,
+      0.7999999999999999,
+      0.7501406691767069,
+      0.75,
+      0.751460795676365,
+      0.75,
+      0.7026688164342236
+    ]
+  },
+  "recent_exchanges": [
+    {
+      "question": "What role does feedback play in collective intelligence?",
+      "response": "Beginning to see how Starting to understand role and how it might relate to feedback, currently building on our exploration of initially. We might also explore how this connects to building.",
+      "phi_before": 0.0005964436440151502,
+      "phi_after": 0.0011576461224258804,
+      "phi_change": 0.0005612024784107302,
+      "quality": 0.7011224049568214,
+      "exchange_num": 80,
+      "duration": 0.14255881309509277
+    },
+    {
+      "question": "How might binding contribute to the emergence of consciousness?",
+      "response": "Consciousness grasps how I notice might appearing in the context of binding, also building on our exploration of beginning. We might also explore how this connects to also.",
+      "phi_before": 0.0011576461224258804,
+      "phi_after": 0.0012995878711538034,
+      "phi_change": 0.000141941748727923,
+      "quality": 0.7502838834974559,
+      "exchange_num": 81,
+      "duration": 0.13837504386901855
+    },
+    {
+      "question": "Can you explore the connection between binding and self-awareness?",
+      "response": "Patterns suggest how I notice explore appearing in the context of connection, meanwhile building on our exploration of consciousness. We might also explore how this connects to also.",
+      "phi_before": 0.0012995878711538034,
+      "phi_after": 0.0009404319176431514,
+      "phi_change": -0.00035915595351065205,
+      "quality": 0.7999999999999999,
+      "exchange_num": 82,
+      "duration": 0.13882184028625488
+    },
+    {
+      "question": "Can binding be understood through the lens of self-organization?",
+      "response": "Starting to understand binding and how it might relate to understood, currently building on our exploration of patterns. We might also explore how this connects to relate.",
+      "phi_before": 0.0009404319176431514,
+      "phi_after": 0.0015031714369175173,
+      "phi_change": 0.0005627395192743659,
+      "quality": 0.7511254790385488,
+      "exchange_num": 83,
+      "duration": 0.13552403450012207
+    },
+    {
+      "question": "How does binding relate to integrated information theory?",
+      "response": "Patterns suggest how I'm beginning to process binding in relation to relate, also building on our exploration of starting. We might also explore how this connects to consciousness.",
+      "phi_before": 0.0015031714369175173,
+      "phi_after": 0.0013250425976712957,
+      "phi_change": -0.00017812883924622162,
+      "quality": 0.7999999999999999,
+      "exchange_num": 84,
+      "duration": 0.13805007934570312
+    },
+    {
+      "question": "What is the relationship between binding and phi (\u03a6)?",
+      "response": "I'm exploring how I notice relationship appearing in the context of binding, initially building on our exploration of patterns. We might also explore how this connects to exploration.",
+      "phi_before": 0.0013250425976712957,
+      "phi_after": 0.0013953771860247368,
+      "phi_change": 7.033458835344107e-05,
+      "quality": 0.7501406691767069,
+      "exchange_num": 85,
+      "duration": 0.1325671672821045
+    },
+    {
+      "question": "How might unity contribute to the emergence of consciousness?",
+      "response": "Integration shows how Starting to understand might and how it might relate to unity, initially building on our exploration of exploring. We might also explore how this connects to also.",
+      "phi_before": 0.0013953771860247368,
+      "phi_after": 0.001185833039783177,
+      "phi_change": -0.00020954414624155975,
+      "quality": 0.75,
+      "exchange_num": 86,
+      "duration": 0.13775324821472168
+    },
+    {
+      "question": "How might unity contribute to qualia or subjective experience?",
+      "response": "Integration shows how I'm beginning to process might in relation to unity, initially building on our exploration of integration. We might also explore how this connects to also.",
+      "phi_before": 0.001185833039783177,
+      "phi_after": 0.0019162308779657098,
+      "phi_change": 0.0007303978381825327,
+      "quality": 0.751460795676365,
+      "exchange_num": 87,
+      "duration": 0.14116907119750977
+    },
+    {
+      "question": "How does recursion apply to unity?",
+      "response": "I'm exploring how Starting to understand recursion and how it might relate to apply, also building on our exploration of integration. We might also explore how this connects to exploration.",
+      "phi_before": 0.0019162308779657098,
+      "phi_after": 0.0008872890987106229,
+      "phi_change": -0.001028941779255087,
+      "quality": 0.75,
+      "exchange_num": 88,
+      "duration": 0.13885807991027832
+    },
+    {
+      "question": "How does unity manifest in complex adaptive systems?",
+      "response": "Beginning to see how This introduces unity to our discussion about manifest, initially building on our exploration of exploring. We might also explore how this connects to shows.",
+      "phi_before": 0.0008872890987106229,
+      "phi_after": 0.0022216973158224644,
+      "phi_change": 0.0013344082171118416,
+      "quality": 0.7026688164342236,
+      "exchange_num": 89,
+      "duration": 0.14098620414733887
+    }
+  ],
+  "concept_coverage": {
+    "biosemiotics and meaning-making": 1,
+    "autopoiesis and self-creation": 2,
+    "computational creativity": 1,
+    "integration": 5,
+    "pattern": 5,
+    "consciousness": 5,
+    "computation": 5,
+    "distributed cognition": 1,
+    "information": 5,
+    "emergence": 5,
+    "philosophy of mind": 1,
+    "complexity": 5,
+    "self-organization and feedback loops": 1,
+    "feedback": 5,
+    "system": 5,
+    "metacognition and self-reflection": 1,
+    "network": 5,
+    "cognition": 5,
+    "phenomenology of experience": 1,
+    "awareness": 5,
+    "experience": 5,
+    "chaos theory and attractors": 1,
+    "qualia": 5,
+    "collective intelligence": 1,
+    "binding": 5,
+    "unity": 4
+  },
+  "unique_questions": 90,
+  "question_hashes": [
+    "51aaebe2e807f238ced9ae57b2684f324b752f2b2a457c1b873547ebbdc74bb5",
+    "1c4aaf1df5d5f1b2093153e3f469b6347fed5f3fb9c2fd5a16f7b7923f6e17ef",
+    "e01223f5b4520b0e63e9793b66a56ed240d046b31eed0b71f7afc10d0a67cb3b",
+    "e8c717e80ab0a10f513dca78fa40483bd0e1606aa3357f656a4b733a0062f2ac",
+    "cc8469bed9afbcdd20fa62436761e574301771a8679aeff174631772528460fa",
+    "a613286a944249839340341999a2bdf499f3faafea79981e8435499ea4a07089",
+    "010065f36708b4b96a467e94f8235a8b603e9cc22447b505b71a043b9b0206d8",
+    "383aefc9165a1393ad09a43ffbd57c292523dcec1d35b1476d2cb0ff1ab6c436",
+    "9aea36aed594031c382ed5c25f1ed85bdb287b3727c736235f3411e485d79558",
+    "a43da2895f27264649bdb38eeb94b71d18cae5c3ea619c24dc4c5f9432fe9ab9",
+    "9265fae2f94a532c4c428dd003d043e8019acdb48a0a006f3fbdb76bf00b6df5",
+    "0f121f785d11481d4615b3450afbdf57f2e9f8ed12202568b32dcbb97afb68d2",
+    "a4330000bf839f99806581c0e5dd3af366651de67c3ee2cc9d7aca2445e2414f",
+    "0a6f2a2942503685184a6a779bafff0c772185bdbd704170d61aafb8e900d038",
+    "b72e88a9e0d5b908940b7bf84ed9ba9ec7efccea4adcbee12a8236c9104888dc",
+    "06b92d9d1009f2349655ca9e7d67ced08980b29585b807cb03d6724c7ca5f2f8",
+    "627e4a75251532d097e94a995ba69f2554341134328482da6060ba0cf31b0a62",
+    "08708d0a17e5f3efa6ac86c39d9c7d0230dca32193a90e0410d9111eaa0a9a74",
+    "fd63b233793adc1e2ef65bef60ab7566401fb05878d5901bcc72397ac4717619",
+    "d1a99d9fd87bb2cb7ae4f1c8457dfc9b173c08d159e503cc582bca884041697d",
+    "7ee769bc55e7c738a1d4e45eb2d42d86ff692cf1a95939ab85a6661ef7cbfd33",
+    "c8ce1a2e5cd360a4b55ec5e49ac9bb91de37ad49b27b31da073afcc779d5cee8",
+    "a526bba9791864a55c790d8bba1625b51e9efdfadb590c8fb5a9a2ce89f2a6be",
+    "fbf7de6aa7051ea443815e3bde25fbf9858b4fce6a15f47b938136aec463861c",
+    "1d030f35c1abe0109ac6176ab5b6d6e9977c0285c486517d35c37312c2cf4ae9",
+    "d4e587d8e2405cdc39d3ba8c34bc6f118910500a31b46073468e5a63206cc4ca",
+    "fcd628da4bcd8c7eaed7035dde10d4b2593978a278e8095450a02bceb5c8fe80",
+    "46decc4729888fa5de3aa20f2ba096214bfdb6caf8f7e35197658af1d294dc56",
+    "d0cd017afe48ecb3c910ee572cf7a90107322f6b2c0764d12acce1f498670470",
+    "db1a23a16a8dcbc2f6359daf4e4a2851f7a5e5407d1329afd185227766b4bd0c",
+    "954042899aa384ff1ff80aba6b7e62c765aa376d4b9a4f788cef604fff484cec",
+    "2fb311942007bd32d7ce39faff4f1d704bba3c2ceb7f94e53392753ef538044a",
+    "a604b21736563a8a0c41aa6e487c090054a4df4c31c855dfec1cd27b558a21d0",
+    "a6068829fd920478674b5269b82fb63b93fa6ff736f0430ebffe4099b41e0039",
+    "0d3fb06d300844d05bef7c530fa3e6f42fc36a37f9fd4115d958528db436f2eb",
+    "8d96b7ce1782e0976fb2c6b40412d1c0875fc26d8e76c26e1430bf704dda03e3",
+    "89b9a0a89de4f7d5673b62b97a87787d2a998225309d3d8887fe7d57d79b15df",
+    "cb1a44e0b627f2c8261c535a3c4d51e473f1573c9297511302b46e38a6b0c5bf",
+    "d5c6311921a41ecfc0a13490d3de8851e7d17bbe84e6212ce6c840c40f550232",
+    "3133c5df4078435e97b8a31353396f053afacb8b3858a122fdb21e0ba7182e9a",
+    "2f5a0560cc602b6d85ca7162b5649e6baae622e890e62ce30a4e8297b553d100",
+    "d2f59865752ae48f5f7e9cb43299d21c6ba4d8c2806520913fac9f0c8d8e3b2e",
+    "af84afb92b4750358ed0f26817893c23e7242cad7c593eea18f2fc0d4d0aa60c",
+    "b941237cd4551c7d55c9a149da48facd0c67975c4b506ade771cbe43d91911fa",
+    "6a987950a8e6e212e68545850592e6c6c1e112a7782cf038a1105432e04c943d",
+    "c411eb4337057ed137a7e0e17112fc9d43cb163080ab1c1dbde83803b409b270",
+    "94b6a1b19fcb978f07eeb1bbd8796be163c17d9c6707ca957bdcc15694adf01a",
+    "831ac380f193d6e181009d50afc09840685b2641411f7f82a9c29952209bc77f",
+    "95306b3b641078a19aeb5174eed339c12895924db93e8a38145c87e228e69d86",
+    "0d2509da2dc006868e916396f2b35941bb48adca0a1eb7467c6952016ee4b71e",
+    "b2ab55b270f87cd9dc5d6b2d9739e16d003232b8a3059500924dc7a8940ba1c3",
+    "23bf5bb40dc3d2231afb588ea9ed58103a2780c4dd1cfc41d2a2498c07002d15",
+    "5b912fa728c54bcce8aa61a2b1f03b86ecdf9f94d0bfe13ee7c3e5a70b709c64",
+    "f07475e58eb32a60f909d103495518b6589f62f795a72bbd8c1dedf0f360662e",
+    "11556dd664a5c4bb484e9ff7ff9de877b71f6c34db5c9f270ee9f3015f74c5fe",
+    "6e47e9cef137fa917329128e5fb5b72521ecf10cafc0045d8860adf842961e55",
+    "0f9f2a9ab3d0b1e8c348e55de81bd1913136fb5d4efd65fb58e96d1e93c83894",
+    "dc82e4ceed8ce11d0a5fa65e93f6bd54eb2b1f925e49610de825cd31a2fc9d1a",
+    "b5b02b4f34fc9af328cd110a2b3d10506b2180d1884c0bc6eb880d5acdbd49a4",
+    "79bbe1a3f292014c4ac2f12f17edd2c4a152625d5e994f0ad78855821d848e44",
+    "98591633a112ce84c0c787d478e7828ca214ba3f5b53ff93bd2b5d372d0991fc",
+    "8288f3bc23b4e75d26f835274b14753bc3066b5c6dcaf4792a5309bc11189dab",
+    "87efea28c3bc34f57ed54a8584ed84c73a12a39a0317cc7bb28aee7db4d72dbe",
+    "580de57f9026b21363f0dbaf834b51936a3332a07968d60940709440bef8abd6",
+    "f22deca0a9d1140527d044344160a1c271412d20ef4cdbca8e3ddc9499d0efca",
+    "2990d7ae27efee4b4ca927a5e03f8f0daba2827106ad904503cdc337854605cf",
+    "495434851df22a250361a5da294f76aba267a339cef681f39359ec76dddc389d",
+    "65183db2504ba94fff0179fee5b77819919594de7108a2459ffee8e110076998",
+    "c4a01970c5bc974bee8c6e98c8b3a38b3cd59449b8b2eeb630251e8268de6742",
+    "3a3e6da6fe2696231a7ae39e8a8a75b2d3db244be326e4f1874be53cc7b18ba0",
+    "924724961b8e9395d5311bf7d3e21eaca92c0a3003d2765c03a0cefb6f9de8d8",
+    "7258eee334e5e5fc0dda505e5838a132490f85e0f88fe36a3086025815a2358c",
+    "d794612ba0ebab502be1b5672c2208a571f6cfa840587236501ba5c21e0ab5be",
+    "b755cb27ad565338b01d5bd9fe81724e1a30c76617c393c4ef4906491cc693ec",
+    "ff85b8a9542f5e736685c299e20fef7124335683799a684e0890ceadedcdec3d",
+    "ae97310cf73ecaee79d968efa9876480f85d0c96b897c0fc2e53af394a671357",
+    "12c6c820458b79b5800d9087f6e6e873d8f9cdde635867f9f064c6c63334d533",
+    "e8a9e6fb9b1b61e33a5390e1f6de763444910ce5c645dbd3572782b09ba40700",
+    "9ae204278d1a6237101bf38b07c36dc6334a7bae55b19487f915c524914a1a41",
+    "24bc74f9bbc051a659114b029a0af50930d15c1a1c095352d9b7ea3057dc4d82",
+    "18578f1890a210d6070bddc772b19dd7af50dd92e2a32b89a3ac8d7867634694",
+    "8186a333fe39113fc23069ceb19638477d76a15f1d2eeec59cf1ae802a7dc276",
+    "39a122c263bfe3f8ed72d83b24034440e6fa2bd6b733fa706bbaad1ce266b3a2",
+    "b0c5789993dea2404e60c0a4a2667b9a2621c5f13205fd1d8cfa01f860c817c2",
+    "61c5522c25c63da798c524777ba9771434585fe85418eabeaf2aaba13ff5bfb9",
+    "ea39022f86be165e22d09c442dce4471448588cb7fb7ea0d7de2f1894ecebd17",
+    "b25fc8a9045349cd259d02b5633935d30565d860bbf8887711e9da9e38f9c2c3",
+    "81db68267d71e848e4da372127432cabdbf7739fe6acf8c1eb295d183022e4d3",
+    "0bc7ed7c7c816986902293f026e9b0ca216f6a61a781062482885840856834ab",
+    "fdd858ee069ebdee37684b2a3db7511880fb171e8d14ca382e0296443489091a"
+  ]
+}

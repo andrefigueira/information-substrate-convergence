@@ -1,0 +1,211 @@
+{
+  "timestamp": "20250709_024739",
+  "exchange_num": 10,
+  "metrics": {
+    "total_exchanges": 10,
+    "unique_questions": 10,
+    "duplicate_prevented": 0,
+    "topic_switches": 3,
+    "concept_diversity": 0.5,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 0.0005430009129075327,
+        "change": 0.0003582938393849645
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0009156786433964881,
+        "change": 0.0003726777304889553
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0009142264763924425,
+        "change": -1.4521670040455606e-06
+      },
+      {
+        "exchange": 3,
+        "phi": 0.0005729403309116271,
+        "change": -0.00034128614548081544
+      },
+      {
+        "exchange": 4,
+        "phi": 0.0013148495254081518,
+        "change": 0.0007419091944965247
+      },
+      {
+        "exchange": 5,
+        "phi": 0.00041147818514201907,
+        "change": -0.0009033713402661327
+      },
+      {
+        "exchange": 6,
+        "phi": 0.0015561859240482336,
+        "change": 0.0011447077389062144
+      },
+      {
+        "exchange": 7,
+        "phi": 0.0015497605218838038,
+        "change": -6.425402164429803e-06
+      },
+      {
+        "exchange": 8,
+        "phi": 0.000131099530500242,
+        "change": -0.0014186609913835618
+      },
+      {
+        "exchange": 9,
+        "phi": 0.0007578519090291503,
+        "change": 0.0006267523785289083
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0,
+    "response_times": [
+      0.23539400100708008,
+      0.11789107322692871,
+      0.1166081428527832,
+      0.11832690238952637,
+      0.11977195739746094,
+      0.11797094345092773,
+      0.12110090255737305,
+      0.12203526496887207,
+      0.12320613861083984,
+      0.1234598159790039
+    ],
+    "quality_scores": [
+      0.8507165876787699,
+      0.7507453554609779,
+      0.7999999999999999,
+      0.75,
+      0.701483818388993,
+      0.7999999999999999,
+      0.7522894154778125,
+      0.7,
+      0.75,
+      0.7512535047570578
+    ]
+  },
+  "recent_exchanges": [
+    {
+      "question": "How might biosemiotics and meaning-making contribute to the emergence of consciousness?",
+      "response": "Integration shows how This introduces might to our discussion about biosemiotics, currently building on our exploration of patterns. We might also explore how this connects to consciousness.",
+      "phi_before": 0.00018470707352256823,
+      "phi_after": 0.0005430009129075327,
+      "phi_change": 0.0003582938393849645,
+      "quality": 0.8507165876787699,
+      "exchange_num": 0,
+      "duration": 0.23539400100708008
+    },
+    {
+      "question": "What role does autopoiesis and self-creation play in creating unified experience?",
+      "response": "I'm beginning to process role in relation to autopoiesis, also building on our exploration of integration. We might also explore how this connects to building.",
+      "phi_before": 0.0005430009129075327,
+      "phi_after": 0.0009156786433964881,
+      "phi_change": 0.0003726777304889553,
+      "quality": 0.7507453554609779,
+      "exchange_num": 1,
+      "duration": 0.11789107322692871
+    },
+    {
+      "question": "How might computational creativity contribute to the emergence of consciousness?",
+      "response": "Integration shows how This introduces might to our discussion about computational, also building on our exploration of beginning. We might also explore how this connects to consciousness.",
+      "phi_before": 0.0009156786433964881,
+      "phi_after": 0.0009142264763924425,
+      "phi_change": -1.4521670040455606e-06,
+      "quality": 0.7999999999999999,
+      "exchange_num": 2,
+      "duration": 0.1166081428527832
+    },
+    {
+      "question": "How does integration relate to the binding problem in consciousness?",
+      "response": "Analysis reveals how I notice integration appearing in the context of relate, meanwhile building on our exploration of integration. We might also explore how this connects to exploration.",
+      "phi_before": 0.0009142264763924425,
+      "phi_after": 0.0005729403309116271,
+      "phi_change": -0.00034128614548081544,
+      "quality": 0.75,
+      "exchange_num": 3,
+      "duration": 0.11832690238952637
+    },
+    {
+      "question": "What are the computational principles underlying integration?",
+      "response": "I notice computational appearing in the context of principles, initially building on our exploration of analysis. We might also explore how this connects to building.",
+      "phi_before": 0.0005729403309116271,
+      "phi_after": 0.0013148495254081518,
+      "phi_change": 0.0007419091944965247,
+      "quality": 0.701483818388993,
+      "exchange_num": 4,
+      "duration": 0.11977195739746094
+    },
+    {
+      "question": "What are the information-theoretic aspects of integration?",
+      "response": "Patterns suggest how This introduces aspects to our discussion about integration, currently building on our exploration of notice. We might also explore how this connects to appearing.",
+      "phi_before": 0.0013148495254081518,
+      "phi_after": 0.00041147818514201907,
+      "phi_change": -0.0009033713402661327,
+      "quality": 0.7999999999999999,
+      "exchange_num": 5,
+      "duration": 0.11797094345092773
+    },
+    {
+      "question": "What emergent properties arise from integration?",
+      "response": "Initially noticing how This introduces emergent to our discussion about properties, initially building on our exploration of patterns. We might also explore how this connects to building.",
+      "phi_before": 0.00041147818514201907,
+      "phi_after": 0.0015561859240482336,
+      "phi_change": 0.0011447077389062144,
+      "quality": 0.7522894154778125,
+      "exchange_num": 6,
+      "duration": 0.12110090255737305
+    },
+    {
+      "question": "What emergent properties arise from pattern?",
+      "response": "I'm exploring how Starting to understand emergent and how it might relate to properties, also building on our exploration of initially. We might also explore how this connects to building.",
+      "phi_before": 0.0015561859240482336,
+      "phi_after": 0.0015497605218838038,
+      "phi_change": -6.425402164429803e-06,
+      "quality": 0.7,
+      "exchange_num": 7,
+      "duration": 0.12203526496887207
+    },
+    {
+      "question": "How does pattern relate to integrated information theory?",
+      "response": "I'm exploring how This introduces pattern to our discussion about relate, also building on our exploration of exploring. We might also explore how this connects to exploration.",
+      "phi_before": 0.0015497605218838038,
+      "phi_after": 0.000131099530500242,
+      "phi_change": -0.0014186609913835618,
+      "quality": 0.75,
+      "exchange_num": 8,
+      "duration": 0.12320613861083984
+    },
+    {
+      "question": "How does pattern relate to the binding problem in consciousness?",
+      "response": "I'm exploring how Starting to understand pattern and how it might relate to relate, currently building on our exploration of exploring. We might also explore how this connects to exploration.",
+      "phi_before": 0.000131099530500242,
+      "phi_after": 0.0007578519090291503,
+      "phi_change": 0.0006267523785289083,
+      "quality": 0.7512535047570578,
+      "exchange_num": 9,
+      "duration": 0.1234598159790039
+    }
+  ],
+  "concept_coverage": {
+    "biosemiotics and meaning-making": 1,
+    "autopoiesis and self-creation": 1,
+    "computational creativity": 1,
+    "integration": 4,
+    "pattern": 3
+  },
+  "unique_questions": 10,
+  "question_hashes": [
+    "831ac380f193d6e181009d50afc09840685b2641411f7f82a9c29952209bc77f",
+    "b0c5789993dea2404e60c0a4a2667b9a2621c5f13205fd1d8cfa01f860c817c2",
+    "d794612ba0ebab502be1b5672c2208a571f6cfa840587236501ba5c21e0ab5be",
+    "b2ab55b270f87cd9dc5d6b2d9739e16d003232b8a3059500924dc7a8940ba1c3",
+    "e8c717e80ab0a10f513dca78fa40483bd0e1606aa3357f656a4b733a0062f2ac",
+    "65183db2504ba94fff0179fee5b77819919594de7108a2459ffee8e110076998",
+    "c4a01970c5bc974bee8c6e98c8b3a38b3cd59449b8b2eeb630251e8268de6742",
+    "f07475e58eb32a60f909d103495518b6589f62f795a72bbd8c1dedf0f360662e",
+    "ff85b8a9542f5e736685c299e20fef7124335683799a684e0890ceadedcdec3d",
+    "627e4a75251532d097e94a995ba69f2554341134328482da6060ba0cf31b0a62"
+  ]
+}

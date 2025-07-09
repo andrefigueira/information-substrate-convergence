@@ -1,0 +1,636 @@
+{
+  "timestamp": "20250709_023235",
+  "exchange_num": 100,
+  "metrics": {
+    "total_exchanges": 100,
+    "unique_questions": 100,
+    "duplicate_prevented": 21,
+    "topic_switches": 12,
+    "concept_diversity": 0.26,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 0.00201959795338447,
+        "change": 0.00201959795338447
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0018701077420828288,
+        "change": -0.00014949021130164128
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0016873213554007916,
+        "change": -0.0001827863866820372
+      },
+      {
+        "exchange": 3,
+        "phi": 0.003354591791017032,
+        "change": 0.0016672704356162403
+      },
+      {
+        "exchange": 4,
+        "phi": 0.0024078253901748644,
+        "change": -0.0009467664008421675
+      },
+      {
+        "exchange": 5,
+        "phi": 0.0006812200066049489,
+        "change": -0.0017266053835699154
+      },
+      {
+        "exchange": 6,
+        "phi": 0.0003581534016633151,
+        "change": -0.0003230666049416338
+      },
+      {
+        "exchange": 7,
+        "phi": 8.473642438407634e-05,
+        "change": -0.0002734169772792387
+      },
+      {
+        "exchange": 8,
+        "phi": 0.001634765333916215,
+        "change": 0.0015500289095321388
+      },
+      {
+        "exchange": 9,
+        "phi": 0.004980875221162334,
+        "change": 0.0033461098872461193
+      },
+      {
+        "exchange": 10,
+        "phi": 0.0005245773168822234,
+        "change": -0.0044562979042801106
+      },
+      {
+        "exchange": 11,
+        "phi": 0.003054421089014494,
+        "change": 0.002529843772132271
+      },
+      {
+        "exchange": 12,
+        "phi": 0.0011006293720549753,
+        "change": -0.0019537917169595185
+      },
+      {
+        "exchange": 13,
+        "phi": 0.0011567873167087671,
+        "change": 5.615794465379186e-05
+      },
+      {
+        "exchange": 14,
+        "phi": 0.0009559561426850397,
+        "change": -0.00020083117402372745
+      },
+      {
+        "exchange": 15,
+        "phi": 0.0005328740765203524,
+        "change": -0.0004230820661646873
+      },
+      {
+        "exchange": 16,
+        "phi": 0.0018518733414868084,
+        "change": 0.001318999264966456
+      },
+      {
+        "exchange": 17,
+        "phi": 0.002233109543591645,
+        "change": 0.0003812362021048364
+      },
+      {
+        "exchange": 18,
+        "phi": 0.0009450959309444185,
+        "change": -0.0012880136126472263
+      },
+      {
+        "exchange": 19,
+        "phi": 0.001409281850351345,
+        "change": 0.00046418591940692645
+      },
+      {
+        "exchange": 20,
+        "phi": 0.0007459581743938667,
+        "change": -0.0006633236759574783
+      },
+      {
+        "exchange": 21,
+        "phi": 0.0005518530619732176,
+        "change": -0.00019410511242064904
+      },
+      {
+        "exchange": 22,
+        "phi": 0.0006097163148756663,
+        "change": 5.786325290244867e-05
+      },
+      {
+        "exchange": 23,
+        "phi": 0.0010986218676335322,
+        "change": 0.0004889055527578659
+      },
+      {
+        "exchange": 24,
+        "phi": 0.0005102351909780189,
+        "change": -0.0005883866766555133
+      },
+      {
+        "exchange": 25,
+        "phi": 0.000342538396732804,
+        "change": -0.00016769679424521495
+      },
+      {
+        "exchange": 26,
+        "phi": 0.00025256172144124745,
+        "change": -8.997667529155653e-05
+      },
+      {
+        "exchange": 27,
+        "phi": 0.0005129788445308207,
+        "change": 0.00026041712308957324
+      },
+      {
+        "exchange": 28,
+        "phi": 0.0005812943623235047,
+        "change": 6.831551779268405e-05
+      },
+      {
+        "exchange": 29,
+        "phi": 0.000258817174514009,
+        "change": -0.00032247718780949576
+      },
+      {
+        "exchange": 30,
+        "phi": 0.0007049348519122237,
+        "change": 0.00044611767739821467
+      },
+      {
+        "exchange": 31,
+        "phi": 0.0005897516328418529,
+        "change": -0.00011518321907037072
+      },
+      {
+        "exchange": 32,
+        "phi": 0.00036449875680052453,
+        "change": -0.0002252528760413284
+      },
+      {
+        "exchange": 33,
+        "phi": 0.00019911182254700278,
+        "change": -0.00016538693425352175
+      },
+      {
+        "exchange": 34,
+        "phi": 0.0002263254918429058,
+        "change": 2.7213669295903013e-05
+      },
+      {
+        "exchange": 35,
+        "phi": 0.0009706613146588957,
+        "change": 0.0007443358228159899
+      },
+      {
+        "exchange": 36,
+        "phi": 0.0005841065938752641,
+        "change": -0.00038655472078363156
+      },
+      {
+        "exchange": 37,
+        "phi": 0.001203879111199055,
+        "change": 0.000619772517323791
+      },
+      {
+        "exchange": 38,
+        "phi": 0.00043495190563054906,
+        "change": -0.000768927205568506
+      },
+      {
+        "exchange": 39,
+        "phi": 0.00047460300061959106,
+        "change": 3.9651094989042e-05
+      },
+      {
+        "exchange": 40,
+        "phi": 0.0003064338235678057,
+        "change": -0.00016816917705178536
+      },
+      {
+        "exchange": 41,
+        "phi": 0.0003211235186147212,
+        "change": 1.4689695046915497e-05
+      },
+      {
+        "exchange": 42,
+        "phi": 0.000502078831913353,
+        "change": 0.00018095531329863178
+      },
+      {
+        "exchange": 43,
+        "phi": 0.0002896650766212475,
+        "change": -0.00021241375529210544
+      },
+      {
+        "exchange": 44,
+        "phi": 0.00045054007377107414,
+        "change": 0.0001608749971498266
+      },
+      {
+        "exchange": 45,
+        "phi": 0.0006217978417312368,
+        "change": 0.00017125776796016266
+      },
+      {
+        "exchange": 46,
+        "phi": 0.0006540171126753182,
+        "change": 3.2219270944081405e-05
+      },
+      {
+        "exchange": 47,
+        "phi": 0.0007750076827361787,
+        "change": 0.00012099057006086046
+      },
+      {
+        "exchange": 48,
+        "phi": 0.0006608492250521029,
+        "change": -0.0001141584576840758
+      },
+      {
+        "exchange": 49,
+        "phi": 0.0011505972433399343,
+        "change": 0.0004897480182878315
+      },
+      {
+        "exchange": 50,
+        "phi": 0.0004644536369336344,
+        "change": -0.0006861436064062999
+      },
+      {
+        "exchange": 51,
+        "phi": 0.000561757789678627,
+        "change": 9.730415274499264e-05
+      },
+      {
+        "exchange": 52,
+        "phi": 0.00042915581446007064,
+        "change": -0.0001326019752185564
+      },
+      {
+        "exchange": 53,
+        "phi": 0.0015635422233455662,
+        "change": 0.0011343864088854956
+      },
+      {
+        "exchange": 54,
+        "phi": 0.0011895073901389518,
+        "change": -0.00037403483320661447
+      },
+      {
+        "exchange": 55,
+        "phi": 0.0009074577374359195,
+        "change": -0.0002820496527030323
+      },
+      {
+        "exchange": 56,
+        "phi": 0.0011787510403790118,
+        "change": 0.0002712933029430923
+      },
+      {
+        "exchange": 57,
+        "phi": 0.001196393702386046,
+        "change": 1.7642662007034265e-05
+      },
+      {
+        "exchange": 58,
+        "phi": 0.0007365309638099267,
+        "change": -0.0004598627385761193
+      },
+      {
+        "exchange": 59,
+        "phi": 0.0012450176146844363,
+        "change": 0.0005084866508745096
+      },
+      {
+        "exchange": 60,
+        "phi": 0.0005543059846205586,
+        "change": -0.0006907116300638777
+      },
+      {
+        "exchange": 61,
+        "phi": 0.0009125961458278609,
+        "change": 0.0003582901612073022
+      },
+      {
+        "exchange": 62,
+        "phi": 0.00048316823792888316,
+        "change": -0.0004294279078989777
+      },
+      {
+        "exchange": 63,
+        "phi": 0.0003729047154912485,
+        "change": -0.00011026352243763464
+      },
+      {
+        "exchange": 64,
+        "phi": 0.0011313595361024335,
+        "change": 0.0007584548206111849
+      },
+      {
+        "exchange": 65,
+        "phi": 0.0007648885750498286,
+        "change": -0.00036647096105260483
+      },
+      {
+        "exchange": 66,
+        "phi": 0.0007138532663951831,
+        "change": -5.103530865464552e-05
+      },
+      {
+        "exchange": 67,
+        "phi": 0.0008631224058483547,
+        "change": 0.0001492691394531716
+      },
+      {
+        "exchange": 68,
+        "phi": 0.0011500953912279535,
+        "change": 0.0002869729853795988
+      },
+      {
+        "exchange": 69,
+        "phi": 0.0010824664345434724,
+        "change": -6.762895668448112e-05
+      },
+      {
+        "exchange": 70,
+        "phi": 0.0011943769159549434,
+        "change": 0.00011191048141147102
+      },
+      {
+        "exchange": 71,
+        "phi": 0.0002539415204576244,
+        "change": -0.000940435395497319
+      },
+      {
+        "exchange": 72,
+        "phi": 0.0003068179605147508,
+        "change": 5.287644005712641e-05
+      },
+      {
+        "exchange": 73,
+        "phi": 0.00025715286438062347,
+        "change": -4.966509613412736e-05
+      },
+      {
+        "exchange": 74,
+        "phi": 0.0004456093280256042,
+        "change": 0.00018845646364498074
+      },
+      {
+        "exchange": 75,
+        "phi": 0.00048819019712344224,
+        "change": 4.258086909783804e-05
+      },
+      {
+        "exchange": 76,
+        "phi": 0.0005171698736049319,
+        "change": 2.897967648148969e-05
+      },
+      {
+        "exchange": 77,
+        "phi": 0.0016901304912667354,
+        "change": 0.0011729606176618034
+      },
+      {
+        "exchange": 78,
+        "phi": 0.0002136701906201871,
+        "change": -0.0014764603006465482
+      },
+      {
+        "exchange": 79,
+        "phi": 0.0005574070260457211,
+        "change": 0.00034373683542553407
+      },
+      {
+        "exchange": 80,
+        "phi": 0.0005756267424072174,
+        "change": 1.8219716361496255e-05
+      },
+      {
+        "exchange": 81,
+        "phi": 0.0002482502499824971,
+        "change": -0.0003273764924247203
+      },
+      {
+        "exchange": 82,
+        "phi": 0.00020954525855103253,
+        "change": -3.870499143146457e-05
+      },
+      {
+        "exchange": 83,
+        "phi": 1.846917703212897e-05,
+        "change": -0.00019107608151890356
+      },
+      {
+        "exchange": 84,
+        "phi": 0.0004862989250887916,
+        "change": 0.00046782974805666263
+      },
+      {
+        "exchange": 85,
+        "phi": 1.9136412136764618e-05,
+        "change": -0.000467162512952027
+      },
+      {
+        "exchange": 86,
+        "phi": 0.0003526378198459423,
+        "change": 0.0003335014077091777
+      },
+      {
+        "exchange": 87,
+        "phi": 0.00013421621015319993,
+        "change": -0.0002184216096927424
+      },
+      {
+        "exchange": 88,
+        "phi": 3.1566382004942675e-05,
+        "change": -0.00010264982814825726
+      },
+      {
+        "exchange": 89,
+        "phi": 0.0004674367141991483,
+        "change": 0.0004358703321942056
+      },
+      {
+        "exchange": 90,
+        "phi": 0.00012744108820637396,
+        "change": -0.0003399956259927743
+      },
+      {
+        "exchange": 91,
+        "phi": 0.00019726422420903594,
+        "change": 6.982313600266198e-05
+      },
+      {
+        "exchange": 92,
+        "phi": 0.0002544026099674928,
+        "change": 5.713838575845684e-05
+      },
+      {
+        "exchange": 93,
+        "phi": 0.00037025109741859255,
+        "change": 0.00011584848745109977
+      },
+      {
+        "exchange": 94,
+        "phi": 0.0002997791002737668,
+        "change": -7.047199714482576e-05
+      },
+      {
+        "exchange": 95,
+        "phi": 0.0003414689608550076,
+        "change": 4.168986058124079e-05
+      },
+      {
+        "exchange": 96,
+        "phi": 0.0005309176503961016,
+        "change": 0.00018944868954109398
+      },
+      {
+        "exchange": 97,
+        "phi": 0.0001763896571874388,
+        "change": -0.00035452799320866276
+      },
+      {
+        "exchange": 98,
+        "phi": 0.0005549240065676204,
+        "change": 0.0003785343493801816
+      },
+      {
+        "exchange": 99,
+        "phi": 0.00018487650931803108,
+        "change": -0.00037004749724958935
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0
+  },
+  "recent_exchanges": [
+    {
+      "question": "How does recursive self-improvement manifest in complex adaptive systems?",
+      "response": "I notice recursive appearing in the context of manifest, currently building on our exploration of starting. We might also explore how this connects to principles.",
+      "phi_before": 0.0004674367141991483,
+      "phi_after": 0.00012744108820637396,
+      "phi_change": -0.0003399956259927743,
+      "quality": 0.7,
+      "exchange_num": 90
+    },
+    {
+      "question": "What emergent properties arise from unity?",
+      "response": "I'm beginning to process emergent in relation to properties, initially building on our exploration of notice. We might also explore how this connects to building.",
+      "phi_before": 0.00012744108820637396,
+      "phi_after": 0.00019726422420903594,
+      "phi_change": 6.982313600266198e-05,
+      "quality": 0.7001396462720053,
+      "exchange_num": 91
+    },
+    {
+      "question": "Can differentiation be understood through the lens of self-organization?",
+      "response": "Starting to understand differentiation and how it might relate to understood, initially building on our exploration of beginning.",
+      "phi_before": 0.00019726422420903594,
+      "phi_after": 0.0002544026099674928,
+      "phi_change": 5.713838575845684e-05,
+      "quality": 0.6001142767715169,
+      "exchange_num": 92
+    },
+    {
+      "question": "What role does feedback play in differentiation?",
+      "response": "This introduces role to our discussion about feedback, initially building on our exploration of starting. We might also explore how this connects to feedback.",
+      "phi_before": 0.0002544026099674928,
+      "phi_after": 0.00037025109741859255,
+      "phi_change": 0.00011584848745109977,
+      "quality": 0.7002316969749022,
+      "exchange_num": 93
+    },
+    {
+      "question": "How does recursion apply to differentiation?",
+      "response": "Starting to understand recursion and how it might relate to apply, also building on our exploration of introduces. We might also explore how this connects to starting.",
+      "phi_before": 0.00037025109741859255,
+      "phi_after": 0.0002997791002737668,
+      "phi_change": -7.047199714482576e-05,
+      "quality": 0.7,
+      "exchange_num": 94
+    },
+    {
+      "question": "How might differentiation contribute to qualia or subjective experience?",
+      "response": "Starting to understand might and how it might relate to differentiation, initially building on our exploration of starting. We might also explore how this connects to also.",
+      "phi_before": 0.0002997791002737668,
+      "phi_after": 0.0003414689608550076,
+      "phi_change": 4.168986058124079e-05,
+      "quality": 0.7000833797211624,
+      "exchange_num": 95
+    },
+    {
+      "question": "What role does differentiation play in creating unified experience?",
+      "response": "I'm beginning to process role in relation to differentiation, currently building on our exploration of starting. We might also explore how this connects to also.",
+      "phi_before": 0.0003414689608550076,
+      "phi_after": 0.0005309176503961016,
+      "phi_change": 0.00018944868954109398,
+      "quality": 0.7003788973790821,
+      "exchange_num": 96
+    },
+    {
+      "question": "How might causation contribute to qualia or subjective experience?",
+      "response": "I'm beginning to process might in relation to causation, initially building on our exploration of beginning. We might also explore how this connects to also.",
+      "phi_before": 0.0005309176503961016,
+      "phi_after": 0.0001763896571874388,
+      "phi_change": -0.00035452799320866276,
+      "quality": 0.7,
+      "exchange_num": 97
+    },
+    {
+      "question": "How does recursion apply to causation?",
+      "response": "I notice recursion appearing in the context of apply, also building on our exploration of beginning. We might also explore how this connects to starting.",
+      "phi_before": 0.0001763896571874388,
+      "phi_after": 0.0005549240065676204,
+      "phi_change": 0.0003785343493801816,
+      "quality": 0.7007570686987603,
+      "exchange_num": 98
+    },
+    {
+      "question": "What patterns emerge when considering causation from a systems perspective?",
+      "response": "This introduces patterns to our discussion about emerge, also building on our exploration of notice. We might also explore how this connects to perspective.",
+      "phi_before": 0.0005549240065676204,
+      "phi_after": 0.00018487650931803108,
+      "phi_change": -0.00037004749724958935,
+      "quality": 0.75,
+      "exchange_num": 99
+    }
+  ],
+  "concept_coverage": {
+    "computational creativity": 1,
+    "consciousness and awareness": 3,
+    "metacognition and self-reflection": 2,
+    "computation": 5,
+    "consciousness": 5,
+    "swarm intelligence": 1,
+    "pattern": 5,
+    "system": 5,
+    "recursive self-improvement": 2,
+    "information": 5,
+    "distributed cognition": 1,
+    "cognition": 5,
+    "integration": 5,
+    "emergence": 5,
+    "complexity": 5,
+    "feedback": 5,
+    "network": 5,
+    "cognitive architectures": 1,
+    "awareness": 5,
+    "experience": 5,
+    "qualia": 5,
+    "phenomenology of experience": 1,
+    "binding": 5,
+    "unity": 5,
+    "differentiation": 5,
+    "causation": 3
+  },
+  "unique_questions": 100
+}

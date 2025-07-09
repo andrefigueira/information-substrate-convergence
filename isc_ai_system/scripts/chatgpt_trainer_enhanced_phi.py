@@ -39,7 +39,7 @@ from src.isc_ai.enhanced_information_integration import EnhancedInformationInteg
 # ============================================
 # CONFIGURATION
 # ============================================
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")  # Set via environment variable for security
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "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")  # Set via environment variable for security
 
 @dataclass
 class TrainingTask:
@@ -480,13 +480,11 @@ Provide scores and brief explanation in JSON format:
     
     def _save_checkpoint(self, exchange_num: int):
         """Save training checkpoint with enhanced metrics"""
+        # Save ISC state to standard location
+        self.core.save_state()  # No filepath = use persistence manager
+        
+        # Save training metrics separately
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
-        # Save ISC state
-        state_file = f"isc_state_enhanced_{timestamp}.pt"
-        self.core.save_state(state_file)
-        
-        # Save training metrics
         metrics_file = f"training_enhanced_{timestamp}.json"
         
         # Add cache and phi statistics
@@ -508,7 +506,7 @@ Provide scores and brief explanation in JSON format:
         with open(metrics_file, 'w') as f:
             json.dump(save_data, f, indent=2)
         
-        self.console.print(f"[green]✓ Checkpoint saved: {state_file}, {metrics_file}[/green]")
+        self.console.print(f"[green]✓ Checkpoint saved[/green]")
     
     def _update_visualizations(self):
         """Create enhanced visualizations including phi trends"""

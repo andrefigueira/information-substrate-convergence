@@ -1,0 +1,83 @@
+{
+  "timestamp": "20250709_024543",
+  "exchange_num": 3,
+  "metrics": {
+    "total_exchanges": 3,
+    "unique_questions": 3,
+    "duplicate_prevented": 0,
+    "topic_switches": 3,
+    "concept_diversity": 1.0,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 0.0005265506765468438,
+        "change": 0.0003418436030242756
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0006198612372635174,
+        "change": 9.33105607166736e-05
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0015821997523431152,
+        "change": 0.0009623385150795978
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0,
+    "response_times": [
+      0.3027489185333252,
+      0.12159180641174316,
+      0.12364602088928223
+    ],
+    "quality_scores": [
+      0.7506836872060485,
+      0.7001866211214333,
+      0.7519246770301592
+    ]
+  },
+  "recent_exchanges": [
+    {
+      "question": "What role does feedback play in consciousness and awareness?",
+      "response": "I'm exploring how This introduces role to our discussion about feedback, meanwhile building on our exploration of patterns. We might also explore how this connects to building.",
+      "phi_before": 0.00018470707352256823,
+      "phi_after": 0.0005265506765468438,
+      "phi_change": 0.0003418436030242756,
+      "quality": 0.7506836872060485,
+      "exchange_num": 0,
+      "duration": 0.3027489185333252
+    },
+    {
+      "question": "Can you explore the connection between quantum information theory and self-awareness?",
+      "response": "I deeply understand how This introduces explore to our discussion about connection, initially building on our exploration of exploring. We might also explore how this connects to exploration.",
+      "phi_before": 0.0005265506765468438,
+      "phi_after": 0.0006198612372635174,
+      "phi_change": 9.33105607166736e-05,
+      "quality": 0.7001866211214333,
+      "exchange_num": 1,
+      "duration": 0.12159180641174316
+    },
+    {
+      "question": "How does biosemiotics and meaning-making relate to integrated information theory?",
+      "response": "Initially noticing how I notice biosemiotics appearing in the context of relate, meanwhile building on our exploration of deeply. We might also explore how this connects to information.",
+      "phi_before": 0.0006198612372635174,
+      "phi_after": 0.0015821997523431152,
+      "phi_change": 0.0009623385150795978,
+      "quality": 0.7519246770301592,
+      "exchange_num": 2,
+      "duration": 0.12364602088928223
+    }
+  ],
+  "concept_coverage": {
+    "consciousness and awareness": 1,
+    "quantum information theory": 1,
+    "biosemiotics and meaning-making": 1
+  },
+  "unique_questions": 3,
+  "question_hashes": [
+    "43dcc45fc8084203cf3264869988d63fbd05ba7e0e977c547eb01e925a8536ae",
+    "37c26bcd0e42a4d5e52771eaf7e1cbdaafd7c4300f10ec044cd1738148666fbd",
+    "0eb518ae25074c1e9b09d0cbf43752ff2a4669e9ec84b870706104192d36a204"
+  ]
+}

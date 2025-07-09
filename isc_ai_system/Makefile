@@ -1,6 +1,6 @@
 # ISC AI System Makefile
 
-.PHONY: help install run test clean backup demo storage-demo query-demo dev lint format train-gpt train-gpt-mt train-gpt-enhanced
+.PHONY: help install run test clean backup demo storage-demo query-demo dev lint format train-gpt train-gpt-mt train-gpt-enhanced train-self train-self-verbose train-self-resume train-self-select report report-all metrics analyze
 
 # Default target
 help:
@@ -16,6 +16,7 @@ help:
 	@echo "  make train-gpt    - Train ISC AI using ChatGPT (requires OpenAI key)"
 	@echo "  make train-gpt-mt - Train with multithreading (faster, supports more exchanges)"
 	@echo "  make train-gpt-enhanced - Train with language modeling features (experimental)"
+	@echo "  make train-self   - Self-referential training with loop prevention"
 	@echo "  make demo         - Run basic demonstration"
 	@echo "  make storage-demo - Run storage system demonstration"
 	@echo "  make query-demo   - Run graph query demonstration"
@@ -32,10 +33,17 @@ help:
 	@echo "  make format       - Auto-format code"
 	@echo "  make clean        - Remove build artifacts and cache"
 	@echo ""
+	@echo "Analysis & Reporting:"
+	@echo "  make report       - Generate comprehensive analysis report"
+	@echo "  make report-all   - Generate all types of analysis reports"
+	@echo "  make metrics      - Display current system metrics"
+	@echo "  make analyze      - Run interactive analysis session"
+	@echo ""
 	@echo "Examples:"
 	@echo "  make run          # Start interactive session"
 	@echo "  make backup       # Backup current data"
 	@echo "  make test         # Run test suite"
+	@echo "  make report       # Generate analysis report"
 
 # Installation
 install:
@@ -125,6 +133,46 @@ train-gpt-enhanced:
 	@echo ""
 	python scripts/chatgpt_trainer_enhanced.py
 
+train-self:
+	@echo "=============================================="
+	@echo "ISC AI Self-Referential Training System"
+	@echo "=============================================="
+	@echo ""
+	@echo "Features:"
+	@echo "  - Loop prevention with question deduplication"
+	@echo "  - Semantic similarity checking"
+	@echo "  - Topic diversity enforcement"
+	@echo "  - Concept coverage tracking"
+	@echo "  - Optional AI-guided steering (requires OpenAI key)"
+	@echo "  - Resume from checkpoint capability"
+	@echo "  - Verbose mode for detailed reasoning"
+	@echo "  - PNG visualization of results"
+	@echo ""
+	@echo "Options:"
+	@echo "  make train-self                    # Run standard training"
+	@echo "  make train-self-verbose            # Run with verbose output"
+	@echo "  make train-self-select             # Select state file to load/save"
+	@echo "  make train-self-resume             # Resume with file selection menu"
+	@echo ""
+	@echo "The system will train itself by generating its own questions"
+	@echo "while preventing infinite loops and repetitive patterns."
+	@echo ""
+	@echo "Starting self-referential training..."
+	@echo ""
+	python scripts/self_referential_trainer.py
+
+train-self-verbose:
+	@echo "Starting self-referential training with verbose output..."
+	python scripts/self_referential_trainer.py --verbose
+
+train-self-resume:
+	@echo "Resuming self-referential training with file selection..."
+	python scripts/self_referential_trainer.py --resume select
+
+train-self-select:
+	@echo "Starting self-referential training with file selection..."
+	python scripts/self_referential_trainer.py --resume select
+
 # Storage operations
 backup:
 	@echo "Creating backup..."
@@ -178,3 +226,33 @@ check:
 	@python -c "import torch; print(f'PyTorch version: {torch.__version__}')"
 	@python -c "import networkx; print(f'NetworkX version: {networkx.__version__}')"
 	@echo "Installation check complete."
+
+# Analysis and Reporting
+report:
+	@echo "====================================="
+	@echo "ISC AI System Report Generator"
+	@echo "====================================="
+	@echo ""
+	@echo "This will generate a comprehensive analysis report"
+	@echo "using GPT-4 for critical evaluation."
+	@echo ""
+	@echo "IMPORTANT: Ensure your OpenAI API key is set in"
+	@echo "scripts/report_generator.py"
+	@echo ""
+	python scripts/report_generator.py
+
+report-all:
+	@echo "Generating all report types..."
+	@echo "all" | python scripts/report_generator.py
+
+metrics:
+	@echo "Current System Metrics"
+	@echo "===================="
+	@python -c "from src.isc_ai.core import ISCCore; core = ISCCore(); status = core.get_status(); import json; print(json.dumps(status, indent=2))"
+
+analyze:
+	@echo "Starting Interactive Analysis Session"
+	@echo "===================================="
+	@python -c "from src.isc_ai.core import ISCCore; core = ISCCore(); print(core.introspect())"
+	@echo ""
+	@echo "For detailed analysis, run: make report"

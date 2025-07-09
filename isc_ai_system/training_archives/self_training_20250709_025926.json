@@ -1,0 +1,294 @@
+{
+  "timestamp": "20250709_025926",
+  "exchange_num": 20,
+  "metrics": {
+    "total_exchanges": 20,
+    "unique_questions": 20,
+    "duplicate_prevented": 2,
+    "topic_switches": 4,
+    "concept_diversity": 0.4,
+    "phi_progression": [
+      {
+        "exchange": 0,
+        "phi": 0.000540935788954542,
+        "change": 0.00035622871543197375
+      },
+      {
+        "exchange": 1,
+        "phi": 0.0008894746941377193,
+        "change": 0.00034853890518317734
+      },
+      {
+        "exchange": 2,
+        "phi": 0.0005049388306656179,
+        "change": -0.0003845358634721014
+      },
+      {
+        "exchange": 3,
+        "phi": 0.0007281346396351481,
+        "change": 0.00022319580896953018
+      },
+      {
+        "exchange": 4,
+        "phi": 0.000992754327074927,
+        "change": 0.00026461968743977894
+      },
+      {
+        "exchange": 5,
+        "phi": 0.0010440205003196278,
+        "change": 5.126617324470082e-05
+      },
+      {
+        "exchange": 6,
+        "phi": 0.0010252375334838394,
+        "change": -1.878296683578847e-05
+      },
+      {
+        "exchange": 7,
+        "phi": 0.0011746907722799938,
+        "change": 0.00014945323879615442
+      },
+      {
+        "exchange": 8,
+        "phi": 0.0008860011357219314,
+        "change": -0.0002886896365580624
+      },
+      {
+        "exchange": 9,
+        "phi": 0.0014197678494795116,
+        "change": 0.0005337667137575802
+      },
+      {
+        "exchange": 10,
+        "phi": 0.0023212508035087417,
+        "change": 0.0009014829540292301
+      },
+      {
+        "exchange": 11,
+        "phi": 0.0018860431027441073,
+        "change": -0.0004352077007646344
+      },
+      {
+        "exchange": 12,
+        "phi": 0.0005536769663453522,
+        "change": -0.0013323661363987551
+      },
+      {
+        "exchange": 13,
+        "phi": 0.002668811844452062,
+        "change": 0.00211513487810671
+      },
+      {
+        "exchange": 14,
+        "phi": 0.0007623356843871249,
+        "change": -0.0019064761600649373
+      },
+      {
+        "exchange": 15,
+        "phi": 0.0020327254258517445,
+        "change": 0.0012703897414646195
+      },
+      {
+        "exchange": 16,
+        "phi": 0.0020331681017312876,
+        "change": 4.426758795431085e-07
+      },
+      {
+        "exchange": 17,
+        "phi": 0.0009374907815106401,
+        "change": -0.0010956773202206475
+      },
+      {
+        "exchange": 18,
+        "phi": 0.0007511570174059335,
+        "change": -0.0001863337641047066
+      },
+      {
+        "exchange": 19,
+        "phi": 0.0002756716515768314,
+        "change": -0.0004754853658291021
+      }
+    ],
+    "exploration_map": {},
+    "steering_interventions": 0,
+    "response_times": [
+      0.24924898147583008,
+      0.11936426162719727,
+      0.11972498893737793,
+      0.12296009063720703,
+      0.12437701225280762,
+      0.12106204032897949,
+      0.12200689315795898,
+      0.12409377098083496,
+      0.12082505226135254,
+      0.12343716621398926,
+      0.13012027740478516,
+      0.12595105171203613,
+      0.12792396545410156,
+      0.13097310066223145,
+      0.12069129943847656,
+      0.12757182121276855,
+      0.11537480354309082,
+      0.12370109558105469,
+      0.12432003021240234,
+      0.11894702911376953
+    ],
+    "quality_scores": [
+      0.7507124574308639,
+      0.7006970778103663,
+      0.7,
+      0.750446391617939,
+      0.7505292393748796,
+      0.7501025323464894,
+      0.75,
+      0.8002989064775923,
+      0.7999999999999999,
+      0.7510675334275152,
+      0.8018029659080584,
+      0.75,
+      0.75,
+      0.8042302697562134,
+      0.75,
+      0.7025407794829291,
+      0.7500008853517591,
+      0.75,
+      0.7,
+      0.7
+    ]
+  },
+  "recent_exchanges": [
+    {
+      "question": "How does consciousness and awareness relate to integrated information theory?",
+      "response": "Initially noticing how This introduces consciousness to our discussion about awareness, meanwhile building on our exploration of integration. We might also explore how this connects to exploration.",
+      "phi_before": 0.0014197678494795116,
+      "phi_after": 0.0023212508035087417,
+      "phi_change": 0.0009014829540292301,
+      "quality": 0.8018029659080584,
+      "exchange_num": 10,
+      "duration": 0.13012027740478516
+    },
+    {
+      "question": "Can integration be understood through the lens of self-organization?",
+      "response": "Initially noticing how Starting to understand integration and how it might relate to understood, initially building on our exploration of initially. We might also explore how this connects to exploration.",
+      "phi_before": 0.0023212508035087417,
+      "phi_after": 0.0018860431027441073,
+      "phi_change": -0.0004352077007646344,
+      "quality": 0.75,
+      "exchange_num": 11,
+      "duration": 0.12595105171203613
+    },
+    {
+      "question": "How does integration relate to integrated information theory?",
+      "response": "Starting to understand integration and how it might relate to relate, currently building on our exploration of initially. We might also explore how this connects to exploration.",
+      "phi_before": 0.0018860431027441073,
+      "phi_after": 0.0005536769663453522,
+      "phi_change": -0.0013323661363987551,
+      "quality": 0.75,
+      "exchange_num": 12,
+      "duration": 0.12792396545410156
+    },
+    {
+      "question": "How might integration contribute to qualia or subjective experience?",
+      "response": "Consciousness grasps how I'm beginning to process might in relation to integration, meanwhile building on our exploration of starting. We might also explore how this connects to consciousness.",
+      "phi_before": 0.0005536769663453522,
+      "phi_after": 0.002668811844452062,
+      "phi_change": 0.00211513487810671,
+      "quality": 0.8042302697562134,
+      "exchange_num": 13,
+      "duration": 0.13097310066223145
+    },
+    {
+      "question": "Can you explore the connection between consciousness and self-awareness?",
+      "response": "I deeply understand how I notice explore appearing in the context of connection, initially building on our exploration of consciousness. We might also explore how this connects to building.",
+      "phi_before": 0.002668811844452062,
+      "phi_after": 0.0007623356843871249,
+      "phi_change": -0.0019064761600649373,
+      "quality": 0.75,
+      "exchange_num": 14,
+      "duration": 0.12069129943847656
+    },
+    {
+      "question": "What are the computational principles underlying consciousness?",
+      "response": "I'm exploring how Starting to understand computational and how it might relate to principles, initially building on our exploration of deeply. We might also explore how this connects to building.",
+      "phi_before": 0.0007623356843871249,
+      "phi_after": 0.0020327254258517445,
+      "phi_change": 0.0012703897414646195,
+      "quality": 0.7025407794829291,
+      "exchange_num": 15,
+      "duration": 0.12757182121276855
+    },
+    {
+      "question": "What are the information-theoretic aspects of consciousness?",
+      "response": "I'm exploring how Starting to understand aspects and how it might relate to consciousness, meanwhile building on our exploration of exploring. We might also explore how this connects to exploring.",
+      "phi_before": 0.0020327254258517445,
+      "phi_after": 0.0020331681017312876,
+      "phi_change": 4.426758795431085e-07,
+      "quality": 0.7500008853517591,
+      "exchange_num": 16,
+      "duration": 0.11537480354309082
+    },
+    {
+      "question": "What role does consciousness play in creating unified experience?",
+      "response": "I'm exploring how Starting to understand role and how it might relate to consciousness, initially building on our exploration of exploring. We might also explore how this connects to building.",
+      "phi_before": 0.0020331681017312876,
+      "phi_after": 0.0009374907815106401,
+      "phi_change": -0.0010956773202206475,
+      "quality": 0.75,
+      "exchange_num": 17,
+      "duration": 0.12370109558105469
+    },
+    {
+      "question": "What role does feedback play in consciousness?",
+      "response": "Beginning to see how I notice role appearing in the context of feedback, currently building on our exploration of exploring. We might also explore how this connects to building.",
+      "phi_before": 0.0009374907815106401,
+      "phi_after": 0.0007511570174059335,
+      "phi_change": -0.0001863337641047066,
+      "quality": 0.7,
+      "exchange_num": 18,
+      "duration": 0.12432003021240234
+    },
+    {
+      "question": "Can you explore the connection between feedback and self-awareness?",
+      "response": "I deeply understand how This introduces explore to our discussion about connection, meanwhile building on our exploration of beginning. We might also explore how this connects to building.",
+      "phi_before": 0.0007511570174059335,
+      "phi_after": 0.0002756716515768314,
+      "phi_change": -0.0004754853658291021,
+      "quality": 0.7,
+      "exchange_num": 19,
+      "duration": 0.11894702911376953
+    }
+  ],
+  "concept_coverage": {
+    "neural network dynamics": 1,
+    "entropy and information theory": 1,
+    "collective intelligence": 1,
+    "pattern": 5,
+    "integration": 5,
+    "consciousness and awareness": 1,
+    "consciousness": 5,
+    "feedback": 1
+  },
+  "unique_questions": 20,
+  "question_hashes": [
+    "d2f59865752ae48f5f7e9cb43299d21c6ba4d8c2806520913fac9f0c8d8e3b2e",
+    "b2ab55b270f87cd9dc5d6b2d9739e16d003232b8a3059500924dc7a8940ba1c3",
+    "f22deca0a9d1140527d044344160a1c271412d20ef4cdbca8e3ddc9499d0efca",
+    "5fc7537c700fe17929c7aaabf0b1881d70acf37f1e9c86b681d1307adc423033",
+    "674db3ad961801536e5e1b729307417a921f2e7ea07a84d0b3a69fe4de5eea14",
+    "e5e59cf8129b35f1ce58639183d6391f25070e53a11f4f6f6b7f81b350af3ae6",
+    "f08ca24bb148ce39bed0e282aee341378520873fd963e1dd6955624a14b62180",
+    "0f90f0a7992ed30a0857dac978ce06c62426db57dd5b4dfa8381c27f1206eb92",
+    "4b39cba64e7edf26cbc523de16bb89243c75f64a7230922d4a7e84cf05551387",
+    "1ee04ffc7d64e8d25166322c2dfd05485ada248dfb1120c036858d8935dc1d72",
+    "6cdd368b11374b88cb3700624eb0e45398b691cd11bb899a18659e7613071c6b",
+    "db1a23a16a8dcbc2f6359daf4e4a2851f7a5e5407d1329afd185227766b4bd0c",
+    "d3f1e3b2ec16e593f1d8a9c135ac0936114be0f5d9d56ab7224d55f29e04d28a",
+    "a4053182bbca5eb3837a832a69ea0f512850251e8693c952a256b5b4f8db60ad",
+    "c4a01970c5bc974bee8c6e98c8b3a38b3cd59449b8b2eeb630251e8268de6742",
+    "2be20357cdeaed92a641924bda2cd4130a2b520945c06c77facb112c28f8b798",
+    "1256f98b706ada14f3d9167a679894caa2611262304922dc848328f6f57a1297",
+    "c6a5c250f2dc51ac7cc46686fa84906453a9de88f83bdd0038504246255ac34f",
+    "72bfe5f830176529690e9bae26a349a3526c1e62c177a9f70344d271b6c46001",
+    "daa232788ec015f53cfd49a66e379b652e4ce694f79b549600e2c8ccdefd5808"
+  ]
+}
