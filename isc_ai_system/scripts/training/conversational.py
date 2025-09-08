@@ -43,7 +43,7 @@ from src.isc_ai.core import ISCCore
 # You can set your API key in one of these ways:
 # 1. Set the OPENAI_API_KEY environment variable
 # 2. Replace "YOUR_OPENAI_API_KEY" below with your actual key
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "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")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "YOUR_OPENAI_API_KEY")
 # ============================================
 
 @dataclass

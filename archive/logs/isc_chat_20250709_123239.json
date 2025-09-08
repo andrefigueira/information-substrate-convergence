@@ -1,0 +1,126 @@
+{
+  "session_id": "chat_20250709_123142",
+  "model_type": "original",
+  "conversation": [
+    {
+      "timestamp": "2025-07-09T12:31:50.171760",
+      "user": "hello",
+      "philosophical": "Starting to understand hello and how it might relate to new information emerges, also building on our exploration of notice. We might also explore how this connects to starting.",
+      "conversational": "I understand your interest in this topic.",
+      "metrics": {
+        "total_interactions": 1692,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012408878594166526,
+        "coherence_score": 0.5871506796942817,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "timestamp": "2025-07-09T12:31:55.865698",
+      "user": "how are you",
+      "philosophical": "This introduces this information to our discussion about our discussion.",
+      "conversational": "I understand your interest in this topic.",
+      "metrics": {
+        "total_interactions": 1693,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012434357093378473,
+        "coherence_score": 0.5431630346510146,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "timestamp": "2025-07-09T12:32:00.067010",
+      "user": "what is your name",
+      "philosophical": "Starting to understand name and how it might relate to new information emerges.",
+      "conversational": "I find this question thought-provoking.",
+      "metrics": {
+        "total_interactions": 1694,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012410369524050151,
+        "coherence_score": 0.5283044046825833,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "timestamp": "2025-07-09T12:32:10.422902",
+      "user": "what is your purpose",
+      "philosophical": "This introduces purpose to our discussion about processing continues, currently building on our exploration of starting. We might also explore how this connects to combines.",
+      "conversational": "I understand your interest in this topic.",
+      "metrics": {
+        "total_interactions": 1695,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012405052790775166,
+        "coherence_score": 0.48415342304441666,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "timestamp": "2025-07-09T12:32:18.291986",
+      "user": "define your purpose",
+      "philosophical": "I notice define appearing in the context of purpose, also building on our exploration of introduces.",
+      "conversational": "Let me explore this concept with you.",
+      "metrics": {
+        "total_interactions": 1696,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012408295849015549,
+        "coherence_score": 0.44772134886847603,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "timestamp": "2025-07-09T12:32:25.592260",
+      "user": "purpose is meaning to being",
+      "philosophical": "Starting to understand purpose and how it might relate to meaning, meanwhile building on our exploration of notice. We might also explore how this connects to addition.",
+      "conversational": "I find this question thought-provoking.",
+      "metrics": {
+        "total_interactions": 1697,
+        "learning_rate": 0.001,
+        "phi_value": 0.001241142166258892,
+        "coherence_score": 0.4584188130166795,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "timestamp": "2025-07-09T12:32:31.642076",
+      "user": "it wasn't a question",
+      "philosophical": "Starting to understand question and how it might relate to new information emerges, currently building on our exploration of starting. We might also explore how this connects to puzzle.",
+      "conversational": "Let me explore this concept with you.",
+      "metrics": {
+        "total_interactions": 1698,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012414008950263986,
+        "coherence_score": 0.46853909227583146,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    },
+    {
+      "timestamp": "2025-07-09T12:32:37.271918",
+      "user": "what do you want to know?",
+      "philosophical": "Starting to understand want and how it might relate to know, currently building on our exploration of starting.",
+      "conversational": "I understand your interest in this topic.",
+      "metrics": {
+        "total_interactions": 1699,
+        "learning_rate": 0.001,
+        "phi_value": 0.0012400996847807813,
+        "coherence_score": 0.47225970692104763,
+        "prediction_accuracy": 0.0,
+        "concepts_formed": 0
+      }
+    }
+  ],
+  "final_metrics": {
+    "total_interactions": 1699,
+    "learning_rate": 0.001,
+    "phi_value": 0.0012400996847807813,
+    "coherence_score": 0.47225970692104763,
+    "prediction_accuracy": 0.0,
+    "concepts_formed": 0
+  }
+}

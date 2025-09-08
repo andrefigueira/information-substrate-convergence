@@ -31,7 +31,14 @@ class PersistenceManager:
             return self.state_path
         
         # Check for legacy timestamped files
-        legacy_files = list(self.state_dir.glob("*.pt"))
+        # Exclude LM head files and other non-state files
+        legacy_files = [
+            f for f in self.state_dir.glob("*.pt")
+            if not f.name.endswith('_lm_head.pt') 
+            and not f.name.endswith('_head.pt')
+            and 'enhanced_model' not in f.name
+        ]
+        
         if legacy_files:
             # Sort by modification time and return the newest
             latest = max(legacy_files, key=lambda p: p.stat().st_mtime)
@@ -48,8 +55,19 @@ class PersistenceManager:
         
         try:
             # Try safe loading first
-            state = torch.load(state_path, weights_only=True)
-            print(f"✓ Loaded state from {state_path}")
+            state = torch.load(state_path, weights_only=True, map_location='cpu')
+            
+            # Validate it's a proper ISC state file
+            if not isinstance(state, dict):
+                print(f"✗ Invalid state file format in {state_path.name}: not a dictionary")
+                return None
+            
+            required_keys = ["network_state", "knowledge_graph", "memory", "metrics"]
+            if not all(key in state for key in required_keys):
+                print(f"✗ Invalid ISC state file {state_path.name}: missing required keys")
+                return None
+            
+            print(f"✓ Loaded state from {state_path.name}")
             return state
         except Exception:
             try:
@@ -60,11 +78,22 @@ class PersistenceManager:
                     "This file may contain arbitrary code.",
                     RuntimeWarning
                 )
-                state = torch.load(state_path, weights_only=False)
-                print(f"✓ Loaded state from {state_path} (unsafe mode)")
+                state = torch.load(state_path, weights_only=False, map_location='cpu')
+                
+                # Validate even in unsafe mode
+                if not isinstance(state, dict):
+                    print(f"✗ Invalid state file format in {state_path.name}: not a dictionary")
+                    return None
+                
+                required_keys = ["network_state", "knowledge_graph", "memory", "metrics"]
+                if not all(key in state for key in required_keys):
+                    print(f"✗ Invalid ISC state file {state_path.name}: missing required keys")
+                    return None
+                
+                print(f"✓ Loaded state from {state_path.name} (unsafe mode)")
                 return state
             except Exception as e:
-                print(f"✗ Failed to load state from {state_path}: {e}")
+                print(f"✗ Failed to load state from {state_path.name}: {e}")
                 return None
     
     def save_state(self, state: Dict[str, Any], create_backup: bool = True) -> str:

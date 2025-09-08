@@ -25,7 +25,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from src.isc_ai.core import ISCCore
 
 # OpenAI API Key - will be loaded from the existing trainer config
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "YOUR-OPENAI-API-KEY-HERE")
 
 class ReportGenerator:
     """Generates comprehensive analysis reports for ISC AI System"""

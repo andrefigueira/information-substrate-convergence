@@ -37,7 +37,7 @@ from src.isc_ai.core import ISCCore
 # ============================================
 # PLACE YOUR OPENAI API KEY HERE
 # ============================================
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "YOUR-OPENAI-API-KEY-HERE"
 # ============================================
 
 @dataclass

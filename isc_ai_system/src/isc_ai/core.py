@@ -164,6 +164,20 @@ class ISCCore:
         state = self.persistence.load_latest_state()
         if state:
             try:
+                # Check if state has the expected structure
+                if not isinstance(state, dict):
+                    print("✗ Invalid state format - not a dictionary")
+                    print("  Starting with fresh state")
+                    return
+                
+                # Check for required keys
+                required_keys = ["network_state", "knowledge_graph", "memory", "metrics"]
+                missing_keys = [key for key in required_keys if key not in state]
+                if missing_keys:
+                    print(f"✗ State missing required keys: {missing_keys}")
+                    print("  Starting with fresh state")
+                    return
+                
                 self.network.load_state_dict(state["network_state"])
                 self.knowledge_graph.graph = nx.node_link_graph(state["knowledge_graph"])
                 self.memory.import_data(state["memory"])
@@ -426,7 +440,7 @@ class ISCCore:
         # Use weights_only=True for security - prevents arbitrary code execution
         # If this fails due to incompatible data, we'll handle it gracefully
         try:
-            state = torch.load(filepath, weights_only=True)
+            state = torch.load(filepath, weights_only=True, map_location='cpu')
         except Exception:
             # Fall back to unsafe loading with a warning
             import warnings
@@ -436,13 +450,27 @@ class ISCCore:
                 "Only load files from trusted sources.",
                 RuntimeWarning
             )
-            state = torch.load(filepath, weights_only=False)
+            state = torch.load(filepath, weights_only=False, map_location='cpu')
         
+        # Validate state structure
+        if not isinstance(state, dict):
+            raise ValueError(f"Invalid state file format: expected dict, got {type(state)}")
+        
+        # Check for required keys
+        required_keys = ["network_state", "knowledge_graph", "memory", "metrics"]
+        missing_keys = [key for key in required_keys if key not in state]
+        if missing_keys:
+            raise KeyError(f"State file missing required keys: {missing_keys}")
+        
+        # Load components
         self.network.load_state_dict(state["network_state"])
         self.knowledge_graph.graph = nx.node_link_graph(state["knowledge_graph"])
         self.memory.import_data(state["memory"])
         self.metrics = state["metrics"]
-        self.config = state["config"]
+        
+        # Config is optional - merge with existing
+        if "config" in state:
+            self.config.update(state["config"])
         
         return f"System state loaded from {filepath}"
     

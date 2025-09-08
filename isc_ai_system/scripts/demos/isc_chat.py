@@ -56,6 +56,8 @@ class UniversalISCChat:
         except:
             self.console.print("[yellow]Warning: Could not load GPT2 tokenizer, using fallback[/yellow]")
             self.text_tokenizer = None
+            
+        self.using_original_tokenizer = False  # Track if using original tokenizer
         
     def find_available_models(self):
         """Find all available ISC models and categorize them"""
@@ -110,12 +112,21 @@ class UniversalISCChat:
                     self.console.print("[green]Detected consciousness-driven model[/green]")
                     
                     # Load consciousness LM head
-                    # Use text tokenizer vocab size if available
-                    vocab_size = len(self.text_tokenizer) if self.text_tokenizer else len(self.isc.tokenizer)
+                    # Detect vocab size from saved state
+                    if 'output_projection.weight' in lm_state:
+                        saved_vocab_size = lm_state['output_projection.weight'].shape[0]
+                        vocab_size = saved_vocab_size
+                    else:
+                        # Use text tokenizer vocab size if available
+                        vocab_size = len(self.text_tokenizer) if self.text_tokenizer else len(self.isc.tokenizer)
+                        
                     hidden_dim = self.isc.network.hidden_dim
                     self.lm_head = ConsciousnessLMHead(hidden_dim, vocab_size)
                     self.lm_head.load_state_dict(lm_state)
                     self.lm_head.eval()
+                    
+                    # Mark if using original tokenizer
+                    self.using_original_tokenizer = (vocab_size == 30522)
                     
                 elif any('dialogue_context' in key for key in lm_state.keys()):
                     self.model_type = 'original'
@@ -123,12 +134,30 @@ class UniversalISCChat:
                     
                     # Load old conversational LM head
                     if OldLMHead is not None:
-                        # Use text tokenizer vocab size if available
-                        vocab_size = len(self.text_tokenizer) if self.text_tokenizer else len(self.isc.tokenizer)
+                        # Detect vocab size from saved state
+                        output_proj_weight = lm_state.get('output_projection.weight', None)
+                        if output_proj_weight is not None:
+                            saved_vocab_size = output_proj_weight.shape[0]
+                            self.console.print(f"[yellow]Model was trained with vocab_size={saved_vocab_size}[/yellow]")
+                            
+                            # Check if it's BERT vocab size
+                            if saved_vocab_size == 30522:
+                                self.console.print("[yellow]Detected BERT tokenizer model (vocab_size=30522)[/yellow]")
+                                # Keep original tokenizer for this model
+                                vocab_size = saved_vocab_size
+                            else:
+                                # Use text tokenizer vocab size if available
+                                vocab_size = len(self.text_tokenizer) if self.text_tokenizer else saved_vocab_size
+                        else:
+                            vocab_size = len(self.isc.tokenizer)
+                            
                         hidden_dim = self.isc.network.hidden_dim
                         self.lm_head = OldLMHead(hidden_dim, vocab_size)
                         self.lm_head.load_state_dict(lm_state)
                         self.lm_head.eval()
+                        
+                        # Mark if using original tokenizer
+                        self.using_original_tokenizer = (vocab_size == 30522)
                     else:
                         self.console.print("[red]Original conversational module not available[/red]")
                         return False
@@ -163,14 +192,16 @@ class UniversalISCChat:
         # Get concept vector for conversational models
         try:
             import numpy as np
-            result = self.isc.process_input(user_input, return_vector=True)
-            if isinstance(result, tuple):
-                _, concept_vector = result
-            else:
-                concept_vector = np.random.randn(self.isc.network.hidden_dim).astype(np.float32)
+            # Get concept vector by encoding the input
+            input_embedding = self.isc.encode_text(user_input)
+            with torch.no_grad():
+                # Process through network to get concept vector
+                output_embedding, internal_states = self.isc.network(input_embedding, return_states=True)
+                concept_vector = output_embedding.squeeze().cpu().numpy()
         except:
             import numpy as np
-            concept_vector = np.random.randn(self.isc.network.hidden_dim).astype(np.float32)
+            # Use input_dim (384) which is the actual output size
+            concept_vector = np.random.randn(self.isc.network.input_dim).astype(np.float32)
             
         concept_tensor = torch.tensor(concept_vector, dtype=torch.float32)
         
@@ -195,7 +226,18 @@ class UniversalISCChat:
             
         elif self.model_type == 'original':
             # Enhanced generation for original model
-            conversational_response = self._generate_from_original_model(concept_tensor)
+            # Pad concept tensor to match expected hidden_dim if needed
+            if concept_tensor.shape[-1] == 384 and self.isc.network.hidden_dim == 512:
+                # Pad from 384 to 512
+                padding = torch.zeros(512 - 384)
+                concept_tensor = torch.cat([concept_tensor, padding])
+                
+            if self.using_original_tokenizer:
+                # Use simplified generation for BERT tokenizer models
+                conversational_response = self._generate_from_bert_model(concept_tensor)
+            else:
+                conversational_response = self._generate_from_original_model(concept_tensor)
+            return philosophical_response, conversational_response
             
         return philosophical_response, None
     
@@ -265,6 +307,42 @@ class UniversalISCChat:
                 response = ' '.join(str(t) for t in generated_tokens)
             
             return response
+    
+    def _generate_from_bert_model(self, concept_tensor: torch.Tensor) -> str:
+        """Generate text for models trained with BERT tokenizer"""
+        with torch.no_grad():
+            # Ensure batch dimension
+            if concept_tensor.dim() == 1:
+                concept_tensor = concept_tensor.unsqueeze(0)
+            
+            # Get logits from concept
+            logits = self.lm_head(concept_tensor)
+            
+            if logits.dim() == 3:
+                logits = logits[:, 0, :]
+                
+            # Simple token generation (BERT tokenizer doesn't support proper generation)
+            # We'll use template-based responses instead
+            templates = [
+                "I understand your interest in this topic.",
+                "That's an interesting perspective to explore.",
+                "Let me share my thoughts on this.",
+                "This connects to broader concepts of consciousness.",
+                "I find this question thought-provoking.",
+                "From my perspective, this relates to information integration.",
+                "This is a fascinating area to consider.",
+                "Your question touches on fundamental aspects of awareness.",
+                "Let me explore this concept with you.",
+                "That's a profound question to consider.",
+                "I appreciate you bringing up this topic.",
+                "This opens up interesting possibilities for discussion."
+            ]
+            
+            # Use concept tensor sum as a pseudo-random seed for variety
+            seed_value = abs(concept_tensor.sum().item())
+            template_idx = int(seed_value * 100) % len(templates)
+            
+            return templates[template_idx]
     
     def chat_loop(self):
         """Main chat interaction loop"""

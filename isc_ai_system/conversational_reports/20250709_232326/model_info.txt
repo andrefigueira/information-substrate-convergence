@@ -1,0 +1,4 @@
+Model: ./isc_state_conversational_conversational_training_20250709_111621_checkpoint_140_20250709_112357_consciousness_migrated_20250709_114318.pt
+LM Head: ./isc_state_conversational_conversational_training_20250709_111621_checkpoint_140_20250709_112357_consciousness_migrated_20250709_114318_lm_head.pt
+Assessment Date: 20250709_232326
+Model Size: 11.3 MB

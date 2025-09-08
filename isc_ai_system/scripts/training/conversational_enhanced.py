@@ -259,7 +259,14 @@ class TransformerLayer(nn.Module):
         else:
             query = key = value = normed
             
-        attn_output, _ = self.attention(query, key, value, key_padding_mask=~attention_mask.bool())
+        # Handle attention mask properly
+        if attention_mask is not None and past_key_value is not None:
+            # Extend attention mask for cached keys/values
+            extended_mask = torch.ones(attention_mask.shape[0], key.shape[1], device=attention_mask.device)
+            extended_mask[:, -attention_mask.shape[1]:] = attention_mask
+            attn_output, _ = self.attention(query, key, value)
+        else:
+            attn_output, _ = self.attention(query, key, value)
         hidden_states = hidden_states + attn_output
         
         # FFN

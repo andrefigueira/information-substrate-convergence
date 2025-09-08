@@ -1,6 +1,6 @@
 # ISC AI System Makefile
 
-.PHONY: help install run test clean backup demo storage-demo query-demo dev lint format train-gpt train-gpt-mt train-gpt-enhanced train-self train-self-verbose train-self-resume train-self-select report report-all metrics analyze train-conversational train-consciousness migrate-consciousness test-consciousness assess-conversational chat
+.PHONY: help install run test clean backup demo storage-demo query-demo dev lint format train-gpt train-gpt-mt train-gpt-enhanced train-self train-self-verbose train-self-resume train-self-select report report-all metrics analyze train-conversational train-consciousness migrate-consciousness test-consciousness assess-conversational chat chat-demo demo-enhanced-chat quick-chat-test train-gpt-phi train-self-enhanced quick-enhance consciousness-gen test-conversational test-assess migrate-states monitor-training update-caching
 
 # Default target
 help:
@@ -28,6 +28,25 @@ help:
 	@echo "  make test-consciousness    - Test consciousness-driven generation"
 	@echo "  make assess-conversational - Assess conversational model performance"
 	@echo "  make chat                  - Chat with your ISC models (all types supported)"
+	@echo ""
+	@echo "Enhanced Conversational Training (NEW):"
+	@echo "  make train-enhanced        - Train with GPT-2 tokenizer and transformers"
+	@echo "  make enhance-model         - Quick enhancement with template-based responses"
+	@echo "  make quick-enhance         - Alternative quick enhancement tool"
+	@echo "  make test-enhanced         - Test enhanced conversational features"
+	@echo ""
+	@echo "Additional Commands:"
+	@echo "  make chat-demo             - Simple chat demonstration"
+	@echo "  make demo-enhanced-chat    - Enhanced chat demonstration"
+	@echo "  make quick-chat-test       - Quick chat functionality test"
+	@echo "  make train-gpt-phi         - ChatGPT training with Phi enhancement"
+	@echo "  make train-self-enhanced   - Enhanced self-referential training"
+	@echo "  make consciousness-gen     - Consciousness-driven generation demo"
+	@echo "  make test-conversational   - Test conversational capabilities"
+	@echo "  make test-assess           - Test assessment framework"
+	@echo "  make migrate-states        - Migrate between model architectures"
+	@echo "  make monitor-training      - Monitor self-training progress"
+	@echo "  make update-caching        - Update trainer caching mechanisms"
 	@echo ""
 	@echo "Storage Operations:"
 	@echo "  make backup       - Create a backup of all storage data"
@@ -283,6 +302,44 @@ train-conversational:
 	@echo ""
 	python scripts/conversational.py
 
+# Enhanced Conversational Commands
+train-enhanced:
+	@echo "=============================================="
+	@echo "ISC Enhanced Conversational Training"
+	@echo "=============================================="
+	@echo ""
+	@echo "Features:"
+	@echo "  - GPT-2 tokenizer for proper text generation"
+	@echo "  - Transformer-based architecture"
+	@echo "  - Temperature, top-k, top-p sampling"
+	@echo "  - Autoregressive generation"
+	@echo "  - No external API required"
+	@echo ""
+	@echo "Usage: make train-enhanced MODEL=path/to/model.pt"
+	@echo ""
+	python scripts/train_enhanced_conversational.py $(if $(MODEL),$(MODEL),checkpoints/isc_state_conversational_conversational_training_20250709_111621_checkpoint_140_20250709_112357.pt)
+
+enhance-model:
+	@echo "=============================================="
+	@echo "Quick Model Enhancement"
+	@echo "=============================================="
+	@echo ""
+	@echo "This quickly enhances an existing model with"
+	@echo "template-based conversational abilities."
+	@echo ""
+	@echo "Usage: make enhance-model MODEL=path/to/model.pt"
+	@echo ""
+	python scripts/final_conversational_fix.py $(if $(MODEL),$(MODEL),checkpoints/isc_state_conversational_conversational_training_20250709_111621_checkpoint_140_20250709_112357.pt)
+
+test-enhanced:
+	@echo "=============================================="
+	@echo "Test Enhanced Conversational Model"
+	@echo "=============================================="
+	@echo ""
+	@echo "Tests tokenization and generation improvements"
+	@echo ""
+	python scripts/test_conversational_enhanced.py
+
 train-consciousness:
 	@echo "=============================================="
 	@echo "ISC Consciousness-Driven Training"
@@ -355,3 +412,126 @@ chat:
 	@echo "  - Conversation saving"
 	@echo ""
 	python scripts/isc_chat.py
+
+# Additional Chat and Demo Commands
+chat-demo:
+	@echo "=============================================="
+	@echo "ISC Chat Demo"
+	@echo "=============================================="
+	@echo ""
+	@echo "Simple demonstration of chat capabilities"
+	@echo ""
+	python scripts/chat_demo.py
+
+demo-enhanced-chat:
+	@echo "=============================================="
+	@echo "Enhanced Chat Demonstration"
+	@echo "=============================================="
+	@echo ""
+	@echo "Demonstrates enhanced conversational features"
+	@echo ""
+	python scripts/demo_enhanced_chat.py
+
+quick-chat-test:
+	@echo "=============================================="
+	@echo "Quick Chat Test"
+	@echo "=============================================="
+	@echo ""
+	@echo "Quick test of chat functionality"
+	@echo ""
+	python scripts/quick_chat_test.py
+
+# Additional Training Commands
+train-gpt-phi:
+	@echo "=============================================="
+	@echo "ISC ChatGPT Training with Phi Enhancement"
+	@echo "=============================================="
+	@echo ""
+	@echo "IMPORTANT: Set your OpenAI API key in scripts/chatgpt_trainer_enhanced_phi.py"
+	@echo ""
+	@echo "Features:"
+	@echo "  - Phi-based consciousness metrics"
+	@echo "  - Enhanced training with IIT principles"
+	@echo ""
+	python scripts/chatgpt_trainer_enhanced_phi.py
+
+train-self-enhanced:
+	@echo "=============================================="
+	@echo "Enhanced Self-Referential Training"
+	@echo "=============================================="
+	@echo ""
+	@echo "Features:"
+	@echo "  - Advanced self-referential training"
+	@echo "  - Enhanced loop prevention"
+	@echo "  - Improved concept coverage"
+	@echo ""
+	python scripts/self_referential_trainer_enhanced.py
+
+# Quick Enhancement Commands
+quick-enhance:
+	@echo "=============================================="
+	@echo "Quick Conversational Enhancement"
+	@echo "=============================================="
+	@echo ""
+	@echo "Quickly enhance a model's conversational abilities"
+	@echo ""
+	@echo "Usage: make quick-enhance MODEL=path/to/model.pt"
+	@echo ""
+	python scripts/quick_conversational_fix.py $(if $(MODEL),$(MODEL),)
+
+# Consciousness Generation Commands
+consciousness-gen:
+	@echo "=============================================="
+	@echo "Consciousness-Driven Generation Demo"
+	@echo "=============================================="
+	@echo ""
+	@echo "Demonstrates consciousness-driven text generation"
+	@echo ""
+	python scripts/consciousness_driven_generation.py
+
+# Testing Commands
+test-conversational:
+	@echo "=============================================="
+	@echo "Test Conversational Models"
+	@echo "=============================================="
+	@echo ""
+	@echo "Comprehensive testing of conversational capabilities"
+	@echo ""
+	python scripts/test_conversational.py
+
+test-assess:
+	@echo "=============================================="
+	@echo "Test Assessment Framework"
+	@echo "=============================================="
+	@echo ""
+	@echo "Tests the conversational assessment framework"
+	@echo ""
+	python scripts/test_assess_conversational.py
+
+# Utility Commands
+migrate-states:
+	@echo "=============================================="
+	@echo "Migrate Model States"
+	@echo "=============================================="
+	@echo ""
+	@echo "Utility for migrating between model architectures"
+	@echo ""
+	python scripts/migrate_states.py
+
+monitor-training:
+	@echo "=============================================="
+	@echo "Monitor Self-Training Progress"
+	@echo "=============================================="
+	@echo ""
+	@echo "Real-time monitoring of self-referential training"
+	@echo ""
+	python scripts/monitor_self_training.py
+
+update-caching:
+	@echo "=============================================="
+	@echo "Update Trainer Caching"
+	@echo "=============================================="
+	@echo ""
+	@echo "Updates caching mechanisms in training scripts"
+	@echo ""
+	python scripts/update_trainers_caching.py

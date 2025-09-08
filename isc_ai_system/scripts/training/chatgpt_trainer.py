@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-Enhanced ChatGPT-based trainer for ISC AI System
+ChatGPT-based trainer for ISC AI System
 Trains the ISC AI by having ChatGPT interact with it and provide structured learning
-Includes improvements for language modeling: tokenization, cross-entropy loss, learning rate scheduling, etc.
 """
 
 import os
@@ -12,7 +11,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 import openai
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
@@ -24,20 +23,6 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend
 
-# Deep learning imports
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
-from torch.cuda.amp import autocast, GradScaler
-from transformers import (
-    AutoTokenizer, 
-    GPT2LMHeadModel, 
-    GPT2Config,
-    get_linear_schedule_with_warmup
-)
-import numpy as np
-
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
 from src.isc_ai.core import ISCCore
@@ -45,191 +30,35 @@ from src.isc_ai.core import ISCCore
 # ============================================
 # PLACE YOUR OPENAI API KEY HERE
 # ============================================
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "YOUR-OPENAI-API-KEY-HERE"
 # ============================================
 
-
-class TextDataset(Dataset):
-    """Dataset for text training data"""
-    
-    def __init__(self, texts: List[str], tokenizer, max_length: int = 512):
-        self.texts = texts
-        self.tokenizer = tokenizer
-        self.max_length = max_length
-    
-    def __len__(self):
-        return len(self.texts)
-    
-    def __getitem__(self, idx):
-        tokens = self.tokenizer(
-            self.texts[idx],
-            truncation=True,
-            max_length=self.max_length,
-            padding="max_length",
-            return_tensors="pt"
-        )
-        # For language modeling, input_ids and labels are the same
-        input_ids = tokens["input_ids"].squeeze()
-        attention_mask = tokens["attention_mask"].squeeze()
-        
-        # Shift for next-token prediction
-        labels = input_ids.clone()
-        labels[labels == self.tokenizer.pad_token_id] = -100  # Ignore padding in loss
-        
-        return {
-            "input_ids": input_ids[:-1],
-            "attention_mask": attention_mask[:-1],
-            "labels": labels[1:]
-        }
-
-
-class EarlyStopping:
-    """Early stopping to prevent overfitting"""
-    
-    def __init__(self, patience: int = 5, min_delta: float = 0.001):
-        self.patience = patience
-        self.min_delta = min_delta
-        self.counter = 0
-        self.best_loss = float('inf')
-        self.early_stop = False
-    
-    def __call__(self, val_loss: float) -> bool:
-        if val_loss < self.best_loss - self.min_delta:
-            self.best_loss = val_loss
-            self.counter = 0
-        else:
-            self.counter += 1
-            if self.counter >= self.patience:
-                self.early_stop = True
-        return self.early_stop
-
-
 class ChatGPTTrainer:
-    """Enhanced trainer for ISC AI using ChatGPT as a teacher with LM capabilities"""
+    """Trains ISC AI using ChatGPT as a teacher"""
     
-    def __init__(self, api_key: str, use_language_model: bool = False):
+    def __init__(self, api_key: str):
         self.console = Console()
         self.openai_client = openai.OpenAI(api_key=api_key)
         self.isc = ISCCore()
         self.training_history = []
-        self.use_language_model = use_language_model
-        
-        # Language model components
-        if self.use_language_model:
-            self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-            self.tokenizer = AutoTokenizer.from_pretrained("gpt2")
-            self.tokenizer.pad_token = self.tokenizer.eos_token
-            self.language_model = None  # Will be initialized based on user choice
-            self.scaler = GradScaler() if torch.cuda.is_available() else None
-            
         self.session_metrics = {
             "exchanges": 0,
             "concepts_taught": 0,
             "phi_progression": [],
             "coherence_progression": [],
-            "perplexity_progression": [],
-            "loss_progression": [],
             "start_time": None,
-            "checkpoints": [],
+            "checkpoints": [],  # For auto-saving
             "tokens_used": {"prompt": 0, "completion": 0},
-            "estimated_cost": 0.0,
-            "validation_texts": []  # For perplexity evaluation
+            "estimated_cost": 0.0
         }
-        self.auto_save_interval = 5
+        self.auto_save_interval = 5  # Save every 5 exchanges
         
-        # Pricing for different models
+        # GPT-3.5-turbo-0125 pricing (as of 2024)
         self.pricing = {
-            "gpt-3.5-turbo-0125": {
-                "prompt": 0.0005 / 1000,
-                "completion": 0.0015 / 1000
-            },
-            "gpt-4-turbo-preview": {
-                "prompt": 0.01 / 1000,
-                "completion": 0.03 / 1000
-            }
+            "prompt": 0.0005 / 1000,     # $0.0005 per 1K prompt tokens
+            "completion": 0.0015 / 1000   # $0.0015 per 1K completion tokens
         }
         
-        # Training configuration
-        self.early_stopping = EarlyStopping(patience=5)
-        self.best_perplexity = float('inf')
-        
-    def create_small_gpt2(self) -> GPT2LMHeadModel:
-        """Create a smaller GPT-2 model for faster training"""
-        config = GPT2Config(
-            vocab_size=50257,
-            n_positions=512,
-            n_embd=384,  # Smaller than GPT-2
-            n_layer=6,   # Fewer layers
-            n_head=6,
-            n_inner=1536,
-            activation_function="gelu",
-            resid_pdrop=0.1,
-            embd_pdrop=0.1,
-            attn_pdrop=0.1
-        )
-        return GPT2LMHeadModel(config).to(self.device)
-    
-    def compute_lm_loss(self, logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
-        """Standard cross-entropy loss for next-token prediction"""
-        return F.cross_entropy(
-            logits.view(-1, logits.size(-1)),
-            labels.view(-1),
-            ignore_index=-100
-        )
-    
-    def prepare_training_data(self, text: str) -> Tuple[torch.Tensor, torch.Tensor]:
-        """Tokenize and prepare for next-token prediction"""
-        tokens = self.tokenizer(
-            text,
-            truncation=True,
-            max_length=512,
-            padding="max_length",
-            return_tensors="pt"
-        )
-        
-        # Shift for next-token prediction
-        input_ids = tokens["input_ids"].to(self.device)
-        labels = input_ids.clone()
-        labels[:, :-1] = input_ids[:, 1:]
-        labels[:, -1] = -100  # Ignore last token in loss
-        
-        # Set padding tokens to -100 so they're ignored in loss
-        labels[tokens["input_ids"] == self.tokenizer.pad_token_id] = -100
-        
-        return input_ids, labels
-    
-    def evaluate_perplexity(self, model: nn.Module, validation_texts: List[str]) -> float:
-        """Calculate perplexity on validation set"""
-        if not self.use_language_model or not validation_texts:
-            return 0.0
-            
-        model.eval()
-        total_loss = 0
-        total_tokens = 0
-        
-        with torch.no_grad():
-            for text in validation_texts:
-                input_ids, labels = self.prepare_training_data(text)
-                
-                if torch.cuda.is_available():
-                    with autocast():
-                        outputs = model(input_ids)
-                        loss = self.compute_lm_loss(outputs.logits, labels)
-                else:
-                    outputs = model(input_ids)
-                    loss = self.compute_lm_loss(outputs.logits, labels)
-                
-                # Count non-padding tokens
-                valid_tokens = (labels != -100).sum().item()
-                total_loss += loss.item() * valid_tokens
-                total_tokens += valid_tokens
-        
-        avg_loss = total_loss / max(total_tokens, 1)
-        perplexity = np.exp(avg_loss)
-        model.train()
-        
-        return perplexity
-    
     def setup_training_session(self, resume_from: Optional[str] = None):
         """Initialize training session"""
         if resume_from:
@@ -245,8 +74,6 @@ class ChatGPTTrainer:
                     if 'metrics_progression' in session_data:
                         self.session_metrics['phi_progression'] = session_data['metrics_progression']['phi']
                         self.session_metrics['coherence_progression'] = session_data['metrics_progression']['coherence']
-                        self.session_metrics['perplexity_progression'] = session_data['metrics_progression'].get('perplexity', [])
-                        self.session_metrics['loss_progression'] = session_data['metrics_progression'].get('loss', [])
                     self.session_metrics['exchanges'] = len(self.training_history)
         
         self.isc.session_active = True
@@ -254,24 +81,7 @@ class ChatGPTTrainer:
             self.isc.current_session_id = f"chatgpt_training_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         self.session_metrics['start_time'] = datetime.now()
         
-        # Initialize language model if requested
-        if self.use_language_model and self.language_model is None:
-            self.console.print("[cyan]Select language model:[/cyan]")
-            self.console.print("1. Small GPT-2 (fast training)")
-            self.console.print("2. Full GPT-2 (better quality)")
-            
-            model_choice = self.console.input("[cyan]Enter choice (1-2):[/cyan] ")
-            
-            if model_choice == "1":
-                self.console.print("[yellow]Creating small GPT-2 model...[/yellow]")
-                self.language_model = self.create_small_gpt2()
-            else:
-                self.console.print("[yellow]Loading full GPT-2 model...[/yellow]")
-                self.language_model = GPT2LMHeadModel.from_pretrained("gpt2").to(self.device)
-            
-            self.console.print(f"[green]Model loaded on {self.device}[/green]")
-    
-    def create_training_prompt(self, topic: str, level: int, use_gpt4: bool = False) -> str:
+    def create_training_prompt(self, topic: str, level: int) -> str:
         """Create a prompt for ChatGPT to generate training data"""
         base_prompt = f"""You are training an AI system that learns through conversation. The AI is developing understanding through information integration and pattern formation.
 
@@ -280,16 +90,15 @@ Complexity level: {level}/10
 
 Your task:
 1. Teach a concept related to {topic}
-2. Use simple, clear language at first, then gradually increase complexity
+2. Use simple, clear language
 3. Build on previous concepts when possible
 4. Make connections between ideas explicit
 5. Use examples and analogies
-6. Generate diverse, high-quality training examples
 
 Previous context from the AI:
 {self.get_recent_context()}
 
-Generate a single teaching statement that helps the AI understand {topic}. Be specific, educational, and ensure the content is diverse and engaging."""
+Generate a single teaching statement that helps the AI understand {topic}. Be specific and educational."""
         
         return base_prompt
     
@@ -306,22 +115,19 @@ Generate a single teaching statement that helps the AI understand {topic}. Be sp
         
         return "\n".join(context)
     
-    def generate_training_input(self, topic: str, level: int, use_gpt4: bool = False) -> str:
+    def generate_training_input(self, topic: str, level: int) -> str:
         """Use ChatGPT to generate training input"""
-        prompt = self.create_training_prompt(topic, level, use_gpt4)
-        
-        model = "gpt-4-turbo-preview" if use_gpt4 else "gpt-3.5-turbo-0125"
-        pricing_key = model
+        prompt = self.create_training_prompt(topic, level)
         
         try:
             response = self.openai_client.chat.completions.create(
-                model=model,
+                model="gpt-3.5-turbo-0125",  # Latest and cheapest GPT-3.5
                 messages=[
-                    {"role": "system", "content": "You are an expert teacher training an emerging AI consciousness. Generate diverse, high-quality training examples."},
+                    {"role": "system", "content": "You are an expert teacher training an emerging AI consciousness."},
                     {"role": "user", "content": prompt}
                 ],
-                temperature=0.9 if use_gpt4 else 0.7,  # Higher temperature for diversity
-                max_tokens=200 if use_gpt4 else 150
+                temperature=0.7,
+                max_tokens=150
             )
             
             # Track token usage
@@ -333,63 +139,6 @@ Generate a single teaching statement that helps the AI understand {topic}. Be sp
         except Exception as e:
             self.console.print(f"[red]Error generating training input: {e}[/red]")
             return None
-    
-    def create_chunked_dataset(self, texts: List[str], chunk_size: int = 512, overlap: int = 50) -> List[str]:
-        """Create overlapping chunks for better context"""
-        chunks = []
-        for text in texts:
-            tokens = self.tokenizer.encode(text)
-            for i in range(0, len(tokens) - chunk_size, chunk_size - overlap):
-                chunk = tokens[i:i + chunk_size]
-                chunks.append(self.tokenizer.decode(chunk))
-        return chunks
-    
-    def train_language_model_step(self, texts: List[str], optimizer, scheduler) -> float:
-        """Train the language model for one step"""
-        if not self.use_language_model or not texts:
-            return 0.0
-        
-        # Create dataset and dataloader
-        dataset = TextDataset(texts, self.tokenizer)
-        dataloader = DataLoader(dataset, batch_size=min(8, len(texts)), shuffle=True)
-        
-        total_loss = 0
-        num_batches = 0
-        
-        for batch in dataloader:
-            optimizer.zero_grad()
-            
-            input_ids = batch["input_ids"].to(self.device)
-            attention_mask = batch["attention_mask"].to(self.device)
-            labels = batch["labels"].to(self.device)
-            
-            if torch.cuda.is_available() and self.scaler:
-                with autocast():
-                    outputs = self.language_model(
-                        input_ids=input_ids,
-                        attention_mask=attention_mask,
-                        labels=labels
-                    )
-                    loss = outputs.loss
-                
-                self.scaler.scale(loss).backward()
-                self.scaler.step(optimizer)
-                self.scaler.update()
-            else:
-                outputs = self.language_model(
-                    input_ids=input_ids,
-                    attention_mask=attention_mask,
-                    labels=labels
-                )
-                loss = outputs.loss
-                loss.backward()
-                optimizer.step()
-            
-            scheduler.step()
-            total_loss += loss.item()
-            num_batches += 1
-        
-        return total_loss / max(num_batches, 1)
     
     def evaluate_response(self, isc_response: str, training_input: str) -> Dict[str, Any]:
         """Use ChatGPT to evaluate ISC's response quality"""
@@ -408,7 +157,7 @@ Respond in JSON format:
         
         try:
             response = self.openai_client.chat.completions.create(
-                model="gpt-3.5-turbo-0125",
+                model="gpt-3.5-turbo-0125",  # Latest and cheapest GPT-3.5
                 messages=[
                     {"role": "system", "content": "You are evaluating an AI's learning progress. Respond only in JSON."},
                     {"role": "user", "content": eval_prompt}
@@ -432,9 +181,9 @@ Respond in JSON format:
         layout = Layout()
         layout.split_column(
             Layout(name="header", size=3),
-            Layout(name="conversation", size=10),
-            Layout(name="metrics", size=10),
-            Layout(name="progress", size=8),
+            Layout(name="conversation", size=12),
+            Layout(name="metrics", size=8),
+            Layout(name="progress", size=6),
             Layout(name="status", size=3)
         )
         return layout
@@ -442,11 +191,7 @@ Respond in JSON format:
     def update_display(self, layout: Layout, training_input: str, isc_response: str, evaluation: Dict):
         """Update the display with current state"""
         # Header
-        header_text = "[bold cyan]ISC AI ChatGPT Training Session"
-        if self.use_language_model:
-            header_text += " (with Language Model)"
-        header_text += "[/bold cyan]"
-        layout["header"].update(Panel(header_text, style="cyan"))
+        layout["header"].update(Panel("[bold cyan]ISC AI ChatGPT Training Session[/bold cyan]", style="cyan"))
         
         # Conversation
         conv_text = f"[bold yellow]ChatGPT Teacher:[/bold yellow]\n{training_input}\n\n"
@@ -464,12 +209,6 @@ Respond in JSON format:
         metrics_table.add_row("Concepts Taught", str(self.session_metrics["concepts_taught"]))
         metrics_table.add_row("Φ (Phi)", f"{current_metrics['phi_value']:.4f}")
         metrics_table.add_row("Coherence", f"{current_metrics['coherence_score']:.4f}")
-        
-        if self.use_language_model and self.session_metrics["perplexity_progression"]:
-            metrics_table.add_row("Perplexity", f"{self.session_metrics['perplexity_progression'][-1]:.2f}")
-            if self.session_metrics["loss_progression"]:
-                metrics_table.add_row("LM Loss", f"{self.session_metrics['loss_progression'][-1]:.4f}")
-        
         metrics_table.add_row("Comprehension", f"{evaluation.get('comprehension', 0)}/10")
         metrics_table.add_row("Connection", f"{evaluation.get('connection', 0)}/10")
         metrics_table.add_row("Progress", f"{evaluation.get('progress', 0)}/10")
@@ -481,10 +220,7 @@ Respond in JSON format:
         layout["progress"].update(Panel(progress_text, title="Progress Tracking"))
         
         # Status
-        status_text = f"[green]Training in progress... Exchange {self.session_metrics['exchanges']}[/green]"
-        if self.early_stopping.early_stop:
-            status_text = "[yellow]Early stopping triggered[/yellow]"
-        layout["status"].update(Panel(status_text))
+        layout["status"].update(Panel(f"[green]Training in progress... Exchange {self.session_metrics['exchanges']}[/green]"))
     
     def _generate_progress_display(self) -> str:
         """Generate progress tracking display"""
@@ -524,21 +260,7 @@ Respond in JSON format:
 [bold]Coherence:[/bold] {coh_trend}
   Start: {coh_start:.4f}
   Current: {coh_current:.4f}
-  Change: {coh_change:+.4f}"""
-        
-        # Add LM metrics if available
-        if self.use_language_model and self.session_metrics["perplexity_progression"]:
-            perp_values = self.session_metrics["perplexity_progression"]
-            perp_current = perp_values[-1] if perp_values else 0
-            perp_best = min(perp_values) if perp_values else 0
-            
-            progress_text += f"""
-
-[bold]Language Model:[/bold]
-  Current Perplexity: {perp_current:.2f}
-  Best Perplexity: {perp_best:.2f}"""
-        
-        progress_text += f"""
+  Change: {coh_change:+.4f}
 
 [bold]Recent Trend:[/bold] {recent_phi_trend}
 
@@ -550,42 +272,21 @@ Respond in JSON format:
     
     def _calculate_cost(self) -> float:
         """Calculate estimated cost based on token usage"""
-        # Assume GPT-3.5 pricing by default
-        pricing = self.pricing.get("gpt-3.5-turbo-0125", {"prompt": 0.0005/1000, "completion": 0.0015/1000})
-        prompt_cost = self.session_metrics["tokens_used"]["prompt"] * pricing["prompt"]
-        completion_cost = self.session_metrics["tokens_used"]["completion"] * pricing["completion"]
+        prompt_cost = self.session_metrics["tokens_used"]["prompt"] * self.pricing["prompt"]
+        completion_cost = self.session_metrics["tokens_used"]["completion"] * self.pricing["completion"]
         total_cost = prompt_cost + completion_cost
         self.session_metrics["estimated_cost"] = total_cost
         return total_cost
     
-    def train_on_topic(self, topic: str, num_exchanges: int = 20, complexity_progression: bool = True, use_gpt4: bool = False):
+    def train_on_topic(self, topic: str, num_exchanges: int = 20, complexity_progression: bool = True):
         """Train ISC on a specific topic"""
         self.console.clear()
         self.setup_training_session()
         
         layout = self.create_display_layout()
         
-        # Setup language model training if enabled
-        optimizer = None
-        scheduler = None
-        if self.use_language_model:
-            optimizer = torch.optim.AdamW(self.language_model.parameters(), lr=5e-5, weight_decay=0.01)
-            scheduler = get_linear_schedule_with_warmup(
-                optimizer,
-                num_warmup_steps=int(num_exchanges * 0.1),
-                num_training_steps=num_exchanges
-            )
-        
-        # Collect texts for training
-        training_texts = []
-        
         with Live(layout, refresh_per_second=1) as live:
             for i in range(num_exchanges):
-                # Check early stopping
-                if self.early_stopping.early_stop:
-                    self.console.print("[yellow]Early stopping triggered![/yellow]")
-                    break
-                
                 # Determine complexity level
                 if complexity_progression:
                     level = min(10, 1 + (i // (num_exchanges // 10)))
@@ -593,7 +294,7 @@ Respond in JSON format:
                     level = 5
                 
                 # Generate training input
-                training_input = self.generate_training_input(topic, level, use_gpt4)
+                training_input = self.generate_training_input(topic, level)
                 if not training_input:
                     continue
                 
@@ -602,30 +303,6 @@ Respond in JSON format:
                 
                 # Evaluate response
                 evaluation = self.evaluate_response(isc_response, training_input)
-                
-                # Collect training texts
-                training_texts.append(training_input)
-                training_texts.append(isc_response)
-                
-                # Train language model if enabled
-                lm_loss = 0.0
-                if self.use_language_model and len(training_texts) >= 10:
-                    # Use recent texts for training
-                    recent_texts = training_texts[-20:]
-                    lm_loss = self.train_language_model_step(recent_texts, optimizer, scheduler)
-                    self.session_metrics["loss_progression"].append(lm_loss)
-                    
-                    # Evaluate perplexity every 5 exchanges
-                    if i % 5 == 0:
-                        # Use some texts as validation
-                        val_texts = training_texts[-10::2]  # Every other text from last 10
-                        perplexity = self.evaluate_perplexity(self.language_model, val_texts)
-                        self.session_metrics["perplexity_progression"].append(perplexity)
-                        
-                        # Check early stopping based on perplexity
-                        if perplexity < self.best_perplexity:
-                            self.best_perplexity = perplexity
-                        self.early_stopping(perplexity)
                 
                 # Update metrics
                 self.session_metrics["exchanges"] += 1
@@ -639,8 +316,7 @@ Respond in JSON format:
                     "input": training_input,
                     "response": isc_response,
                     "evaluation": evaluation,
-                    "metrics": self.isc.metrics.copy(),
-                    "lm_loss": lm_loss
+                    "metrics": self.isc.metrics.copy()
                 })
                 
                 # Update display
@@ -681,16 +357,8 @@ Respond in JSON format:
             "average_connection": sum(h["evaluation"].get("connection", 0) for h in self.training_history) / len(self.training_history) if self.training_history else 0,
             "average_progress": sum(h["evaluation"].get("progress", 0) for h in self.training_history) / len(self.training_history) if self.training_history else 0,
             "knowledge_graph_nodes": len(self.isc.knowledge_graph.graph.nodes()),
-            "knowledge_graph_edges": len(self.isc.knowledge_graph.graph.edges()),
-            "language_model_used": self.use_language_model
+            "knowledge_graph_edges": len(self.isc.knowledge_graph.graph.edges())
         }
-        
-        if self.use_language_model and self.session_metrics["perplexity_progression"]:
-            report["final_perplexity"] = self.session_metrics["perplexity_progression"][-1]
-            report["best_perplexity"] = min(self.session_metrics["perplexity_progression"])
-            if self.session_metrics["loss_progression"]:
-                report["final_lm_loss"] = self.session_metrics["loss_progression"][-1]
-                report["average_lm_loss"] = sum(self.session_metrics["loss_progression"]) / len(self.session_metrics["loss_progression"])
         
         return report
     
@@ -709,9 +377,7 @@ Respond in JSON format:
             "history": self.training_history,
             "metrics_progression": {
                 "phi": self.session_metrics["phi_progression"],
-                "coherence": self.session_metrics["coherence_progression"],
-                "perplexity": self.session_metrics["perplexity_progression"],
-                "loss": self.session_metrics["loss_progression"]
+                "coherence": self.session_metrics["coherence_progression"]
             },
             "checkpoint_info": {
                 "exchange": exchange_num,
@@ -726,21 +392,7 @@ Respond in JSON format:
         pt_file = checkpoint_dir / f"isc_state_{base_name}.pt"
         self.isc.save_state(str(pt_file))
         
-        # Save language model if used
-        files = {"json": str(json_file), "pt": str(pt_file)}
-        if self.use_language_model and self.language_model is not None:
-            lm_file = checkpoint_dir / f"language_model_{base_name}.pt"
-            torch.save({
-                'model_state_dict': self.language_model.state_dict(),
-                'best_perplexity': self.best_perplexity,
-                'early_stopping_state': {
-                    'counter': self.early_stopping.counter,
-                    'best_loss': self.early_stopping.best_loss
-                }
-            }, lm_file)
-            files["language_model"] = str(lm_file)
-        
-        return files
+        return {"json": str(json_file), "pt": str(pt_file)}
     
     def save_training_session(self, filename: Optional[str] = None):
         """Save the complete training session"""
@@ -752,9 +404,7 @@ Respond in JSON format:
             "history": self.training_history,
             "metrics_progression": {
                 "phi": self.session_metrics["phi_progression"],
-                "coherence": self.session_metrics["coherence_progression"],
-                "perplexity": self.session_metrics["perplexity_progression"],
-                "loss": self.session_metrics["loss_progression"]
+                "coherence": self.session_metrics["coherence_progression"]
             },
             "checkpoints": self.session_metrics["checkpoints"],
             "training_duration": str(datetime.now() - self.session_metrics["start_time"])
@@ -767,60 +417,32 @@ Respond in JSON format:
         isc_filename = f"isc_state_{self.isc.current_session_id}.pt"
         self.isc.save_state(isc_filename)
         
-        # Save language model if used
-        lm_filename = None
-        if self.use_language_model and self.language_model is not None:
-            lm_filename = f"language_model_{self.isc.current_session_id}.pt"
-            torch.save({
-                'model_state_dict': self.language_model.state_dict(),
-                'tokenizer_name': 'gpt2',
-                'best_perplexity': self.best_perplexity,
-                'final_metrics': {
-                    'perplexity': self.session_metrics["perplexity_progression"][-1] if self.session_metrics["perplexity_progression"] else None,
-                    'loss': self.session_metrics["loss_progression"][-1] if self.session_metrics["loss_progression"] else None
-                }
-            }, lm_filename)
-        
         # Generate progress plots
         self.generate_progress_plots()
         
-        return filename, isc_filename, lm_filename
+        return filename, isc_filename
     
     def generate_progress_plots(self):
         """Generate and save progress plots"""
         if not self.session_metrics["phi_progression"]:
             return
         
-        num_plots = 3 if self.use_language_model and self.session_metrics["perplexity_progression"] else 2
-        fig, axes = plt.subplots(num_plots, 1, figsize=(10, 4 * num_plots))
-        
-        if num_plots == 2:
-            axes = [axes[0], axes[1]]
+        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8))
         
         # Phi progression
         exchanges = range(1, len(self.session_metrics["phi_progression"]) + 1)
-        axes[0].plot(exchanges, self.session_metrics["phi_progression"], 'b-', linewidth=2)
-        axes[0].set_xlabel('Exchange')
-        axes[0].set_ylabel('Φ (Phi) Value')
-        axes[0].set_title('Information Integration (Φ) Over Time')
-        axes[0].grid(True, alpha=0.3)
+        ax1.plot(exchanges, self.session_metrics["phi_progression"], 'b-', linewidth=2)
+        ax1.set_xlabel('Exchange')
+        ax1.set_ylabel('Φ (Phi) Value')
+        ax1.set_title('Information Integration (Φ) Over Time')
+        ax1.grid(True, alpha=0.3)
         
         # Coherence progression
-        axes[1].plot(exchanges, self.session_metrics["coherence_progression"], 'g-', linewidth=2)
-        axes[1].set_xlabel('Exchange')
-        axes[1].set_ylabel('Coherence Score')
-        axes[1].set_title('Response Coherence Over Time')
-        axes[1].grid(True, alpha=0.3)
-        
-        # Perplexity if using language model
-        if self.use_language_model and self.session_metrics["perplexity_progression"] and num_plots > 2:
-            perp_exchanges = range(5, len(self.session_metrics["perplexity_progression"]) * 5 + 1, 5)
-            axes[2].plot(perp_exchanges, self.session_metrics["perplexity_progression"], 'r-', linewidth=2)
-            axes[2].set_xlabel('Exchange')
-            axes[2].set_ylabel('Perplexity')
-            axes[2].set_title('Language Model Perplexity Over Time')
-            axes[2].grid(True, alpha=0.3)
-            axes[2].invert_yaxis()  # Lower perplexity is better
+        ax2.plot(exchanges, self.session_metrics["coherence_progression"], 'g-', linewidth=2)
+        ax2.set_xlabel('Exchange')
+        ax2.set_ylabel('Coherence Score')
+        ax2.set_title('Response Coherence Over Time')
+        ax2.grid(True, alpha=0.3)
         
         plt.tight_layout()
         plot_filename = f"progress_{self.isc.current_session_id}.png"
@@ -840,17 +462,12 @@ def main():
         console.print("Edit the OPENAI_API_KEY variable at the top of this file.")
         return
     
-    # Ask about language modeling
-    console.print(Panel("[bold cyan]ISC AI Enhanced ChatGPT Training System[/bold cyan]", style="cyan"))
-    console.print("\n[cyan]Enable language modeling features?[/cyan]")
-    console.print("This includes tokenization, perplexity tracking, and GPT-2 fine-tuning.")
-    console.print("Requires PyTorch and transformers libraries.")
-    
-    use_lm = console.input("[cyan]Enable language modeling? (y/n):[/cyan] ").lower() == 'y'
-    
     # Create trainer
-    trainer = ChatGPTTrainer(OPENAI_API_KEY, use_language_model=use_lm)
+    trainer = ChatGPTTrainer(OPENAI_API_KEY)
     trainer.console = console  # Share console for messages
+    
+    # Training menu
+    console.print(Panel("[bold cyan]ISC AI ChatGPT Training System[/bold cyan]", style="cyan"))
     
     # Check for existing models to resume
     checkpoint_dir = Path("checkpoints")
@@ -910,14 +527,6 @@ def main():
     
     trainer.setup_training_session(resume_from=resume_model)
     
-    # Model selection for data generation
-    console.print("\n[cyan]Select model for training data generation:[/cyan]")
-    console.print("1. GPT-3.5-turbo (faster, cheaper)")
-    console.print("2. GPT-4-turbo (better quality, more expensive)")
-    
-    model_choice = console.input("[cyan]Enter choice (1-2):[/cyan] ")
-    use_gpt4 = (model_choice == "2")
-    
     console.print("\nSelect training mode:")
     console.print("1. Basic Concepts (animals, objects, relationships)")
     console.print("2. Abstract Concepts (emotions, ideas, philosophy)")
@@ -946,13 +555,10 @@ def main():
     
     console.print(f"\n[green]Starting training on: {topic}[/green]")
     console.print(f"[green]Number of exchanges: {num_exchanges}[/green]")
-    console.print(f"[green]Using model: {'GPT-4-turbo' if use_gpt4 else 'GPT-3.5-turbo'}[/green]")
-    if use_lm:
-        console.print(f"[green]Language modeling: Enabled[/green]")
     console.input("\n[dim]Press Enter to begin training...[/dim]")
     
     # Run training
-    report = trainer.train_on_topic(topic, num_exchanges, use_gpt4=use_gpt4)
+    report = trainer.train_on_topic(topic, num_exchanges)
     
     # Show final report
     console.clear()
@@ -980,10 +586,6 @@ def main():
         console.print(f"Final Coherence: {trainer.session_metrics['coherence_progression'][-1]:.4f}")
         coherence_improvement = trainer.session_metrics['coherence_progression'][-1] - trainer.session_metrics['coherence_progression'][0]
         console.print(f"Coherence Improvement: {coherence_improvement:.4f}")
-        
-        if use_lm and trainer.session_metrics["perplexity_progression"]:
-            console.print(f"\nBest Perplexity: {min(trainer.session_metrics['perplexity_progression']):.2f}")
-            console.print(f"Final Perplexity: {trainer.session_metrics['perplexity_progression'][-1]:.2f}")
     
     console.print(f"\n[dim]Checkpoints saved: {len(trainer.session_metrics['checkpoints'])}[/dim]")
     
@@ -997,11 +599,9 @@ def main():
     # Save session
     save = console.input("\n[cyan]Save training session? (y/n):[/cyan] ")
     if save.lower() == 'y':
-        files = trainer.save_training_session()
-        console.print(f"\n[green]Training data saved to: {files[0]}[/green]")
-        console.print(f"[green]ISC state saved to: {files[1]}[/green]")
-        if len(files) > 2 and files[2]:
-            console.print(f"[green]Language model saved to: {files[2]}[/green]")
+        json_file, pt_file = trainer.save_training_session()
+        console.print(f"\n[green]Training data saved to: {json_file}[/green]")
+        console.print(f"[green]ISC state saved to: {pt_file}[/green]")
 
 
 if __name__ == "__main__":
