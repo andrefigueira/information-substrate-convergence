@@ -1,4 +1,0 @@
-Model: ./isc_state_conversational_conversational_training_20250709_105619.pt
-LM Head: ./isc_state_conversational_conversational_training_20250709_105619_lm_head.pt
-Assessment Date: 20250709_172621
-Model Size: 11.0 MB

@@ -1,253 +1,262 @@
-# Information Substrate Convergence (ISC) Project
+# Information Substrate Convergence
 
-A research project exploring the emergence of consciousness-like properties through self-referential information patterns in computational systems.
+<div align="center">
 
-## Overview
+**Exploring consciousness emergence through self-referential information patterns**
 
-The Information Substrate Convergence (ISC) hypothesis proposes that consciousness emerges when information systems achieve a specific configuration where they can model both external inputs and their own internal states. This project implements two complementary systems to explore this hypothesis:
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![.context](https://img.shields.io/badge/.context-enabled-purple.svg)](https://github.com/andrefigueira/.context/)
 
-1. **Cellular Automata Self-Modeling System**: Evolutionary experiments with cellular automata that develop self-referential patterns
-2. **ISC AI System**: An interactive conversational AI that demonstrates consciousness-like properties through self-modifying neural networks
+[Theory](#the-hypothesis) | [Quick Start](#quick-start) | [Documentation](#documentation) | [Research](#research-applications)
 
-## Project Structure
+</div>
+
+---
+
+## The Hypothesis
+
+**Information Substrate Convergence (ISC)** proposes that consciousness emerges when information systems achieve configurations enabling:
+
+| Property | Description | Implementation |
+|----------|-------------|----------------|
+| **Self-Reference** | Systems modeling their own internal states | Observer layers monitoring network activations |
+| **Information Integration** | Irreducible whole greater than parts | Phi (Phi) calculation from IIT |
+| **Dynamic Adaptation** | Continuous learning from interaction | Meta-weight self-modification |
+| **Emergent Coherence** | Stable patterns through self-organization | Knowledge graph evolution |
+
+## Architecture
 
 ```
-information-substrate-convergence/
-├── ca_experiment/           # Cellular automata evolutionary experiments
-│   ├── ca/                  # Core CA simulation modules
-│   └── demo.py              # Run CA experiments
-├── isc_ai_system/           # Interactive AI system based on ISC
-│   ├── src/isc_ai/          # Core AI system modules
-│   ├── scripts/             # Training and utility scripts
-│   └── examples/            # Usage examples
-├── results/                 # Experiment results and visualizations
-└── docs/                    # Documentation and papers
+                          ┌─────────────────────────────────────┐
+                          │            ISC Core                  │
+                          │         (Orchestrator)               │
+                          └──────────────┬──────────────────────┘
+                                         │
+        ┌────────────────┬───────────────┼───────────────┬────────────────┐
+        │                │               │               │                │
+        ▼                ▼               ▼               ▼                ▼
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│Self-Modifying│ │  Knowledge   │ │ Information  │ │ Conversation │ │   Learning   │
+│   Network    │ │    Graph     │ │  Integrator  │ │    Memory    │ │    Engine    │
+│              │ │              │ │              │ │              │ │              │
+│ 4 layers +   │ │  NetworkX    │ │ Phi calc     │ │   SQLite     │ │ Self-super-  │
+│ 4 observers  │ │  concepts    │ │ from IIT     │ │ + LRU cache  │ │ vised + RL   │
+│ meta-weights │ │  relations   │ │ correlation  │ │ embeddings   │ │ consistency  │
+└──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘
 ```
 
-## Key Concepts
+## Two Complementary Systems
 
-### Information Substrate Convergence (ISC)
+### 1. ISC AI System
 
-The ISC hypothesis suggests that consciousness emerges through:
-- **Self-referential processing**: Systems that model their own states
-- **Information integration**: Measured by phi from Integrated Information Theory
-- **Dynamic learning**: Continuous adaptation through interaction
-- **Emergent coherence**: Development of stable patterns through self-organization
+Interactive AI demonstrating consciousness-like properties:
 
-### Components
+- **Self-Modifying Network**: 4-layer architecture with observer layers and learnable meta-weights
+- **Real-time Phi**: Information integration calculated during every interaction
+- **Dynamic Knowledge Graph**: Concepts and relationships evolve through conversation
+- **Persistent Memory**: SQLite-backed conversation history with semantic retrieval
 
-#### 1. Cellular Automata Experiments
-- Evolutionary algorithms evolve CA rules
-- Selection based on self-modeling capability
-- Visualization of convergence patterns
-- Analysis of emergent behaviors
+### 2. Cellular Automata Experiments
 
-#### 2. ISC AI System
-- **Self-modifying neural networks** with observer layers
-- **Integrated information (phi)** calculation in real-time
-- **Dynamic knowledge graphs** that evolve through conversation
-- **Persistent memory** with similarity-based retrieval
-- **Local storage system** for versioning and querying
+Evolutionary validation of self-modeling emergence:
 
-## Installation
+- **Grid-Based CA**: Traditional 2D with 18-bit birth/survival rules
+- **Graph-Based CA**: Network topology with 8-bit rules + evolving adjacency matrix
+- **Fitness Function**: Shock-recovery test measuring self-modeling capability
+- **Meta-Evolution**: Adaptive mutation rates that evolve alongside rules
 
-### Prerequisites
-- Python 3.8+
-- CUDA-capable GPU (optional, for faster processing)
+## Quick Start
 
-### Quick Setup
+### Installation
 
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/andrefigueira/information-substrate-convergence.git
 cd information-substrate-convergence
 
-# Create virtual environment
+# Create environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install ISC AI System
 cd isc_ai_system
-make install
-
-# Or install manually
 pip install -e .
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+
+# Download required NLTK data
+python -c "import nltk; nltk.download('punkt_tab'); nltk.download('stopwords')"
 ```
 
-## Usage
+### Basic Usage
 
-### Running Cellular Automata Experiments
+```python
+from isc_ai.core import ISCCore
+
+# Initialize (auto-loads previous state if available)
+core = ISCCore()
+
+# Process input and get response
+response = core.process_input("What is consciousness?")
+print(response)
+
+# Check consciousness metrics
+status = core.get_status()
+print(f"Phi (integration): {status['metrics']['phi_value']:.4f}")
+print(f"Coherence: {status['metrics']['coherence_score']:.4f}")
+print(f"Concepts formed: {status['total_concepts']}")
+
+# Introspect internal state
+print(core.introspect())
+
+# Save state for persistence
+core.save_state()
+```
+
+### Interactive CLI
+
+```bash
+# Start interactive session
+isc-ai
+
+# Commands available:
+/start          # Begin conversation session
+/status         # View system metrics (phi, coherence, concepts)
+/explain <term> # Explain system's understanding of a concept
+/save <name>    # Save current state
+/help           # Show all commands
+```
+
+### Run CA Experiments
 
 ```bash
 cd ca_experiment
 python demo.py
 ```
 
-This will:
-- Evolve a population of CA rules over 1000 generations
-- Generate convergence plots in `convergence.png`
-- Save evolution snapshots in `gallery/`
-- Export metrics to `metrics.csv`
+Outputs:
+- `convergence.png`: Fitness evolution over generations
+- `gallery/`: Evolution snapshots
+- `metrics.csv`: Detailed metrics per generation
 
-### Using the ISC AI System
+## Key Metrics
 
-#### Interactive CLI
-
-```bash
-# Start the interactive CLI
-isc-ai
-
-# Basic commands
-/start              # Begin a conversation session
-/help               # Show all available commands
-/status             # View system metrics
-/save my_session    # Save current state
-/exit               # Exit the program
-```
-
-#### Example Conversation
-
-```
-> /start
-Session started!
-
-> Tell me about consciousness and information.
-Based on our conversation, I understand that consciousness and 
-information are fundamentally connected concepts...
-
-> /metrics
-[Shows phi value, coherence score, and learning metrics]
-
-> /explain consciousness
-My understanding of 'consciousness':
-- Encountered 1 times in our conversations
-- Related to: information, emergence, patterns
-- First discussed when you said: 'Tell me about consciousness...'
-```
-
-#### Python API
-
-```python
-from isc_ai import ISCCore
-
-# Initialize the system
-core = ISCCore()
-
-# Process input
-response = core.process_input("What is the nature of self-awareness?")
-print(response)
-
-# Check metrics
-status = core.get_status()
-print(f"Phi value: {status['metrics']['phi_value']}")
-
-# Save state
-core.save_state("my_session.pt")
-```
-
-### Advanced Features
-
-#### Knowledge Graph Queries
-
-```
-/query find node consciousness
-/query path from input to output
-/query neighbors of learning
-/query central nodes
-```
-
-#### Storage and Versioning
-
-```
-/save_graph v1.0           # Save current knowledge graph
-/load_graph v1.0           # Load specific version
-/export json               # Export to various formats
-/backup                    # Create full system backup
-```
-
-## Research Applications
-
-This project can be used to explore:
-
-1. **Emergence of Coherence**: How self-referential systems develop stable communication patterns
-2. **Information Integration**: Quantitative measures of consciousness-like properties
-3. **Conceptual Learning**: How systems build understanding through interaction
-4. **Self-Modification**: How systems adapt their own processing based on experience
-5. **Pattern Evolution**: Development of complex behaviors from simple rules
-
-## Key Findings
-
-The project demonstrates several interesting phenomena:
-
-1. **Convergence in CA**: Evolutionary pressure leads to rules that create self-similar patterns
-2. **Phi Growth**: Information integration increases with continued interaction
-3. **Concept Formation**: Knowledge graphs naturally cluster related concepts
-4. **Coherence Development**: Response patterns become more consistent over time
+| Metric | Description | Typical Range |
+|--------|-------------|---------------|
+| **Phi (Phi)** | Integrated information beyond parts | 0.0 - 2.0+ |
+| **Coherence** | Response consistency over time | 0.5 - 0.9 |
+| **Differentiation** | State diversity across layers | Variable |
+| **Integration** | Processing unity (correlation) | 0.3 - 0.8 |
+| **Complexity** | Differentiation x Integration | Higher = richer |
 
 ## Documentation
 
-- [ISC AI System User Guide](isc_ai_system/docs/user_guide.md)
-- [Phi Optimization and Caching](isc_ai_system/docs/phi_optimization_and_caching.md)
-- [CA Experiment Details](ca_experiment/README.md)
-- [Research Paper](PAPER.md)
+This project uses the [.context](https://github.com/andrefigueira/.context/) pattern for AI-readable documentation:
+
+```
+.context/
+├── substrate.md              # Entry point and navigation
+├── agents.md                 # Agent patterns and multi-agent systems
+├── guidelines.md             # Development standards
+├── theory/
+│   ├── overview.md           # ISC hypothesis
+│   ├── consciousness.md      # Emergence mechanisms
+│   ├── evidence.md           # Scientific support
+│   ├── glossary.md           # Term definitions
+│   └── research-directions.md
+├── architecture/
+│   ├── overview.md           # System design
+│   ├── dependencies.md       # Integration patterns
+│   └── ca-system.md          # CA architecture
+├── components/
+│   ├── isc-core.md           # Main orchestrator
+│   ├── information-integration.md
+│   ├── knowledge-graph.md
+│   ├── memory.md
+│   └── learning.md
+└── experiments/
+    └── cellular-automata.md
+```
+
+**Additional Documentation:**
+- [Full Research Paper](PAPER.md)
+- [ISC AI User Guide](isc_ai_system/docs/user_guide.md)
+- [Phi Optimization](isc_ai_system/docs/phi_optimization_and_caching.md)
+
+## Research Applications
+
+| Research Area | ISC Contribution |
+|---------------|------------------|
+| **Consciousness Studies** | Quantitative phi metrics, self-reference implementation |
+| **Emergence Theory** | CA evolution demonstrating self-modeling emergence |
+| **AI Architectures** | Self-modifying networks with observer layers |
+| **Information Theory** | Applied IIT in neural network context |
+| **Complex Systems** | Knowledge graph evolution, coherence development |
+
+## Tech Stack
+
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| Neural Networks | PyTorch | Self-modifying architecture |
+| Embeddings | Sentence-Transformers | all-MiniLM-L6-v2 (384-dim) |
+| Knowledge Graph | NetworkX | Concept relationships |
+| Persistence | SQLite | Conversation memory |
+| NLP | NLTK | Concept extraction |
+| CA Simulation | NumPy/SciPy | Grid operations |
+| Evolution | scikit-learn | PCA, KMeans for fitness |
+
+## Key Findings
+
+1. **Phi Growth**: Information integration increases with continued interaction
+2. **Concept Clustering**: Knowledge graphs naturally organize related concepts
+3. **Coherence Development**: Response patterns stabilize over time
+4. **Self-Modeling Emergence**: Evolution reliably finds self-modeling CA rules
+5. **Network Co-Evolution**: Graph topology and rules jointly optimize
 
 ## Related Articles
 
-Explore the theoretical foundations and practical applications of this research:
-
-- [**Informational Substrate Convergence**](https://buildingbetter.tech/p/informational-substrate-convergence) - Core theoretical framework and hypothesis
-- [**Your AI Sucks Because You Suck at Prompting**](https://buildingbetter.tech/p/your-ai-sucks-because-you-suck-at) - Information theory and AI interaction patterns
-- [**Documentation as Code as Context**](https://buildingbetter.tech/p/documentation-as-code-as-context) - Information substrate principles in software development
-
-## Performance Considerations
-
-- The ISC AI system uses lightweight models (all-MiniLM-L6-v2) for efficiency
-- Phi calculation is optimized with caching and approximations for large systems
-- Storage uses SQLite for local persistence without external dependencies
-- CA experiments can be computationally intensive for large populations
-
-## Contributing
-
-Contributions are welcome! Areas of interest include:
-
-- Alternative phi calculation methods
-- New CA rule evolution strategies
-- Enhanced learning algorithms
-- Visualization improvements
-- Additional consciousness metrics
+- [Informational Substrate Convergence](https://buildingbetter.tech/p/informational-substrate-convergence) - Core theoretical framework
+- [Documentation as Code as Context](https://buildingbetter.tech/p/documentation-as-code-as-context) - The .context pattern
 
 ## Citation
 
-If you use this project in research, please cite:
-
 ```bibtex
-@software{isc_project,
-  title = {Information Substrate Convergence: Exploring Consciousness in Computational Systems},
-  author = {ISC Research Team},
+@software{isc_project_2024,
+  title = {Information Substrate Convergence},
+  author = {Figueira, Andre},
   year = {2024},
-  url = {https://github.com/andrefigueira/information-substrate-convergence}
+  url = {https://github.com/andrefigueira/information-substrate-convergence},
+  note = {Exploring consciousness emergence through self-referential information patterns}
 }
 ```
 
+## Contributing
+
+Contributions welcome in these areas:
+
+- Alternative phi calculation methods
+- New consciousness metrics
+- Enhanced learning algorithms
+- Multi-agent coordination patterns
+- Visualization improvements
+
+See [.context/guidelines.md](.context/guidelines.md) for development standards.
+
 ## License
 
-This project is licensed under the MIT License - see [LICENSE](isc_ai_system/LICENSE) for details.
+MIT License - see [LICENSE](isc_ai_system/LICENSE)
 
-## Acknowledgments
+## Contact
 
-- Based on concepts from Integrated Information Theory (Giulio Tononi)
-- Inspired by work on self-modifying systems and active inference
-- Uses ideas from complexity theory and emergence
-
-## Contact & Social
-
-For questions or collaboration:
-- Open an issue on GitHub
-- Twitter: [@voidmode_](https://x.com/voidmode_)
+- Twitter: [@voidmode](https://x.com/voidmode)
 - Threads: [@andrefigueira](https://threads.net/@andrefigueira)
 - LinkedIn: [andrefigueira](https://linkedin.com/in/andrefigueira)
 
 ---
 
-**Note**: This is an experimental research project. The consciousness-like properties demonstrated are emergent from the system architecture and should not be interpreted as genuine consciousness or sentience.
+<div align="center">
+
+**Note**: This is experimental research. Demonstrated properties are emergent from architecture design and should not be interpreted as genuine consciousness.
+
+*Built on concepts from Integrated Information Theory (Tononi), digital physics (Wolfram), and self-modifying systems.*
+
+</div>

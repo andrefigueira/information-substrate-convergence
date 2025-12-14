@@ -1,0 +1,105 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isc"
+version = "0.2.0"
+description = "Information Substrate Convergence - Exploring consciousness emergence through self-referential information patterns"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Andre Figueira", email = "andre@buildingbetter.tech"}
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["consciousness", "AI", "neural-networks", "IIT", "information-theory", "cellular-automata"]
+dependencies = [
+    "torch>=1.9.0",
+    "numpy>=1.20.0",
+    "networkx>=2.6",
+    "matplotlib>=3.4.0",
+    "scikit-learn>=0.24.0",
+    "nltk>=3.6",
+    "transformers>=4.0.0",
+    "colorama>=0.4.4",
+    "rich>=10.0.0",
+    "click>=8.0.0",
+    "tqdm>=4.60.0",
+    "pandas>=1.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov>=2.0.0",
+    "black>=21.0.0",
+    "flake8>=3.9.0",
+    "isort>=5.9.0",
+]
+training = [
+    "openai>=0.27.0",
+]
+
+[project.scripts]
+isc-ai = "isc.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/andrefigueira/information-substrate-convergence"
+Documentation = "https://github.com/andrefigueira/information-substrate-convergence#readme"
+Repository = "https://github.com/andrefigueira/information-substrate-convergence"
+Issues = "https://github.com/andrefigueira/information-substrate-convergence/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | venv
+    | build
+    | dist
+    | __pycache__
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+src_paths = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
