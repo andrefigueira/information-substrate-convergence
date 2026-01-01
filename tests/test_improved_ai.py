@@ -3,10 +3,7 @@
 Test script for improved AI responses after fixing concept extraction
 """
 
-import sys
-sys.path.append('isc_ai_system/src')
-
-from isc_ai.neuromorphic_core import NeuromorphicISCCore
+from isc.neuromorphic_core import NeuromorphicISCCore
 
 def test_improved_responses():
     """Test the AI responses with the improved concept extraction"""

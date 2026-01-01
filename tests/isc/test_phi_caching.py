@@ -3,18 +3,13 @@
 Test script for phi tracking and caching functionality
 """
 
-import sys
-from pathlib import Path
 import time
 import numpy as np
 
-# Add parent directory to path
-sys.path.append(str(Path(__file__).parent.parent))
-
-from src.isc_ai.core import ISCCore
-from src.isc_ai.cache_manager import CacheManager
-from src.isc_ai.enhanced_learning import EnhancedLearningEngine
-from src.isc_ai.enhanced_information_integration import EnhancedInformationIntegrator
+from isc.core import ISCCore
+from isc.cache_manager import CacheManager
+from isc.enhanced_learning import EnhancedLearningEngine
+from isc.enhanced_information_integration import EnhancedInformationIntegrator
 
 
 def test_cache_manager():
@@ -175,7 +170,14 @@ def test_integration_with_core():
             "phi_weight": 0.4,
             "phi_target": 2.0,
             "phi_growth_rate": 0.001,
-            "adaptive_phi_target": True
+            "phi_momentum_decay": 0.9,
+            "adaptive_phi_target": True,
+            "feedback_weight": 0.1,
+            "consistency_weight": 0.15,
+            "prediction_weight": 0.15,
+            "information_weight": 0.2,
+            "min_phi": 0.5,
+            "max_phi": 10.0,
         }
     )
     

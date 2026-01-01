@@ -4,7 +4,7 @@ Basic tests for ISC AI System
 
 import pytest
 import torch
-from isc_ai import ISCCore, InformationIntegrator, KnowledgeGraph, LearningEngine
+from isc import ISCCore, InformationIntegrator, KnowledgeGraph, LearningEngine
 
 
 def test_core_initialization():
@@ -69,7 +69,7 @@ def test_knowledge_graph():
 
 def test_learning_engine():
     """Test learning engine basics."""
-    from isc_ai.core import SelfModifyingNetwork
+    from isc.core import SelfModifyingNetwork
     
     network = SelfModifyingNetwork()
     engine = LearningEngine(network)

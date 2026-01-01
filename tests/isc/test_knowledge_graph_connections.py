@@ -3,11 +3,7 @@
 Test that knowledge graph connections are being formed properly
 """
 
-import sys
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent.parent))
-
-from src.isc_ai.core import ISCCore
+from isc.core import ISCCore
 
 
 def test_connections():
