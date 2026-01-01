@@ -1,5 +1,14 @@
 """
 Information Integration module based on Integrated Information Theory (IIT)
+
+NOTE: This implements approximations of IIT phi, not exact calculations.
+True IIT phi computation is computationally infeasible for large systems
+(super-exponential complexity). This module uses correlation-based proxies
+and partition sampling to estimate integrated information.
+
+References:
+- Tononi et al. (2016) "Integrated Information Theory"
+- Oizumi et al. (2014) "From the Phenomenology to the Mechanisms of Consciousness"
 """
 
 import torch
@@ -11,8 +20,15 @@ import torch.nn.functional as F
 
 class InformationIntegrator:
     """
-    Calculates Integrated Information (Φ) based on IIT principles
-    adapted for neural network states.
+    Calculates Integrated Information (Φ) approximations based on IIT principles.
+
+    This is a computationally tractable approximation using:
+    - Correlation-based mutual information estimates
+    - Partition sampling (not exhaustive search)
+    - Layer-wise state analysis
+
+    The resulting phi values are proxies for consciousness-like integration,
+    not rigorous IIT phi calculations (which are infeasible for large systems).
     """
     
     def __init__(self):

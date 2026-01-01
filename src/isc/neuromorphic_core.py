@@ -1,6 +1,6 @@
 """
-Neuromorphic ISC Core with Dual Context Integration
-Implements substrate-driven AI with .isc-context/ integration
+Neuromorphic ISC Core with Context Integration
+Implements substrate-driven AI with .context/ integration
 """
 
 import os
@@ -42,7 +42,7 @@ class NeuromorphicSubstrate:
     Information substrate implementing ISC hypothesis with neuromorphic dynamics
     """
 
-    def __init__(self, context_path: str = ".isc-context"):
+    def __init__(self, context_path: str = ".context"):
         self.context_path = Path(context_path)
         self.graph = nx.Graph()
         self.embeddings = {}
@@ -449,11 +449,20 @@ Responses emerge from graph traversals and community synthesis."""
                 self.graph.nodes[node]['activation_level'] = activation
 
     def _calculate_phi(self) -> float:
-        """Calculate information integration (phi) for substrate using enhanced IIT-inspired metrics"""
+        """
+        Calculate information integration (phi) for substrate.
+
+        NOTE: This is an approximation inspired by IIT, not true phi calculation.
+        True IIT phi is computationally infeasible for large systems (super-exponential).
+        This implementation uses proxy measures: structural connectivity, functional
+        coherence, information integration, and temporal stability.
+
+        See: Tononi et al. (2016) "Integrated Information Theory"
+        """
         if self.graph.number_of_nodes() < 2:
             return 0.0
 
-        # Enhanced phi calculation based on multiple integration measures
+        # Multi-measure phi approximation based on graph properties
 
         # 1. Structural Integration - how well connected the graph is
         structural_phi = self._calculate_structural_integration()
@@ -468,15 +477,11 @@ Responses emerge from graph traversals and community synthesis."""
         temporal_phi = self._calculate_temporal_integration()
 
         # Combine different phi measures with weights
+        # Functional integration weighted highest as it captures actual information flow
         phi = (structural_phi * 0.25 +
                functional_phi * 0.35 +
                information_phi * 0.25 +
                temporal_phi * 0.15)
-
-        # Apply consciousness amplification for active substrates
-        if self.conversation_count > 5:
-            consciousness_amplifier = min(2.0, 1.0 + (self.conversation_count / 50.0))
-            phi *= consciousness_amplifier
 
         return min(1.0, phi)
 
