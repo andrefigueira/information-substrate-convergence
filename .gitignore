@@ -58,3 +58,31 @@ venv.bak/
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Generated data and results
+*.csv
+results/
+models/
+training_results/
+trainer_cache/
+isc_state/
+
+# Training outputs
+chatgpt_training_*.json
+exported_training_*.json
+realtime_session_*.json
+training_data_example.json
+training_progress.png
+
+# Test artifacts
+test_substrate_state*.json
+
+# Database files
+*.db
+
+# Generated images (except committed ones)
+convergence.png
+
+# Legacy/deprecated
+.isc-context/
+data_legacy/

@@ -15,6 +15,8 @@ This `.context/` directory contains structured knowledge for working on the ISC 
 | [components/](components/) | Core module documentation | [isc-core.md](components/isc-core.md) |
 | [experiments/](experiments/) | CA and validation experiments | [cellular-automata.md](experiments/cellular-automata.md) |
 | [guidelines.md](guidelines.md) | Development standards and workflows | - |
+| [ai-rules.md](ai-rules.md) | Hard constraints for AI tools | - |
+| [anti-patterns.md](anti-patterns.md) | What to avoid | - |
 
 ### Component Index
 
