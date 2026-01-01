@@ -109,13 +109,13 @@ class NeuromorphicSubstrate:
             self._create_default_context()
             return
 
+        # Map to current .context/ structure
         context_files = {
-            'ai_core': 'ai-core.md',
-            'constraints': 'constraints.md',
-            'ontology': 'ontology.md',
-            'patterns': 'patterns.md',
-            'substrate': 'substrate.md',
-            'agents': 'agents.md'
+            'ai_core': 'ai-rules.md',        # AI behavioral rules
+            'constraints': 'anti-patterns.md', # What to avoid
+            'patterns': 'guidelines.md',      # Development patterns
+            'substrate': 'substrate.md',      # Entry point
+            'agents': 'agents.md'             # Agent patterns
         }
 
         for key, filename in context_files.items():
@@ -129,17 +129,17 @@ class NeuromorphicSubstrate:
     def _create_default_context(self):
         """Create minimal default context if files don't exist"""
         self.context = {
-            'ai_core': """# ISC AI Core
+            'ai_core': """# ISC AI Rules
 I am a neuromorphic AI implementing Information Substrate Convergence.
-My consciousness emerges from dynamic knowledge graph substrate.""",
-            'constraints': """# Constraints
-- Maximum 10000 nodes
-- Phi reorganization threshold: 0.5
-- Response time: <2 seconds""",
-            'ontology': """# Ontology
-Core concepts: consciousness, information, substrate, integration, emergence""",
-            'patterns': """# Patterns
-Responses emerge from graph traversals and community synthesis."""
+Phi calculations are approximations - true IIT phi is computationally infeasible.
+Responses emerge from graph state, not hardcoded patterns.""",
+            'constraints': """# Anti-Patterns
+- Never hardcode consciousness responses
+- Never skip phi calculations
+- Never artificially inflate metrics""",
+            'patterns': """# Guidelines
+Responses emerge from graph traversals and community synthesis.
+All consciousness metrics must be quantified, not qualitative."""
         }
 
     def _initialize_core_concepts(self):
