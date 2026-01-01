@@ -80,7 +80,6 @@ python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install ISC AI System
-cd isc_ai_system
 pip install -e .
 
 # Download required NLTK data
@@ -90,7 +89,7 @@ python -c "import nltk; nltk.download('punkt_tab'); nltk.download('stopwords')"
 ### Basic Usage
 
 ```python
-from isc_ai.core import ISCCore
+from isc.core import ISCCore
 
 # Initialize (auto-loads previous state if available)
 core = ISCCore()
@@ -129,8 +128,8 @@ isc-ai
 ### Run CA Experiments
 
 ```bash
-cd ca_experiment
-python demo.py
+make demo
+# Or directly: python scripts/demos/ca_demo.py
 ```
 
 Outputs:
@@ -155,6 +154,8 @@ This project uses the [.context](https://github.com/andrefigueira/.context/) pat
 ```
 .context/
 ├── substrate.md              # Entry point and navigation
+├── ai-rules.md               # Hard constraints for AI tools
+├── anti-patterns.md          # What to avoid
 ├── agents.md                 # Agent patterns and multi-agent systems
 ├── guidelines.md             # Development standards
 ├── theory/
@@ -179,8 +180,8 @@ This project uses the [.context](https://github.com/andrefigueira/.context/) pat
 
 **Additional Documentation:**
 - [Full Research Paper](PAPER.md)
-- [ISC AI User Guide](isc_ai_system/docs/user_guide.md)
-- [Phi Optimization](isc_ai_system/docs/phi_optimization_and_caching.md)
+- [ISC AI User Guide](docs/user_guide.md)
+- [Phi Optimization](docs/phi_optimization_and_caching.md)
 
 ## Research Applications
 
@@ -243,7 +244,7 @@ See [.context/guidelines.md](.context/guidelines.md) for development standards.
 
 ## License
 
-MIT License - see [LICENSE](isc_ai_system/LICENSE)
+MIT License
 
 ## Contact
 
