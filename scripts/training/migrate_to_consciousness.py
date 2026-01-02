@@ -16,7 +16,7 @@ from rich.progress import Progress
 
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
+from isc.core import ISCCore
 
 # Import both generation systems
 from conversational import ConversationalLMHead as OldLMHead

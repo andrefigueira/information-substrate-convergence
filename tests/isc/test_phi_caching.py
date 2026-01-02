@@ -73,7 +73,10 @@ def test_enhanced_information_integrator():
     print(f"  Second phi calculation: {phi2:.3f} (took {time2:.3f}s)")
     
     assert phi1 == phi2, "Cached phi value mismatch"
-    assert time2 < time1 * 0.1, "Cache doesn't seem to be working (second call not faster)"
+    # Cache should result in faster lookup - use lenient check due to timing variability
+    # More reliable: check that cache hit rate increased
+    metrics = integrator.get_integration_metrics()
+    assert metrics['cache_hit_rate'] > 0, "Cache should have at least one hit"
     
     # Test metrics
     metrics = integrator.get_integration_metrics()

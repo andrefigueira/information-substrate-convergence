@@ -17,17 +17,27 @@ from rich.prompt import Prompt
 import traceback
 from transformers import AutoTokenizer, GPT2Tokenizer
 
-# Add parent directory to path
-sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
+# Add parent directories to path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))  # For isc package
+sys.path.insert(0, str(Path(__file__).parent.parent))  # For training scripts
+
+from isc.core import ISCCore
 
 # Import both architectures
 try:
-    from conversational import ConversationalLMHead as OldLMHead
+    from training.conversational import ConversationalLMHead as OldLMHead
 except ImportError:
     OldLMHead = None
-    
-from consciousness_driven_generation import ConsciousnessLMHead, GenerationConfig
+
+try:
+    from training.consciousness_driven_generation import ConsciousnessLMHead, GenerationConfig
+except ImportError:
+    # Fallback: define minimal GenerationConfig if module not available
+    class GenerationConfig:
+        def __init__(self, **kwargs):
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+    ConsciousnessLMHead = None
 
 class UniversalISCChat:
     """Universal chat interface that works with all ISC model types"""

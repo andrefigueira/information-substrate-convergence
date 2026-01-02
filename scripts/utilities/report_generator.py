@@ -22,7 +22,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
+from isc.core import ISCCore
 
 # OpenAI API Key - will be loaded from the existing trainer config
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "YOUR-OPENAI-API-KEY-HERE")

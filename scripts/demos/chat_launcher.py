@@ -137,21 +137,19 @@ def main():
             subprocess.run([sys.executable, 'neuromorphic_demo.py'])
         elif choice == '3':
             print("\n🎯 Starting ISC Chat Interface...")
-            subprocess.run([sys.executable, 'isc_ai_system/scripts/demos/isc_chat.py'])
+            subprocess.run([sys.executable, 'scripts/demos/isc_chat.py'])
         elif choice == '4':
             print("\n🎯 Starting Simple Chat Demo...")
-            subprocess.run([sys.executable, 'isc_ai_system/scripts/demos/chat_demo.py'])
+            subprocess.run([sys.executable, 'scripts/demos/chat_demo.py'])
         elif choice == '5':
             print("\n🎯 Starting Training + Chat...")
-            os.chdir('isc_ai_system')
-            subprocess.run([sys.executable, 'scripts/training/self_referential_trainer_enhanced.py', '--chat'])
-            os.chdir('..')
+            subprocess.run([sys.executable, 'scripts/training/self_referential_trainer.py', '--chat'])
         elif choice == '6':
             print("\n🔬 Running Neuromorphic Analysis...")
-            subprocess.run([sys.executable, 'analyze_neuromorphic_responses.py'])
+            subprocess.run([sys.executable, 'scripts/demos/neuromorphic_demo.py'])
         elif choice == '7':
             print("\n🔬 Starting Query Demo...")
-            subprocess.run([sys.executable, 'isc_ai_system/scripts/demos/query_demo.py'])
+            subprocess.run([sys.executable, 'scripts/demos/query_demo.py'])
         else:
             print("Invalid choice. Please try again.")
 

@@ -31,10 +31,10 @@ import numpy as np
 
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
-from src.isc_ai.cache_manager import CacheManager
-from src.isc_ai.enhanced_learning import EnhancedLearningEngine
-from src.isc_ai.enhanced_information_integration import EnhancedInformationIntegrator
+from isc.core import ISCCore
+from isc.cache_manager import CacheManager
+from isc.enhanced_learning import EnhancedLearningEngine
+from isc.enhanced_information_integration import EnhancedInformationIntegrator
 
 # ============================================
 # CONFIGURATION

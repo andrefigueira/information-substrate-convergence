@@ -8,7 +8,7 @@ import glob
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.persistence import PersistenceManager
+from isc.persistence import PersistenceManager
 
 def main():
     """Run state migration"""

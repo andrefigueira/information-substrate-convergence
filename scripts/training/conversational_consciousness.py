@@ -24,8 +24,8 @@ from rich.progress import Progress
 
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
-from src.isc_ai.enhanced_information_integration import EnhancedInformationIntegrator
+from isc.core import ISCCore
+from isc.enhanced_information_integration import EnhancedInformationIntegrator
 
 # Import consciousness-driven generation
 from consciousness_driven_generation import (

@@ -18,7 +18,7 @@ from rich.table import Table
 import json
 
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
+from isc.core import ISCCore
 from conversational_enhanced import EnhancedConversationalLMHead, EnhancedGenerationConfig
 
 class EnhancedTrainer:

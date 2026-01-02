@@ -32,7 +32,7 @@ from dataclasses import dataclass
 
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
+from isc.core import ISCCore
 
 # ============================================
 # PLACE YOUR OPENAI API KEY HERE

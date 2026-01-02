@@ -35,8 +35,8 @@ from transformers import AutoTokenizer
 
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
-from src.isc_ai.core import ISCCore
-from src.isc_ai.cache_manager import CacheManager
+from isc.core import ISCCore
+from isc.cache_manager import CacheManager
 
 class SelfReferentialTrainer:
     """Self-referential trainer with loop prevention and intelligent steering"""

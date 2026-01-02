@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 # Template for adding caching to trainers
-CACHING_IMPORT = """from src.isc_ai.cache_manager import CacheManager"""
+CACHING_IMPORT = """from isc.cache_manager import CacheManager"""
 
 CACHING_INIT = """        # Initialize cache manager
         self.cache_manager = CacheManager(cache_dir="trainer_cache", max_memory_items=1000)"""
@@ -69,7 +69,7 @@ def update_trainer_file(filepath: str):
         return
     
     # Add import
-    import_pos = content.find('from src.isc_ai.core import ISCCore')
+    import_pos = content.find('from isc.core import ISCCore')
     if import_pos != -1:
         import_end = content.find('\n', import_pos)
         content = content[:import_end] + '\n' + CACHING_IMPORT + content[import_end:]
