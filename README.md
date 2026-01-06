@@ -7,8 +7,9 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![.context](https://img.shields.io/badge/.context-enabled-purple.svg)](https://github.com/andrefigueira/.context/)
+[![ISC Validation](https://img.shields.io/badge/ISC_validation-5%2F5_passed-brightgreen.svg)](RESEARCH_RESULTS.md)
 
-[Theory](#the-hypothesis) | [Quick Start](#quick-start) | [Documentation](#documentation) | [Research](#research-applications)
+[Theory](#the-hypothesis) | [Quick Start](#quick-start) | [Documentation](#documentation) | [**Research Results**](RESEARCH_RESULTS.md)
 
 </div>
 
@@ -206,6 +207,22 @@ This project uses the [.context](https://github.com/andrefigueira/.context/) pat
 | Evolution | scikit-learn | PCA, KMeans for fitness |
 
 ## Key Findings
+
+> **See [RESEARCH_RESULTS.md](RESEARCH_RESULTS.md) for full statistical evidence and methodology.**
+
+### Empirical Research (2026)
+
+| Finding | Effect | Evidence |
+|---------|--------|----------|
+| **Emergence Causality** | +10-22% accuracy | Cohen's d = 1.4-4.7, p < 0.001 |
+| **Emergence Triggers** | 9.9/10 success streak | 100% replication |
+| **Transfer Learning** | 79.7% cross-type | Deductive->Inductive: 100% |
+| **Phi Threshold** | min = 0.112 | p = 0.05 |
+| **Learning-Phi** | 28x faster at high phi | p < 0.001 |
+
+**ISC Validation: 5/5 criteria passed** with 99.8% system accuracy.
+
+### Theoretical Observations
 
 1. **Phi Growth**: Information integration increases with continued interaction
 2. **Concept Clustering**: Knowledge graphs naturally organize related concepts
