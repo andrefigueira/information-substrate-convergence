@@ -66,7 +66,7 @@ Why ~25% effect in original tests?
 
 - **Effect Size:** Cohen's d = 1.4 to 4.7 (large)
 - **Replicated:** Yes, across 3 independent methodologies
-- **Scales:** Confirmed at 100k nodes (+27.3%, p=0.0038)
+- **Scales:** Confirmed at 100k and 200k nodes (+27.3%, p<0.01)
 
 ---
 
@@ -221,6 +221,30 @@ Results are saved to:
 - **Confidence intervals:** 95% CI for all estimates
 - **Multiple comparisons:** Bonferroni correction where applicable
 - **Replication:** 10-15 seeds per study
+
+---
+
+## Important Clarification: Baseline Comparison
+
+A baseline comparison (`experiments/baseline_comparison.py`) revealed:
+
+| System | YES Problems | NO Problems |
+|--------|--------------|-------------|
+| ISC + Emergence | 100% | 100% |
+| ISC - Emergence | 82% | 20% |
+| Simple Pattern Matcher | 100% | **100%** |
+
+**Key finding:** Simple pattern matchers can also learn negation. The emergence effect is NOT about ISC being uniquely capable of learning negation.
+
+**What the emergence effect actually shows:**
+1. ISC stores learned patterns specifically in emergent nodes
+2. Ablating emergent nodes removes this learned knowledge
+3. The effect measures knowledge storage location, not unique reasoning capability
+
+**What IS unique to ISC:**
+- Phi-driven crystallization (patterns only form when integration threshold met)
+- Knowledge storage tied to emergence events
+- Architectural coupling between learning and phi
 
 ---
 
