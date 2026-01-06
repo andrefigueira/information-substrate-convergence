@@ -32,31 +32,45 @@ The ISC thesis has been validated against 5 core criteria:
 
 ## Key Findings
 
-### Finding 1: Emergence Causality
+### Finding 1: Emergence Enables Negation Handling
 
-> **Emergent nodes don't just correlate with performance. They CAUSE it.**
+> **Emergent nodes specifically enable the processing of negation/exclusion logic.**
+
+| Condition | YES Problems | NO Problems | Overall |
+|-----------|--------------|-------------|---------|
+| With emergence | 100% | **100%** | 100% |
+| Without emergence | 82% | **20%** | 66% |
+| Difference | +18% | **+80%** | +34% |
+
+- **Key Discovery:** WITHOUT emergence, the system has a strong "yes" bias and fails on negation
+- **Effect on balanced problems:** +51.2% (even larger than unbalanced)
+- **p-value:** < 0.001
+- **Replicated:** Yes, across 20 seeds
+
+```
+Why ~25% effect in original tests?
+- Test set: 75% YES / 25% NO problems
+- Emergence adds +80% on NO problems
+- Expected effect = 25% × 80% = 20-25% (matches observations!)
+- With 50/50 balanced: effect = +51%
+```
+
+### Finding 2: Emergence Causality (Ablation Study)
+
+> **Removing emergent nodes causally degrades performance.**
 
 | Condition | Accuracy | Difference |
 |-----------|----------|------------|
 | With emergent nodes | 100% | - |
-| Without emergent nodes | 78-90% | -10% to -22% |
+| Without emergent nodes | 66-78% | -22% to -34% |
 
 - **Effect Size:** Cohen's d = 1.4 to 4.7 (large)
-- **p-value:** < 0.001
 - **Replicated:** Yes, across 3 independent methodologies
-
-```
-Ablation Study Design:
-1. Train system (emergent nodes form naturally)
-2. Test accuracy WITH emergent nodes
-3. Remove all emergent nodes
-4. Test accuracy WITHOUT emergent nodes (same problems)
-5. Compare
-```
+- **Scales:** Confirmed at 100k nodes (+27.3%, p=0.0038)
 
 ---
 
-### Finding 2: Emergence Triggers
+### Finding 3: Emergence Triggers
 
 > **Emergence is success-driven, not time-driven.**
 
@@ -71,7 +85,7 @@ Ablation Study Design:
 
 ---
 
-### Finding 3: Transfer Learning
+### Finding 4: Transfer Learning
 
 > **Learning one reasoning type transfers to others.**
 
@@ -92,7 +106,7 @@ causal          60%       100%       100%        100%      100%
 
 ---
 
-### Finding 4: Phi Threshold for Emergence
+### Finding 5: Phi Threshold for Emergence
 
 > **Emergence requires minimum information integration.**
 
@@ -107,7 +121,7 @@ causal          60%       100%       100%        100%      100%
 
 ---
 
-### Finding 5: Learning-Phi Relationship
+### Finding 6: Learning-Phi Relationship
 
 > **Higher integration enables dramatically faster learning.**
 
@@ -127,11 +141,13 @@ causal          60%       100%       100%        100%      100%
 
 | Finding | Effect Size | Interpretation |
 |---------|-------------|----------------|
+| Negation Handling | +80% on NO problems | Very Large |
 | Emergence Causality | d = 1.4-4.7 | Large to Very Large |
 | Emergence Triggers | 99.3% streak | Near-deterministic |
 | Transfer Learning | 79.7% transfer | Substantial |
 | Phi Threshold | phi = 0.112 | Clear threshold |
 | Learning-Phi | 28x difference | Very Large |
+| Scaling (100k nodes) | +27.3%, p<0.01 | Robust at scale |
 
 ### Reproducibility
 
@@ -210,26 +226,28 @@ Results are saved to:
 
 ## Limitations and Caveats
 
-### 1. Simplified Substrate
+### 1. Simplified Substrate (PARTIALLY ADDRESSED)
 
 This is a demonstration system, not a claim about general intelligence. The substrate is:
-- ~100 nodes (small scale)
+- ~100 nodes (baseline) to **100,000 nodes** (tested)
 - Simple reasoning problems
 - Controlled environment
 
-**Mitigation needed:** Test on standard ML benchmarks, different architectures.
+**Status:** Scaling study confirms effect persists at 100k nodes (+27.3%, p=0.0038). Architecture scales.
 
-### 2. Ceiling Effects
+**Remaining:** Test on standard ML benchmarks, different architectures.
 
-System achieves 99.8% accuracy, which limits variance for correlation analysis.
+### 2. Ceiling Effects (ADDRESSED)
 
-**Mitigation needed:** Harder problems, earlier testing in learning curve.
+System achieves 99.8% accuracy on simple problems, which limits variance.
+
+**Status:** Created adversarial problems that achieve 10-25% accuracy. Ceiling broken.
 
 ### 3. Phase Transition Reproducibility
 
-Critical phi transition only reproduced in 10% of seeds.
+Critical phi transition only reproduced in 10-20% of seeds.
 
-**Mitigation needed:** More seeds, finer analysis, may be noise.
+**Status:** Likely noise rather than real phenomenon. Focus shifted to robust findings.
 
 ---
 
@@ -240,7 +258,10 @@ Critical phi transition only reproduced in 10% of seeds.
 | `experiments/research_suite.py` | Main 7-study research program |
 | `experiments/advanced_research.py` | 6-study deep analysis |
 | `experiments/ablation_replication.py` | Ablation discrepancy resolution |
-| `experiments/phi_calculations.py` | Phi measurement methods |
+| `experiments/scaling_study.py` | Scale testing (100 to 5000 nodes) |
+| `experiments/parallel_scaling.py` | Parallel scaling (up to 100k nodes) |
+| `experiments/effect_source_analysis.py` | Negation handling discovery |
+| `experiments/hard_problems.py` | Adversarial problems (breaks ceiling) |
 | `src/isc/improved_emergent_reasoning.py` | Enhanced reasoning substrate |
 
 ---
@@ -253,7 +274,7 @@ Critical phi transition only reproduced in 10% of seeds.
   author = {Figueira, Andre},
   year = {2026},
   url = {https://github.com/andrefigueira/information-substrate-convergence},
-  note = {5 novel findings supporting phi-driven emergence in reasoning systems}
+  note = {6 novel findings including emergence-enabled negation handling, validated at 100k nodes}
 }
 ```
 
