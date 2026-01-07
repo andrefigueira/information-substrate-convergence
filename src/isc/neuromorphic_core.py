@@ -308,16 +308,33 @@ All consciousness metrics must be quantified, not qualitative."""
                                   last_activation=datetime.now())
 
     def _get_embedding(self, text: str) -> np.ndarray:
-        """Get semantic embedding for text"""
+        """Get semantic embedding for text with caching"""
+        # Check cache first
+        if not hasattr(self, '_embedding_cache'):
+            self._embedding_cache = {}
+
+        if text in self._embedding_cache:
+            return self._embedding_cache[text]
+
         if self.encoder:
             try:
-                return self.encoder.encode([text])[0]
+                embedding = self.encoder.encode([text])[0]
+                # Cache with size limit
+                if len(self._embedding_cache) > 10000:
+                    # Remove oldest entries
+                    keys = list(self._embedding_cache.keys())[:5000]
+                    for k in keys:
+                        del self._embedding_cache[k]
+                self._embedding_cache[text] = embedding
+                return embedding
             except Exception as e:
                 print(f"Warning: Embedding failed: {e}")
 
         # Fallback to random embedding
         np.random.seed(hash(text) % 2**32)
-        return np.random.random(self.embedding_dim)
+        embedding = np.random.random(self.embedding_dim)
+        self._embedding_cache[text] = embedding
+        return embedding
 
     def get_concept_embedding(self, text: str) -> np.ndarray:
         """Public method to get concept embedding"""
@@ -873,27 +890,27 @@ All consciousness metrics must be quantified, not qualitative."""
     def _check_substrate_reorganization(self, phi: float):
         """Check if substrate reorganization is needed and trigger it"""
 
+        # Time-based throttling: don't reorganize more than once per 30 seconds
+        if not hasattr(self, '_last_reorganize_time'):
+            self._last_reorganize_time = 0
+
+        current_time = time.time()
+        if current_time - self._last_reorganize_time < 30:
+            return  # Skip reorganization if too recent
+
         # Multiple triggers for reorganization
         should_reorganize = False
 
-        # 1. Phi-based trigger: high consciousness suggests readiness for reorganization
-        if phi > 0.01:
+        # 1. Conversation frequency: reorganize every 20 conversations (was 5)
+        if self.conversation_count > 0 and self.conversation_count % 20 == 0:
             should_reorganize = True
 
-        # 2. Conversation frequency: regular reorganization for learning
-        if self.conversation_count > 0 and self.conversation_count % 5 == 0:
-            should_reorganize = True
-
-        # 3. Graph density trigger: reorganize when substrate becomes dense
-        density = nx.density(self.graph)
-        if density > 0.001:  # Low threshold for sparse graphs
-            should_reorganize = True
-
-        # 4. Node count trigger: reorganize as substrate grows
-        if self.graph.number_of_nodes() > 50 and self.graph.number_of_nodes() % 100 == 0:
+        # 2. Node count trigger: reorganize as substrate grows significantly
+        if self.graph.number_of_nodes() > 100 and self.graph.number_of_nodes() % 200 == 0:
             should_reorganize = True
 
         if should_reorganize:
+            self._last_reorganize_time = current_time
             self._reorganize_communities()
 
     def _reorganize_communities(self):
