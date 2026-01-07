@@ -888,20 +888,27 @@ All consciousness metrics must be quantified, not qualitative."""
         return inter_edges / total_edges
 
     def _check_substrate_reorganization(self, phi: float):
-        """Check if substrate reorganization is needed and trigger it"""
+        """Check if substrate reorganization is needed and trigger it in background"""
+        import threading
 
-        # Time-based throttling: don't reorganize more than once per 30 seconds
+        # Initialize state
         if not hasattr(self, '_last_reorganize_time'):
             self._last_reorganize_time = 0
+        if not hasattr(self, '_reorganizing'):
+            self._reorganizing = False
+
+        # Skip if already reorganizing
+        if self._reorganizing:
+            return
 
         current_time = time.time()
         if current_time - self._last_reorganize_time < 30:
-            return  # Skip reorganization if too recent
+            return  # Skip if too recent
 
         # Multiple triggers for reorganization
         should_reorganize = False
 
-        # 1. Conversation frequency: reorganize every 20 conversations (was 5)
+        # 1. Conversation frequency: reorganize every 20 conversations
         if self.conversation_count > 0 and self.conversation_count % 20 == 0:
             should_reorganize = True
 
@@ -911,7 +918,21 @@ All consciousness metrics must be quantified, not qualitative."""
 
         if should_reorganize:
             self._last_reorganize_time = current_time
+            # Run in background thread
+            thread = threading.Thread(target=self._reorganize_background, daemon=True)
+            thread.start()
+
+    def _reorganize_background(self):
+        """Background wrapper for reorganization - non-blocking"""
+        try:
+            self._reorganizing = True
+            print("\n🔄 [Background] Reorganizing substrate...")
             self._reorganize_communities()
+            print("✓ [Background] Reorganization complete\n")
+        except Exception as e:
+            print(f"\n⚠ [Background] Reorganization error: {e}\n")
+        finally:
+            self._reorganizing = False
 
     def _reorganize_communities(self):
         """Advanced substrate reorganization using multiple clustering methods"""
@@ -921,8 +942,6 @@ All consciousness metrics must be quantified, not qualitative."""
 
             if n_nodes < 3:
                 return
-
-            print(f"🔄 Reorganizing substrate: {n_nodes} concepts, {n_edges} connections")
 
             # Method 1: Louvain algorithm for modularity optimization
             communities = self._detect_louvain_communities()
@@ -944,10 +963,8 @@ All consciousness metrics must be quantified, not qualitative."""
             # Post-reorganization analysis
             self._analyze_community_structure()
 
-            print(f"✓ Reorganized into {len(self.communities)} communities")
-
         except Exception as e:
-            print(f"⚠ Community reorganization failed: {e}")
+            pass  # Errors handled by background wrapper
 
     def _detect_louvain_communities(self) -> Dict[str, List[str]]:
         """Detect communities using Louvain algorithm"""
