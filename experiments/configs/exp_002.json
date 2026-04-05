@@ -1,0 +1,27 @@
+{
+  "experiment_id": "exp_002",
+  "title": "Domain-Matched Contexts on Mistral-7B",
+  "date": "2026-04-05",
+  "model": "mistralai/Mistral-7B-v0.1",
+  "device": "mps",
+  "max_tokens": 300,
+  "baseline_samples": 3,
+  "hypothesis": "Replacing ISC-theory expert contexts with well-encoded technical domains (backpropagation, dynamic programming, B-tree, quicksort, attention) will produce the predicted ranking.",
+  "prediction": "degenerate < shallow < expert",
+  "categories_tested": ["degenerate", "shallow", "expert"],
+  "context_version": "v2 (domain-matched: same 5 technical domains across all categories)",
+  "mean_token_counts": {
+    "degenerate": 58,
+    "shallow": 61,
+    "expert": 206
+  },
+  "results_file": "results/sorc/sorc_mistral7b.json",
+  "mean_sorc": {
+    "degenerate": 0.062,
+    "shallow": 0.217,
+    "expert": 0.141
+  },
+  "outcome": "NOT SUPPORTED",
+  "finding": "degenerate < expert < shallow. Shallow still highest. Length confound identified: shallow mean 61 tokens, expert mean 206 tokens. SORC normalises by log(n), suppressing longer contexts.",
+  "conclusion": "Length is a primary confound. Requires token-count-matched comparison."
+}

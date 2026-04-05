@@ -26,10 +26,10 @@ install-all:
 # ===================================================================
 
 test:
-	pytest tests/ -v
+	PYTHONPATH=src python run_tests.py tests/ -v
 
 test-cov:
-	pytest tests/ --cov=src --cov-report=html
+	PYTHONPATH=src python run_tests.py tests/ --cov=src --cov-report=html
 
 lint:
 	flake8 src/ tests/

@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISC - Setup</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #fafafa;
+            --bg-card: #ffffff;
+            --bg-input: #f5f5f5;
+            --text: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border: #e5e5e5;
+            --border-focus: #d0d0d0;
+            --accent: #1a1a1a;
+            --accent-light: #f0f0f0;
+            --success: #22c55e;
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-mark {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .nav-logo span {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            color: var(--text);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-input);
+        }
+
+        /* Views */
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* Setup View */
+        .setup-container {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        .setup-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .setup-header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .setup-header p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .setup-steps {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 48px;
+        }
+
+        .step-indicator {
+            width: 32px;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+
+        .step-indicator.active {
+            background: var(--accent);
+        }
+
+        .step-indicator.completed {
+            background: var(--success);
+        }
+
+        .setup-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text);
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .form-input.mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Options */
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .option-card {
+            padding: 16px;
+            background: var(--bg-input);
+            border: 2px solid transparent;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .option-card:hover {
+            background: var(--bg);
+        }
+
+        .option-card.selected {
+            border-color: var(--accent);
+            background: var(--bg-card);
+        }
+
+        .option-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .option-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Code block */
+        .code-block {
+            background: var(--accent);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #e5e5e5;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .code-block .comment { color: #888; }
+        .code-block .string { color: #a5d6a7; }
+
+        /* Copy button */
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 4px;
+            color: #e5e5e5;
+            font-family: inherit;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.15s;
+            margin-top: 12px;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Actions */
+        .step-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+
+        /* Success state */
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        /* Dashboard View */
+        .dashboard {
+            padding: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .stat-change {
+            font-size: 12px;
+            color: var(--success);
+            margin-top: 4px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .card-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* API Key display */
+        .api-key-display {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+        }
+
+        .api-key-value {
+            flex: 1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        .api-key-copy {
+            padding: 6px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .api-key-copy:hover {
+            background: var(--bg);
+        }
+
+        /* Usage list */
+        .usage-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .usage-item:last-child {
+            border-bottom: none;
+        }
+
+        .usage-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .usage-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+        /* Upload zone */
+        .upload-zone {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--text-muted);
+            background: var(--bg-input);
+        }
+
+        .upload-zone span {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .upload-hint {
+            font-size: 12px !important;
+            color: var(--text-muted) !important;
+        }
+
+        .uploaded-files {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .uploaded-file {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            font-size: 13px;
+        }
+
+        /* Source options */
+        .source-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .source-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 13px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .source-option:hover {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .source-option.connected {
+            border-color: var(--success);
+            background: var(--bg-card);
+        }
+
+        /* Checkbox group */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .checkbox-item:hover {
+            background: var(--bg);
+        }
+
+        .checkbox-item input {
+            display: none;
+        }
+
+        .checkmark {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.15s;
+            position: relative;
+        }
+
+        .checkbox-item input:checked + .checkmark {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .checkbox-item input:checked + .checkmark::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .checkbox-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .checkbox-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Slider */
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .slider {
+            flex: 1;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            min-width: 40px;
+        }
+
+        /* Endpoint info */
+        .endpoint-info {
+            margin-top: 20px;
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: var(--radius);
+        }
+
+        .endpoint-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .endpoint-row:last-child {
+            border-bottom: none;
+        }
+
+        .endpoint-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .endpoint-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: var(--bg-card);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* Test result */
+        .test-result {
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--success);
+        }
+
+        .test-result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .test-result-status {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--success);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .test-result-latency {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .test-result-answer {
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .test-result-confidence {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <div class="nav-logo-mark">ISC</div>
+            <span>Reasoning Engine</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active" onclick="showView('setup')">Setup</a>
+            <a href="#" onclick="showView('dashboard')">Dashboard</a>
+            <a href="#" onclick="showView('playground')">Playground</a>
+            <a href="#">Docs</a>
+        </div>
+        <div class="nav-actions">
+            <button class="btn btn-ghost">Help</button>
+        </div>
+    </nav>
+
+    <!-- Setup View -->
+    <div id="setup-view" class="view active">
+        <div class="setup-container">
+            <div class="setup-header">
+                <h1>Set up ISC</h1>
+                <p>Get started with the ISC Reasoning Engine in minutes</p>
+            </div>
+
+            <div class="setup-steps">
+                <div class="step-indicator active" data-step="1"></div>
+                <div class="step-indicator" data-step="2"></div>
+                <div class="step-indicator" data-step="3"></div>
+                <div class="step-indicator" data-step="4"></div>
+                <div class="step-indicator" data-step="5"></div>
+                <div class="step-indicator" data-step="6"></div>
+            </div>
+
+            <div class="setup-card">
+                <!-- Step 1: Project -->
+                <div class="step-content active" data-step="1">
+                    <div class="step-title">Create a project</div>
+                    <div class="step-description">Projects help you organize your reasoning workloads</div>
+
+                    <div class="form-group">
+                        <label class="form-label">Project name</label>
+                        <input type="text" class="form-input" id="project-name" placeholder="My Project" value="Production">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Environment</label>
+                        <div class="option-grid">
+                            <div class="option-card selected" data-value="production">
+                                <div class="option-title">Production</div>
+                                <div class="option-desc">Live workloads with SLA</div>
+                            </div>
+                            <div class="option-card" data-value="development">
+                                <div class="option-title">Development</div>
+                                <div class="option-desc">Testing and experimentation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <div></div>
+                        <button class="btn btn-primary btn-lg" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Integration -->
+                <div class="step-content" data-step="2">
+                    <div class="step-title">Choose integration</div>
+                    <div class="step-description">How will you connect to ISC?</div>
+
+                    <div class="option-grid">
+                        <div class="option-card selected" data-value="api">
+                            <div class="option-title">REST API</div>
+                            <div class="option-desc">Direct HTTP requests</div>
+                        </div>
+                        <div class="option-card" data-value="python">
+                            <div class="option-title">Python SDK</div>
+                            <div class="option-desc">pip install isc</div>
+                        </div>
+                        <div class="option-card" data-value="node">
+                            <div class="option-title">Node.js SDK</div>
+                            <div class="option-desc">npm install @isc/sdk</div>
+                        </div>
+                        <div class="option-card" data-value="langchain">
+                            <div class="option-title">LangChain</div>
+                            <div class="option-desc">Use as reasoning tool</div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-lg" onclick="prevStep()">Back</button>
+                        <button class="btn btn-primary btn-lg" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Knowledge Sources -->
+                <div class="step-content" data-step="3">
+                    <div class="step-title">Add knowledge sources</div>
+                    <div class="step-description">ISC will reason over your data. Add documents, text, or connect to your systems.</div>
+
+                    <div class="form-group">
+                        <label class="form-label">Upload documents</label>
+                        <div class="upload-zone" id="upload-zone">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span>Drop files here or click to browse</span>
+                            <span class="upload-hint">PDF, TXT, MD, JSON, CSV supported</span>
+                        </div>
+                        <div class="uploaded-files" id="uploaded-files"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Or paste text directly</label>
+                        <textarea class="form-input" style="min-height: 100px;" placeholder="Paste your knowledge base content, rules, or context here..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Connect external sources</label>
+                        <div class="source-options">
+                            <div class="source-option" data-source="notion">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h14V5H5z"/></svg>
+                                Notion
+                            </div>
+                            <div class="source-option" data-source="confluence">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>
+                                Confluence
+                            </div>
+                            <div class="source-option" data-source="github">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                                GitHub
+                            </div>
+                            <div class="source-option" data-source="postgres">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                                PostgreSQL
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-lg" onclick="prevStep()">Back</button>
+                        <button class="btn btn-primary btn-lg" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Reasoning Rules -->
+                <div class="step-content" data-step="4">
+                    <div class="step-title">Define reasoning rules</div>
+                    <div class="step-description">Configure how ISC should reason over your knowledge.</div>
+
+                    <div class="form-group">
+                        <label class="form-label">Reasoning modes</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item checked">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                <div>
+                                    <div class="checkbox-title">Deductive reasoning</div>
+                                    <div class="checkbox-desc">Derive conclusions from premises</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item checked">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                <div>
+                                    <div class="checkbox-title">Causal inference</div>
+                                    <div class="checkbox-desc">Trace cause-effect relationships</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                <div>
+                                    <div class="checkbox-title">Analogical reasoning</div>
+                                    <div class="checkbox-desc">Find similar patterns and relationships</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                <div>
+                                    <div class="checkbox-title">Abductive reasoning</div>
+                                    <div class="checkbox-desc">Generate best explanations for observations</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Custom rules (optional)</label>
+                        <textarea class="form-input mono" style="min-height: 120px;" placeholder="# Define custom reasoning rules&#10;&#10;IF customer.tier = 'enterprise' THEN priority = 'high'&#10;IF product.stock < 10 THEN flag = 'low_inventory'"></textarea>
+                        <div class="form-hint">Define domain-specific rules in natural language or structured format</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Confidence threshold</label>
+                        <div class="slider-group">
+                            <input type="range" class="slider" min="0" max="100" value="70" id="confidence-slider">
+                            <span class="slider-value" id="confidence-value-display">0.70</span>
+                        </div>
+                        <div class="form-hint">Only return answers above this confidence level</div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-lg" onclick="prevStep()">Back</button>
+                        <button class="btn btn-primary btn-lg" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: API Key -->
+                <div class="step-content" data-step="5">
+                    <div class="step-title">Your API key</div>
+                    <div class="step-description">Use this key to access your configured reasoning engine</div>
+
+                    <div class="code-block">
+                        <pre><span class="comment"># Store this securely - it won't be shown again</span>
+ISC_API_KEY=<span class="string">"isc_live_7f3k9x2m4p8q1w6y0z"</span></pre>
+                        <button class="copy-btn" onclick="copyKey()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+
+                    <div class="endpoint-info">
+                        <div class="endpoint-row">
+                            <span class="endpoint-label">Endpoint</span>
+                            <code class="endpoint-value">https://api.isc.ai/v1/projects/production/reason</code>
+                        </div>
+                        <div class="endpoint-row">
+                            <span class="endpoint-label">Knowledge base</span>
+                            <code class="endpoint-value">3 sources indexed</code>
+                        </div>
+                        <div class="endpoint-row">
+                            <span class="endpoint-label">Rules</span>
+                            <code class="endpoint-value">2 active</code>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-lg" onclick="prevStep()">Back</button>
+                        <button class="btn btn-primary btn-lg" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Test -->
+                <div class="step-content" data-step="6">
+                    <div class="step-title">Test your reasoning engine</div>
+                    <div class="step-description">Try a query against your configured knowledge base</div>
+
+                    <div class="form-group">
+                        <label class="form-label">Test query</label>
+                        <textarea class="form-input" id="test-query" style="min-height: 60px;" placeholder="Ask a question about your knowledge base...">What is the relationship between X and Y?</textarea>
+                    </div>
+
+                    <button class="btn btn-secondary" style="width: 100%; margin-bottom: 16px;" onclick="runTest()">Run Test Query</button>
+
+                    <div class="test-result" id="test-result" style="display: none;">
+                        <div class="test-result-header">
+                            <span class="test-result-status">Success</span>
+                            <span class="test-result-latency">47ms</span>
+                        </div>
+                        <div class="test-result-answer">Based on your knowledge base, X and Y are related through...</div>
+                        <div class="test-result-confidence">Confidence: 94%</div>
+                    </div>
+
+                    <div class="code-block" style="margin-top: 16px;">
+                        <pre><span class="comment"># Production request</span>
+curl https://api.isc.ai/v1/projects/production/reason \
+  -H <span class="string">"Authorization: Bearer $ISC_API_KEY"</span> \
+  -H <span class="string">"Content-Type: application/json"</span> \
+  -d '{<span class="string">"query"</span>: <span class="string">"your question here"</span>}'</pre>
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-lg" onclick="prevStep()">Back</button>
+                        <button class="btn btn-primary btn-lg" onclick="completeSetup()">Complete Setup</button>
+                    </div>
+                </div>
+
+                <!-- Success -->
+                <div class="step-content" data-step="7">
+                    <div style="text-align: center;">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="step-title">You're all set</div>
+                        <div class="step-description">Your project is ready to use</div>
+
+                        <div style="margin-top: 32px;">
+                            <button class="btn btn-primary btn-lg" onclick="showView('dashboard')" style="margin-right: 12px;">
+                                Go to Dashboard
+                            </button>
+                            <button class="btn btn-secondary btn-lg" onclick="showView('playground')">
+                                Try Playground
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="dashboard-view" class="view">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <h1>Dashboard</h1>
+                <button class="btn btn-primary">New Project</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Queries Today</div>
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-change">+12% from yesterday</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Latency</div>
+                    <div class="stat-value">47ms</div>
+                    <div class="stat-change">-8ms from avg</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-value">94.2%</div>
+                    <div class="stat-change">+2.1% this week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Projects</div>
+                    <div class="stat-value">3</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Quick Start</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" style="background: var(--bg-input);">
+                            <pre style="color: var(--text-secondary);"><span style="color: var(--text); font-weight: 500;">import</span> isc
+
+client = isc.Client()
+
+result = client.reason(
+    context=[<span style="color: #22863a;">"All mammals are warm-blooded"</span>],
+    query=<span style="color: #22863a;">"Are dogs warm-blooded?"</span>
+)
+
+<span style="color: var(--text); font-weight: 500;">print</span>(result.answer)      <span style="color: #999;"># Yes</span>
+<span style="color: var(--text); font-weight: 500;">print</span>(result.confidence)  <span style="color: #999;"># 0.94</span></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">API Key</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="api-key-display">
+                            <span class="api-key-value">isc_live_7f3k...w6y0z</span>
+                            <button class="api-key-copy">Copy</button>
+                        </div>
+
+                        <div class="usage-item">
+                            <span class="usage-label">Requests this month</span>
+                            <span class="usage-value">24,891</span>
+                        </div>
+                        <div class="usage-item">
+                            <span class="usage-label">Rate limit</span>
+                            <span class="usage-value">1000/min</span>
+                        </div>
+                        <div class="usage-item">
+                            <span class="usage-label">Plan</span>
+                            <span class="usage-value">Pro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playground View -->
+    <div id="playground-view" class="view">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <h1>Playground</h1>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Query</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted);" id="latency-display"></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Context</label>
+                            <textarea class="form-input" id="context" style="min-height: 100px;" placeholder="Enter premises...">All mammals are warm-blooded.
+All dogs are mammals.</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Question</label>
+                            <textarea class="form-input" id="query" style="min-height: 60px;" placeholder="What do you want to reason about?">Are dogs warm-blooded?</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Reasoning Type</label>
+                            <select class="form-input" id="reasoning-type">
+                                <option value="auto">Auto-detect</option>
+                                <option value="deductive">Deductive</option>
+                                <option value="inductive">Inductive</option>
+                                <option value="causal">Causal</option>
+                                <option value="abductive">Abductive</option>
+                                <option value="analogical">Analogical</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;" id="run-btn">Run Reasoning</button>
+
+                        <div id="results" style="margin-top: 24px; display: none;">
+                            <div style="padding: 16px; background: var(--bg-input); border-radius: var(--radius);">
+                                <div style="font-weight: 500; margin-bottom: 12px;" id="result-answer"></div>
+                                <div style="font-size: 13px; color: var(--text-secondary);" id="result-chain"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Confidence</span>
+                        </div>
+                        <div class="card-body" style="text-align: center; padding: 32px;">
+                            <div style="font-size: 48px; font-weight: 600;" id="confidence-value">--%</div>
+                            <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">Phi-calibrated</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Phi Metrics</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="usage-item">
+                                <span class="usage-label">Simple</span>
+                                <span class="usage-value" id="phi-simple">--</span>
+                            </div>
+                            <div class="usage-item">
+                                <span class="usage-label">Stochastic</span>
+                                <span class="usage-value" id="phi-stochastic">--</span>
+                            </div>
+                            <div class="usage-item">
+                                <span class="usage-label">Geometric</span>
+                                <span class="usage-value" id="phi-geometric">--</span>
+                            </div>
+                            <div class="usage-item">
+                                <span class="usage-label">Combined</span>
+                                <span class="usage-value" id="phi-combined">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+
+        function updateSteps() {
+            document.querySelectorAll('.step-indicator').forEach((el, i) => {
+                el.classList.remove('active', 'completed');
+                if (i + 1 < currentStep) el.classList.add('completed');
+                if (i + 1 === currentStep) el.classList.add('active');
+            });
+
+            document.querySelectorAll('.step-content').forEach(el => {
+                el.classList.remove('active');
+                if (parseInt(el.dataset.step) === currentStep) el.classList.add('active');
+            });
+        }
+
+        function nextStep() {
+            currentStep++;
+            updateSteps();
+        }
+
+        function prevStep() {
+            currentStep--;
+            updateSteps();
+        }
+
+        function completeSetup() {
+            currentStep = 7;
+            updateSteps();
+        }
+
+        function runTest() {
+            const result = document.getElementById('test-result');
+            result.style.display = 'block';
+            result.innerHTML = '<div style="padding: 16px; text-align: center; color: var(--text-secondary);">Running query...</div>';
+
+            setTimeout(() => {
+                result.innerHTML = `
+                    <div class="test-result-header">
+                        <span class="test-result-status">Success</span>
+                        <span class="test-result-latency">47ms</span>
+                    </div>
+                    <div class="test-result-answer">Based on your knowledge base, X and Y are related through a causal chain identified in your uploaded documents.</div>
+                    <div class="test-result-confidence">Confidence: 94%</div>
+                `;
+            }, 800);
+        }
+
+        // Slider
+        const slider = document.getElementById('confidence-slider');
+        if (slider) {
+            slider.addEventListener('input', (e) => {
+                document.getElementById('confidence-value-display').textContent = (e.target.value / 100).toFixed(2);
+            });
+        }
+
+        // Upload zone
+        const uploadZone = document.getElementById('upload-zone');
+        if (uploadZone) {
+            uploadZone.addEventListener('click', () => {
+                const files = document.getElementById('uploaded-files');
+                files.innerHTML = `
+                    <div class="uploaded-file">
+                        <span>company-policies.pdf</span>
+                        <span style="color: var(--success);">Indexed</span>
+                    </div>
+                    <div class="uploaded-file">
+                        <span>product-catalog.csv</span>
+                        <span style="color: var(--success);">Indexed</span>
+                    </div>
+                `;
+            });
+        }
+
+        // Source options
+        document.querySelectorAll('.source-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                opt.classList.toggle('connected');
+            });
+        });
+
+        function showView(view) {
+            document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+            document.getElementById(view + '-view').classList.add('active');
+
+            document.querySelectorAll('.nav-links a').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function copyKey() {
+            navigator.clipboard.writeText('isc_live_7f3k9x2m4p8q1w6y0z');
+            event.target.textContent = 'Copied!';
+            setTimeout(() => event.target.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy', 2000);
+        }
+
+        function copyTest() {
+            navigator.clipboard.writeText(`curl https://api.isc.ai/v1/reason -H "Authorization: Bearer $ISC_API_KEY" -H "Content-Type: application/json" -d '{"query": "test"}'`);
+        }
+
+        // Option selection
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+            });
+        });
+
+        // Playground
+        document.getElementById('run-btn').addEventListener('click', async () => {
+            const results = document.getElementById('results');
+            results.style.display = 'block';
+            results.innerHTML = '<div style="padding: 32px; text-align: center; color: var(--text-secondary);">Reasoning...</div>';
+
+            await new Promise(r => setTimeout(r, 600));
+
+            document.getElementById('latency-display').textContent = '47ms';
+            document.getElementById('confidence-value').textContent = '94%';
+            document.getElementById('phi-simple').textContent = '0.320';
+            document.getElementById('phi-stochastic').textContent = '0.540';
+            document.getElementById('phi-geometric').textContent = '0.150';
+            document.getElementById('phi-combined').textContent = '0.340';
+
+            results.innerHTML = `
+                <div style="padding: 16px; background: var(--bg-input); border-radius: var(--radius);">
+                    <div style="font-weight: 500; margin-bottom: 12px;">Yes, dogs are warm-blooded</div>
+                    <div style="font-size: 13px; color: var(--text-secondary);">
+                        <div style="padding: 6px 0; border-bottom: 1px solid var(--border);">1. Premise: All mammals are warm-blooded</div>
+                        <div style="padding: 6px 0; border-bottom: 1px solid var(--border);">2. Premise: Dogs are mammals</div>
+                        <div style="padding: 6px 0; border-bottom: 1px solid var(--border);">3. Applying syllogistic reasoning</div>
+                        <div style="padding: 6px 0; border-bottom: 1px solid var(--border);">4. Transitive inference: Dogs are warm-blooded</div>
+                        <div style="padding: 6px 0;">5. Conclusion verified</div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

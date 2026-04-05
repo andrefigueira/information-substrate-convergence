@@ -61,11 +61,26 @@ Thumbs.db
 
 # Generated data and results
 *.csv
-results/
 models/
 training_results/
-trainer_cache/
-isc_state/
+
+# Results: raw JSON/image outputs are local only
+# Exception: experiment configs in experiments/configs/ are committed
+# Exception: docs/SORC_FINDINGS.md is committed
+results/*.json
+results/*.png
+results/sorc/*.json
+results/sorc/exp_*/
+results/experiments/
+results/research/
+results/analysis/
+results/1000/
+results/10000/
+results/substrate_state*.json
+results/neuromorphic_test*.json
+results/substrate_viz*.png
+results/validation_results.json
+results/benchmark_comparison.json
 
 # Training outputs
 chatgpt_training_*.json
