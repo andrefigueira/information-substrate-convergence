@@ -9,17 +9,11 @@
 
 ---
 
-## What This Is
+## The Finding
 
-Informational Substrate Convergence (ISC) proposes that **phi, capability, and emergence are relational properties rather than substrate-intrinsic ones**. The same transformer model, given different contextual fields, instantiates different effective integrated information, produces different emergent properties, and accesses different portions of its latent relational architecture.
+The same transformer model, given conversational context versus single-paragraph expert text at matched token count, produces measurably distinct hidden state geometry. The difference is not in the output. It's in the internal structure of the model at inference time.
 
-This repository contains the full theory, the **SORC metric** (Second-Order Relational Coherence — a concrete operationalisation of contextual relational depth in transformer hidden states), and five controlled experiments validating the core prediction.
-
----
-
-## The Key Experimental Finding
-
-Across five experiments on Mistral-7B-v0.1 running on Apple M4 Max (MPS, float16):
+Across four controlled experiments on Mistral-7B-v0.1:
 
 | Category | Mean SORC | Tokens | Late/Early Ratio |
 |----------|-----------|--------|------------------|
@@ -29,11 +23,21 @@ Across five experiments on Mistral-7B-v0.1 running on Apple M4 Max (MPS, float16
 | **Multi-turn (marked)** | **0.159** | **195** | **0.655** |
 | **Multi-turn (unmarked)** | **0.153** | **183** | **0.637** |
 
-**Multi-turn conversational structure produces 8-13% higher SORC than single-paragraph expert text at matched token count** (Cohen's d = 1.83 to 3.01). The effect survives removal of turn markers — the markers account for less than 5% of the difference. Conversational structure is the active variable.
+Multi-turn conversational structure scores 8-13% higher than expert text at matched token count (Cohen's d = 1.83 to 3.01, n=5 per category). The effect survives removal of turn markers — exp_005 strips all structural cues and reruns the comparison. The markers account for less than 5% of the difference. Conversational structure is the active variable, not formatting.
 
-The finding is consistent with ISC's core prediction: conversational context activates a qualitatively different regime of a model's latent relational architecture. No prior published work has made this specific measurement.
+SORC is measured in transformer hidden states, not in outputs. This sidesteps the metric artefact problem Schaeffer et al. (NeurIPS 2023) identified: whether emergent abilities are real or a property of discontinuous evaluation metrics is a separate question from whether the hidden state geometry differs. It does.
 
 Full experimental progression: [experiments/README.md](experiments/README.md)
+
+---
+
+## What This Is
+
+This repository contains SORC (Second-Order Relational Coherence), a metric for measuring contextual relational depth in transformer hidden states, and the theoretical framework that motivated building it: Informational Substrate Convergence (ISC).
+
+ISC's claim is that emergence, capability, and integrated information are relational properties of a model-context pair, not fixed properties of the model in isolation. The same weights, different context, different effective architecture. The SORC experiments are a first empirical test of that claim.
+
+The theory draws on IIT (Tononi, 2008; Albantakis et al., 2023), departing at one specific point: phi is context-activated rather than substrate-intrinsic. Full treatment in [PAPER.md](PAPER.md).
 
 ---
 
@@ -173,7 +177,7 @@ Three groups can advance this work directly:
 
 **Mechanistic interpretability researchers** with access to open models via TransformerLens: run Predictions 1, 3, and 5 from the paper on existing infrastructure. The experiment code is ready.
 
-**AI laboratories with frontier model access**: the specific ask is activation traces from matched expert-relational versus baseline tool-use conversations to compute per-layer SORC scores correlated with hallucination rate and output quality. Anthropic's mechanistic interpretability program and functional emotion research both connect directly to ISC's architectural predictions.
+**AI laboratories with frontier model access**: the specific ask is activation traces from matched expert-relational versus baseline tool-use conversations to compute per-layer SORC scores correlated with hallucination rate and output quality.
 
 **Consciousness researchers with neuroimaging**: test whether contextually richer interactions produce measurably different phi-proxy values in human participants. A cross-substrate comparison would be the most direct test of the substrate-independence claim.
 
