@@ -4,9 +4,6 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ca_experiment
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
@@ -15,11 +12,11 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install black flake8
+          pip install -e .
+          pip install black flake8 pytest
       - name: Lint with Black
-        run: black --check .
+        run: black --check src/ tests/
       - name: Lint with Flake8
-        run: flake8 .
+        run: flake8 src/ tests/
       - name: Run tests
-        run: pytest
+        run: PYTHONPATH=src python run_tests.py tests/isc/ -v
