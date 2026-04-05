@@ -1,0 +1,24 @@
+{
+  "experiment_id": "exp_006",
+  "title": "Double-Blind Output Quality: Does SORC Elevation Predict Expert-AI Dyad Output Exceeding Individual Capability?",
+  "status": "pre-registered, not yet run",
+  "date_registered": "2026-04-05",
+  "model": "mistralai/Mistral-7B-v0.1",
+  "device": "mps",
+  "max_tokens": 300,
+  "target_n_per_category": 20,
+  "hypothesis": "If contextual activation is the mechanism behind differential emergence — rather than efficient retrieval concentrating the user's own expertise back at them — then SORC elevation at inference time should predict output that exceeds what either the expert alone or the model alone could produce. This is the critical test distinguishing ISC's contextual activation account from the stochastic reflector hypothesis.",
+  "prediction": "In double-blind evaluation: (1) expert-AI dyad outputs rated higher than expert-alone outputs on the same tasks at matched effort; (2) SORC scores for the dyad conversation contexts are higher than for single-turn task prompts at matched token count; (3) the SORC gap predicts the output quality gap across domains.",
+  "confound_being_tested": "The stochastic reflector hypothesis: that what appears as emergent output is highly-efficient retrieval of patterns latent in the conversation, concentrated back at the user. If this is the explanation, output quality in the dyad condition should not exceed expert-alone output on novel problems outside the user's domain knowledge. If ISC's account is correct, it should.",
+  "design": {
+    "conditions": [
+      "expert_alone: domain expert solves problems without AI assistance",
+      "model_alone: identical problems solved by model with minimal context (single-turn)",
+      "dyad: expert in extended multi-turn conversation with model, SORC computed at inference"
+    ],
+    "evaluation": "double-blind rating by independent domain experts who did not participate in the dyad condition",
+    "domains": "minimum 3 distinct technical domains to test generality",
+    "novel_problems": "problems must require knowledge the participating expert does not possess, to control for reflection"
+  },
+  "addresses": "Stochastic reflector hypothesis (Limitations section, PAPER.md v2.0); Predictions 1 and 3"
+}
