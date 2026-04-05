@@ -191,6 +191,8 @@ If capability is relational rather than substrate-intrinsic, benchmark scores ar
 
 The claim is ontological, not just methodological. Capability is constituted by the model-user dyad. An expert developer with twenty hours of domain conversation has access to a qualitatively different system than a novice using the same model for the first time. ExpertPrompting research documents substantial performance differences correlated with domain expertise in prompting (Xu et al., 2023). GovAI research on expert-assisted AI performance in biology documents the scale of the expert/novice gap in real-world tasks (GovAI, 2025). The construct validity critique of LLM benchmarks directly questions whether standardized evaluation measures genuine capability (Burnell et al., 2025).
 
+A particularly clean natural experiment comes from brevity constraint research. Brussee (2026) documents that constraining model output to minimal grammar reduces token count by an average of 65% while preserving technical accuracy. The more theoretically significant finding, reported in the associated work (Bai et al., 2026, arXiv:2604.00025), is that brevity constraints reverse capability rankings between models: a model that underperforms under standard prompting can outperform a larger model under brevity constraints. The model did not change. The relational structure of the interaction did, and the capability ranking flipped. This is the ISC prediction made concrete: capability is a property of the model-context pair, not the model alone. A context-level instruction — with no change to weights, architecture, or task — is sufficient to alter which system is more capable. Bai et al. (2026) provides the cleanest published empirical instance of this claim to date.
+
 The prediction: controlled experiments comparing expert versus novice interaction over extended conversations on domain-specific tasks should produce measurable performance differences that exceed what prompt quality alone can explain, and should increase with conversation depth.
 
 ---
@@ -307,6 +309,8 @@ These results partially address **Prediction 5** (emergence scales with context 
 
 **Benchmark reform.** Construct validity research on LLM benchmarks should incorporate expert-user interaction protocols alongside standardized evaluation. If capability is relational, benchmarks that ignore the user's relational contribution are measuring something other than what they claim to measure.
 
+**Brevity constraint SORC experiment.** Bai et al. (2026) show that brevity constraints reverse model capability rankings — a cheap, reproducible context manipulation with a measurable output effect. Running matched tasks under standard and brevity-constrained prompts through SORC would test whether the hidden state geometry shifts detectably under a context-level instruction with no change to input content. If SORC captures something real about how context organizes relational structure, the two conditions should produce different spectral signatures at matched token counts. This is runnable today with the existing experiment infrastructure.
+
 ---
 
 ## Limitations
@@ -408,6 +412,8 @@ What the theory offers is a more tractable formulation of the relevant questions
 - Burnell, R., et al. (2025). "Measuring What Matters: Construct Validity in Large Language Model Benchmarks." arXiv:2511.04703.
 - GovAI. (2025). "Measuring Mid-2025 LLM-Assistance on Novice Performance in Biology Tasks." Governance of AI Programme.
 - Chroma Research. (2025). *Context Rot: How Increasing Input Tokens Impacts LLM Performance*. research.trychroma.com.
+- Bai, et al. (2026). "Brevity Constraints Reverse Performance Hierarchies in Language Models." arXiv:2604.00025.
+- Brussee, J. (2026). *caveman: Brevity-Constrained LLM Output*. github.com/JuliusBrussee/caveman.
 
 ### Diversity, Complexity, and Adaptive Systems
 - Ashby, W. R. (1956). *An Introduction to Cybernetics*. Chapman and Hall.

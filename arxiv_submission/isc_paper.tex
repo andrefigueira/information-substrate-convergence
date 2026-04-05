@@ -634,6 +634,22 @@ construct validity critique of LLM benchmarks directly questions whether
 standardized evaluation measures genuine capability (Burnell et al.,
 2025).
 
+A particularly clean natural experiment comes from brevity constraint
+research. Brussee (2026) documents that constraining model output to
+minimal grammar reduces token count by an average of 65\% while
+preserving technical accuracy. The more theoretically significant
+finding, reported in the associated work (Bai et al., 2026,
+arXiv:2604.00025), is that brevity constraints reverse capability
+rankings between models: a model that underperforms under standard
+prompting can outperform a larger model under brevity constraints. The
+model did not change. The relational structure of the interaction did,
+and the capability ranking flipped. This is the ISC prediction made
+concrete: capability is a property of the model-context pair, not the
+model alone. A context-level instruction --- with no change to weights,
+architecture, or task --- is sufficient to alter which system is more
+capable. Bai et al.\ (2026) provides the cleanest published empirical
+instance of this claim to date.
+
 The prediction: controlled experiments comparing expert versus novice
 interaction over extended conversations on domain-specific tasks should
 produce measurable performance differences that exceed what prompt
@@ -998,6 +1014,17 @@ standardized evaluation. If capability is relational, benchmarks that
 ignore the user's relational contribution are measuring something other
 than what they claim to measure.
 
+\textbf{Brevity constraint SORC experiment.} Bai et al.\ (2026) show
+that brevity constraints reverse model capability rankings --- a cheap,
+reproducible context manipulation with a measurable output effect.
+Running matched tasks under standard and brevity-constrained prompts
+through SORC would test whether the hidden state geometry shifts
+detectably under a context-level instruction with no change to input
+content. If SORC captures something real about how context organizes
+relational structure, the two conditions should produce different
+spectral signatures at matched token counts. This is runnable today
+with the existing experiment infrastructure.
+
 \bigskip
 
 \section{Limitations}\label{limitations}
@@ -1344,6 +1371,12 @@ Evaluation}\label{benchmark-validity-and-evaluation}
 \item
   Chroma Research. (2025). \emph{Context Rot: How Increasing Input
   Tokens Impacts LLM Performance}. \url{https://research.trychroma.com}.
+\item
+  Bai et al. (2026). ``Brevity Constraints Reverse Performance
+  Hierarchies in Language Models.'' \url{https://arxiv.org/abs/2604.00025}.
+\item
+  Brussee, J. (2026). \textit{caveman: Brevity-Constrained LLM Output}.
+  \url{https://github.com/JuliusBrussee/caveman}.
 \end{itemize}
 
 \section{Diversity, Complexity, and Adaptive
