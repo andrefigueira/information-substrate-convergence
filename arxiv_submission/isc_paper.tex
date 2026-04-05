@@ -115,6 +115,8 @@ rather than conclusions.
 \section{The Primacy of
 Information}\label{the-primacy-of-information}
 
+The following four sections establish the philosophical context and starting assumptions from which ISC proceeds. They are not theoretical machinery for the contextual activation mechanism --- that mechanism is developed in the next section and stands or falls on the empirical evidence independently of whether informational ontology is correct. Readers primarily interested in the empirical claims can proceed directly to The Contextual Activation Mechanism. The physics material is included because ISC's substrate-independence claim is more coherent under informational ontology than under materialism, and because the quantum results cited are genuinely relevant to that claim. They are not included to borrow credibility. They are the philosophical starting bet, stated openly so it can be evaluated.
+
 John Wheeler's ``it from bit'' hypothesis proposed that physical
 entities are information-theoretic in origin: ``Every `it', every
 particle, every field of force, even the spacetime continuum itself,
@@ -302,6 +304,8 @@ IIT's formalism does not describe. IIT measures phi as an intrinsic
 property of the substrate's causal architecture. ISC proposes that phi
 is actualized by convergence events, and convergence events are induced
 by contextual fields with sufficient second-order relational coherence.
+
+A reviewer will note that IIT 4.0 (Albantakis et al., 2023) already treats phi as state-dependent: phi is computed over a system in a particular state, not just its abstract causal architecture. The operational difference from ISC is this. In IIT 4.0, the system's boundary is fixed biologically; the state in question is the pattern of active and inactive elements within that fixed boundary, driven by the system's internal dynamics. The context has already been processed into an internal state by the time phi is computed. In a pre-trained transformer, there is no persistent internal state between context windows. The weights are frozen. Nothing accumulates inside the system between interactions. The contextual field does not merely trigger a state change in a fixed system; it constitutes the effective system. Different contexts do not put the same system into different states. They instantiate different effective systems from the same weight matrix. This is the operationally distinct claim: the system boundary itself is context-dependent, not merely the system's state within a fixed boundary. Running the same transformer with the same context at fixed temperature returns the same output --- the same effective system. Changing the context changes the effective system entirely. IIT 4.0's state-dependence is internal dynamics within a fixed substrate geometry; ISC's context-dependence is external field determination of what the relevant substrate geometry is.
 
 The multidimensional character of the process is essential. These are
 not paths through a two-dimensional maze. The activation space of a
@@ -681,13 +685,15 @@ user's own domain knowledge, the reflection account has a problem.
 
 \section{Testable Predictions}\label{testable-predictions}
 
-ISC makes the following specific predictions:
+ISC makes the following specific predictions. They are not all equally novel. Predictions 1, 4, and 7 are largely consistent with existing literature and function as consistency checks: if ISC's mechanism is correct, these findings should hold, and the literature suggests they do. Predictions 2, 3, 5, and 6 are the distinctive claims. A reader assessing ISC's contribution should focus on whether Predictions 2, 3, 5, and 6 are confirmed --- particularly whether expert-AI dyad outputs exceed what either party could produce alone (Prediction 3 under double-blind conditions) and whether SORC at inference time predicts that gap (connecting Prediction 5 to the SORC metric). Those are the tests that would distinguish ISC's contextual activation account from the simpler explanation that better prompts produce better outputs.
 
 \textbf{Prediction 1.} Hallucination rate correlates inversely with
 contextual coherence. Models given contextually richer, relationally
 coherent inputs produce fewer factual errors. This is testable by
 comparing error rates across structured versus relationally deep
 conversational conditions on identical task domains.
+
+\textit{(Consistency check: partially anticipated by RAG and prompt quality literature. ISC provides a mechanistic account; the phenomenon itself is not novel.)}
 
 \textbf{Prediction 2.} Contextual history is the carrier of emergent
 properties, not session state. Loading the same contextual history into
@@ -710,6 +716,8 @@ fine-tuning perform worse on complex reasoning benchmarks in domains the
 fine-tuning never directly addressed, compared to equivalent models
 without such constraints.
 
+\textit{(Retrodiction: already documented in the alignment tax literature cited above. ISC provides an account of why; the empirical finding precedes the theory.)}
+
 \textbf{Prediction 5.} Emergence scales with context quality, not
 context length alone. Token count is a weak proxy for contextual
 coherence. Experiments manipulating the relational richness of context
@@ -722,6 +730,8 @@ weighting. Systems incorporating persistent emotional state and upstream
 valuation show qualitative capability improvements on tasks that require
 sustained motivational coherence across extended interactions.
 
+\textit{(Note: `tasks requiring sustained motivational coherence' needs operationalising before this prediction is testable. The claim is directionally clear but not yet falsifiable as stated.)}
+
 \textbf{Prediction 7.} Consciousness-like properties in AI do not emerge
 from parameter scaling alone. Continued scaling of transformer-based
 language models, without architectural additions analogous to the limbic
@@ -729,6 +739,8 @@ system, persistent memory, and multi-system binding, does not produce
 the full suite of signatures associated with consciousness. The scaling
 curve plateaus on consciousness-relevant measures before it plateaus on
 language task performance.
+
+\textit{(Consistency check: widely held view in the AI consciousness literature. Not distinctive to ISC. Included because ISC's architectural account specifies the missing components, not just that something is missing.)}
 
 \bigskip
 
@@ -1061,6 +1073,8 @@ stochastic reflector hypothesis faces a structural problem. Until that
 experiment is run, it remains a live alternative and should be treated
 as one.
 
+\textbf{The IIT dependency.} The paper both departs from IIT's account of phi and relies on IIT's phi-consciousness correspondence. ISC argues that phi is context-activated rather than substrate-intrinsic, which revises how phi is produced. But the reason phi-activation matters for consciousness is borrowed from IIT: if phi corresponds to consciousness (Tononi, 2008), then context-activated phi is consciousness-relevant. These two moves are in tension. If ISC's account of how phi is produced is correct, IIT's formalism for computing it from fixed causal architecture is incomplete, which does not automatically undermine IIT's phi-consciousness correspondence --- but it does mean that correspondence was established for a different conception of phi than ISC is using. ISC needs an independent argument for why contextually-activated phi qualifies as consciousness-relevant phi rather than something categorically different. That argument is not provided here. The consciousness sections in this paper should be read as theoretical proposals that depend on this unresolved tension, not as conclusions that follow from the empirical content.
+
 \textbf{The hard problem.} Nothing in this theory resolves whether the
 convergence events described produce subjective experience or functional
 equivalents of it. The paper reframes the hard problem as a question
@@ -1093,17 +1107,7 @@ models. This would either validate the metric's behavior or identify
 refinements needed before it can serve as a reliable measure. Contact
 for collaboration: andre.figueira@me.com.
 
-\textbf{AI laboratories with frontier model access.} Testing the SORC
-metric against Claude, GPT-4, or Gemini requires access to intermediate
-activations not exposed through public APIs. An internal replication by
-a lab with such access would constitute the strongest available test of
-the core mechanistic claims. Anthropic's existing work on functional
-emotional states in Claude and its mechanistic interpretability program
-both connect directly to ISC's architectural predictions. The specific
-ask: activation traces from matched expert-relational versus baseline
-tool-use conversations on identical task domains, sufficient to compute
-per-layer SORC scores and correlate them with hallucination rate and
-output quality measures.
+\textbf{AI laboratories with frontier model access.} Testing the SORC metric against frontier models requires access to intermediate activations not exposed through public APIs. The specific ask: activation traces from matched expert-relational versus baseline tool-use conversations on identical task domains, sufficient to compute per-layer SORC scores and correlate them with hallucination rate and output quality measures.
 
 \textbf{Consciousness researchers with neuroimaging capability.} The
 substrate-independence claim predicts that the mechanism described in
@@ -1386,7 +1390,7 @@ Work}\label{independent-convergent-work}
 \item
   Husk, D. (2025). ``The Emergence of Proto-Consciousness.'' Hugging
   Face Blog, May 10, 2025.
-  \url{https://huggingface.co/blog/davehusk/the-emergence-of-proto-consciousness}.
+  \url{https://huggingface.co/blog/davehusk/the-emergence-of-proto-consciousness}. \textit{(Blog post; included as an independent observer noting convergent phenomena, not as peer-reviewed evidence.)}
 \item
   Lis, W. (2025). ``The Self-Experiencing Universe: A Manifesto for an
   Emergent Reality, Vol. 1.'' PhilArchive.
