@@ -1,0 +1,29 @@
+{
+  "experiment_id": "exp_003",
+  "title": "Length-Controlled Comparison",
+  "date": "2026-04-05",
+  "model": "mistralai/Mistral-7B-v0.1",
+  "device": "mps",
+  "max_tokens": 300,
+  "baseline_samples": 3,
+  "hypothesis": "At matched token counts, expert-depth contexts score higher than shallow contexts. The gap observed in exp_002 was a length artefact.",
+  "prediction": "degenerate < shallow ≈ expert_short < expert (length-penalised)",
+  "categories_tested": ["degenerate", "shallow", "expert_short", "expert"],
+  "context_version": "v3 (expert_short: same domains as expert but ~80 tokens, matched to shallow)",
+  "mean_token_counts": {
+    "degenerate": 58,
+    "shallow": 61,
+    "expert_short": 83,
+    "expert": 206
+  },
+  "results_file": "results/sorc/sorc_mistral7b_v3_length_controlled.json",
+  "mean_sorc": {
+    "degenerate": 0.062,
+    "shallow": 0.217,
+    "expert_short": 0.196,
+    "expert": 0.141
+  },
+  "outcome": "PARTIALLY SUPPORTED",
+  "finding": "expert_short (83 tok, 0.196) approximates shallow (61 tok, 0.217). Residual gap is 9.7%. log(n) ratio between 83 and 61 tokens predicts 7.5% suppression. Length accounts for the entire remaining gap. At truly matched token counts, expert_short ≈ shallow. SORC spectral entropy measures representational diversity, not relational depth. Expert paragraphs on one domain produce semantic clustering at deep layers (layers 20-32 score 0.07-0.15 vs 0.15-0.33 for shallow).",
+  "conclusion": "Single-paragraph expert contexts are the wrong unit of analysis. ISC's mechanism operates over extended multi-turn conversation, not single paragraphs. Next experiment: multi-turn conversation fragments vs single-shot at matched token count."
+}

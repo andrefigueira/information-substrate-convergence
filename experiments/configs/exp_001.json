@@ -1,0 +1,17 @@
+{
+  "experiment_id": "exp_001",
+  "title": "Baseline SORC on GPT-2",
+  "date": "2026-04-05",
+  "model": "gpt2",
+  "device": "cpu",
+  "max_tokens": 200,
+  "baseline_samples": 3,
+  "hypothesis": "Degenerate inputs score lowest. Structured inputs score above random baseline. Expert contexts score higher than shallow contexts.",
+  "prediction": "degenerate < shallow < expert",
+  "categories_tested": ["degenerate", "shallow", "expert"],
+  "context_version": "v1 (original ISC-theory contexts in expert category)",
+  "results_file": "results/sorc/sorc_results.json",
+  "outcome": "NOT SUPPORTED",
+  "finding": "Expert scored at random baseline (0.020). Shallow scored highest (0.061). Model too small: GPT-2 has no encoded relational chains for the expert ISC-theory topics. Expert contexts are out-of-distribution for GPT-2.",
+  "conclusion": "GPT-2 is insufficient for this test. Expert contexts must be in domains the model has deeply encoded. Upgrade to 7B+ model."
+}

@@ -7,15 +7,15 @@ name = "isc"
 version = "0.2.0"
 description = "Information Substrate Convergence - Exploring consciousness emergence through self-referential information patterns"
 readme = "README.md"
-license = {text = "MIT"}
+license = {file = "LICENSE"}
 authors = [
-    {name = "Andre Figueira", email = "andre@buildingbetter.tech"}
+    {name = "André Pereira Figueira", email = "andre.figueira@me.com"}
 ]
 requires-python = ">=3.8"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",

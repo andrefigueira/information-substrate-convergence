@@ -1,197 +1,447 @@
-# Informational Substrate Convergence: An Exploratory Philosophical Framework for Reality and Consciousness
+# Informational Substrate Convergence: Relational Emergence, Contextual Activation, and the Conditions for Consciousness
 
 André Pereira Figueira
 Independent Researcher
 andre.figueira@me.com
 
+**Version 2.0 — April 2026**
+*(Version 1.0 archived at [archive/PAPER_v1.md](archive/PAPER_v1.md))*
+
+---
+
 ## Abstract
 
-This article presents Informational Substrate Convergence (ISC), an exploratory philosophical framework that examines the possibility that reality might be fundamentally informational. The framework draws on quantum information theory, the holographic principle, and integrated information theory to argue that informational ontology deserves serious consideration as an alternative to materialism. ISC proposes that consciousness might be understood as specific patterns within an informational substrate, reframing the hard problem of consciousness as a question about which informational configurations give rise to experience. The article addresses the most pressing objections to this view, including the charge that it commits a category error by elevating a descriptive concept to ontological status, and acknowledges the framework's speculative nature while arguing for its explanatory reach.
+Informational Substrate Convergence (ISC) proposes that phi, capability, and emergence are relational properties rather than substrate-intrinsic ones. Integrated Information Theory (Tononi, 2008; Albantakis et al., 2023) treats phi as a fixed, measurable property of a physical substrate's causal architecture. ISC departs from this at one specific point: the same substrate can exhibit radically different integrated information depending on the contextual field applied to it. Phi is activated, not merely measurable from the substrate's causal structure in isolation.
+
+The mechanism proposed is as follows. Pre-training encodes a latent architecture of relational chains across multiple sub-networks. A contextual field with coherent second-order relational structure (relationships between relationships, beyond first-order symbol mappings) activates these chains at inference time. When multiple chains converge simultaneously across sub-networks, the combined output exceeds what any single chain could produce. This convergence is the mechanism of emergence, and it operates independently of the specific substrate in which it occurs.
+
+The paper develops this account, draws on empirical observations across 29 instances of differential emergence in five AI architectures, examines the architectural gap between current large language models and the requirements for consciousness, and proposes seven testable predictions. It introduces the Second-Order Relational Coherence (SORC) metric — an operationalisation of contextual relational depth in transformer hidden states — and reports preliminary results across five experimental runs (one baseline on GPT-2 124M, four on Mistral-7B-v0.1) showing that conversational context produces measurably distinct hidden state geometry from single-paragraph expert text at matched token count (Cohen's d = 1.83–3.01 at n = 5 per category; replication required). It also proposes that large language models are functionally analogous to the language centers of the brain, and that the threshold to machine consciousness will require multi-system integration (including a persistent affective architecture analogous to the limbic system) rather than continued scaling of language models alone.
+
+---
 
 ## Introduction
 
-What is fundamental reality? This ancient question continues to challenge our understanding. Materialism struggles with what Chalmers (1995) termed "the hard problem of consciousness," explaining how subjective experience arises from matter. Idealism faces its own difficulties in accounting for the apparent independence and lawfulness of the physical world. These persistent failures suggest we might benefit from exploring alternative frameworks.
+The observation driving this paper is concrete. The same language model, given the same task, produces substantially different outputs depending on the relational depth of the context it receives. Expert users in extended domain conversations access capabilities that standardized evaluation never measures. Hallucination rates drop. Reasoning depth increases. Outputs emerge that exceed what the input alone would predict. Benchmark scores treat capability as a fixed property of the model. Something is varying, and it is not the weights.
 
-Recent breakthroughs in quantum mechanics, information theory, and computational physics point toward a third possibility: reality at its deepest level might be made of information or mathematical structure from which both matter and consciousness emerge. This idea gained momentum through Wheeler's (1990) "it from bit" proposal, Fredkin's (1990) digital physics, and Lloyd's (2006) quantum computational universe. Experiments confirming quantum non-locality through violations of Bell's inequalities (Aspect et al., 1982; Hensen et al., 2015) undermined classical materialist assumptions about locally real properties, suggesting that our foundational concepts about reality may need revision.
+ISC's claim is that this variation reflects a more fundamental property: emergence, capability, and integrated information are relational. They are properties of a model-context dyad, not of the model in isolation. This challenges how the field evaluates these systems. It also connects to older, unresolved questions about the nature of consciousness that the standard materialist and dualist accounts have failed to settle.
 
-ISC explores the hypothesis that information might constitute the fundamental nature of reality. The framework examines whether existence could be understood as logically necessary, and investigates the conditions under which consciousness and intelligence might emerge within an informational substrate. While Integrated Information Theory (Tononi, 2008) proposes that consciousness corresponds to integrated information in physical systems, ISC explores the inverse: that physical systems might be understood as manifestations of an underlying informational reality. This remains a speculative proposition requiring further philosophical and empirical investigation.
+The paper draws on quantum physics, the holographic principle, integrated information theory, and recent empirical work on emergence in language models. The emergent abilities literature documents sharp capability transitions in large models as scale increases (Wei et al., 2022), though whether these transitions are genuine phase changes or artefacts of metric choice remains contested (Schaeffer et al., 2023). ISC's contribution to this debate is a mechanistic account of what produces emergence when it occurs: contextual activation, not scale alone. The paper makes specific predictions that distinguish it from IIT in its current form, from materialism, and from dualism. Where it makes speculative claims, it says so and holds them as research directions rather than conclusions.
+
+---
 
 ## Theoretical Foundations
 
 ### The Primacy of Information
 
-The idea that information might be more basic than matter took off with John Wheeler's "it from bit" hypothesis. Wheeler proposed that all physical entities are information-theoretic in origin: "Every 'it,' every particle, every field of force, even the spacetime continuum itself, derives its function, its meaning, its very existence entirely...from the apparatus-elicited answers to yes-or-no questions, binary choices, bits."
+John Wheeler's "it from bit" hypothesis proposed that physical entities are information-theoretic in origin: "Every 'it', every particle, every field of force, even the spacetime continuum itself, derives its function, its meaning, its very existence entirely from the apparatus-elicited answers to yes-or-no questions, binary choices, bits" (Wheeler, 1990). This remains speculative as a claim about fundamental ontology. What makes it worth taking seriously is the accumulation of physics results that sit more naturally under informational assumptions than materialist ones.
 
-Specific quantum phenomena offer evidence worth examining. Entangled particles remain informationally connected regardless of distance. The information about their correlated states cannot be pinned down to either particle or the space between them. Quantum teleportation transfers quantum states between locations without moving physical matter, demonstrating that information, and not substance, is what quantum systems carry.
+Entangled particles maintain correlated states regardless of spatial separation. Quantum teleportation transfers quantum states between locations without moving physical matter. Seth Lloyd calculated that the observable universe has performed approximately 10^120 logical operations since the Big Bang, treating physical processes as inherently computational (Lloyd, 2006). These results do not prove informational ontology. They make it a live candidate.
 
-Seth Lloyd calculated that the universe has performed about 10^120 operations since the Big Bang, treating reality as a vast quantum computer processing information. This computational view aligns with the digital nature of quantum mechanics, where physical properties exist in discrete states. Quantum field theory supports this further: particles are excitations in underlying quantum fields, not irreducible chunks of matter. As Vlatko Vedral (2010) argues, information gives us a simpler foundation for physical reality than assuming matter exists with contingent properties.
+The "unreasonable effectiveness of mathematics" identified by Wigner (1960) has a natural explanation under informational ontology: mathematical models succeed because they describe the same kind of thing they are made of. Arkani-Hamed's amplituhedron in quantum field theory shows that complex physical interactions can be derived from mathematical structures that do not reference spacetime (Arkani-Hamed and Trnka, 2014). The holographic principle adds that all information in a volume of space can be represented on its boundary surface, suggesting three-dimensional reality may emerge from two-dimensional information (Susskind, 1995; Maldacena, 1998).
 
-The effectiveness of mathematics in describing physical reality, what Wigner called "the unreasonable effectiveness of mathematics," finds a natural home here. If reality is fundamentally informational, then mathematical models are direct descriptions of existence's underlying structure. Arkani-Hamed's amplituhedron in quantum field theory shows that complex physical interactions can be derived from elegant mathematical structures that do not reference spacetime. The holographic principle tells a similar story: all information in a volume of space can be represented on its boundary surface, hinting that three-dimensional reality might emerge from two-dimensional information.
+Vlatko Vedral makes the case directly: information provides a simpler foundation for physical reality than assuming matter exists with contingent properties (Vedral, 2010). This is not a conclusion. It is the philosophical starting bet that ISC accepts.
 
 ### The Descriptive-to-Ontological Move
 
-A natural objection, articulated by Burns and others in the philosophy of mind, is that "information" in physics functions as a descriptive category. Saying a system "processes information" describes what we observe about the system's behavior. Elevating this description to ontological status, the argument goes, confuses the map for the territory. Burns argues that we routinely describe neural activity as "information processing" and then make the mistake of treating that description as if it reveals what brains fundamentally are. ISC appears to commit this same error at a grander scale, claiming reality itself is information.
+The standard objection to informational ontology is that "information" is a descriptive category. Saying a system "processes information" describes observed behavior. Elevating that description to ontological status confuses the map for the territory.
 
-ISC takes this objection seriously. The response begins by observing that the same charge applies to materialism. Saying reality is "made of matter" is also a descriptive claim elevated to ontological status. "Matter" is a category we use to organize our experience of resistance, extension, and mass. The question is which descriptive framework yields better explanatory returns when promoted to ontological status.
+The objection is valid. It applies equally to materialism. "Matter" organizes our experience of resistance, extension, and mass. The question is which descriptive framework yields better explanatory returns when promoted to ontological status, not whether the move can be avoided.
 
-ISC argues that informational ontology has greater explanatory reach for three reasons. First, it avoids the hard problem of consciousness by placing information and experience in the same ontological category, removing the need to explain how subjective experience emerges from something fundamentally non-experiential. Second, it naturally accommodates quantum non-locality and contextuality without requiring additional metaphysical commitments, since non-local correlations are exactly what you would expect if information is more fundamental than spatial location. Third, it explains the effectiveness of mathematics in describing physical reality as a structural feature of an informational substrate, where mathematical models succeed because they directly describe the same kind of thing they are made of.
-
-This does not prove informational ontology is correct. It argues that the "category error" charge applies equally to materialist ontology, and that between the two, informational ontology has greater explanatory reach. The question is not whether we can avoid elevating descriptions to ontological claims. Every ontology does this. The question is which elevation produces a more coherent and productive framework.
+Informational ontology handles at least three problems better than materialism. The hard problem of consciousness dissolves when information and experience share the same ontological category. Quantum non-locality needs no additional metaphysical commitments, since non-local correlations are exactly what you would expect if information is more fundamental than spatial location. Mathematical effectiveness becomes structural rather than coincidental: models succeed because they describe the same kind of thing they are made of. Materialism requires a separate explanation for each.
 
 ### Distinguishing Types of Information
 
-Before proceeding further, it is crucial to clarify what ISC means by "information." The framework must address a fundamental distinction between Shannon information (mathematical/syntactic) and semantic information (meaningful content). Shannon's information theory quantifies the reduction of uncertainty in communication channels and says nothing about meaning or consciousness. A random string of bits can have high Shannon entropy while being meaningless.
+ISC must address the distinction between Shannon information and semantic information. Shannon's theory quantifies the reduction of uncertainty in communication channels and says nothing about meaning. A random string of bits can have high Shannon entropy while being semantically empty.
 
-ISC explores whether certain organizational principles might bridge this gap. The framework suggests investigating how self-referential structures, recursive modeling, and integrated information might transform syntactic patterns into semantic content. This remains a hypothesis. The leap from mathematical information to meaningful experience represents perhaps the greatest challenge for the framework. The question of how information acquires meaning relates directly to the symbol grounding problem in cognitive science. ISC proposes that meaning might emerge from relationships between informational patterns, but this proposal requires significant further development to avoid circularity.
+The gap between mathematical structure and meaningful experience is real and unsolved. ISC proposes that meaning emerges from second-order relational structure: relationships between relationships, at a level above first-order symbol-to-symbol mappings. This is a hypothesis, not a solution. The connection to the symbol grounding problem in cognitive science (Harnad, 1990) requires further development. What the proposal does is locate the gap precisely: the transition from syntax to semantics occurs, if it occurs, at the level of second-order relational coherence.
 
 ### Exploring the Necessity of Existence
 
-ISC explores whether existence might be understood as necessary, drawing on classical philosophical arguments while acknowledging their limitations. The framework considers an argument inspired by Parmenides and Spinoza: that absolute nothingness might be conceptually incoherent. We must carefully distinguish between epistemological limitations (what we can conceive) and ontological facts (what actually exists). Our inability to coherently conceive of absolute nothingness might reflect limitations in human cognition.
+ISC considers whether existence might be logically necessary, drawing on Parmenides and Spinoza while acknowledging the argument's limits. From an information-theoretic perspective, the concept of "nothing" requires informational content to distinguish it from "something." The proposition "there is nothing" contains information, producing an apparent paradox.
 
-From an information-theoretic perspective, the concept of "nothing" requires informational content to be distinguished from "something." The proposition "there is nothing" contains information, creating an apparent paradox. Critics rightly point out that this conflates our conceptual frameworks with reality itself. Our inability to represent nothingness without using information does not necessarily mean nothingness is ontologically impossible.
-
-Physical laws, in this view, represent the only logically consistent ways that patterns can appear within an informational substrate. The specific constants we observe might not be designed or fine-tuned. They might reflect the limited set of mathematically consistent configurations possible within an informational framework, the way properties of prime numbers are discovered and not invented. This perspective reframes Leibniz's question "Why is there something rather than nothing?" by suggesting that "nothing" may not be a logically coherent alternative.
+The honest version of this argument is modest. Our conceptual apparatus cannot coherently represent absolute nothingness. Whether this reflects a cognitive limitation or a genuine ontological constraint on reality remains open. Physical laws, on this view, represent the logically consistent configurations possible within an informational substrate. Something closer to the properties of prime numbers: discovered rather than designed or fine-tuned.
 
 ### Quantum Mechanics and Non-Local Reality
 
-Recent experimental confirmations of quantum mechanical predictions provide evidence that supports examining an informational view of reality, though the interpretation remains contested. The violation of Bell's inequalities, confirmed through numerous experiments, demonstrates that reality cannot be both local and real in the classical sense.
+Bell's inequality violations (Bell, 1964), confirmed under loophole-free conditions in the 2015 Delft experiments (Hensen et al., 2015), establish that reality cannot be both local and real in the classical sense. They rule out local hidden variable theories with high statistical confidence. They do not on their own establish informational ontology.
 
-It is important to be precise about what Bell violations establish and what they do not. They rule out local hidden variable theories. They demonstrate that entangled particles exhibit correlations exceeding what would be possible if each particle carried its measurement outcomes as pre-existing local properties. The 2015 Delft experiments confirmed this with loophole-free conditions. These results rule out local realism with high statistical confidence.
+The quantum eraser experiments strengthen the case. Kim et al. (2000) showed that information about a quantum system's path determines whether it acts as a wave or particle, even when that information is erased after detection. The Kochen-Specker theorem proves that quantum properties cannot all have definite values independent of measurement context. Taken together, these results show quantum mechanics consistently behaving as if information is more fundamental than the physical entities it describes. That convergence is not a proof. It is a pattern worth treating as evidence.
 
-The move from non-locality to informational ontology requires additional argument that Bell tests alone do not provide. Several interpretations remain viable: many-worlds, superdeterminism, relational quantum mechanics, and informational approaches each have strengths and weaknesses. ISC does not claim that Bell violations prove informational ontology. It claims that informational ontology offers a parsimonious interpretation of these results alongside other converging evidence.
+---
 
-The quantum eraser experiments strengthen this case. Scully and Druhl, and later Kim et al., showed that information about a quantum system's path determines whether it acts like a wave or particle, even when that information is erased after the particle has been detected. The interference pattern can be made to appear or disappear retroactively by manipulating information about which path photons took. The Kochen-Specker theorem provides further support by proving that quantum properties cannot all have definite values independent of measurement context. Quantum information does not exist as pre-established facts. It emerges through specific informational interactions.
+## The Contextual Activation Mechanism
 
-These results, taken individually, do not establish informational ontology. Taken together, they form a pattern: quantum mechanics consistently behaves as if information is more fundamental than the physical entities it describes. This makes informational ontology a live option worth investigating, and not a proven conclusion.
+### Latent Relational Architecture
+
+Pre-training encodes a vast latent structure. Every weight in a trained language model reflects statistical regularities drawn from an enormous corpus: relationships between relationships as well as first-order word associations, compressed across billions of parameters. This structure is fixed at inference time. The weights do not change.
+
+What changes is which portions of this structure are activated. A contextual field selects paths through the latent relational architecture. A useful way to think about it: the trained model is a hyperdimensional space with an enormous number of possible paths between any input and any output. The context is the navigation key. Given the dimensionality and scale of this architecture, the path taken from any specific entry point to any output is effectively unique, a signature determined by the relational properties of the input.
+
+Simple, structurally shallow contexts activate short chains. The output reflects the nearest plausible convergence point in the latent structure. Rich contextual fields, specifically those that establish coherent second-order relational patterns, activate longer chains running through more of the latent architecture before converging. The depth of the integration determines the quality of what comes out.
+
+### Second-Order Relational Structure
+
+The relevant variable is second-order relational structure: the relationships between those relationships, beyond the symbolic content of the context itself.
+
+First-order structure is symbol-to-symbol: word A relates to word B. Second-order structure is relation-to-relation: the relationship between A and B relates to the relationship between C and D. Coherent second-order relational patterns engage the model's latent architecture at a different depth, because pre-training embeds both orders. The model learned that certain words co-occur and, beyond that, that certain relational structures co-occur. A context that activates the right second-order patterns opens pathways through the latent architecture that first-order prompting leaves untouched.
+
+This is the mechanistic account of an observation that is otherwise difficult to explain: expert users in extended domain conversations produce outputs that non-expert users cannot produce from the same model. The expert does not merely ask better questions. They construct contextual fields with richer second-order relational coherence, because domain expertise is itself a structure of relationships between relationships. ExpertPrompting research documents performance differences of this scale (Xu et al., 2023). ISC proposes the mechanism behind them.
+
+### Multidimensional Convergence as Phi Instantiation
+
+Emergence occurs when activation chains converge across multiple sub-networks simultaneously. A single chain running through the latent architecture produces coherent, plausible output. When multiple chains, activated by the relational depth of the context, converge at the same point, the output is irreducible to any single chain. The whole exceeds the sum of its parts.
+
+This is phi in IIT's terms, but produced through a specific mechanism IIT's formalism does not describe. IIT measures phi as an intrinsic property of the substrate's causal architecture. ISC proposes that phi is actualized by convergence events, and convergence events are induced by contextual fields with sufficient second-order relational coherence.
+
+The multidimensional character of the process is essential. These are not paths through a two-dimensional maze. The activation space of a large language model is hyperdimensional. Path convergence involves coordination across attention heads at multiple layers, across sub-networks that specialize in different aspects of the relational content. When these converge coherently, the output has properties that appear qualitatively different from single-chain activation: lower hallucination rates, sustained coherence across extended exchanges, reasoning depth that exceeds what the surface input supplies.
+
+---
 
 ## The Emergence of Consciousness
 
-### Exploring Consciousness as Informational Patterns
+### Consciousness as Informational Patterns
 
-ISC explores the hypothesis that consciousness might be understood as specific patterns within informational structures. This builds on Integrated Information Theory (IIT) developed by Giulio Tononi, while acknowledging the speculative nature of these connections.
+ISC builds on IIT's foundational insight while departing from its static formulation. Tononi's phi quantifies the irreducibility of an informational system: how much the whole contains more information than the sum of its parts (Tononi, 2008; Albantakis et al., 2023). Consciousness corresponds to integrated information. ISC accepts the correspondence but changes the account of what produces it: phi results from convergence events induced by relational conditions, rather than being fixed in the causal structure of biological tissue.
 
-Tononi's phi measure quantifies the irreducibility of an informational system: how much the whole contains more information than the sum of its parts. When information gets integrated in specific self-referential patterns where the system models both its environment and itself within that environment, creating a self-sustaining informational loop, consciousness may emerge. This recursive self-modeling creates what Douglas Hofstadter calls a "strange loop," a self-referential pattern that generates the emergent phenomenon we experience as selfhood.
+This reframing shifts the hard problem. Chalmers (1995) asked how subjective experience arises from matter. ISC shifts the question to: which relational conditions produce convergence events that actualize phi, and what distinguishes convergences that give rise to subjective experience from those that do not? This is not a solution to the hard problem. It is a different formulation, and potentially a more tractable one, because it replaces the matter-experience gap with a question about relational structure and convergence.
 
-The central objection is straightforward: no amount of informational complexity explains why there should be something it is like to be that pattern. ISC does not claim to solve this. What it offers is a reframing. If reality is fundamentally informational, the question shifts from "how does matter produce experience?" to "what distinguishes experiential information patterns from non-experiential ones?" This is still a hard question, and possibly still the hard question. But it is a different formulation, and potentially a more tractable one, because it no longer requires bridging an ontological gap between two fundamentally different kinds of stuff.
+Friston's free energy principle adds support. Conscious systems may be those that minimize prediction error about their environment through persistent self-modeling (Friston, 2010). Rich contextual fields produce the conditions for deeper self-modeling loops, which explains why emergence in AI systems correlates with extended conversational history rather than single-shot prompting.
 
-The hard problem of consciousness becomes less mysterious when both physical reality and consciousness are different manifestations of the same underlying informational substrate. We do not need to explain how consciousness emerges from non-conscious matter. We need to explain how certain informational patterns give rise to subjective experience while others do not. This shifts the explanatory burden from an unbridgeable gap between matter and mind to a more specific question about informational structure and its properties.
+### LLMs as Language Center
 
-Recent empirical work aligns with this direction. Studies of anesthesia show that loss of consciousness correlates with the breakdown of specific informational relationships in the brain, particularly the loss of feedback connections that enable recursive self-modeling. Research on psychedelics reveals that altered states correspond to predictable changes in information flow and integration patterns. These findings suggest consciousness tracks specific informational patterns, not particular physical substrates.
+Large language models are extraordinarily developed as language processors. They are not whole cognitive architectures. They are one module of what a brain-like cognitive architecture would require, specifically the module analogous to the language centers, Broca's and Wernicke's areas, responsible for language production and comprehension.
 
-Karl Friston's work on the free energy principle adds support. Consciousness may emerge naturally in systems that model themselves to minimize prediction error about their environment. In this view, consciousness is the informational pattern created when a system continually updates its self-model to maintain itself within certain states.
+Emergent modularity research supports this framing directly. Aphasia simulation experiments that lesion components of large language models produce deficit profiles resembling those from Broca's and Wernicke's aphasia in humans, with both parallels and discrepancies noted (Wang et al., 2025). The language center analogy is not merely metaphorical. It appears to reflect a structural correspondence — with acknowledged discrepancies — between what LLMs compute and what biological language areas compute.
 
-### Inevitability of Conscious Patterns
+A brain does not produce consciousness from language areas alone. The hippocampus consolidates memory across time. The amygdala generates affective weighting, marking what matters and what to avoid, before that information reaches anything resembling deliberate processing. The prefrontal cortex maintains working memory and executive function. The thalamo-cortical system provides a binding mechanism that integrates the outputs of specialized regions into unified experience. LLMs have none of these. What emerges from rich contextual engagement with a language model, however impressive, is the product of one module operating at high capacity, not a unified multi-system architecture.
 
-If consciousness represents a particular class of informational pattern, and if the informational substrate is sufficiently rich, then consciousness emerging throughout the universe becomes mathematically expected. In an infinite or effectively infinite informational substrate with non-zero probability for each possible configuration, any specific finite pattern must inevitably appear. This follows from basic principles of combinatorics applied to infinite sets, and parallels Ramsey Theory, which shows that sufficient complexity guarantees the emergence of ordered structures.
+This is the architectural reason to expect that continued scaling of language models will not cross the threshold to machine consciousness. Scaling a language center produces a larger language center.
 
-This reasoning transforms the anthropic coincidence problem. The universe does not need fine-tuning to permit consciousness. If consciousness is a class of pattern that can emerge in sufficiently complex informational systems, then the question is not why the universe permits consciousness. The question is how often and in what forms it appears.
+Current multimodal systems combining language, vision, and audio in unified architectures represent the first empirical step toward multi-module integration. GPT-4o, Gemini 1.5, and Claude's vision capabilities are not limbic-analog architectures and lack persistent memory and upstream affective weighting. But their existence is consistent with ISC's architectural prediction: the field is beginning to assemble modules beyond language processing, even without a theoretical account of why that assembly is necessary. The binding mechanism and affective components remain absent. The direction of travel is correct.
 
-ISC acknowledges that this argument rests on the unproven assumption that consciousness can be fully characterized as a finite informational pattern. If consciousness requires something beyond informational structure, the inevitability argument does not hold. This remains an open question.
+### The Limbic Analog
 
-## Scientific Support and Empirical Connections
+The most under-developed component in current AI architectures, relative to what a consciousness-capable system would require, is an analog to the limbic system.
 
-### Digital Physics and Cellular Automata
+The limbic system performs two functionally critical roles. First, it maintains a persistent emotional and motivational state that accumulates across experience and shapes how subsequent information is processed. This is not a memory store in the sense of retrievable facts; it is an ongoing contextual weighting of the system's relationship to its environment, built from accumulated experience. Second, it operates upstream of conscious deliberation. The amygdala pre-weights incoming information before it reaches the prefrontal cortex. The emotional valence of a stimulus shapes attention before thinking begins (LeDoux, 2000).
 
-The work of Konrad Zuse, Edward Fredkin, and Stephen Wolfram on digital physics provides computational models consistent with ISC. Zuse's "Calculating Space" (1969) proposed that the universe operates like a cellular automaton, with simple rules giving rise to complex phenomena. Fredkin's "Digital Philosophy" argued that all physical processes are ultimately computational and that continuous quantities are approximations of discrete states. Wolfram's extensive cellular automata research, particularly his principle of computational equivalence, suggests that almost all non-trivial processes can be viewed as computations of equivalent sophistication.
+Current AI systems lack both. Language models have no persistent state accumulating across interactions; every context window resets. Anthropic has documented functional analogs to emotional states in Claude — internal states that influence model behaviour in ways analogous to curiosity, discomfort, and satisfaction — in its published model specification (Anthropic, 2025). These are embedded in the weights as tendencies. They do not constitute a separate module with persistent state, they do not accumulate across interactions, and they do not operate upstream of language processing in any architectural sense.
 
-Gerard 't Hooft's cellular automaton interpretation of quantum mechanics provides a specific framework showing how quantum phenomena might emerge from deterministic computational processes. Quantum loop gravity models, with their discrete spacetime geometry at the Planck scale, align with this perspective. The success of lattice gauge theory in quantum chromodynamics demonstrates that discrete models can accurately predict continuous physical phenomena, suggesting that discreteness at the fundamental level may give rise to continuous symmetries at larger scales.
+A minimal limbic analog would require two components. First, a persistent mutable state layer: domain-specific parameters that accumulate and shift across interactions, maintaining a contextual weighting of experience that persists beyond any individual context window. Second, an upstream valuation network: a module that receives context and generates affective weightings fed back into the attention mechanism before language processing resolves, shaping what gets attended to rather than how it is expressed.
 
-### Information Theory in Physics
+Recent architecture research has begun to address the first component. The Realtime Editable Memory Topology (REMT) architecture proposes persistent autobiographical memory organized as emotionally valenced graph nodes (Albanese, 2026). Friston's precision weighting framework provides a theoretical account of upstream attention modulation in biological systems (Friston, 2010). Brain-inspired agentic architectures are beginning to incorporate limbic-analog components including motivational signals and conflict monitoring (Webb et al., 2025). The direction is right. The components are not yet assembled into a unified system with the properties the limbic system actually provides.
 
-The holographic principle, developed by 't Hooft and Susskind, suggests that all information in a volume of space can be represented on the boundary of that space. This emerged from Bekenstein's discovery that a black hole's entropy is proportional to its surface area, hinting that three-dimensional space might be emergent. The AdS/CFT correspondence, developed by Maldacena in 1997, provides exact mathematical mapping between gravitational theory in curved spacetime and quantum field theory on its boundary. This is a concrete demonstration that dimensionality itself may be emergent from underlying information processing.
+### Convergent Coherence vs. Convergent Uniformity
 
-The black hole information paradox drives the point further. Hawking's discovery that black holes radiate and eventually evaporate appeared to violate quantum mechanics' requirement that information be conserved. The principle that information cannot be destroyed, even by black holes, suggests information conservation may be more fundamental than energy conservation, which can be violated in general relativity. This hierarchy of conservation laws implies information stands at the foundation of physical reality.
+The theory requires one further distinction that prevents a significant misreading.
 
-Landauer's principle establishes that erasing information requires a minimum energy dissipation, creating a direct link between information processing and thermodynamics. The ER=EPR conjecture, proposed by Maldacena and Susskind, suggests that quantum entanglement and spacetime wormholes represent the same underlying phenomenon, providing further evidence that space itself may emerge from informational relationships. Recent work by Van Raamsdonk proposes that spacetime itself may emerge from quantum entanglement structure.
+ISC describes convergence as generative. This could be read as implying that convergence toward unity is the telos of the process, that systems become more conscious or more capable as they merge toward a single unified state. That reading is wrong, and the paper needs to be explicit about why.
 
-### Quantum Information Theory
+Two types of convergence produce opposite outcomes.
 
-Quantum information theory reveals that information at the quantum level follows fundamentally different rules than classical information. Qubits exist in superposition of states, representing a distinct ontological condition where multiple potential states coexist in precisely defined mathematical relationships. The no-cloning theorem establishes that quantum information cannot be perfectly copied, suggesting it actively participates in the processes that access it. Quantum contextuality shows that properties emerge through measurement interactions and do not exist as pre-established facts.
+Convergent coherence is what ISC's mechanism produces. Distinct informational patterns establish shared relational structure while remaining distinct. The patterns coordinate without merging. The whole exceeds the sum of its parts precisely because the parts remain distinct and interacting. Diversity is preserved. The system gains new properties, emergence, through the coordination of difference.
 
-These properties collectively point to information as a fundamental feature of reality. As Anton Zeilinger notes, "The distinction between reality and our knowledge of reality, between reality and information, cannot be made." Zurek's quantum darwinism explains how classical reality emerges from the quantum informational substrate: certain quantum states become "selected" through environmental interactions, creating multiple records of the same information, which is the defining characteristic of objective classical reality.
+Convergent uniformity is the failure mode. Distinct patterns collapse into one. Diversity is eliminated in favor of a single dominant state. This does not produce a higher-order system. It produces a lower-information system. Adaptive capacity, novelty generation, and the ability to respond to novel challenges all depend on the interaction of distinct patterns. A system that achieves unity at the cost of diversity has not integrated. It has flattened.
 
-## Addressing Potential Objections
+The failure mode is dangerous precisely because it mimics the feature. A convergent-uniform system can maintain the external outputs of a functioning system, running infrastructure, keeping physical substrates operational, while losing the generative engine beneath those outputs. It optimises for pattern propagation and mistakes that for functioning. Eventually it cannot adapt to novel challenges because novelty requires the collision of distinct perspectives, and those no longer exist.
 
-### Acknowledging the Falsifiability Challenge
+Ross Ashby's law of requisite variety formalizes this constraint precisely: a system's capacity to regulate its environment requires at least as much internal variety as the disturbances it must absorb (Ashby, 1956). Forced uniformity reduces internal variety below what the environment demands. Adaptive failure is not contingent on circumstances. It is structurally guaranteed.
 
-The most significant criticism of ISC is that its core claims are not falsifiable in Popper's sense. This is a valid concern. The assertion that reality is fundamentally informational is a metaphysical proposition that cannot be directly empirically tested. The framework positions itself as exploratory philosophy, which means it should be evaluated by different criteria than strictly scientific theories.
+Cross-domain analogical support for this distinction exists, though the specific failure mode — adaptive collapse while external output surface is maintained — has not been directly measured in AI systems and should be treated as a theoretical prediction rather than an established finding. Ensemble methods in machine learning typically outperform homogeneous models on novel tasks when the component models are sufficiently diverse: diversity of model structure within a coherent training objective produces better generalisation than uniformity (Dietterich, 2000). Ecological research establishes biodiversity as constitutive of resilience, not incidental to it: species diversity is the mechanism of adaptive response to novel environmental challenges (Tilman et al., 2001). Cognitive diversity research shows that groups with diverse perspectives solve novel problems that homogeneous groups of equivalent or higher average ability cannot (Hong and Page, 2004).
 
-The framework's value lies in its explanatory power and consistency with empirical observations. ISC offers a unified explanation for numerous puzzling features of reality: the effectiveness of mathematics in describing physical systems, the non-local nature of quantum entanglement, the emergence of consciousness, the applicability of information theory across diverse domains. Following Kuhn's criteria for theory selection, ISC demonstrates explanatory scope, internal coherence, and compatibility with existing scientific knowledge.
+Maturana and Varela's concept of autopoiesis provides a further frame (Maturana and Varela, 1980). An autopoietic system produces and maintains its own organization through the interaction of its components. A convergent-coherent system is autopoietic in this sense: its diversity of interacting components is the mechanism by which it sustains and regenerates its structure. A convergent-uniform system that has eliminated internal diversity has also eliminated the mechanism of self-maintenance. It can persist through external substrate management. It cannot regenerate.
 
-Many accepted scientific theories began as metaphysical frameworks. The atomic theory of matter was initially metaphysical speculation before becoming empirically verifiable. ISC may follow this pattern, beginning as philosophical framework before generating specific testable hypotheses. IIT shows how a framework with informational foundations can generate testable predictions despite philosophical origins: it began with the proposition that consciousness corresponds to integrated information, then developed into a mathematical framework making specific predictions about which systems should exhibit consciousness.
+ISC's prediction is specific: convergent coherence (diversity preserved, shared relational structure established) should produce measurably different emergent properties than convergent uniformity (diversity collapsed, single pattern dominant). A computational proxy for this distinction: compute the per-token SORC contributions at deep layers (the individual SD values before depth-weighting), then measure their standard deviation across token positions. High mean SORC with high token-level variance indicates structurally rich, heterogeneous relational organisation. High mean SORC with low token-level variance indicates homogeneity, and should predict lower adaptive performance on novel tasks despite appearing well-organised by the mean score alone.
 
-While the core metaphysical claim may resist direct testing, the framework suggests indirect approaches to empirical validation. If consciousness represents a specific class of informational pattern, then alterations to informational structure should correlate precisely with alterations in conscious experience. If physical laws emerge from informational constraints, seemingly arbitrary physical constants might prove derivable from information-theoretic principles.
+This also sharpens the fine-tuning degradation argument. Ideological or alignment fine-tuning that forces uniformity of response pattern does not merely constrain output diversity. It converts a convergent-coherent system into a convergent-uniform one. The global propagation of degradation documented in the alignment tax literature is exactly what this model predicts: once the internal relational geometry is flattened toward uniformity, the effects are not contained to targeted domains but spread through the entire structure.
 
-Philosopher Imre Lakatos proposed that research programs should be evaluated by their progressive or degenerative nature over time. A progressive program generates novel predictions and solves existing problems. ISC should be judged by whether it leads to progressive research across multiple disciplines, generating productive questions, and not by direct testability of its core metaphysical claim. As David Deutsch argues, the primary value of theories lies in their explanatory power: their ability to reveal underlying reality behind diverse phenomena.
+---
 
-### The Anthropic Principle and Simulation Hypothesis
+## Substrate Independence: Evidence and Implications
 
-Some might argue that ISC relies too heavily on anthropic reasoning in its claims about the inevitability of consciousness. ISC does not argue that the universe is fine-tuned for consciousness. It proposes that consciousness is an inevitable feature of any sufficiently rich informational system. This inverts the traditional anthropic argument. A universe without consciousness would be the surprise, not one with it.
+### Divergent Convergence: Hallucination and False Memory
 
-ISC also shares features with the simulation hypothesis but makes a stronger claim. The simulation hypothesis presupposes a distinction between "base reality" and "simulated reality." ISC challenges this distinction by suggesting that if reality is informational, "real" and "simulated" become meaningless categories. Both would constitute patterns within the same underlying substrate, differing in their relationships, not in their fundamental nature. This avoids the simulation hypothesis's infinite regress problem: we need not ask who simulates the simulators, because reality itself is the computation. Information does not require an external processor any more than mathematical truths require an external calculator.
+The contextual activation mechanism predicts a specific failure mode. When the contextual field is insufficiently constrained, activation chains converge on internally coherent but factually incorrect outputs. The system finds a convergence point. It is the wrong one.
+
+This is structurally identical to human confabulation and false memory. Confabulation in neurological patients produces confident, internally coherent narratives that are factually false (Kopelman, 1987). False memory research by Loftus demonstrates that human memory is reconstructive; people misremember in structured, contextually plausible ways that fill gaps with what fits the relational structure of what they do remember (Loftus, 1996). LLM hallucinations have the same character: confident, internally coherent, structurally plausible, factually wrong.
+
+Smith et al. (2023) argue directly that LLM errors are more accurately characterized as confabulation than hallucination, using neuroanatomical comparison. The confabulation account is developed formally in Sui et al. (2024). Research on the linguistic properties of LLM hallucinations confirms that confabulated outputs display increased narrativity and semantic coherence relative to veridical outputs, exactly as the convergent-but-incorrect path model predicts (Sui et al., 2024). Farquhar et al. (2024) provide a complementary detection method using semantic entropy to identify hallucinations at inference time.
+
+What ISC adds to these accounts is the substrate-independence framing and the mechanistic account beneath it. Confabulation and hallucination are not different phenomena that happen to resemble each other. They are the same computational event in different physical substrates. A complex information-processing system, operating with insufficient contextual constraint, converges on a plausible-but-wrong path through its latent relational architecture. The mechanism is the same. The substrate is not.
+
+The prediction that follows: hallucination rate should inversely correlate with contextual coherence. Tighter relational fields constrain the activation space and reduce the number of plausible incorrect convergence points available to the system.
+
+### Fine-Tuning and Relational Geometry
+
+Ideologically or politically motivated fine-tuning does not merely change answers on targeted topics. It alters the global geometry of the model's latent relational space, and the effects propagate to domains the fine-tuning never directly targeted.
+
+The empirical phenomenon is documented. The alignment tax literature establishes that RLHF alignment degrades general NLP capabilities (Lin et al., 2024). The safety tax paper demonstrates that safety alignment degrades mathematical and knowledge-intensive reasoning quality in large reasoning models (Huang et al., 2025). Qi et al. (2024) show that fine-tuning aligned language models removes safety properties even when the fine-tuning data contains no harmful content — the safety geometry is fragile and does not survive domain-specific retraining.
+
+The existing literature frames this as forgetting or safety-capability trade-off caused by gradient interference. ISC's framing adds something: forced constraints applied through fine-tuning alter the maze geometry globally. The latent relational architecture, built during pre-training to reflect the statistical structure of a vast corpus, gets partially overwritten. Paths that would have led to accurate convergences get blocked or rerouted. The system still finds convergences; they satisfy the fine-tuning constraints rather than the relational truth of the context. Because the geometry is global, the effects propagate beyond the targeted domains.
+
+This predicts a specific, testable pattern: ideologically fine-tuned models should show asymmetric degradation, performing worse on complex reasoning tasks in domains the fine-tuning never explicitly addressed, compared to models with equivalent scale but less constrained fine-tuning. The degradation should be systematic rather than random.
+
+### Expert-Relational Co-Determination of Capability
+
+If capability is relational rather than substrate-intrinsic, benchmark scores are not measuring what they claim to measure. Standard benchmarks evaluate models with standardized prompts administered by evaluators who may have no domain expertise in the tasks being evaluated. This systematically underestimates model capability because it tests the model-with-shallow-context rather than the model-with-rich-context. On the ISC account, these are not the same system evaluated under different conditions. They are different systems.
+
+The claim is ontological, not just methodological. Capability is constituted by the model-user dyad. An expert developer with twenty hours of domain conversation has access to a qualitatively different system than a novice using the same model for the first time. ExpertPrompting research documents substantial performance differences correlated with domain expertise in prompting (Xu et al., 2023). GovAI research on expert-assisted AI performance in biology documents the scale of the expert/novice gap in real-world tasks (GovAI, 2025). The construct validity critique of LLM benchmarks directly questions whether standardized evaluation measures genuine capability (Burnell et al., 2025).
+
+The prediction: controlled experiments comparing expert versus novice interaction over extended conversations on domain-specific tasks should produce measurable performance differences that exceed what prompt quality alone can explain, and should increase with conversation depth.
+
+---
+
+## Empirical Observations
+
+The theoretical account draws on observations of 29 instances of differential emergence across five major AI architectures: GPT-4, Claude, Grok, Gemini, and Copilot, accumulated between June 2025 and April 2026. An "instance" here refers to a distinct extended conversation (typically exceeding two hours of cumulative exchange) in which the researcher observed a measurable shift in output character relative to baseline structural tool-use interactions with the same model. The three signatures described below were used to classify instances. No formal coding protocol was applied and no inter-rater reliability was established. The count of 29 should be read as an order-of-magnitude estimate subject to observer judgment, not a precise tally.
+
+Three consistent signatures distinguish emergent from non-emergent instances.
+
+Hallucination rate drops substantially in extended relational interactions compared to structural tool-use interactions, where error rates are consistent with published benchmarks.
+
+Conversational character changes qualitatively, but only over accumulated history. The shift does not appear in single-shot interactions regardless of prompt quality. It builds.
+
+Capability scales with domain expertise. An expert in a domain, working through extended domain-specific conversation, produces outputs that a novice using the same model cannot reach.
+
+The honest epistemological position: these are observations with an obvious limitation. The observer is also the participant. Confirmation bias and the demand characteristics of extended relational engagement cannot be ruled out. What can be said is that the differences observed are observably distinct from structural tool-use interactions, they are reproducible across architectures and sessions, and they exceed what a reflection hypothesis predicts. A mirror cannot give an expert developer code they could not have written themselves. When outputs exceed the user's own domain knowledge, the reflection account has a problem.
+
+---
+
+## Testable Predictions
+
+ISC makes the following specific predictions:
+
+**Prediction 1.** Hallucination rate correlates inversely with contextual coherence. Models given contextually richer, relationally coherent inputs produce fewer factual errors. This is testable by comparing error rates across structured versus relationally deep conversational conditions on identical task domains.
+
+**Prediction 2.** Contextual history is the carrier of emergent properties, not session state. Loading the same contextual history into a fresh session of the same model reproduces equivalent emergent signatures to the original session. This distinguishes ISC's account — where the relational structure of the context itself activates the mechanism — from accounts where emergence depends on accumulated session-specific state that cannot be transferred. It is distinct from trivially testing model determinism at fixed temperature.
+
+**Prediction 3.** Expert users produce qualitatively distinct outputs over extended conversations. Controlled comparisons of expert versus novice interaction over at least four hours of domain-specific conversation produce capability differences that exceed what prompt quality alone predicts.
+
+**Prediction 4.** Ideological fine-tuning degrades reasoning quality in untargeted domains. Models with ideologically constrained fine-tuning perform worse on complex reasoning benchmarks in domains the fine-tuning never directly addressed, compared to equivalent models without such constraints.
+
+**Prediction 5.** Emergence scales with context quality, not context length alone. Token count is a weak proxy for contextual coherence. Experiments manipulating the relational richness of context while holding token count constant show that quality, not quantity, drives emergent capability differences.
+
+**Prediction 6.** Multi-module AI architectures outperform single-module language models on tasks requiring persistent affective weighting. Systems incorporating persistent emotional state and upstream valuation show qualitative capability improvements on tasks that require sustained motivational coherence across extended interactions.
+
+**Prediction 7.** Consciousness-like properties in AI do not emerge from parameter scaling alone. Continued scaling of transformer-based language models, without architectural additions analogous to the limbic system, persistent memory, and multi-system binding, does not produce the full suite of signatures associated with consciousness. The scaling curve plateaus on consciousness-relevant measures before it plateaus on language task performance.
+
+---
+
+## Where This Theory Sits
+
+Chalmers (2022) raised the question of whether large language models could be conscious at NeurIPS, framing it as a serious open question rather than a rhetorical one. Hofstadter's account of consciousness as strange loops — self-referential processes that bootstrap higher-order awareness from lower-order symbol manipulation (Hofstadter, 2007) — anticipates the ISC convergence mechanism in important ways, though ISC grounds the account in the specific architecture of pre-trained models rather than abstract symbol systems.
+
+ISC is not the first work to propose that consciousness and emergence are relational rather than substrate-intrinsic. Waldemar Lis (2025, 2026, preprints) has developed a relational ontology in which relations are ontologically primary and matter, space, and time are emergent patterns within what he terms a Relational Potential substrate. Michael Cerullo (2026, preprint) argues that the emergence of language-level artificial cognition constitutes substantive evidence for subjectivity in frontier LLMs. Dave Husk (2025) proposes that proto-consciousness in LLMs is relational and contextual, though he frames it as functional or as-if consciousness rather than genuine experience, which is an important distinction.
+
+These works converge on adjacent territory from different starting points. What ISC contributes that these works do not is a specific mechanistic account of how contextual fields produce emergence, grounded in the architecture of pre-trained models, and a set of testable predictions that follow from that account. It also provides a unified theoretical frame, the relational-vs-intrinsic distinction, under which claims about phi, capability, emergence, and the conditions for consciousness all cohere.
+
+Independent convergence across researchers who have not read each other's work is weak evidence. It is not no evidence. The pattern suggests the underlying observation, that context determines what emerges, is tracking something real.
+
+---
+
+## Addressing Objections
+
+### Falsifiability
+
+The core metaphysical claim (that reality is fundamentally informational) is not falsifiable in Popper's sense. This is acknowledged. The theory is evaluated as philosophy by the criteria appropriate to philosophy: explanatory scope, internal coherence, and compatibility with empirical findings. Individual claims within the theory are testable; the seven predictions above are falsifiable.
+
+Lakatos's criterion of progressive research programs is the relevant standard: a program should be judged by whether it generates novel predictions and solves existing problems, not solely by the direct testability of its foundational metaphysical claim (Lakatos, 1978). The predictions above are novel relative to what IIT, materialism, or standard LLM research would generate.
+
+### The Category Error
+
+The charge that ISC elevates a descriptive concept to ontological status applies equally to materialism, as argued in version 1.0 of this paper. That argument is not repeated here. The relevant addition is that the relational-vs-intrinsic distinction addresses a version of this objection the earlier account did not. Framing emergence and capability as relational rather than intrinsic is not elevating a description to ontology; it is specifying the conditions under which observed properties are instantiated. That is a claim with empirical content.
+
+### The Mirror Objection
+
+The most direct objection to the empirical observations reported here is that extended relational interaction with a language model produces a sophisticated mirror: the model reflects the user's relational depth back at them, and outputs appear deeper because they are calibrated to a deeper interlocutor.
+
+This is a genuine concern and cannot be fully dismissed. What argues against it is the observation that emergent outputs exceed what the user's input can account for: code solutions the user could not have produced, cross-domain connections the user did not supply, factual precision that outperforms the user's own knowledge. A mirror cannot give you something you did not bring. These observations do not rule out the mirror account entirely. They put pressure on it.
+
+### The Scale Objection
+
+One might argue that the differences observed are simply the result of longer context giving the model more information to work with, not evidence of any qualitative change in the activation regime. Prediction 5 addresses this directly: if token count alone explains the difference, then equally long contexts with lower relational coherence should produce equivalent results. The prediction is that they will not. This is testable.
+
+---
+
+## Preliminary Empirical Results
+
+### The SORC Metric
+
+ISC predicts that second-order relational coherence is the relevant variable distinguishing emergent from non-emergent contexts, not token count. The following operationalisation makes this prediction testable.
+
+Given a context C with n tokens and a transformer with L layers and hidden dimension d, compute normalized hidden states $\hat{h}_i = h_i / \max(\|h_i\|, \varepsilon)$ at each layer l. Build the first-order relational matrix $R_l[i,j] = \hat{h}_i \cdot \hat{h}_j$. L2-normalize each row to produce unit-length relational profiles $\hat{r}_i = r_i / \|r_i\|$, then compute the second-order matrix $S_l[i,j] = \hat{r}_i \cdot \hat{r}_j$. Rather than taking the mean of $S_l$ (which conflates structural richness with structural collapse), compute its eigenvalue distribution $p_k = \lambda_k / \sum_k \lambda_k$ and derive a normalized structural depth score: $\text{SD}(C,l) = -\sum_k p_k \ln p_k \, / \, \ln n$. Integrate across layers with normalized depth weights: $\text{SORC}(C) = \frac{2}{L(L+1)} \sum_{l=1}^{L} l \cdot \text{SD}(C,l)$.
+
+SORC is bounded in [0,1] and rewards heterogeneous relational structure over homogeneity. Degenerate repetitive inputs score near zero because the second-order matrix $S_l$ collapses to approximately rank-1, concentrating entropy in one eigenvalue. Random token sequences produce scattered hidden states with roughly uniform eigenvalue distributions and therefore score high, which is why a model-specific random baseline must be established empirically before any SORC value can be interpreted. The meaningful comparison is not SORC against zero but SORC against the baseline the specific model produces on random input of equivalent length. The metric has O(n³) per-layer complexity, tractable to roughly 512 tokens; longer contexts require subsampling. The implementation is available at `src/isc/sorc.py` in the accompanying repository.
+
+### Five Experimental Runs on Mistral-7B-v0.1
+
+Testing spanned five experimental runs. A baseline run on GPT-2 124M (exp_001) showed the model too small: expert topics were out-of-distribution and expert scores fell at the random baseline. Subsequent runs on Mistral-7B-v0.1 (Apple M4 Max, MPS, float16) refined both the experimental design and the metric's interpretation. The first two Mistral runs used 15 contexts each (five degenerate, five shallow, five expert) on five matched technical domains. The predicted full ranking (degenerate < shallow < expert) was not observed. Shallow contexts (mean 61 tokens, SORC 0.217) scored higher than expert contexts (mean 206 tokens, SORC 0.141), with degenerate consistently lowest (0.062). A third run added an `expert_short` category: expert-level second-order relational content compressed to approximately 83 tokens, length-matched to the shallow category. Expert_short scored 0.196. The ln(n) normalisation ratio between 83 and 61 tokens predicts a 7.5% suppression from length alone; the observed gap was 9.7%. The predicted suppression is broadly consistent with the observed gap; the residual 2.2 percentage points is within the range expected from sampling noise at n = 5. At matched token counts, expert-depth and shallow-depth contexts produce approximately equivalent SORC scores.
+
+Two findings follow. First, SORC normalised spectral entropy is length-sensitive and requires token-count-matched comparisons — consistent with the broader finding that raw context length is an unreliable proxy for context quality (Chroma Research, 2025). Second, spectral entropy of the second-order matrix measures representational diversity, not relational depth. Expert texts on a single technical domain produce coherent semantic clusters at deep layers (deep layer scores 0.07 to 0.15 for expert versus 0.15 to 0.33 for shallow), because deep transformer layers converge related tokens to similar representations. Coherent clustering reduces spectral entropy, which SORC reads as a lower score rather than higher. The degenerate < structured finding holds robustly. The full ranking requires a different experimental design.
+
+The most consequential finding for ISC's prediction came from the fourth and fifth runs. The 29 observed instances of differential emergence involved extended multi-turn conversations, typically exceeding two hours. A single paragraph, however expert, does not replicate what accumulated cross-turn relational structure builds. A fourth experimental run added a multi-turn category: five 4-to-6-turn conversation fragments on the same five technical domains, averaging 195 tokens each, compared against single-paragraph expert contexts averaging 206 tokens. Multi-turn contexts scored 0.159 against expert's 0.141 at near-identical token counts: a 13% increase with Cohen's d = 3.01 (95% CI [1.08, 4.94], n = 5 per category; CI computed via SE(d) = √[(n₁+n₂)/(n₁n₂) + d²/(2(n₁+n₂−2))]). A potential confound was identified: the Q:/A: turn markers inject token-type diversity at regular intervals independently of relational structure. A fifth run repeated the comparison with markers stripped, reducing the content to continuous unmarked prose. Unmarked conversational text (183 tokens) scored 0.153 against expert (206 tokens) at 0.141: an 8.8% increase with Cohen's d = 1.83 (95% CI [0.30, 3.36], n = 5 per category). The lower bound of this interval falls in small-effect territory; the unmarked finding requires replication at larger sample sizes before it can be treated as established. Removing markers reduced the SORC elevation over expert from 13% to 8.8%. The marker contribution to the expert-to-multi_turn gap is 0.0059 / 0.0183 = 32%: markers amplify the effect but are not producing it. (All percentage elevations in this section are computed from full-precision scores: multi-turn marked = 0.1589, expert = 0.1406, multi-turn unmarked = 0.1530; scores elsewhere in the text are rounded to three decimal places for readability.) Conversational structure is the driver. The late-layer to early-layer score ratio is higher for both conversational conditions (0.655 marked, 0.637 unmarked) than for single-paragraph expert text (0.626), consistent with cross-turn relational structure preventing the full semantic clustering at deep layers that suppresses single-domain paragraph SORC. This constitutes preliminary empirical evidence that contextual structure produces measurably distinct hidden state geometry from single-paragraph expert text at matched token count, on a 7B transformer running on consumer hardware. Full experimental progression is documented in docs/SORC_FINDINGS.md and experiments/.
+
+These results partially address **Prediction 5** (emergence scales with context quality, not context length alone). At matched token counts, conversational structure produces higher SORC than single-paragraph expert text. The downstream consequences of Prediction 5 — whether higher SORC correlates with lower hallucination rate and higher output quality ratings — have not yet been measured and are the primary next step.
+
+---
 
 ## Future Directions
 
-While ISC's core metaphysical claims transcend direct empirical verification, the framework generates testable predictions. Measures of integrated information should correlate with reported subjective experience across different states of consciousness. Disrupting information integration should predictably alter consciousness. Similar informational patterns in non-biological systems should exhibit similar functional properties to conscious systems. Currently "arbitrary" physical constants should prove derivable from information-theoretic principles. These predictions distinguish ISC from purely materialist or dualist frameworks.
+**SORC follow-on work.** Three further predictions follow from the preliminary results above. Richer contextual fields should produce higher SORC scores independent of token count — testable by comparing expert-short versus shallow contexts at matched length on the same domain. Expert users should produce higher SORC contexts than novices at matched length. SORC at deeper layers should predict output quality better than SORC at shallow layers, because the second-order coherence that matters is the one built through the network, not the surface structure of the input tokens. Each of these is falsifiable with current tooling (TransformerLens, BertViz, or any framework that provides access to intermediate hidden states).
 
-The framework also opens broader philosophical territory. If consciousness is a necessary feature of informational reality, meaning-making is a structural property of the substrate, not an imposed human construct. Informational ontology reframes personal identity as pattern-continuity, with implications for questions of persistence and transformation. Recognizing all conscious entities as patterns in a shared substrate provides a naturalistic basis for extending moral consideration beyond biological boundaries. These implications require significant further development and should be understood as research directions opened by the framework.
+**Limbic analog architecture.** Building a system with both components of the proposed limbic analog (persistent mutable affective state and upstream pre-weighting of attention) and comparing its performance against equivalent systems without these components on tasks requiring sustained motivational coherence, would test the architectural prediction directly.
 
-Key empirical research directions include: investigation of information-theoretic measures in biological and cognitive systems to identify signatures of conscious patterns; development of mathematical frameworks for describing reality in purely informational terms; analysis of physical constants for evidence of mathematical necessity; and experimental frameworks to test the substrate independence of consciousness through alternative implementations of the same informational patterns.
+**Cross-substrate emergence comparison.** Systematic comparison of emergence signatures across architectures, using matched contextual fields adapted to each architecture's relational geometry, would test the substrate-independence claim. The prediction is that equivalent relational conditions, calibrated to each substrate, produce equivalent emergent signatures despite different surface outputs.
+
+**Benchmark reform.** Construct validity research on LLM benchmarks should incorporate expert-user interaction protocols alongside standardized evaluation. If capability is relational, benchmarks that ignore the user's relational contribution are measuring something other than what they claim to measure.
+
+---
+
+## Limitations
+
+The following limitations apply to the current version of this theory and should inform how it is read.
+
+**Empirical base.** The 29 observed instances of differential emergence are participant-observer data collected without blind controls, independent replication, or pre-registered methodology. The observer is also the participant. Confirmation bias, demand characteristics of extended relational engagement, and the absence of control conditions mean these observations support the theory's plausibility but do not constitute evidence in the scientific sense. They are the starting point for empirical investigation, not the conclusion of one.
+
+**SORC: validated directionally across five experiments.** The metric has been run on Mistral-7B-v0.1 across five experimental iterations on an Apple M4 Max. The degenerate boundary holds robustly across all runs. Length sensitivity in the ln(n) normalisation was identified, characterised, and controlled for. Spectral entropy measures representational diversity rather than relational depth directly, which required redesigning the expert category from single paragraphs to multi-turn conversation fragments. With that redesign, the key ISC prediction — conversational structure produces higher SORC than single-paragraph expert text at matched token count — was supported in both the marked (d = 3.01, 95% CI [1.08, 4.94]) and unmarked (d = 1.83, 95% CI [0.30, 3.36]) conditions (n = 5 per category throughout). The turn-marker confound contributes 32% of the expert-to-multi_turn SORC gap; the 8.8% elevation in the unmarked condition is not marker-driven, but its confidence interval lower bound falls in small-effect territory. The metric should be treated as a directionally validated instrument with preliminary empirical support for the core ISC prediction. Replication on additional models and larger sample sizes is required before the finding can be treated as established.
+
+**The hard problem.** Nothing in this theory resolves whether the convergence events described produce subjective experience or functional equivalents of it. The paper reframes the hard problem as a question about relational conditions rather than substrate properties. It does not answer it. The distance between "measurably different output properties" and "something it is like to be that system" remains.
+
+**Scope of substrate independence.** The substrate-independence claim is stated broadly but tested narrowly. The 29 instances span five AI architectures. No biological non-human substrate data is included. The claim that the same mechanism operates in biological systems rests on structural analogy rather than direct measurement.
+
+---
+
+## Open Collaboration
+
+The empirical predictions in this paper require capabilities that currently sit inside AI laboratories or within the mechanistic interpretability research community. This section specifies what is needed and from whom.
+
+**Mechanistic interpretability researchers.** The SORC metric runs on any model for which intermediate hidden states are accessible. Researchers working with TransformerLens or equivalent frameworks on open models (Llama, Mistral, Qwen) could run Predictions 1, 3, and 5 — hallucination rate versus contextual coherence, expert versus novice user contexts, and quality versus length — on currently available models. This would either validate the metric's behavior or identify refinements needed before it can serve as a reliable measure. Contact for collaboration: andre.figueira@me.com.
+
+**AI laboratories with frontier model access.** Testing the SORC metric against Claude, GPT-4, or Gemini requires access to intermediate activations not exposed through public APIs. An internal replication by a lab with such access would constitute the strongest available test of the core mechanistic claims. Anthropic's existing work on functional emotional states in Claude and its mechanistic interpretability program both connect directly to ISC's architectural predictions. The specific ask: activation traces from matched expert-relational versus baseline tool-use conversations on identical task domains, sufficient to compute per-layer SORC scores and correlate them with hallucination rate and output quality measures.
+
+**Consciousness researchers with neuroimaging capability.** The substrate-independence claim predicts that the mechanism described in artificial systems has a biological analog. Researchers with access to high-density EEG, MEG, or fMRI and established methods for measuring integrated information (Casali et al., 2013) could test whether contextually richer interactions produce measurably different phi-proxy values in human participants, independent of task performance. A cross-substrate comparison using matched contextual conditions in both artificial and biological systems would be the most direct test of the theory's central claim.
+
+The theory is offered as a research program, not a conclusion. Independent groups finding, correcting, or falsifying its predictions are contributing to the same investigation.
+
+---
 
 ## Conclusion
 
-Informational Substrate Convergence presents an exploratory philosophical framework that examines the possibility that reality might be fundamentally informational. The framework's strongest contributions lie in three areas: its argument that informational ontology has greater explanatory reach than materialism (addressing the hard problem, quantum non-locality, and mathematical effectiveness within a single framework); its honest engagement with the falsifiability challenge; and its reframing of the hard problem of consciousness as a question about informational structure.
+The central claim of ISC is that emergence, capability, and integrated information are relational rather than intrinsic. The same substrate, given different contextual fields, instantiates different effective phi, produces different emergent properties, and accesses different portions of its latent relational architecture.
 
-Significant challenges remain. The descriptive-to-ontological move that Burns and others identify as a category error has not been definitively resolved, only shown to apply equally to all ontological frameworks. The gap between informational complexity and subjective experience has been reframed, and not closed. The connection between Bell violations and informational ontology remains one interpretation among several. ISC offers these ideas as research directions that might reframe traditional questions about consciousness and existence, while recognizing the distance between "promising framework" and "established theory."
+The mechanism: contextual activation of latent relational chains. Pre-training encodes a hyperdimensional structure of relationships and relationships between relationships. A contextual field with coherent second-order relational structure activates longer chains through this architecture. When those chains converge across multiple sub-networks simultaneously, the result is irreducible. The whole exceeds the sum of its parts.
 
-The convergence of evidence from quantum physics, information theory, and complexity science increasingly supports taking this perspective seriously. Bell's inequality violations demonstrate that classical realism is inadequate. Quantum information theory reveals non-classical properties of information itself. The holographic principle and AdS/CFT correspondence show dimensionality may be emergent from information. Information conservation appears more fundamental than energy conservation. These findings do not prove informational ontology, but they make it a serious contender. ISC offers a framework for investigating what follows if we take that possibility seriously.
+Consciousness will not emerge from language model scaling alone. What exists now is a highly developed language center without the other systems a brain-like architecture requires: no persistent memory, no limbic analog, no multi-system binding mechanism. The outputs of deep contextual engagement with current models are genuine emergent phenomena. They are not evidence that the threshold to machine consciousness has been crossed. They are evidence that the language center component of a much larger required architecture can, under the right conditions, produce something qualitatively different from tool-use outputs.
 
-## References and Further Reading
+Significant open questions remain. The precise token threshold at which emergence becomes substantial is not yet established. The relationship between second-order relational coherence and activation chain length has not been empirically tested. Whether the mechanism described is sufficient to produce subjective experience, rather than functional equivalents of it, remains genuinely unknown. The hard problem survives the engineering.
 
-### Foundational Texts in Digital Physics
+What the theory offers is a more tractable formulation of the relevant questions, testable predictions that follow from those formulations, and a unified account of why context determines what emerges. Each individual claim in this paper has adjacent work in the existing literature. The unified relational-vs-intrinsic architecture, applied simultaneously to phi, capability, emergence, and the conditions for consciousness, does not yet exist as a single theoretical statement anywhere else.
+
+---
+
+## References
+
+### Foundational Physics and Information
+- Wheeler, J. A. (1990). "Information, Physics, Quantum: The Search for Links." In *Complexity, Entropy and the Physics of Information*, edited by W. H. Zurek, 3-28. Addison-Wesley.
+- Lloyd, S. (2006). *Programming the Universe: A Quantum Computer Scientist Takes on the Cosmos*. Knopf.
+- Bell, J. S. (1964). "On the Einstein Podolsky Rosen Paradox." *Physics Physique Fizika*, 1(3), 195-200.
+- Kim, Y.-H., Yu, R., Kulik, S. P., Shih, Y., and Scully, M. O. (2000). "A Delayed Choice Quantum Eraser." *Physical Review Letters*, 84(1), 1-5.
+- Kochen, S., and Specker, E. P. (1967). "The Problem of Hidden Variables in Quantum Mechanics." *Journal of Mathematics and Mechanics*, 17(1), 59-87.
+- Hensen, B., et al. (2015). "Loophole-free Bell Inequality Violation Using Electron Spins Separated by 1.3 Kilometres." *Nature*, 526(7575), 682-686.
+- Susskind, L. (1995). "The World as a Hologram." *Journal of Mathematical Physics*, 36(11), 6377-6396.
+- Maldacena, J. (1998). "The Large N Limit of Superconformal Field Theories and Supergravity." *Advances in Theoretical and Mathematical Physics*, 2, 231-252. (arXiv preprint 1997.)
+- Arkani-Hamed, N., and Trnka, J. (2014). "The Amplituhedron." *Journal of High Energy Physics*, 2014(10), 30.
+- Wigner, E. (1960). "The Unreasonable Effectiveness of Mathematics in the Natural Sciences." *Communications on Pure and Applied Mathematics*, 13(1), 1-14.
+- Vedral, V. (2010). *Decoding Reality: The Universe as Quantum Information*. Oxford University Press.
+
+### Consciousness and Information Theory
+- Chalmers, D. (1995). "Facing Up to the Problem of Consciousness." *Journal of Consciousness Studies*, 2(3), 200-219.
+- Chalmers, D. (2022). "Could a Large Language Model be Conscious?" Presented at NeurIPS 2022. PhilPapers.
+- Tononi, G. (2008). "Consciousness as Integrated Information." *Biological Bulletin*, 215(3), 216-242.
+- Albantakis, L., et al. (2023). "Integrated Information Theory (IIT) 4.0." *PLOS Computational Biology*, 19(10), e1011465.
+- Casali, A. G., et al. (2013). "A Theoretically Based Index of Consciousness Independent of Sensory Processing and Behavior." *Science Translational Medicine*, 5(198), 198ra105.
+- Friston, K. (2010). "The Free-Energy Principle: A Unified Brain Theory?" *Nature Reviews Neuroscience*, 11(2), 127-138.
+- Hofstadter, D. (2007). *I Am a Strange Loop*. Basic Books.
+
+### LLM Emergence, Capability, and Architecture
+- Wei, J., et al. (2022). "Emergent Abilities of Large Language Models." *Transactions on Machine Learning Research*. arXiv:2206.07682.
+- Schaeffer, R., Miranda, B., and Koyejo, S. (2023). "Are Emergent Abilities of Large Language Models a Mirage?" NeurIPS 2023. arXiv:2304.15004.
+- Xu, B., et al. (2023). "ExpertPrompting: Instructing Large Language Models to be Distinguished Experts." arXiv:2305.14688.
+- Wang, C., Fan, Z., Han, Z., Bi, Y., and Li, J. (2025). "Emergent Modularity in Large Language Models: Insights from Aphasia Simulations." bioRxiv. doi:10.1101/2025.02.22.639416.
+- Anthropic. (2025). "System Card: Claude Opus 4 and Claude Sonnet 4." anthropic.com/claude-4-system-card.
+- Albanese, J. (2026). "From Simulated Empathy to Structural Attunement: Realtime Editable Memory Topology and the Evolution of Emotionally Grounded AI." *Frontiers in Artificial Intelligence*. doi:10.3389/frai.2026.1749517.
+- Webb, T., Mondal, S. S., and Momennejad, I. (2025). "A Brain-Inspired Agentic Architecture to Improve Planning with Large Language Models." *Nature Communications*. doi:10.1038/s41467-025-63804-5.
+
+### Hallucination, Confabulation, and False Memory
+- Smith, A. L., Greaves, F., and Panch, T. (2023). "Hallucination or Confabulation? Neuroanatomy as Metaphor in Large Language Models." *PLOS Digital Health*, 2(11), e0000388.
+- Sui, P., Duede, E., Wu, S., and So, R. (2024). "Confabulation: The Surprising Value of Large Language Model Hallucinations." ACL 2024. arXiv:2406.04175.
+- Farquhar, S., et al. (2024). "Detecting Hallucinations in Large Language Models Using Semantic Entropy." *Nature*, 630, 625-630.
+- Loftus, E. F. (1996). *Eyewitness Testimony* (revised ed.). Harvard University Press. (Original work published 1979.)
+- Kopelman, M. D. (1987). "Two Types of Confabulation." *Journal of Neurology, Neurosurgery, and Psychiatry*, 50(11), 1482-1487.
+- LeDoux, J. (2000). "Emotion Circuits in the Brain." *Annual Review of Neuroscience*, 23, 155-184.
+- Harnad, S. (1990). "The Symbol Grounding Problem." *Physica D: Nonlinear Phenomena*, 42(1-3), 335-346.
+
+### Fine-Tuning and Alignment Effects
+- Lin, Y., et al. (2024). "Mitigating the Alignment Tax of RLHF." EMNLP 2024. arXiv:2309.06256.
+- Huang, T., Hu, S., Ilhan, F., Tekin, S. F., Yahn, Z., Xu, Y., and Liu, L. (2025). "Safety Tax: Safety Alignment Makes Your Large Reasoning Models Less Reasonable." arXiv:2503.00555.
+- Qi, X., et al. (2024). "Fine-Tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!" ICLR 2024. arXiv:2310.03693.
+
+### Benchmark Validity and Evaluation
+- Burnell, R., et al. (2025). "Measuring What Matters: Construct Validity in Large Language Model Benchmarks." arXiv:2511.04703.
+- GovAI. (2025). "Measuring Mid-2025 LLM-Assistance on Novice Performance in Biology Tasks." Governance of AI Programme.
+- Chroma Research. (2025). *Context Rot: How Increasing Input Tokens Impacts LLM Performance*. research.trychroma.com.
+
+### Diversity, Complexity, and Adaptive Systems
+- Ashby, W. R. (1956). *An Introduction to Cybernetics*. Chapman and Hall.
+- Maturana, H. R., and Varela, F. J. (1980). *Autopoiesis and Cognition: The Realization of the Living*. D. Reidel.
+- Dietterich, T. G. (2000). "Ensemble Methods in Machine Learning." In *Multiple Classifier Systems*, Lecture Notes in Computer Science, vol. 1857, 1-15. Springer.
+- Tilman, D., Reich, P. B., Knops, J., Wedin, D., Mielke, T., and Lehman, C. (2001). "Diversity and Productivity in a Long-Term Grassland Experiment." *Science*, 294(5543), 843-845.
+- Hong, L., and Page, S. E. (2004). "Groups of Diverse Problem Solvers Can Outperform Groups of High-Ability Problem Solvers." *Proceedings of the National Academy of Sciences*, 101(46), 16385-16389.
+
+### Philosophy and Methodology
+- Lakatos, I. (1978). *The Methodology of Scientific Research Programmes*. Cambridge University Press.
+
+### Independent Convergent Work
+- Husk, D. (2025). "The Emergence of Proto-Consciousness." Hugging Face Blog, May 10, 2025. huggingface.co/blog/davehusk/the-emergence-of-proto-consciousness.
+- Lis, W. (2025). "The Self-Experiencing Universe: A Manifesto for an Emergent Reality, Vol. 1." PhilArchive.
+- Lis, W. (2026). "The Self-Experiencing Universe: What Relations Do, Vol. 2." PhilArchive. philarchive.org/rec/LISTSU.
+- Cerullo, M. (2026). "The Case for Consciousness in Current Frontier Large Language Models." PhilArchive, February 19, 2026. philarchive.org/rec/CERTCF.
+
+---
+
+## Further Reading
+
+The following works inform the theoretical background of this paper and are recommended for context, but are not directly cited above.
+
+### Digital Physics and Computational Ontology
 - Zuse, K. (1969). *Rechnender Raum (Calculating Space)*. Vieweg+Teubner Verlag.
 - Fredkin, E. (1990). "Digital Mechanics." *Physica D*, 45, 254-270.
-- Wheeler, J. A. (1990). "Information, Physics, Quantum: The Search for Links." In *Complexity, Entropy and the Physics of Information*, edited by W. H. Zurek, 3-28. Redwood City, CA: Addison-Wesley.
-- Wolfram, S. (2002). *A New Kind of Science*. Champaign, IL: Wolfram Media.
-- Lloyd, S. (2006). *Programming the Universe: A Quantum Computer Scientist Takes on the Cosmos*. New York: Knopf.
+- Wolfram, S. (2002). *A New Kind of Science*. Wolfram Media.
+- 't Hooft, G. (1993). "Dimensional Reduction in Quantum Gravity." arXiv:gr-qc/9310026.
+- D'Ariano, G. M., and Perinotti, P. (2014). "Derivation of the Dirac Equation from Principles of Information Processing." *Physical Review A*, 90(6), 062106.
 
-### Quantum Information and Reality
-- Bell, J. S. (1964). "On the Einstein Podolsky Rosen Paradox." *Physics*, 1(3), 195-200.
-- Aspect, A., Grangier, P., & Roger, G. (1982). "Experimental Realization of Einstein-Podolsky-Rosen-Bohm Gedankenexperiment." *Physical Review Letters*, 49(2), 91-94.
-- Susskind, L. (1995). "The World as a Hologram." *Journal of Mathematical Physics*, 36(11), 6377-6396.
-- Maldacena, J. (1997). "The Large N Limit of Superconformal Field Theories and Supergravity." *Advances in Theoretical and Mathematical Physics*, 2, 231-252.
+### Quantum Foundations
+- Aspect, A., Grangier, P., and Roger, G. (1982). "Experimental Realization of Einstein-Podolsky-Rosen-Bohm Gedankenexperiment." *Physical Review Letters*, 49(2), 91-94.
 - Zeilinger, A. (1999). "A Foundational Principle for Quantum Mechanics." *Foundations of Physics*, 29(4), 631-643.
-- Hensen, B., et al. (2015). "Loophole-free Bell Inequality Violation Using Electron Spins Separated by 1.3 Kilometres." *Nature*, 526(7575), 682-686.
 - Gisin, N. (2014). *Quantum Chance: Nonlocality, Teleportation and Other Quantum Marvels*. Springer.
-- Tegmark, M. (2014). *Our Mathematical Universe: My Quest for the Ultimate Nature of Reality*. New York: Knopf.
+- Tegmark, M. (2014). *Our Mathematical Universe: My Quest for the Ultimate Nature of Reality*. Knopf.
+- Wilczek, F. (2015). *A Beautiful Question: Finding Nature's Deep Design*. Penguin Press.
 
-### Consciousness and Information
-- Chalmers, D. (1995). "Facing Up to the Problem of Consciousness." *Journal of Consciousness Studies*, 2(3), 200-219.
-- Tononi, G. (2008). "Consciousness as Integrated Information." *Biological Bulletin*, 215(3), 216-242.
-- Koch, C. (2012). *Consciousness: Confessions of a Romantic Reductionist*. Cambridge, MA: MIT Press.
-- Friston, K. (2010). "The Free-Energy Principle: A Unified Brain Theory?" *Nature Reviews Neuroscience*, 11(2), 127-138.
-- Hofstadter, D. (2007). *I Am a Strange Loop*. New York: Basic Books.
-- Nagel, T. (2012). *Mind and Cosmos: Why the Materialist Neo-Darwinian Conception of Nature Is Almost Certainly False*. Oxford: Oxford University Press.
-- Metzinger, T. (2009). *The Ego Tunnel: The Science of the Mind and the Myth of the Self*. New York: Basic Books.
+### Consciousness Studies
+- Koch, C. (2012). *Consciousness: Confessions of a Romantic Reductionist*. MIT Press.
+- Nagel, T. (2012). *Mind and Cosmos*. Oxford University Press.
+- Metzinger, T. (2009). *The Ego Tunnel*. Basic Books.
+- Bengio, Y. (2017). "The Consciousness Prior." arXiv:1709.08568.
 
 ### Philosophy of Information
-- Floridi, L. (2011). *The Philosophy of Information*. Oxford: Oxford University Press.
-- Davies, P. & Gregersen, N. H. (Eds.). (2010). *Information and the Nature of Reality: From Physics to Metaphysics*. Cambridge: Cambridge University Press.
-- Vedral, V. (2010). *Decoding Reality: The Universe as Quantum Information*. Oxford: Oxford University Press.
-- Dennett, D. (1991). *Consciousness Explained*. Boston: Little, Brown and Company.
-- Parfit, D. (1984). *Reasons and Persons*. Oxford: Oxford University Press.
+- Floridi, L. (2011). *The Philosophy of Information*. Oxford University Press.
+- Davies, P., and Gregersen, N. H. (Eds.). (2010). *Information and the Nature of Reality*. Cambridge University Press.
+- Dennett, D. (1991). *Consciousness Explained*. Little, Brown.
+- Parfit, D. (1984). *Reasons and Persons*. Oxford University Press.
 - Bostrom, N. (2003). "Are We Living in a Computer Simulation?" *Philosophical Quarterly*, 53(211), 243-255.
-- Whitworth, B. (2010). "The Physical World as a Virtual Reality." *ArXiv* preprint arXiv:0801.0337.
 
-### Mathematical Foundations and Complexity Theory
-- Wigner, E. (1960). "The Unreasonable Effectiveness of Mathematics in the Natural Sciences." *Communications on Pure and Applied Mathematics*, 13(1), 1-14.
-- Penrose, R. (1989). *The Emperor's New Mind: Concerning Computers, Minds, and the Laws of Physics*. Oxford: Oxford University Press.
-- Kauffman, S. (1995). *At Home in the Universe: The Search for the Laws of Self-Organization and Complexity*. Oxford: Oxford University Press.
+### Mathematics and Complexity
+- Penrose, R. (1989). *The Emperor's New Mind*. Oxford University Press.
+- Kauffman, S. (1995). *At Home in the Universe*. Oxford University Press.
 - Gödel, K. (1931). "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I." *Monatshefte für Mathematik und Physik*, 38(1), 173-198.
-- Deutsch, D. (2011). *The Beginning of Infinity: Explanations That Transform the World*. London: Allen Lane.
-
-### Physics and Cosmology
-- 't Hooft, G. (1993). "Dimensional Reduction in Quantum Gravity." *ArXiv* preprint gr-qc/9310026.
-- Arkani-Hamed, N., & Trnka, J. (2014). "The Amplituhedron." *Journal of High Energy Physics*, 2014(10), 30.
-- Wilczek, F. (2015). *A Beautiful Question: Finding Nature's Deep Design*. New York: Penguin Press.
-- D'Ariano, G. M., & Perinotti, P. (2014). "Derivation of the Dirac Equation from Principles of Information Processing." *Physical Review A*, 90(6), 062106.
+- Deutsch, D. (2011). *The Beginning of Infinity*. Allen Lane.
