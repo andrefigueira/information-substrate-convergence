@@ -1024,6 +1024,43 @@ for the core ISC prediction. Replication on additional models and larger
 sample sizes is required before the finding can be treated as
 established.
 
+A retrospective power analysis using the observed effect sizes clarifies
+what N=5 actually provides. For the marked condition (d = 3.01), the
+minimum sample size for 80\% power at $\alpha = 0.05$ in a two-sample
+comparison is approximately 4 per group. N=5 is adequate. For the
+unmarked condition (d = 1.83), the minimum is approximately 5 per
+group --- placing the current sample exactly at the 80\% threshold. The
+ambiguity in the unmarked result is not arbitrary: it reflects the
+sample sitting at the boundary of what is needed for that effect size.
+Replication at N = 15--20 per category would reduce the confidence
+interval lower bound below the small-effect threshold and resolve it.
+The design for exp\_006 (pure prose, no structural cues, N = 20 target)
+is specified in \texttt{experiments/configs/} as the immediate next
+step.
+
+\textbf{The stochastic reflector hypothesis.} A competing explanation
+for the 29 observed instances of differential emergence is that the
+model concentrates the user's own domain expertise back efficiently ---
+what a skilled practitioner perceives as emergent capability is
+highly-efficient retrieval of patterns already latent in the
+conversation. This critique is not fully answered by the current
+evidence. The partial answer from the SORC experiments is structural:
+if efficient retrieval of domain-familiar patterns were the active
+mechanism, expert single-paragraph text --- the most domain-dense input
+in the experiment --- should score at least as high as conversational
+contexts at matched token count. It scores lower in both the marked
+(expert 0.141 vs.\ multi-turn 0.159) and unmarked (expert 0.141
+vs.\ unmarked multi-turn 0.153) comparisons. Conversational structure
+produces distinct hidden state geometry from dense domain content, and
+the direction of the difference is not what retrieval efficiency
+predicts. The full answer requires Predictions 1 and 3 under
+double-blind conditions: if an expert-AI dyad produces outputs that
+neither the expert alone nor the model alone could generate, and if
+SORC elevation at inference time correlates with that gap, the
+stochastic reflector hypothesis faces a structural problem. Until that
+experiment is run, it remains a live alternative and should be treated
+as one.
+
 \textbf{The hard problem.} Nothing in this theory resolves whether the
 convergence events described produce subjective experience or functional
 equivalents of it. The paper reframes the hard problem as a question
