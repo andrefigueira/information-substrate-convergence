@@ -231,6 +231,43 @@ def print_report(path: Path) -> None:
                 row += f"  {trajectory[cond][t]:<14.3f}"
         print(row)
 
+    # --- 8. Windowed SORC (primary metric for exp_009) ---
+    windowed = [r for r in results if "sorc_windowed" in r]
+    if windowed:
+        print("\n8. WINDOWED SORC (last 200 tokens — length-controlled)")
+        print("   This is the primary metric for exp_009. Each measurement uses")
+        print("   identical token count regardless of full context length.")
+        w_groups: dict[str, list[float]] = defaultdict(list)
+        for r in windowed:
+            w_groups[r["condition"]].append(r["sorc_windowed"])
+
+        print(f"\n  {'Condition':<22} {'N':>4}  {'Mean':>6}  {'SD':>6}")
+        print(f"  {'-' * 42}")
+        for cond in CONDITION_ORDER:
+            vals = w_groups.get(cond, [])
+            if vals:
+                print(f"  {cond:<22} {len(vals):>4}  {np.mean(vals):>6.3f}  {np.std(vals):>6.3f}")
+
+        sr_w = w_groups.get("self_referential", [])
+        fb_w = w_groups.get("feedback_blind", [])
+        if sr_w and fb_w:
+            u, p = stats.mannwhitneyu(sr_w, fb_w, alternative="greater")
+            d = cliff_delta(sr_w, fb_w)
+            rho_sr, _ = stats.spearmanr(
+                [r["n_tokens"] for r in windowed if r["condition"] == "self_referential"],
+                [r["sorc_windowed"] for r in windowed if r["condition"] == "self_referential"],
+            )
+            rho_fb, _ = stats.spearmanr(
+                [r["n_tokens"] for r in windowed if r["condition"] == "feedback_blind"],
+                [r["sorc_windowed"] for r in windowed if r["condition"] == "feedback_blind"],
+            )
+            print("\n  Primary (exp_009): self_referential vs feedback_blind")
+            print(f"  Mann-Whitney U = {u:.0f},  p (one-tailed) = {p:.4f}")
+            print(f"  Cliff's delta = {d:+.3f} ({interpret_delta(d)})")
+            print("  Length correlation (rho, n_tokens vs sorc_windowed):")
+            print(f"    self_referential: {rho_sr:+.3f}  feedback_blind: {rho_fb:+.3f}")
+            print("  (Compare to full-context rho ~ -0.88 — windowed should be near zero)")
+
     print(f"\n{'=' * 70}")
     print("Interpretation guide:")
     print(
@@ -244,7 +281,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Analyse exp_007 results")
     parser.add_argument(
         "--input",
-        default="results/exp_007_results.json",
+        default="results/exp_009_results.json",
         help="Path to results JSON",
     )
     args = parser.parse_args()

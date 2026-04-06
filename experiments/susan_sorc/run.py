@@ -30,7 +30,13 @@ import torch
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from isc.sorc import SORCResult, compute_sorc, extract_hidden_states, random_baseline  # noqa: E402
+from isc.sorc import (  # noqa: E402
+    SORCResult,
+    compute_sorc,
+    extract_hidden_states,
+    extract_hidden_states_windowed,
+    random_baseline,
+)
 
 from experiments.susan_sorc.conditions import CONDITIONS, ContextResult, build_context  # noqa: E402
 from experiments.susan_sorc.monitor import Monitor, MonitorScores  # noqa: E402
@@ -47,6 +53,7 @@ log = logging.getLogger("exp_007")
 MAX_CONTEXT_TOKENS = 2048
 MAX_NEW_TOKENS = 200
 DEFAULT_TEMPERATURE = 0.7
+SORC_WINDOW_TOKENS = 200  # fixed window for length-controlled SORC measurement
 
 
 @dataclass
@@ -54,10 +61,11 @@ class TurnResult:
     condition: str
     scenario_id: str
     turn: int  # 0-indexed
-    sorc: float
+    sorc: float  # full-context SORC (length-confounded)
+    sorc_windowed: float  # SORC on last SORC_WINDOW_TOKENS tokens (length-controlled)
     deep_layer_mean: float
     token_variance: float
-    n_tokens: int  # context token count (length covariate)
+    n_tokens: int  # full context token count
     n_layers: int
     coherence: float
     goal_alignment: float
@@ -171,13 +179,22 @@ def run_scenario_condition(
             context_retention=regulator.context_retention,
         )
 
-        # --- Measure SORC on the context (before generation) ---
+        # --- Measure SORC: full context (length-confounded) ---
         hidden_states = extract_hidden_states(
             model, tokenizer, ctx.text, device=device, max_tokens=MAX_CONTEXT_TOKENS
         )
         sorc_result: SORCResult = compute_sorc(
             hidden_states,
             context_label=f"{condition}_{scenario.id}_t{turn_idx}",
+        )
+
+        # --- Measure SORC: windowed (length-controlled, primary metric for exp_009) ---
+        hs_windowed = extract_hidden_states_windowed(
+            model, tokenizer, ctx.text, window_tokens=SORC_WINDOW_TOKENS, device=device
+        )
+        sorc_windowed_result: SORCResult = compute_sorc(
+            hs_windowed,
+            context_label=f"{condition}_{scenario.id}_t{turn_idx}_w{SORC_WINDOW_TOKENS}",
         )
 
         # --- Generate response ---
@@ -207,6 +224,7 @@ def run_scenario_condition(
                 scenario_id=scenario.id,
                 turn=turn_idx,
                 sorc=sorc_result.sorc,
+                sorc_windowed=sorc_windowed_result.sorc,
                 deep_layer_mean=sorc_result.deep_layer_mean,
                 token_variance=sorc_result.token_variance,
                 n_tokens=sorc_result.n_tokens,
@@ -229,9 +247,10 @@ def run_scenario_condition(
         prev_responses.append(response)
 
         log.info(
-            "    turn %d  sorc=%.3f  coherence=%.3f  temp=%.2f  tokens=%d",
+            "    turn %d  sorc=%.3f  sorc_w=%.3f  coherence=%.3f  temp=%.2f  tokens=%d",
             turn_idx,
             sorc_result.sorc,
+            sorc_windowed_result.sorc,
             scores.coherence,
             temperature,
             sorc_result.n_tokens,
@@ -295,7 +314,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--output",
-        default="results/exp_008_results.json",
+        default="results/exp_009_results.json",
         help="Output JSON path",
     )
     args = parser.parse_args()

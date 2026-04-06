@@ -1,0 +1,42 @@
+{
+  "experiment_id": "exp_009",
+  "title": "Windowed SORC: Length-Controlled Test of Self-Referential Context Architecture",
+  "status": "pre-registered, not yet run",
+  "date_registered": "2026-04-06",
+  "supersedes": "exp_008",
+  "correction_rationale": "exp_008 showed d=0.141 (negligible) for self_referential vs feedback_blind at 2048-token ceiling. Full-context SORC has rho=-0.88 with context length — length dominates the measurement. The fix: measure SORC on a fixed last-W-token window at every turn. This removes the length confound entirely. Both conditions are measured at identical token counts (W=200), isolating content differences rather than length differences.",
+  "model": "mistralai/Mistral-7B-v0.1",
+  "device": "mps",
+  "max_context_tokens": 2048,
+  "sorc_window_tokens": 200,
+  "n_scenarios": 5,
+  "n_turns_per_scenario": 8,
+  "n_conditions": 4,
+  "total_sorc_measurements": 160,
+  "primary_metric": "sorc_windowed — SORC computed on the last 200 tokens of context at each turn. Every measurement uses identical token count.",
+  "secondary_metric": "sorc — full-context SORC, retained for comparison with exp_007/exp_008.",
+  "hypothesis": "At a fixed 200-token window, self_referential contexts will show higher SORC than feedback_blind contexts. The window captures: in self_referential, the status block (~100 tokens) + current prompt (~80 tokens); in feedback_blind, conversation history tail (~120 tokens) + current prompt (~80 tokens). ISC theory predicts self-referential content (a model's representation of its own quality metrics) produces richer second-order relational structure than conversation history of equal length.",
+  "primary_comparison": "self_referential vs feedback_blind on sorc_windowed — Mann-Whitney U, one-tailed. SESOI: Cliff's delta >= 0.33.",
+  "window_content": {
+    "self_referential": "Status block (monitor scores, trend, regulator state, ~100 tokens) + current prompt (~80 tokens) + any remaining window filled by recent history",
+    "feedback_blind": "Recent conversation history tail (~120 tokens) + current prompt (~80 tokens)",
+    "note": "Both windows are 200 tokens. Content differs by design — this is the manipulation. The test asks whether self-referential content produces higher spectral complexity than history at matched length."
+  },
+  "length_control_check": "rho(n_tokens, sorc_windowed) should be near zero for all conditions — verify this before interpreting primary test. If rho is still large, the window size needs further reduction.",
+  "conditions": {
+    "control": "No history. No monitor. No regulator. Retained for context.",
+    "history_only": "Full conversation history. No monitor. No regulator.",
+    "feedback_blind": "Full history. Monitor + regulator running silently.",
+    "self_referential": "Same as feedback_blind. Status block prepended to each turn."
+  },
+  "statistical_tests": [
+    "Mann-Whitney U, one-tailed: self_referential vs feedback_blind on sorc_windowed (primary)",
+    "Mann-Whitney U: history_only vs feedback_blind on sorc_windowed (secondary — expect null)",
+    "Cliff's delta for all windowed comparisons",
+    "Spearman rho(n_tokens, sorc_windowed) per condition — must be near zero to validate length control",
+    "Full-context SORC comparisons retained as secondary for continuity with exp_007/exp_008"
+  ],
+  "alpha": 0.05,
+  "power_note": "N=40 per condition. If windowed SORC eliminates the length confound, the true effect size may be closer to the exp_007 estimate (d~0.5) than the exp_008 estimate (d=0.141). N=40 is adequate for d>=0.33.",
+  "addresses": "exp_008 length confound, ISC Paper Prediction 4, SUSAN v1/v2 findings"
+}

@@ -176,6 +176,46 @@ def extract_hidden_states(
     return hidden_states
 
 
+def extract_hidden_states_windowed(
+    model,
+    tokenizer,
+    text: str,
+    window_tokens: int = 200,
+    device: str = "cpu",
+) -> list[torch.Tensor]:
+    """
+    Run a forward pass on the last ``window_tokens`` tokens of ``text``.
+
+    Removes the context-length confound: every measurement uses the same token
+    count regardless of how long the full context has grown. The window captures
+    the most recently added content — in self_referential contexts this is the
+    status block + current prompt; in feedback_blind it is conversation history
+    tail + current prompt.
+
+    Args:
+        model:         HuggingFace AutoModelForCausalLM.
+        tokenizer:     Matching tokenizer.
+        text:          Full context string (the window is taken from the END).
+        window_tokens: Number of tokens to retain from the end of the context.
+        device:        Torch device string.
+
+    Returns:
+        List of tensors (window_tokens, hidden_dim), one per transformer block.
+    """
+    # Tokenize without truncation, then take last window_tokens
+    all_ids = tokenizer(text, return_tensors="pt", truncation=False).input_ids
+    if all_ids.shape[1] > window_tokens:
+        all_ids = all_ids[:, -window_tokens:]
+
+    inputs = {"input_ids": all_ids.to(device)}
+
+    with torch.no_grad():
+        outputs = model(**inputs, output_hidden_states=True)
+
+    hidden_states = [h.squeeze(0).cpu() for h in outputs.hidden_states[1:]]
+    return hidden_states
+
+
 def random_baseline(
     model,
     tokenizer,
