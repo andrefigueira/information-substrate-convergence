@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "isc"
-version = "0.2.0"
+version = "2.0.0"
 description = "Information Substrate Convergence - Exploring consciousness emergence through self-referential information patterns"
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -50,9 +50,6 @@ dev = [
 training = [
     "openai>=0.27.0",
 ]
-
-[project.scripts]
-isc-ai = "isc.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/andrefigueira/information-substrate-convergence"

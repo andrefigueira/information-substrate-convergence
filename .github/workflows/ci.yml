@@ -19,4 +19,4 @@ jobs:
       - name: Lint with Flake8
         run: flake8 src/ tests/
       - name: Run tests
-        run: PYTHONPATH=src python run_tests.py tests/isc/ -v
+        run: PYTHONPATH=src python run_tests.py tests/ -v

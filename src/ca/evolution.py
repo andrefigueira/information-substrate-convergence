@@ -57,8 +57,10 @@ def _run_ca(rule_bits: np.ndarray, adj: np.ndarray, t1: int = 30, t2: int = 30) 
 
 
 def _mutual_info(x: np.ndarray, y: np.ndarray) -> float:
-    bins_x = np.digitize(x, np.histogram_bin_edges(x, bins=10)) - 1
-    bins_y = np.digitize(y, np.histogram_bin_edges(y, bins=10)) - 1
+    xf = x.astype(float)
+    yf = y.astype(float)
+    bins_x = np.digitize(xf, np.histogram_bin_edges(xf, bins=10)) - 1
+    bins_y = np.digitize(yf, np.histogram_bin_edges(yf, bins=10)) - 1
     return float(normalized_mutual_info_score(bins_x, bins_y))
 
 
