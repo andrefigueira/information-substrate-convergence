@@ -1,7 +1,8 @@
 {
   "experiment_id": "exp_008",
   "title": "SORC Replication: Self-Referential Context vs Feedback-Blind — Corrected Primary Comparison at 2048-Token Ceiling",
-  "status": "pre-registered, not yet run",
+  "status": "completed",
+  "date_run": "2026-04-06",
   "date_registered": "2026-04-06",
   "supersedes": "exp_007",
   "correction_rationale": "exp_007 identified two design flaws: (1) primary comparison was self_referential vs control, but control contexts are structurally shorter (~60 tokens) while all other conditions hit the 512-token ceiling — making it a length comparison, not a condition comparison; (2) MAX_CONTEXT_TOKENS=512 caused all non-control conditions to flatline by turn 2, collapsing within-condition SORC variance. exp_008 fixes both.",
@@ -59,5 +60,32 @@
   ],
   "alpha": 0.05,
   "power_note": "N=40 per condition. For d=0.33 (SESOI), Mann-Whitney power ~0.62 at N=40. Pilot estimate from exp_007 was d=0.595 — if stable, N=40 is adequate. This is still a pilot scale; a full pre-registered replication should target N=100+ per condition.",
-  "addresses": "ISC Paper Prediction 4 (SORC as mechanistic signal), exp_007 design flaws, SUSAN v1/v2 findings"
+  "addresses": "ISC Paper Prediction 4 (SORC as mechanistic signal), exp_007 design flaws, SUSAN v1/v2 findings",
+  "results": {
+    "random_baseline_sorc": 0.038,
+    "sorc_means": {
+      "control": 0.287,
+      "history_only": 0.128,
+      "feedback_blind": 0.135,
+      "self_referential": 0.135
+    },
+    "primary_test_result": {
+      "comparison": "self_referential vs feedback_blind",
+      "u": 913,
+      "p_one_tailed": 0.1395,
+      "cliffs_delta": 0.141,
+      "effect": "negligible",
+      "outcome": "NOT SIGNIFICANT. Effect does not replicate at 2048-token ceiling at N=40."
+    },
+    "direction_note": "Self_referential > feedback_blind at every turn (1-7) across all 5 scenarios — direction is consistent but effect is small. d=0.141 requires N~400 per condition for 80% power.",
+    "length_dominance": "Spearman rho(n_tokens, SORC) = -0.874 to -0.883 in non-control conditions. Context length dominates SORC at 2048 tokens. R²=0.76 in regression, beta_n_tokens=-0.000110.",
+    "exp007_vs_exp008": "exp_007 d=0.595 was inflated by 512-token ceiling artifact — self_referential hit the ceiling later than feedback_blind, creating a temporary SORC gap. At 2048 tokens the true effect is d=0.141.",
+    "conclusion": "Direction confirmed. Effect size much smaller than pilot suggested. SORC is dominated by context length at scale — normalisation strategy needs revision for longer contexts. Replication requires N~400 per condition. SORC metric may need length-independent reformulation.",
+    "sorc_trajectory": {
+      "turn_0": {"control": 0.301, "history_only": 0.301, "feedback_blind": 0.301, "self_referential": 0.249},
+      "turn_1": {"control": 0.291, "history_only": 0.146, "feedback_blind": 0.157, "self_referential": 0.168},
+      "turn_4": {"control": 0.295, "history_only": 0.097, "feedback_blind": 0.104, "self_referential": 0.112},
+      "turn_7": {"control": 0.264, "history_only": 0.083, "feedback_blind": 0.088, "self_referential": 0.093}
+    }
+  }
 }

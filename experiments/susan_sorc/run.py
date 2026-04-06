@@ -295,7 +295,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--output",
-        default="results/exp_007_results.json",
+        default="results/exp_008_results.json",
         help="Output JSON path",
     )
     args = parser.parse_args()
