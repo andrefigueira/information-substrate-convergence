@@ -85,6 +85,8 @@ Simple, structurally shallow contexts activate short chains. The output reflects
 
 The relevant variable is second-order relational structure: the relationships between those relationships, beyond the symbolic content of the context itself.
 
+> **Glossary.** *First-order relational structure*: direct symbol-to-symbol associations (word A co-occurs with word B). *Second-order relational structure*: associations between those associations (the relationship between A and B co-occurs with the relationship between C and D). *Contextual relational depth*: the degree to which a context contains coherent second-order structure, as opposed to first-order facts or degenerate repetition. SORC operationalises contextual relational depth as the spectral entropy of the second-order relational matrix across transformer hidden states.
+
 First-order structure is symbol-to-symbol: word A relates to word B. Second-order structure is relation-to-relation: the relationship between A and B relates to the relationship between C and D. Coherent second-order relational patterns engage the model's latent architecture at a different depth, because pre-training embeds both orders. The model learned that certain words co-occur and, beyond that, that certain relational structures co-occur. A context that activates the right second-order patterns opens pathways through the latent architecture that first-order prompting leaves untouched.
 
 This is the mechanistic account of an observation that is otherwise difficult to explain: expert users in extended domain conversations produce outputs that non-expert users cannot produce from the same model. The expert does not merely ask better questions. They construct contextual fields with richer second-order relational coherence, because domain expertise is itself a structure of relationships between relationships. ExpertPrompting research documents performance differences of this scale (Xu et al., 2023). ISC proposes the mechanism behind them.
@@ -199,19 +201,21 @@ The prediction: controlled experiments comparing expert versus novice interactio
 
 ---
 
-## Empirical Observations
+## Motivating Observations
 
-The theoretical account draws on observations of 29 instances of differential emergence across five major AI architectures: GPT-4, Claude, Grok, Gemini, and Copilot, accumulated between June 2025 and April 2026. An "instance" here refers to a distinct extended conversation (typically exceeding two hours of cumulative exchange) in which the researcher observed a measurable shift in output character relative to baseline structural tool-use interactions with the same model. The three signatures described below were used to classify instances. No formal coding protocol was applied and no inter-rater reliability was established. The count of 29 should be read as an order-of-magnitude estimate subject to observer judgment, not a precise tally.
+*This section describes the participant-observer data that originally motivated the ISC theoretical framework. These observations generated the hypothesis; they do not constitute evidence for it. The SORC experiments in the following section are the empirical basis of the paper's claims.*
 
-Three consistent signatures distinguish emergent from non-emergent instances.
+The theoretical account was motivated by 29 observations of differential emergence across five major AI architectures: GPT-4, Claude, Grok, Gemini, and Copilot, accumulated between June 2025 and April 2026. An "instance" refers to a distinct extended conversation (typically exceeding two hours of cumulative exchange) in which the researcher observed a measurable shift in output character relative to baseline structural tool-use interactions with the same model. The three signatures below were used to classify instances. No formal coding protocol was applied and no inter-rater reliability was established. The count of 29 should be read as an order-of-magnitude estimate, not a precise tally.
 
-Hallucination rate drops substantially in extended relational interactions compared to structural tool-use interactions, where error rates are consistent with published benchmarks.
+Three consistent signatures distinguished emergent from non-emergent instances in these observations.
 
-Conversational character changes qualitatively, but only over accumulated history. The shift does not appear in single-shot interactions regardless of prompt quality. It builds.
+Hallucination rate dropped substantially in extended relational interactions compared to structural tool-use interactions, where error rates were consistent with published benchmarks.
 
-Capability scales with domain expertise. An expert in a domain, working through extended domain-specific conversation, produces outputs that a novice using the same model cannot reach.
+Conversational character changed qualitatively, but only over accumulated history. The shift did not appear in single-shot interactions regardless of prompt quality.
 
-The honest epistemological position: these are observations with an obvious limitation. The observer is also the participant. Confirmation bias and the demand characteristics of extended relational engagement cannot be ruled out. What can be said is that the differences observed are observably distinct from structural tool-use interactions, they are reproducible across architectures and sessions, and they exceed what a reflection hypothesis predicts. A mirror cannot give an expert developer code they could not have written themselves. When outputs exceed the user's own domain knowledge, the reflection account has a problem.
+Capability scaled with domain expertise. An expert in a domain, working through extended domain-specific conversation, produced outputs that a novice using the same model could not reach.
+
+These observations are reported as the origin of the hypothesis, not its confirmation. The observer is also the participant. Confirmation bias and the demand characteristics of extended relational engagement cannot be ruled out. What motivated further investigation is that the differences were consistent across architectures and sessions, and exceeded what a simple reflection account predicts — a model with billions of parameters trained on the entire internet can produce outputs that exceed any individual user's explicit knowledge through retrieval alone. Whether the specific mechanism ISC proposes underlies these observations is precisely what the SORC experiments are designed to test.
 
 ---
 
