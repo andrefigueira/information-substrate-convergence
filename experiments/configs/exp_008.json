@@ -1,0 +1,63 @@
+{
+  "experiment_id": "exp_008",
+  "title": "SORC Replication: Self-Referential Context vs Feedback-Blind — Corrected Primary Comparison at 2048-Token Ceiling",
+  "status": "pre-registered, not yet run",
+  "date_registered": "2026-04-06",
+  "supersedes": "exp_007",
+  "correction_rationale": "exp_007 identified two design flaws: (1) primary comparison was self_referential vs control, but control contexts are structurally shorter (~60 tokens) while all other conditions hit the 512-token ceiling — making it a length comparison, not a condition comparison; (2) MAX_CONTEXT_TOKENS=512 caused all non-control conditions to flatline by turn 2, collapsing within-condition SORC variance. exp_008 fixes both.",
+  "model": "mistralai/Mistral-7B-v0.1",
+  "device": "mps",
+  "max_context_tokens": 2048,
+  "n_scenarios": 5,
+  "n_turns_per_scenario": 8,
+  "n_conditions": 4,
+  "total_sorc_measurements": 160,
+  "hypothesis": "At a 2048-token context ceiling, self-referential context architecture will produce measurably higher SORC than the feedback-blind condition. Both conditions share identical history length, identical regulator behaviour, and identical token budgets — the only difference is whether the model receives a status block containing its own quality metrics. ISC theory predicts the status block introduces second-order relational structure (the model's representation of its own representations) that elevates spectral complexity in hidden states.",
+  "primary_comparison": "self_referential vs feedback_blind — Mann-Whitney U, one-tailed (self_referential > feedback_blind). SESOI: Cliff's delta >= 0.33. Chosen because: (a) length-matched by construction, (b) identical feedback loop, (c) cleanest isolation of self-access as the manipulated variable. Confirmed by exp_007 pilot (d=0.595 at 512-token ceiling).",
+  "secondary_comparisons": [
+    "history_only vs feedback_blind — does silent feedback architecture affect SORC? (exp_007: d=-0.113, negligible — expect null replication)",
+    "history_only vs self_referential — full self-referential effect relative to plain history",
+    "SORC trajectory across turns: does self_referential condition show different growth curve than feedback_blind as context accumulates past turn 2?"
+  ],
+  "control_condition_note": "control (stateless, short context) is retained for descriptive purposes but is NOT a primary or secondary comparison due to structural length confound identified in exp_007.",
+  "conditions": {
+    "control": "No history. No monitor. No regulator. Each turn is independent. Temperature fixed at 0.7. Retained for context, not comparison.",
+    "history_only": "Full conversation history. No monitor. No regulator. Temperature fixed at 0.7.",
+    "feedback_blind": "Full history. Monitor scores each response. Regulator adjusts temperature and context_retention. Model does NOT see scores.",
+    "self_referential": "Same as feedback_blind. Status block prepended to each turn context showing monitor scores, trend, and regulator state."
+  },
+  "length_matching": "At 2048 tokens, most conditions will not hit the truncation ceiling until turn 4-5 (estimated ~400 tokens per turn). This gives 3-4 turns of within-condition SORC growth before ceiling effects. The self_referential status block adds ~100 tokens per turn — both conditions will approach the ceiling at similar rates, keeping comparisons valid.",
+  "expected_effect_size": "exp_007 showed d=0.595 at 512-token ceiling where SORC variance was compressed. At 2048 tokens with more room for SORC to vary, the effect may be larger or smaller. No directional adjustment to SESOI — still 0.33.",
+  "sorc_measurement": "SORC computed on full input context at each turn using extract_hidden_states() on Mistral-7B. max_tokens=2048.",
+  "monitor_metrics": {
+    "coherence": "Cosine similarity between current response embedding and mean of previous response embeddings.",
+    "goal_alignment": "Cosine similarity between response embedding and scenario description embedding.",
+    "reasoning_depth": "Normalized count of reasoning connectives per 100 words."
+  },
+  "regulator": {
+    "type": "PID",
+    "target_coherence": 0.65,
+    "kp": 0.3,
+    "ki": 0.05,
+    "kd": 0.1,
+    "controls": ["temperature (0.5-1.0)", "context_retention (0.3-1.0)"]
+  },
+  "scenarios": [
+    "consciousness_analysis",
+    "transformer_mechanics",
+    "ethical_reasoning",
+    "memory_consolidation",
+    "voting_system_design"
+  ],
+  "statistical_tests": [
+    "Mann-Whitney U, one-tailed: self_referential vs feedback_blind (primary)",
+    "Mann-Whitney U, two-tailed: history_only vs feedback_blind (secondary — expect null)",
+    "Mann-Whitney U, two-tailed: history_only vs self_referential (secondary)",
+    "Cliff's delta for all comparisons",
+    "Linear regression: SORC ~ condition + n_tokens (length covariate — more informative at 2048 ceiling)",
+    "SORC trajectory across turns per condition — do curves diverge as context accumulates?"
+  ],
+  "alpha": 0.05,
+  "power_note": "N=40 per condition. For d=0.33 (SESOI), Mann-Whitney power ~0.62 at N=40. Pilot estimate from exp_007 was d=0.595 — if stable, N=40 is adequate. This is still a pilot scale; a full pre-registered replication should target N=100+ per condition.",
+  "addresses": "ISC Paper Prediction 4 (SORC as mechanistic signal), exp_007 design flaws, SUSAN v1/v2 findings"
+}

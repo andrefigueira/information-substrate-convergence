@@ -44,7 +44,7 @@ logging.basicConfig(
 )
 log = logging.getLogger("exp_007")
 
-MAX_CONTEXT_TOKENS = 512
+MAX_CONTEXT_TOKENS = 2048
 MAX_NEW_TOKENS = 200
 DEFAULT_TEMPERATURE = 0.7
 

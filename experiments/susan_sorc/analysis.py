@@ -156,8 +156,11 @@ def print_report(path: Path) -> None:
             f"{np.std(vals):>6.3f}  {np.min(vals):>6.3f}  {np.max(vals):>6.3f}"
         )
 
-    # --- 2. Primary test ---
-    print("\n2. PRIMARY TEST: self_referential vs control (one-tailed, H1: SR > C)")
+    # --- 2. Primary test (exp_007 original, superseded by exp_008) ---
+    print("\n2. ORIGINAL PRIMARY TEST [exp_007]: self_referential vs control")
+    print("   NOTE: Confounded by length — control contexts are ~60 tokens, others hit")
+    print("   the token ceiling. This comparison is a length effect, not a condition effect.")
+    print("   Superseded by exp_008 primary: self_referential vs feedback_blind.")
     sr = groups.get("self_referential", [])
     ctrl = groups.get("control", [])
     if sr and ctrl:
@@ -173,9 +176,9 @@ def print_report(path: Path) -> None:
         )
         print(f"  {sig} — direction: {direction}")
 
-    # --- 3. Clean architecture test ---
-    print("\n3. CLEAN ARCHITECTURE TEST: self_referential vs feedback_blind")
-    print("   (Same feedback loop, same history — only difference: model sees its own metrics)")
+    # --- 3. Corrected primary test (exp_008 primary comparison) ---
+    print("\n3. CORRECTED PRIMARY TEST [exp_008]: self_referential vs feedback_blind")
+    print("   Length-matched, same history, same regulator — only self-access differs.")
     fb = groups.get("feedback_blind", [])
     if sr and fb:
         u, p = stats.mannwhitneyu(sr, fb, alternative="greater")
