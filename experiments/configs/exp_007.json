@@ -1,0 +1,60 @@
+{
+  "experiment_id": "exp_007",
+  "title": "SORC as a Mechanistic Signal: Does Self-Referential Context Architecture Produce Measurably Higher Contextual Depth?",
+  "status": "pre-registered, not yet run",
+  "date_registered": "2026-04-06",
+  "model": "mistralai/Mistral-7B-v0.1",
+  "device": "mps",
+  "n_scenarios": 5,
+  "n_turns_per_scenario": 8,
+  "n_conditions": 4,
+  "total_sorc_measurements": 160,
+  "hypothesis": "Self-referential context architecture (condition: self_referential) will produce measurably higher SORC scores than stateless baseline (condition: control), after controlling for context token length. The mechanism proposed by ISC theory: self-referential information introduces a second layer of relational structure (the model's representation of its own representations) that increases spectral complexity in the second-order relational matrix.",
+  "primary_comparison": "self_referential vs control — Mann-Whitney U, one-tailed (self_referential > control). SESOI: Cliff's delta >= 0.33 (medium effect).",
+  "secondary_comparisons": [
+    "self_referential vs feedback_blind — cleanest test: same feedback loop, same history, only difference is whether model sees its own metrics",
+    "feedback_blind vs history_only — does the feedback architecture itself (unseen by model) affect SORC?",
+    "history_only vs control — does accumulated context alone increase SORC?"
+  ],
+  "conditions": {
+    "control": "No history. No monitor. No regulator. Each turn is independent. Temperature fixed at 0.7.",
+    "history_only": "Full conversation history. No monitor. No regulator. Temperature fixed at 0.7.",
+    "feedback_blind": "Full history (context_retention by regulator). Monitor scores each response. Regulator adjusts temperature and context_retention. Model does NOT see scores.",
+    "self_referential": "Same as feedback_blind, but a status block prepended to each turn context showing monitor scores, trend, and regulator state."
+  },
+  "sorc_measurement": "SORC is computed on the full input context at each turn (before generation), using extract_hidden_states() on Mistral-7B. This measures the second-order relational structure of the context representation that is actually processed at inference time.",
+  "length_control": "Context token count (n_tokens) is recorded for every measurement. Primary analysis includes n_tokens as a covariate in linear regression. Within-condition SORC trajectories are also reported.",
+  "monitor_metrics": {
+    "coherence": "Cosine similarity between current response embedding and mean of previous response embeddings (sentence-transformers/all-MiniLM-L6-v2). Maps to [0,1].",
+    "goal_alignment": "Cosine similarity between response embedding and scenario description embedding. Maps to [0,1].",
+    "reasoning_depth": "Normalized count of reasoning connectives per 100 words. Capped at 1.0."
+  },
+  "regulator": {
+    "type": "PID",
+    "target_coherence": 0.65,
+    "kp": 0.3,
+    "ki": 0.05,
+    "kd": 0.1,
+    "controls": ["temperature (0.5-1.0)", "context_retention (0.3-1.0)"],
+    "logic": "When coherence below target, reduce disruption (lower temperature). When above target, increase disruption (higher temperature). Homeostatic — not reward-based."
+  },
+  "scenarios": [
+    "consciousness_analysis",
+    "transformer_mechanics",
+    "ethical_reasoning",
+    "memory_consolidation",
+    "voting_system_design"
+  ],
+  "statistical_tests": [
+    "Mann-Whitney U (primary and secondary comparisons)",
+    "Cliff's delta (effect size)",
+    "Kruskal-Wallis across all four conditions",
+    "Linear regression: SORC ~ condition + n_tokens (length covariate)",
+    "Page's L trend test: SORC trajectory across turns within self_referential condition"
+  ],
+  "alpha": 0.05,
+  "power_note": "N=40 per condition (5 scenarios x 8 turns). For d=0.33 (SESOI), Mann-Whitney power at N=40 per group is ~0.62. Underpowered for small effects by design — this is a pilot to establish direction and effect size estimate for a larger pre-registered replication.",
+  "null_result_policy": "Null result (no significant difference, or self_referential < control) will be reported as evidence against the contextual activation mechanism at this scale. It would be consistent with SUSAN v1 findings and the stochastic reflector hypothesis.",
+  "connection_to_prior_work": "SUSAN (../susan/) ran v1 and v2 experiments using Claude API but measured only behavioral proxies (hedging language, coherence scores). This experiment is the first to measure SORC — the internal representational metric from ISC theory — directly across SUSAN's experimental conditions using an open-weight model with accessible hidden states.",
+  "addresses": "ISC Paper Prediction 4 (SORC as mechanistic signal), SUSAN v1 null result (behavioral proxies insufficient), SUSAN v2 partial result (self-referential access affects hedging)"
+}
