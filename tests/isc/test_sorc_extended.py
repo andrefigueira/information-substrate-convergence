@@ -18,15 +18,14 @@ constructed synthetically to produce known geometric properties.
 from __future__ import annotations
 
 import numpy as np
-import pytest
 import torch
 
 from src.isc.sorc import SORCResult, compute_sorc, extract_hidden_states, random_baseline
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _make_hidden_states(
     n_tokens: int,
@@ -48,17 +47,26 @@ def _make_hidden_states(
             k = max(2, n_tokens // 4)
             centres = rng.standard_normal((k, hidden_dim)).astype(np.float32)
             assignments = rng.integers(0, k, size=n_tokens)
-            H = centres[assignments] + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.3
+            H = (
+                centres[assignments]
+                + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.3
+            )
         elif mode == "single_domain":
             # All tokens drawn from one tight cluster — simulates single-paragraph expert text
             centre = rng.standard_normal(hidden_dim).astype(np.float32)
-            H = np.tile(centre, (n_tokens, 1)) + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.1
+            H = (
+                np.tile(centre, (n_tokens, 1))
+                + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.1
+            )
         elif mode == "multi_domain":
             # Tokens drawn from several distinct clusters — simulates multi-turn conversation
             n_domains = max(3, n_tokens // 8)
             centres = rng.standard_normal((n_domains, hidden_dim)).astype(np.float32) * 3.0
             assignments = np.arange(n_tokens) % n_domains
-            H = centres[assignments] + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.15
+            H = (
+                centres[assignments]
+                + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.15
+            )
         else:
             raise ValueError(f"Unknown mode: {mode}")
         layers.append(torch.tensor(H))
@@ -69,8 +77,10 @@ def _make_hidden_states(
 # Mock HuggingFace model for extract_hidden_states tests
 # ---------------------------------------------------------------------------
 
+
 class _MockHiddenStates:
     """Mimics outputs.hidden_states from a HuggingFace causal LM."""
+
     def __init__(self, n_tokens: int, hidden_dim: int, n_layers: int, seed: int = 0):
         rng = np.random.default_rng(seed)
         # index 0 = embedding layer; indices 1..n_layers = transformer blocks
@@ -113,6 +123,7 @@ class _MockTokenizer:
 # ---------------------------------------------------------------------------
 # 1. extract_hidden_states
 # ---------------------------------------------------------------------------
+
 
 class TestExtractHiddenStates:
     def test_returns_list_of_tensors(self):
@@ -164,12 +175,14 @@ class TestExtractHiddenStates:
 # 2. random_baseline
 # ---------------------------------------------------------------------------
 
+
 class TestRandomBaseline:
     def test_returns_float(self):
         model = _MockModel(hidden_dim=64, n_layers=4)
         tokenizer = _MockTokenizer()
-        baseline = random_baseline(model, tokenizer, n_tokens=20, n_samples=3,
-                                   device="cpu", seed=42)
+        baseline = random_baseline(
+            model, tokenizer, n_tokens=20, n_samples=3, device="cpu", seed=42
+        )
         assert isinstance(baseline, float)
         assert 0.0 <= baseline <= 1.0
 
@@ -184,8 +197,9 @@ class TestRandomBaseline:
         """Random inputs should produce higher SORC than degenerate inputs."""
         model = _MockModel(hidden_dim=64, n_layers=4, seed=0)
         tokenizer = _MockTokenizer()
-        baseline = random_baseline(model, tokenizer, n_tokens=30, n_samples=5,
-                                   device="cpu", seed=42)
+        baseline = random_baseline(
+            model, tokenizer, n_tokens=30, n_samples=5, device="cpu", seed=42
+        )
         # Degenerate: identical tokens → near-rank-1 S matrix → low SORC
         hs_deg = _make_hidden_states(30, 64, "degenerate", n_layers=4, seed=0)
         deg_score = compute_sorc(hs_deg).sorc
@@ -198,6 +212,7 @@ class TestRandomBaseline:
 # ---------------------------------------------------------------------------
 # 3. ISC core prediction — multi-domain > single-domain at matched length
 # ---------------------------------------------------------------------------
+
 
 class TestISCPredictions:
     """
@@ -214,10 +229,12 @@ class TestISCPredictions:
 
     def test_multi_domain_higher_than_single_domain(self):
         n_tokens, hidden_dim, n_layers = 40, 64, 8
-        hs_single = _make_hidden_states(n_tokens, hidden_dim, "single_domain",
-                                        n_layers=n_layers, seed=10)
-        hs_multi = _make_hidden_states(n_tokens, hidden_dim, "multi_domain",
-                                       n_layers=n_layers, seed=10)
+        hs_single = _make_hidden_states(
+            n_tokens, hidden_dim, "single_domain", n_layers=n_layers, seed=10
+        )
+        hs_multi = _make_hidden_states(
+            n_tokens, hidden_dim, "multi_domain", n_layers=n_layers, seed=10
+        )
         r_single = compute_sorc(hs_single).sorc
         r_multi = compute_sorc(hs_multi).sorc
         assert r_multi > r_single, (
@@ -230,10 +247,12 @@ class TestISCPredictions:
         n_tokens, hidden_dim, n_layers = 40, 64, 8
         wins = 0
         for seed in range(10):
-            hs_single = _make_hidden_states(n_tokens, hidden_dim, "single_domain",
-                                            n_layers=n_layers, seed=seed)
-            hs_multi = _make_hidden_states(n_tokens, hidden_dim, "multi_domain",
-                                           n_layers=n_layers, seed=seed)
+            hs_single = _make_hidden_states(
+                n_tokens, hidden_dim, "single_domain", n_layers=n_layers, seed=seed
+            )
+            hs_multi = _make_hidden_states(
+                n_tokens, hidden_dim, "multi_domain", n_layers=n_layers, seed=seed
+            )
             if compute_sorc(hs_multi).sorc > compute_sorc(hs_single).sorc:
                 wins += 1
         assert wins >= 8, f"Multi-domain beat single-domain in only {wins}/10 seeds"
@@ -241,22 +260,26 @@ class TestISCPredictions:
     def test_degenerate_lowest_of_three(self):
         """Ranking: degenerate < single_domain < multi_domain."""
         n_tokens, hidden_dim, n_layers = 40, 64, 8
-        hs_deg = _make_hidden_states(n_tokens, hidden_dim, "degenerate",
-                                     n_layers=n_layers, seed=5)
-        hs_single = _make_hidden_states(n_tokens, hidden_dim, "single_domain",
-                                        n_layers=n_layers, seed=5)
-        hs_multi = _make_hidden_states(n_tokens, hidden_dim, "multi_domain",
-                                       n_layers=n_layers, seed=5)
+        hs_deg = _make_hidden_states(n_tokens, hidden_dim, "degenerate", n_layers=n_layers, seed=5)
+        hs_single = _make_hidden_states(
+            n_tokens, hidden_dim, "single_domain", n_layers=n_layers, seed=5
+        )
+        hs_multi = _make_hidden_states(
+            n_tokens, hidden_dim, "multi_domain", n_layers=n_layers, seed=5
+        )
         r_deg = compute_sorc(hs_deg).sorc
         r_single = compute_sorc(hs_single).sorc
         r_multi = compute_sorc(hs_multi).sorc
         assert r_deg < r_single, f"degenerate ({r_deg:.4f}) should < single_domain ({r_single:.4f})"
-        assert r_single < r_multi, f"single_domain ({r_single:.4f}) should < multi_domain ({r_multi:.4f})"
+        assert (
+            r_single < r_multi
+        ), f"single_domain ({r_single:.4f}) should < multi_domain ({r_multi:.4f})"
 
 
 # ---------------------------------------------------------------------------
 # 4. Length sensitivity — log(n) scaling
 # ---------------------------------------------------------------------------
+
 
 class TestLengthSensitivity:
     """
@@ -294,6 +317,7 @@ class TestLengthSensitivity:
 # 5. Late/early ratio — deep-layer clustering detection
 # ---------------------------------------------------------------------------
 
+
 class TestLateEarlyRatio:
     """
     ISC predicts that single-domain expert text shows steep late-layer score
@@ -315,8 +339,8 @@ class TestLateEarlyRatio:
         late_single = _make_hidden_states(n_tokens, hidden_dim, "single_domain", n_layers=2, seed=1)
         late_multi = _make_hidden_states(n_tokens, hidden_dim, "multi_domain", n_layers=2, seed=1)
 
-        hs_single_clustered = early + late_single   # multi early, single (clustered) late
-        hs_multi_preserved = early + late_multi     # multi early, multi (diverse) late
+        hs_single_clustered = early + late_single  # multi early, single (clustered) late
+        hs_multi_preserved = early + late_multi  # multi early, multi (diverse) late
 
         r_clustered = compute_sorc(hs_single_clustered)
         r_preserved = compute_sorc(hs_multi_preserved)
@@ -352,6 +376,7 @@ class TestLateEarlyRatio:
 # 6. Normalisation invariance
 # ---------------------------------------------------------------------------
 
+
 class TestNormalisationInvariance:
     """SORC normalises hidden states before computing R. Scale should not matter."""
 
@@ -376,6 +401,7 @@ class TestNormalisationInvariance:
 # 7. Structural richness additivity
 # ---------------------------------------------------------------------------
 
+
 class TestStructuralRichnessAdditivity:
     def test_adding_rich_layer_increases_score(self):
         """Appending a random (rich) layer to a structured set increases SORC."""
@@ -394,10 +420,12 @@ class TestStructuralRichnessAdditivity:
     def test_token_variance_higher_for_multi_domain(self):
         """Multi-domain inputs should have higher per-layer score variance."""
         n_tokens, hidden_dim, n_layers = 40, 64, 8
-        hs_single = _make_hidden_states(n_tokens, hidden_dim, "single_domain",
-                                        n_layers=n_layers, seed=7)
-        hs_multi = _make_hidden_states(n_tokens, hidden_dim, "multi_domain",
-                                       n_layers=n_layers, seed=7)
+        hs_single = _make_hidden_states(
+            n_tokens, hidden_dim, "single_domain", n_layers=n_layers, seed=7
+        )
+        hs_multi = _make_hidden_states(
+            n_tokens, hidden_dim, "multi_domain", n_layers=n_layers, seed=7
+        )
         r_single = compute_sorc(hs_single)
         r_multi = compute_sorc(hs_multi)
         # Multi-domain has more structural heterogeneity → higher layer-score variance
@@ -411,6 +439,7 @@ class TestStructuralRichnessAdditivity:
 # 8. Cross-layer coherence — the relational activation condition
 # ---------------------------------------------------------------------------
 
+
 class TestCrossLayerCoherence:
     """
     ISC predicts that activation chains running through many layers produce
@@ -421,22 +450,18 @@ class TestCrossLayerCoherence:
     def test_all_layers_high_for_consistent_multi_domain(self):
         """Multi-domain input across all layers should produce above-zero SORC at every layer."""
         n_tokens, hidden_dim, n_layers = 40, 64, 8
-        hs = _make_hidden_states(n_tokens, hidden_dim, "multi_domain",
-                                 n_layers=n_layers, seed=3)
+        hs = _make_hidden_states(n_tokens, hidden_dim, "multi_domain", n_layers=n_layers, seed=3)
         result = compute_sorc(hs)
-        assert all(s > 0.0 for s in result.layer_scores), (
-            "All layer scores should be > 0 for multi-domain input"
-        )
+        assert all(
+            s > 0.0 for s in result.layer_scores
+        ), "All layer scores should be > 0 for multi-domain input"
 
     def test_consistent_multi_domain_sorc_above_threshold(self):
         """Multi-domain input with many layers should yield SORC clearly above zero."""
         n_tokens, hidden_dim, n_layers = 40, 64, 12
-        hs = _make_hidden_states(n_tokens, hidden_dim, "multi_domain",
-                                 n_layers=n_layers, seed=4)
+        hs = _make_hidden_states(n_tokens, hidden_dim, "multi_domain", n_layers=n_layers, seed=4)
         result = compute_sorc(hs)
-        assert result.sorc > 0.2, (
-            f"Multi-domain SORC should be well above zero: {result.sorc:.4f}"
-        )
+        assert result.sorc > 0.2, f"Multi-domain SORC should be well above zero: {result.sorc:.4f}"
 
     def test_n_layers_matches_layer_scores_length(self):
         for n_layers in [1, 4, 8, 16, 32]:

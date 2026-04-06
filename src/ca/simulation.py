@@ -5,9 +5,7 @@ from typing import Sequence
 import numpy as np
 
 
-def step(
-    grid: np.ndarray, birth_mask: Sequence[bool], survival_mask: Sequence[bool]
-) -> np.ndarray:
+def step(grid: np.ndarray, birth_mask: Sequence[bool], survival_mask: Sequence[bool]) -> np.ndarray:
     """Perform one CA step using Moore neighborhood.
 
     Args:

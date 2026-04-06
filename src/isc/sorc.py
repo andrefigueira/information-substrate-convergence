@@ -13,8 +13,7 @@ References:
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass, field
-from typing import Optional
+from dataclasses import dataclass
 
 import numpy as np
 import torch
@@ -127,7 +126,7 @@ def compute_sorc(
     # --- Step 7: depth-weighted integration ---
     # Weights: l / sum(1..L) = l * 2 / (L(L+1)), sums to 1
     normalizer = 2.0 / (L * (L + 1))
-    sorc = normalizer * sum((l + 1) * sd for l, sd in enumerate(layer_sd_scores))
+    sorc = normalizer * sum((idx + 1) * sd for idx, sd in enumerate(layer_sd_scores))
     sorc = max(0.0, min(1.0, sorc))
 
     return SORCResult(

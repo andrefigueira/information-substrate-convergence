@@ -19,7 +19,7 @@ import numpy as np
 import pytest
 import torch
 
-from src.isc.sorc import SORCResult, compute_sorc
+from src.isc.sorc import compute_sorc
 
 
 def _make_hidden_states(
@@ -53,7 +53,10 @@ def _make_hidden_states(
             k = max(2, n_tokens // 4)
             centres = rng.standard_normal((k, hidden_dim)).astype(np.float32)
             assignments = rng.integers(0, k, size=n_tokens)
-            H = centres[assignments] + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.3
+            H = (
+                centres[assignments]
+                + rng.standard_normal((n_tokens, hidden_dim)).astype(np.float32) * 0.3
+            )
         else:
             raise ValueError(f"Unknown mode: {mode}")
 
@@ -65,6 +68,7 @@ def _make_hidden_states(
 # ---------------------------------------------------------------------------
 # Core property tests
 # ---------------------------------------------------------------------------
+
 
 class TestSORCBounds:
     def test_output_bounded_degenerate(self):
@@ -102,9 +106,9 @@ class TestSORCRanking:
         hs_rnd = _make_hidden_states(30, 64, "random", seed=1)
         result_deg = compute_sorc(hs_deg)
         result_rnd = compute_sorc(hs_rnd)
-        assert result_deg.sorc < result_rnd.sorc, (
-            f"Expected degenerate ({result_deg.sorc:.4f}) < random ({result_rnd.sorc:.4f})"
-        )
+        assert (
+            result_deg.sorc < result_rnd.sorc
+        ), f"Expected degenerate ({result_deg.sorc:.4f}) < random ({result_rnd.sorc:.4f})"
 
     def test_structured_between_degenerate_and_random(self):
         hs_deg = _make_hidden_states(30, 64, "degenerate", seed=2)
@@ -135,19 +139,18 @@ class TestSORCDepthWeighting:
         # early layers degenerate, late layers rich
         early = _make_hidden_states(20, 32, "degenerate", n_layers=2, seed=4)
         late = _make_hidden_states(20, 32, "random", n_layers=2, seed=4)
-        hs_front_rich = late + early   # rich early, degenerate late
-        hs_back_rich = early + late    # degenerate early, rich late
+        hs_front_rich = late + early  # rich early, degenerate late
+        hs_back_rich = early + late  # degenerate early, rich late
         r_front = compute_sorc(hs_front_rich).sorc
         r_back = compute_sorc(hs_back_rich).sorc
         # Back-rich should score higher because later layers have larger depth weights
-        assert r_back > r_front, (
-            f"Expected back-rich ({r_back:.4f}) > front-rich ({r_front:.4f})"
-        )
+        assert r_back > r_front, f"Expected back-rich ({r_back:.4f}) > front-rich ({r_front:.4f})"
 
 
 # ---------------------------------------------------------------------------
 # SORCResult accessor tests
 # ---------------------------------------------------------------------------
+
 
 class TestSORCResult:
     def test_n_tokens_correct(self):
@@ -182,6 +185,7 @@ class TestSORCResult:
 # ---------------------------------------------------------------------------
 # Edge cases
 # ---------------------------------------------------------------------------
+
 
 class TestSORCEdgeCases:
     def test_single_layer(self):

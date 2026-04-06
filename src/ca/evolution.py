@@ -36,9 +36,7 @@ def _next_state(
     return new_state
 
 
-def _run_ca(
-    rule_bits: np.ndarray, adj: np.ndarray, t1: int = 30, t2: int = 30
-) -> np.ndarray:
+def _run_ca(rule_bits: np.ndarray, adj: np.ndarray, t1: int = 30, t2: int = 30) -> np.ndarray:
     """Run CA with a shock after ``t1`` steps."""
     n = adj.shape[0]
     state = np.random.rand(n) < 0.5
