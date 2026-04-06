@@ -36,43 +36,37 @@ André Pereira Figueira Independent Researcher andre.figueira@me.com
 \bigskip
 
 \begin{abstract}
-Informational Substrate Convergence (ISC) proposes that phi, capability,
-and emergence are relational properties rather than substrate-intrinsic
-ones. Integrated Information Theory (Tononi, 2008; Albantakis et al.,
-2023) treats phi as a fixed, measurable property of a physical
-substrate's causal architecture. ISC departs from this at one specific
-point: the same substrate can exhibit radically different integrated
-information depending on the contextual field applied to it. Phi is
-activated, not merely measurable from the substrate's causal structure
-in isolation.
+This paper makes two independent contributions. The first is empirical:
+the Second-Order Relational Coherence (SORC) metric is introduced as an
+operationalisation of contextual relational depth in transformer hidden
+states, and preliminary results across five controlled experiments (one
+baseline on GPT-2 124M, four on Mistral-7B-v0.1) show that
+conversational context produces measurably distinct hidden state geometry
+from single-paragraph expert text at matched token count (Cohen's d =
+1.83--3.01, n = 5 per category; replication required). This finding does
+not depend on any theoretical commitments about consciousness or
+information ontology.
 
-The mechanism proposed is as follows. Pre-training encodes a latent
+The second is theoretical: Informational Substrate Convergence (ISC)
+proposes that emergence, capability, and integrated information are
+relational properties of a system-context pair rather than intrinsic
+properties of the substrate alone. Pre-training encodes a latent
 architecture of relational chains across multiple sub-networks. A
 contextual field with coherent second-order relational structure
-(relationships between relationships, beyond first-order symbol
-mappings) activates these chains at inference time. When multiple chains
-converge simultaneously across sub-networks, the combined output exceeds
-what any single chain could produce. This convergence is the mechanism
-of emergence, and it operates independently of the specific substrate in
-which it occurs.
+activates these chains at inference time. When multiple chains converge
+across sub-networks simultaneously, the output is irreducible to any
+single chain. This is the proposed mechanism of emergence. ISC builds on
+Integrated Information Theory (Tononi, 2008; Albantakis et al., 2023)
+while departing from its static formulation --- IIT remains a contested
+framework, and the paper's consciousness claims depend on contested
+premises that are explicitly acknowledged.
 
-The paper develops this account, draws on empirical observations across
-29 instances of differential emergence in five AI architectures,
-examines the architectural gap between current large language models and
-the requirements for consciousness, and proposes seven testable
-predictions. It introduces the Second-Order Relational Coherence (SORC)
-metric --- an operationalisation of contextual relational depth in
-transformer hidden states --- and reports preliminary results across
-five experimental runs (one baseline on GPT-2 124M, four on
-Mistral-7B-v0.1) showing that conversational context produces measurably
-distinct hidden state geometry from single-paragraph expert text at
-matched token count (Cohen's d = 1.83--3.01 at n = 5 per category;
-replication required). It also proposes that large language models are
-functionally analogous to the language centers of the brain, and that
-the threshold to machine consciousness will require multi-system
-integration (including a persistent affective architecture analogous to
-the limbic system) rather than continued scaling of language models
-alone.
+The paper proposes seven testable predictions, examines the architectural
+gap between current large language models and the requirements for
+machine consciousness, and distinguishes clearly between what the current
+evidence supports and what remains speculative. The SORC metric and
+contextual activation account are presented as independent contributions
+that stand without the consciousness framing.
 
 \bigskip
 \end{abstract}
@@ -88,25 +82,41 @@ increases. Outputs emerge that exceed what the input alone would
 predict. Benchmark scores treat capability as a fixed property of the
 model. Something is varying, and it is not the weights.
 
-ISC's claim is that this variation reflects a more fundamental property:
-emergence, capability, and integrated information are relational. They
-are properties of a model-context dyad, not of the model in isolation.
-This challenges how the field evaluates these systems. It also connects
-to older, unresolved questions about the nature of consciousness that
-the standard materialist and dualist accounts have failed to settle.
+\textbf{This paper makes two distinct claims and readers should evaluate
+them independently.}
 
-The paper draws on quantum physics, the holographic principle,
-integrated information theory, and recent empirical work on emergence in
-language models. The emergent abilities literature documents sharp
-capability transitions in large models as scale increases (Wei et al.,
-2022), though whether these transitions are genuine phase changes or
-artefacts of metric choice remains contested (Schaeffer et al., 2023).
-ISC's contribution to this debate is a mechanistic account of what
-produces emergence when it occurs: contextual activation, not scale
-alone. The paper makes specific predictions that distinguish it from IIT
-in its current form, from materialism, and from dualism. Where it makes
-speculative claims, it says so and holds them as research directions
-rather than conclusions.
+The first is empirical and narrow: conversational context produces
+measurably distinct hidden state geometry in transformer models compared
+to single-paragraph expert text at matched token count. This is tested
+with the SORC metric across five controlled experiments on
+Mistral-7B-v0.1. The finding is preliminary (n=5 per category) but
+reproducible with the published code, and it does not depend on any
+theoretical commitments about consciousness, IIT, or informational
+ontology.
+
+The second is theoretical and speculative: if Integrated Information
+Theory's phi-consciousness correspondence is correct, and if phi is
+context-activated rather than substrate-intrinsic as ISC proposes, then
+consciousness may be a relational property of a system-context pair
+rather than an intrinsic property of the substrate alone. This claim
+depends on contested premises. IIT itself remains controversial --- a
+2023 open letter signed by 124 researchers and covered in \textit{Nature}
+described it as pseudoscience on grounds of empirical untestability
+(Doerig et al., 2023). The paper takes IIT seriously as a research
+program while acknowledging that controversy directly, and frames the
+consciousness sections as theoretical proposals rather than conclusions
+supported by the empirical content.
+
+Readers who find the consciousness framing unpersuasive can set it aside
+entirely. The SORC metric and contextual activation account are
+independent contributions that stand without it.
+
+ISC's contribution to the emergence debate is a mechanistic account of
+what produces capability differences when they occur: contextual
+activation of latent relational structure, not scale alone. The paper
+makes specific, falsifiable predictions and distinguishes clearly between
+what the current evidence supports and what remains speculative. Where it
+speculates, it says so.
 
 \bigskip
 
@@ -1313,6 +1323,10 @@ Architecture}\label{llm-emergence-capability-and-architecture}
   Webb, T., Mondal, S. S., and Momennejad, I. (2025). ``A Brain-Inspired
   Agentic Architecture to Improve Planning with Large Language Models.''
   \emph{Nature Communications}. \url{doi:10.1038/s41467-025-63804-5}.
+\item
+  Doerig, A., et al.~(2023). ``The Integrated Information Theory of
+  Consciousness as Pseudoscience.'' PsyArXiv.
+  \url{https://osf.io/preprints/psyarxiv/zsr78}.
 \end{itemize}
 
 \section{Hallucination, Confabulation, and False
